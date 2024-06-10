@@ -1,14 +1,10 @@
-import { useAppDispatch, useAppSelector } from '../../../store';
-import { actions } from '../../../store/countReducer';
+import { Form } from '../../elements/Form';
+import { Store } from '../../elements/Store';
 
-import { Btn } from '../../ui/Btn';
 import { Content } from '../../ui/Content';
 import { Title } from '../../ui/Title';
 
 export const HomePage = () => {
-    const count = useAppSelector((state) => state.count.count);
-    const dispatch = useAppDispatch();
-
     return (
         <section className='relative w-full'>
             <div className='w-full mb-[20px] last:mb-0'>
@@ -16,15 +12,8 @@ export const HomePage = () => {
                 <Content>This is Home Page.</Content>
             </div>
 
-            <div className='w-full'>
-                <Content className='mb-[8px] last:mb-0'>{count}</Content>
-
-                <div className='flex flex-col sm:flex-row w-full gap-[8px]'>
-                    <Btn onClick={() => dispatch(actions.removeCount(5))}>- 5</Btn>
-                    <Btn onClick={() => dispatch(actions.addCount(5))}>+ 5</Btn>
-                    <Btn onClick={() => dispatch(actions.resetCount())}>Reset</Btn>
-                </div>
-            </div>
+            <Store />
+            <Form />
         </section>
     );
 };

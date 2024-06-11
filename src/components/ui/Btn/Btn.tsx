@@ -15,18 +15,15 @@ export const Btn: React.FC<Props> = ({
     disabled = false,
     onClick = () => {},
 }) => {
+    const styles = cn(
+        `flex items-center justify-center w-full sm:w-fit sm:min-w-[120px] lg:min-w-[140px] h-[40px] lg:h-[44px] lg:text-[18px] font-media px-[16px] tracking-[0.5px] rounded-[4px] text-[#fff] bg-black transition-opacity duration-300 hover:opacity-80 ${className}`,
+        {
+            'pointer-events-none bg-slate-300': disabled,
+        }
+    );
+
     return (
-        <button
-            type={type}
-            disabled={disabled}
-            onClick={onClick}
-            className={cn(
-                `flex items-center justify-center w-full sm:w-fit sm:min-w-[120px] lg:min-w-[140px] h-[40px] lg:h-[44px] lg:text-[18px] font-media px-[16px] tracking-[0.5px] rounded-[4px] text-[#fff] bg-black transition-opacity duration-300 hover:opacity-80 ${className}`,
-                {
-                    'pointer-events-none bg-slate-300': disabled,
-                }
-            )}
-        >
+        <button type={type} disabled={disabled} onClick={onClick} className={styles}>
             {children}
         </button>
     );

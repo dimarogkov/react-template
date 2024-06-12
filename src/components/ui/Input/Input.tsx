@@ -19,7 +19,7 @@ export const Input: React.FC<Props> = ({
     className = '',
     checked = false,
     autoFocus = false,
-    registerName = FormNames.name,
+    registerName = FormNames.username,
     register = () => {},
 }) => {
     const styles = `w-full h-[40px] px-[16px] rounded-[4px] border-2 border-slate-300 outline-none transition-all duration-300 focus:border-black ${className}`;

@@ -28,13 +28,25 @@ export const Form = () => {
             <form className='w-full max-w-[600px]' onSubmit={handleSubmit(onSubmit)}>
                 <Label className='w-full mb-[20px] last:mb-0'>
                     <Input
-                        placeholder='Name'
+                        placeholder='Username'
                         register={register}
-                        registerName={FormNames.name}
+                        registerName={FormNames.username}
                         className='mb-[8px] last:mb-0'
                     />
 
-                    {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+                    {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
+                </Label>
+
+                <Label className='w-full mb-[20px] last:mb-0'>
+                    <Input
+                        type='number'
+                        placeholder='Age'
+                        register={register}
+                        registerName={FormNames.age}
+                        className='mb-[8px] last:mb-0'
+                    />
+
+                    {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
                 </Label>
 
                 <Label className='w-full mb-[20px] last:mb-0'>
@@ -51,6 +63,17 @@ export const Form = () => {
 
                 <Label className='w-full mb-[20px] last:mb-0'>
                     <Input
+                        placeholder='Phone'
+                        register={register}
+                        registerName={FormNames.phone}
+                        className='mb-[8px] last:mb-0'
+                    />
+
+                    {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
+                </Label>
+
+                <Label className='w-full mb-[20px] last:mb-0'>
+                    <Input
                         type='password'
                         placeholder='Password'
                         register={register}
@@ -59,6 +82,18 @@ export const Form = () => {
                     />
 
                     {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+                </Label>
+
+                <Label className='w-full mb-[20px] last:mb-0'>
+                    <Input
+                        type='password'
+                        placeholder='Confirm Password'
+                        register={register}
+                        registerName={FormNames.confirmPassword}
+                        className='mb-[8px] last:mb-0'
+                    />
+
+                    {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
                 </Label>
 
                 <Btn type='submit'>Send</Btn>

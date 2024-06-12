@@ -1,5 +1,8 @@
 export interface FormValues {
-    name: string;
+    username: string;
+    age: number;
     email: string;
+    phone: string;
     password: string;
+    confirmPassword: string;
 }

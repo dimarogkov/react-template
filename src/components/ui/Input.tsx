@@ -1,7 +1,6 @@
 import { UseFormRegister } from 'react-hook-form';
-
-import { FormValues } from '../../../types/interfaces/FormValues';
-import { FormNames } from '../../../types/enums/FormNames';
+import { FormValues } from '../../types/interfaces/FormValues';
+import { FormNames } from '../../types/enums/FormNames';
 
 type Props = {
     type?: string;
@@ -22,15 +21,13 @@ export const Input: React.FC<Props> = ({
     registerName = FormNames.username,
     register = () => {},
 }) => {
-    const styles = `w-full h-[40px] px-[16px] rounded-[4px] border-2 border-slate-300 outline-none transition-all duration-300 focus:border-black ${className}`;
-
     return (
         <input
             type={type}
             checked={checked}
             placeholder={placeholder}
             autoFocus={autoFocus}
-            className={styles}
+            className={`w-full h-[40px] px-[16px] rounded-[4px] border-2 border-slate-300 outline-none transition-all duration-300 focus:border-black ${className}`}
             {...register(registerName)}
         />
     );

@@ -1,9 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../store';
 import { actions } from '../../../store/countReducer';
-
-import { Btn } from '../../ui/Btn';
-import { Content } from '../../ui/Content';
-import { Subtitle } from '../../ui/Subtitle';
+import { Btn, Subtitle, Text } from '../../ui';
 
 export const Store = () => {
     const count = useAppSelector((state) => state.count.count);
@@ -12,7 +9,7 @@ export const Store = () => {
     return (
         <div className='w-full mb-[40px] last:mb-0'>
             <Subtitle className='mb-[20px] last:mb-0'>Store</Subtitle>
-            <Content className='mb-[8px] last:mb-0'>{count}</Content>
+            <Text className='mb-[8px] last:mb-0'>{count}</Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-[8px]'>
                 <Btn onClick={() => dispatch(actions.removeCount(5))}>- 5</Btn>

@@ -1,14 +1,7 @@
 import { useForm } from 'react-hook-form';
-
 import { formOptions } from '../../../helpers/formOptions';
-
 import { FormNames } from '../../../types/enums/FormNames';
-
-import { Btn } from '../../ui/Btn';
-import { Input } from '../../ui/Input';
-import { Label } from '../../ui/Label';
-import { Subtitle } from '../../ui/Subtitle';
-import { ErrorMessage } from '../../ui/ErrorMessage';
+import { Btn, ErrorMessage, Input, Label, Subtitle } from '../../ui';
 
 export const Form = () => {
     const {

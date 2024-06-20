@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../../store';
-import { actions } from '../../../store/countReducer';
+import { addCount, removeCount, resetCount } from '../../../store/countReducer';
 import { Btn, Subtitle, Text } from '../../ui';
 
 export const Store = () => {
@@ -12,9 +12,9 @@ export const Store = () => {
             <Text className='mb-[8px] last:mb-0'>{count}</Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-[8px]'>
-                <Btn onClick={() => dispatch(actions.removeCount(5))}>- 5</Btn>
-                <Btn onClick={() => dispatch(actions.addCount(5))}>+ 5</Btn>
-                <Btn onClick={() => dispatch(actions.resetCount())}>Reset</Btn>
+                <Btn onClick={() => dispatch(removeCount(5))}>- 5</Btn>
+                <Btn onClick={() => dispatch(addCount(5))}>+ 5</Btn>
+                <Btn onClick={() => dispatch(resetCount())}>Reset</Btn>
             </div>
         </div>
     );

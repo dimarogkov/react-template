@@ -1,8 +1,9 @@
-type Props = {
-    children: React.ReactNode;
-    className?: string;
-};
+import { HTMLAttributes, forwardRef } from 'react';
 
-export const Text: React.FC<Props> = ({ children, className = '' }) => {
-    return <p className={`w-full ${className}`}>{children}</p>;
-};
+interface Props extends HTMLAttributes<HTMLParagraphElement> {
+    className?: string;
+}
+
+export const Text: React.FC<Props> = forwardRef<HTMLParagraphElement, Props>(({ className = '', ...props }, ref) => (
+    <p ref={ref} {...props} className={`w-full ${className}`} />
+));

@@ -5,6 +5,7 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
 ## Installation Steps
 
 -   Download the repository
+-   Use the 18th version of Node.js
 -   Run `npm i`
 -   Run `npm run start`
 

@@ -10,7 +10,7 @@ export const Title: React.FC<Props> = forwardRef<HTMLHeadingElement, Props>(
         <h1
             ref={ref}
             {...props}
-            className={`w-full text-[28px] md:text-[32px] lg:text-[40px] xl:text-[48px] font-bold ${className}`}
+            className={`w-full text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold ${className}`}
         >
             {children}
         </h1>

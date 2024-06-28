@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 export const App = () => {
     return (
-        <main className='relative w-full max-w-[1440px] p-[24px] md:p-[40px] m-auto'>
+        <main className='relative w-full max-w-screen-2xl p-6 md:p-5 m-auto'>
             <Outlet />
         </main>
     );

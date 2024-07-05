@@ -7,13 +7,13 @@ type Props = {
 };
 
 export const StoreRedux: React.FC<Props> = ({ className = '' }) => {
-    const reduxCount = useAppSelector((state) => state.count.count);
+    const count = useAppSelector((state) => state.count.count);
     const dispatch = useAppDispatch();
 
     return (
         <div className={`w-full ${className}`}>
             <Subtitle className='mb-5 last:mb-0'>Store with Redux</Subtitle>
-            <Text className='mb-2 last:mb-0'>{reduxCount}</Text>
+            <Text className='mb-2 last:mb-0'>{count}</Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-2'>
                 <Btn onClick={() => dispatch(removeCount(5))}>- 5</Btn>

@@ -1,4 +1,5 @@
 import { Form } from '../../elements/Form';
+import { Line } from '../../elements/Line';
 import { Store } from '../../elements/Store';
 import { Text, Title } from '../../ui';
 
@@ -10,7 +11,9 @@ export const HomePage = () => {
                 <Text>This is Home Page.</Text>
             </div>
 
+            <Line />
             <Store />
+            <Line />
             <Form />
         </section>
     );

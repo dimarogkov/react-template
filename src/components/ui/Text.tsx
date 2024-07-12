@@ -5,5 +5,5 @@ interface Props extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 export const Text: React.FC<Props> = forwardRef<HTMLParagraphElement, Props>(({ className = '', ...props }, ref) => (
-    <p ref={ref} {...props} className={`w-full text-base ${className}`} />
+    <p ref={ref} {...props} className={`w-full text-base text-black ${className}`} />
 ));

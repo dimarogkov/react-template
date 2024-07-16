@@ -55,25 +55,25 @@ export const TodosPage = () => {
     return (
         <section className='relative w-full'>
             <div className='w-full'>
-                <div className='w-full mb-6 md:mb-8 last:mb-0'>
+                <div className='w-full mb-5 last:mb-0'>
                     <BtnLink href='/' className='mb-5 last:mb-0'>
                         Back
                     </BtnLink>
 
-                    <Title className='mb-5 last:mb-0'>Todos with React Query</Title>
+                    <Title>Todos with React Query</Title>
+                </div>
 
-                    <div className='flex flex-wrap w-full gap-3'>
-                        <Input
-                            name='search'
-                            placeholder='Add Todo'
-                            disabled={isPendingCreateTodo}
-                            value={todoTitle}
-                            onChange={({ target }) => setTodoTitle(target.value)}
-                        />
-                        <Btn disabled={isPendingCreateTodo} onClick={addTodo}>
-                            {isPendingCreateTodo ? 'Loading...' : 'Add todo'}
-                        </Btn>
-                    </div>
+                <div className='flex flex-wrap w-full gap-3 mb-6 md:mb-8 last:mb-0'>
+                    <Input
+                        name='search'
+                        placeholder='Add Todo'
+                        disabled={isPendingCreateTodo}
+                        value={todoTitle}
+                        onChange={({ target }) => setTodoTitle(target.value)}
+                    />
+                    <Btn disabled={isPendingCreateTodo} onClick={addTodo}>
+                        {isPendingCreateTodo ? 'Loading...' : 'Add todo'}
+                    </Btn>
                 </div>
 
                 {isLoading && <Text>Loading...</Text>}

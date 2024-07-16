@@ -8,12 +8,11 @@ import cn from 'classnames';
 
 type Props = {
     todo: TodoType;
-    isPending: boolean;
     updateTodo: UseMutateFunction<AxiosResponse<TodoType, any>, Error, TodoType, unknown>;
     removeTodo: UseMutateFunction<AxiosResponse<TodoType, any>, Error, number, unknown>;
 };
 
-export const Todo: React.FC<Props> = ({ todo, isPending, updateTodo, removeTodo }) => {
+export const Todo: React.FC<Props> = ({ todo, updateTodo, removeTodo }) => {
     const { id, title, userId, completed } = todo;
 
     return (
@@ -35,15 +34,7 @@ export const Todo: React.FC<Props> = ({ todo, isPending, updateTodo, removeTodo 
                 <Text>User ID - {userId}</Text>
             </div>
 
-            {completed ? (
-                <Btn disabled={isPending} onClick={() => updateTodo(todo)}>
-                    Uncomplete Todo
-                </Btn>
-            ) : (
-                <Btn disabled={isPending} onClick={() => updateTodo(todo)}>
-                    Complete Todo
-                </Btn>
-            )}
+            <Btn onClick={() => updateTodo(todo)}>{completed ? 'Uncomplete Todo' : 'Complete Todo'}</Btn>
         </div>
     );
 };

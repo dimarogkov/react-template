@@ -15,7 +15,7 @@ export const TodosPage = () => {
         isSuccess,
     } = useQuery({
         queryFn: () => getTodos(),
-        select: (date) => date.data.slice(0, 10),
+        select: (date) => date.data.slice(0, 12),
         queryKey: ['todos'],
     });
 
@@ -25,7 +25,7 @@ export const TodosPage = () => {
         onSuccess: () => refetch(),
     });
 
-    const { mutate: updateTodoMutation, isPending: isPendingUpdateTodo } = useMutation({
+    const { mutate: updateTodoMutation } = useMutation({
         mutationFn: updateTodo,
         mutationKey: ['update todo'],
         onSuccess: () => refetch(),
@@ -62,7 +62,7 @@ export const TodosPage = () => {
 
                     <Title className='mb-5 last:mb-0'>Todos with React Query</Title>
 
-                    <div className='flex flex-wrap w-full gap-2'>
+                    <div className='flex flex-wrap w-full gap-3'>
                         <Input
                             name='search'
                             placeholder='Add Todo'
@@ -83,7 +83,6 @@ export const TodosPage = () => {
                         {todos.map((todo) => (
                             <Todo
                                 todo={todo}
-                                isPending={isPendingUpdateTodo}
                                 updateTodo={updateTodoMutation}
                                 removeTodo={removeTodoMutation}
                                 key={todo.id}

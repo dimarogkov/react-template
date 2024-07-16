@@ -2,15 +2,15 @@ import { useForm } from 'react-hook-form';
 import { formOptions } from '../../../helpers/formOptions';
 import { FormNames } from '../../../types/enums/FormNames';
 import { BtnTypes } from '../../../types/enums/BtnTypes';
-import { Btn, Checkbox, ErrorMessage, Input, Label, Option, Select, Subtitle, Text } from '../../ui';
+import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Option, Select, Text, Title } from '../../ui';
 
-export const Form = () => {
+export const FormPage = () => {
     const {
         register,
         watch,
         handleSubmit,
         reset,
-        formState: { errors },
+        formState: { errors, isSubmitted },
     } = useForm(formOptions);
 
     const onSubmit = (data: any) => {
@@ -18,8 +18,14 @@ export const Form = () => {
     };
 
     return (
-        <div className='w-full mb-10 last:mb-0'>
-            <Subtitle className='mb-5 last:mb-0'>React Hook Form</Subtitle>
+        <div className='relative w-full mb-10 last:mb-0'>
+            <div className='w-full mb-8 last:mb-0'>
+                <BtnLink href='/' className='mb-6 last:mb-0'>
+                    Back
+                </BtnLink>
+
+                <Title>React Hook Form</Title>
+            </div>
 
             <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
                 <Label className='w-full mb-5 last:mb-0'>
@@ -121,7 +127,7 @@ export const Form = () => {
                 <div className='flex flex-wrap gap-2 w-full'>
                     <Btn type='submit'>Send</Btn>
 
-                    <Btn type='button' btnType={BtnTypes.gray} onClick={() => reset()}>
+                    <Btn type='button' btnType={BtnTypes.gray} disabled={!isSubmitted} onClick={() => reset()}>
                         Reset
                     </Btn>
                 </div>

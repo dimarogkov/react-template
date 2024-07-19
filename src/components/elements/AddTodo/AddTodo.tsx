@@ -1,0 +1,31 @@
+import { useState } from 'react';
+import { Btn, Input } from '../../ui';
+
+type Props = {
+    isPending: boolean;
+    addTodo: (title: string) => void;
+};
+
+export const AddTodo: React.FC<Props> = ({ isPending, addTodo = () => {} }) => {
+    const [todoTitle, setTodoTitle] = useState('');
+
+    const handleAddTodo = () => {
+        addTodo(todoTitle);
+        setTodoTitle('');
+    };
+
+    return (
+        <div className='flex flex-wrap w-full gap-3 mb-6 md:mb-8 last:mb-0'>
+            <Input
+                name='search'
+                placeholder='Add Todo'
+                disabled={isPending}
+                value={todoTitle}
+                onChange={({ target }) => setTodoTitle(target.value)}
+            />
+            <Btn disabled={isPending} onClick={handleAddTodo}>
+                {isPending ? 'Loading...' : 'Add todo'}
+            </Btn>
+        </div>
+    );
+};

@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../../services/todos';
 
+import { AddTodo } from '../../elements/AddTodo';
 import { Todo } from '../../elements/Todo';
-import { Btn, BtnLink, Input, Text, Title } from '../../ui';
+import { BtnLink, Text, Title } from '../../ui';
 
 export const TodosPage = () => {
-    const [todoTitle, setTodoTitle] = useState('');
-
     const {
         data: todos,
         refetch,
@@ -19,15 +17,15 @@ export const TodosPage = () => {
         queryKey: ['todos'],
     });
 
-    const { mutate: createTodoMutation, isPending: isPendingCreateTodo } = useMutation({
-        mutationFn: createTodo,
-        mutationKey: ['create todo'],
-        onSuccess: () => refetch(),
-    });
-
     const { mutate: updateTodoMutation } = useMutation({
         mutationFn: updateTodo,
         mutationKey: ['update todo'],
+        onSuccess: () => refetch(),
+    });
+
+    const { mutate: createTodoMutation, isPending: isPendingCreateTodo } = useMutation({
+        mutationFn: createTodo,
+        mutationKey: ['create todo'],
         onSuccess: () => refetch(),
     });
 
@@ -37,19 +35,18 @@ export const TodosPage = () => {
         onSuccess: () => refetch(),
     });
 
-    const addTodo = () => {
-        if (todoTitle.trim() === '') {
+    const addTodo = (title: string) => {
+        if (title.trim() === '') {
             return;
         }
 
         const newTodo = {
             userId: 1,
-            title: todoTitle.trim(),
+            title: title.trim(),
             completed: false,
         };
 
         createTodoMutation(newTodo);
-        setTodoTitle('');
     };
 
     return (
@@ -63,18 +60,10 @@ export const TodosPage = () => {
                     <Title>Todos with React Query</Title>
                 </div>
 
-                <div className='flex flex-wrap w-full gap-3 mb-6 md:mb-8 last:mb-0'>
-                    <Input
-                        name='search'
-                        placeholder='Add Todo'
-                        disabled={isPendingCreateTodo}
-                        value={todoTitle}
-                        onChange={({ target }) => setTodoTitle(target.value)}
-                    />
-                    <Btn disabled={isPendingCreateTodo} onClick={addTodo}>
-                        {isPendingCreateTodo ? 'Loading...' : 'Add todo'}
-                    </Btn>
-                </div>
+                <AddTodo
+                    isPending={isPendingCreateTodo}
+                    addTodo={addTodo}
+                />
 
                 {isLoading && <Text>Loading...</Text>}
 

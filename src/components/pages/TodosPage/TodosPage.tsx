@@ -1,11 +1,15 @@
+import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../../services/todos';
 
+import { SearchTodo } from '../../elements/SearchTodo';
 import { AddTodo } from '../../elements/AddTodo';
 import { Todo } from '../../elements/Todo';
 import { BtnLink, Text, Title } from '../../ui';
 
 export const TodosPage = () => {
+    const [appliedSearchValue, setAppliedSearchValue] = useState('');
+
     const {
         data: todos,
         refetch,
@@ -35,6 +39,18 @@ export const TodosPage = () => {
         onSuccess: () => refetch(),
     });
 
+    const filteredTodos = useMemo(() => {
+        if (todos) {
+            let arr = [...todos];
+
+            if (appliedSearchValue) {
+                arr = arr.filter(({ title }) => title.toLowerCase().includes(appliedSearchValue.toLowerCase()));
+            }
+
+            return arr;
+        }
+    }, [appliedSearchValue, todos]);
+
     const addTodo = (title: string) => {
         if (title.trim() === '') {
             return;
@@ -60,16 +76,15 @@ export const TodosPage = () => {
                     <Title>Todos with React Query</Title>
                 </div>
 
-                <AddTodo
-                    isPending={isPendingCreateTodo}
-                    addTodo={addTodo}
-                />
+                <SearchTodo setAppliedSearchValue={setAppliedSearchValue} />
+
+                <AddTodo isPending={isPendingCreateTodo} addTodo={addTodo} />
 
                 {isLoading && <Text>Loading...</Text>}
 
-                {isSuccess && (
+                {isSuccess && filteredTodos?.length ? (
                     <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full'>
-                        {todos.map((todo) => (
+                        {filteredTodos.map((todo) => (
                             <Todo
                                 todo={todo}
                                 updateTodo={updateTodoMutation}
@@ -78,6 +93,8 @@ export const TodosPage = () => {
                             />
                         ))}
                     </div>
+                ) : (
+                    <Text>No todos found. Try searching again.</Text>
                 )}
             </div>
         </section>

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../../helpers/formOptions';
-import { FormNames } from '../../../types/enums/FormNames';
-import { BtnTypes } from '../../../types/enums/BtnTypes';
+import { EnumFormNames } from '../../../types/enums/FormNames';
+import { EnumBtnTypes } from '../../../types/enums/BtnTypes';
 import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Option, Select, Text, Title } from '../../ui';
 
 export const FormPage = () => {
@@ -29,7 +29,7 @@ export const FormPage = () => {
 
             <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
                 <Label className='w-full mb-5 last:mb-0'>
-                    <Select register={register} registerName={FormNames.select} className='mb-2 last:mb-0'>
+                    <Select register={register} registerName={EnumFormNames.select} className='mb-2 last:mb-0'>
                         <Option value='default' className='hidden'>
                             Select Option
                         </Option>
@@ -45,7 +45,7 @@ export const FormPage = () => {
                     <Input
                         placeholder='Username'
                         register={register}
-                        registerName={FormNames.username}
+                        registerName={EnumFormNames.username}
                         className='mb-2 last:mb-0'
                     />
 
@@ -57,7 +57,7 @@ export const FormPage = () => {
                         type='number'
                         placeholder='Age'
                         register={register}
-                        registerName={FormNames.age}
+                        registerName={EnumFormNames.age}
                         className='mb-2 last:mb-0'
                     />
 
@@ -69,7 +69,7 @@ export const FormPage = () => {
                         type='email'
                         placeholder='Email'
                         register={register}
-                        registerName={FormNames.email}
+                        registerName={EnumFormNames.email}
                         className='mb-2 last:mb-0'
                     />
 
@@ -80,7 +80,7 @@ export const FormPage = () => {
                     <Input
                         placeholder='Phone'
                         register={register}
-                        registerName={FormNames.phone}
+                        registerName={EnumFormNames.phone}
                         className='mb-2 last:mb-0'
                     />
 
@@ -92,7 +92,7 @@ export const FormPage = () => {
                         type='password'
                         placeholder='Password'
                         register={register}
-                        registerName={FormNames.password}
+                        registerName={EnumFormNames.password}
                         className='mb-2 last:mb-0'
                     />
 
@@ -104,7 +104,7 @@ export const FormPage = () => {
                         type='password'
                         placeholder='Confirm Password'
                         register={register}
-                        registerName={FormNames.confirmPassword}
+                        registerName={EnumFormNames.confirmPassword}
                         className='mb-2 last:mb-0'
                     />
 
@@ -116,7 +116,7 @@ export const FormPage = () => {
                         <Checkbox
                             isChecked={watch('rememberMe')}
                             register={register}
-                            registerName={FormNames.rememberMe}
+                            registerName={EnumFormNames.rememberMe}
                         />
                         <Text>Remember me</Text>
                     </div>
@@ -127,7 +127,7 @@ export const FormPage = () => {
                 <div className='flex flex-wrap gap-2 w-full'>
                     <Btn type='submit'>Send</Btn>
 
-                    <Btn type='button' btnType={BtnTypes.gray} disabled={!isSubmitted} onClick={() => reset()}>
+                    <Btn type='button' btnType={EnumBtnTypes.gray} disabled={!isSubmitted} onClick={() => reset()}>
                         Reset
                     </Btn>
                 </div>

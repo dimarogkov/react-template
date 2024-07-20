@@ -14,7 +14,6 @@ export const TodosPage = () => {
         data: todos,
         refetch,
         isLoading,
-        isSuccess,
     } = useQuery({
         queryFn: () => getTodos(),
         select: (date) => date.data.slice(0, 12),
@@ -82,11 +81,11 @@ export const TodosPage = () => {
 
                 {isLoading && <Text>Loading...</Text>}
 
-                {!isLoading && !filteredTodos?.length && <Text>No todos found. Try searching again.</Text>}
+                {filteredTodos?.length === 0 && <Text>No todos found. Try searching again.</Text>}
 
-                {isSuccess && (
+                {filteredTodos && (
                     <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full'>
-                        {filteredTodos?.map((todo) => (
+                        {filteredTodos.map((todo) => (
                             <Todo
                                 todo={todo}
                                 updateTodo={updateTodoMutation}

@@ -82,9 +82,11 @@ export const TodosPage = () => {
 
                 {isLoading && <Text>Loading...</Text>}
 
-                {isSuccess && filteredTodos?.length ? (
+                {!isLoading && !filteredTodos?.length && <Text>No todos found. Try searching again.</Text>}
+
+                {isSuccess && (
                     <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full'>
-                        {filteredTodos.map((todo) => (
+                        {filteredTodos?.map((todo) => (
                             <Todo
                                 todo={todo}
                                 updateTodo={updateTodoMutation}
@@ -93,8 +95,6 @@ export const TodosPage = () => {
                             />
                         ))}
                     </div>
-                ) : (
-                    <Text>No todos found. Try searching again.</Text>
                 )}
             </div>
         </section>

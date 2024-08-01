@@ -1,6 +1,6 @@
 import { ReactNode, RefAttributes, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import { EnumBtnTypes } from '../../types/enums/BtnTypes';
+import { EnumBtn } from '../../types/enums/Btn';
 import cn from 'classnames';
 
 interface Props extends RefAttributes<HTMLAnchorElement> {
@@ -11,7 +11,7 @@ interface Props extends RefAttributes<HTMLAnchorElement> {
 }
 
 export const BtnLink: React.FC<Props> = forwardRef<HTMLAnchorElement, Props>(
-    ({ href, children, btnType = EnumBtnTypes.default, className = '', ...props }, ref) => (
+    ({ href, children, btnType = EnumBtn.default, className = '', ...props }, ref) => (
         <Link
             ref={ref}
             to={href}
@@ -19,8 +19,9 @@ export const BtnLink: React.FC<Props> = forwardRef<HTMLAnchorElement, Props>(
             className={cn(
                 `flex items-center justify-center w-full sm:w-fit sm:min-w-32 lg:min-w-36 h-10 lg:h-11 font-media px-4 rounded text-white transition-opacity duration-300 hover:opacity-80 ${className}`,
                 {
-                    'bg-blue': btnType === EnumBtnTypes.default,
-                    'bg-black/25': btnType === EnumBtnTypes.gray,
+                    'bg-blue': btnType === EnumBtn.default,
+                    'border-2 border-blue text-blue': btnType === EnumBtn.outline,
+                    'bg-black/25': btnType === EnumBtn.gray,
                 }
             )}
         >

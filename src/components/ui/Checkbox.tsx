@@ -19,7 +19,7 @@ export const Checkbox: React.FC<Props> = forwardRef<HTMLInputElement, Props>(
                 ref={ref}
                 {...props}
                 type='checkbox'
-                className='absolute top-0 left-0 w-full h-full opacity-0'
+                className='absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer'
                 {...register(registerName)}
             />
 

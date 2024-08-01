@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../../helpers/formOptions';
 import { EnumFormNames } from '../../../types/enums/FormNames';
-import { EnumBtnTypes } from '../../../types/enums/BtnTypes';
-import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Option, Select, Text, Title } from '../../ui';
+import { EnumBtn } from '../../../types/enums/Btn';
+import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Option, Radio, Select, Text, Title } from '../../ui';
 
 export const FormPage = () => {
     const {
@@ -87,6 +87,7 @@ export const FormPage = () => {
                     {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
                 </Label>
 
+                {/* password */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <Input
                         type='password'
@@ -110,7 +111,41 @@ export const FormPage = () => {
 
                     {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
                 </Label>
+                {/* end password */}
 
+                {/* radio */}
+                <div className='w-full mb-5 last:mb-0'>
+                    <div className='flex gap-4 w-full mb-2 last:mb-0'>
+                        <Label className='w-full'>
+                            <div className='flex items-center gap-2 cursor-pointer'>
+                                <Radio
+                                    isChecked={watch('radioType')}
+                                    value='type_one'
+                                    register={register}
+                                    registerName={EnumFormNames.radioType}
+                                />
+                                <Text>Type One</Text>
+                            </div>
+                        </Label>
+
+                        <Label className='w-full'>
+                            <div className='flex items-center gap-2 cursor-pointer'>
+                                <Radio
+                                    isChecked={watch('radioType')}
+                                    value='type_two'
+                                    register={register}
+                                    registerName={EnumFormNames.radioType}
+                                />
+                                <Text>Type Two</Text>
+                            </div>
+                        </Label>
+                    </div>
+
+                    {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}
+                </div>
+                {/* end radio */}
+
+                {/* checkbox */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <div className='flex items-center gap-2 cursor-pointer mb-2 last:mb-0'>
                         <Checkbox
@@ -123,11 +158,12 @@ export const FormPage = () => {
 
                     {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
                 </Label>
+                {/* end checkbox */}
 
                 <div className='flex flex-wrap gap-2 w-full'>
                     <Btn type='submit'>Send</Btn>
 
-                    <Btn type='button' btnType={EnumBtnTypes.gray} disabled={!isSubmitted} onClick={() => reset()}>
+                    <Btn type='button' btnType={EnumBtn.gray} disabled={!isSubmitted} onClick={() => reset()}>
                         Reset
                     </Btn>
                 </div>

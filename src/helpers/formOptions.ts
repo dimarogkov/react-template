@@ -40,7 +40,7 @@ export const formOptions = {
         select: 'default',
         password: '',
         confirmPassword: '',
-        radioType: 'on',
+        radioType: '',
         rememberMe: false,
     },
 };

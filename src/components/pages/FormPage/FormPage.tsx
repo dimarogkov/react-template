@@ -18,7 +18,7 @@ export const FormPage = () => {
     };
 
     return (
-        <div className='relative w-full mb-10 last:mb-0'>
+        <section className='relative w-full mb-10 last:mb-0'>
             <div className='w-full mb-8 last:mb-0'>
                 <BtnLink href='/' className='mb-6 last:mb-0'>
                     Back
@@ -168,6 +168,6 @@ export const FormPage = () => {
                     </Btn>
                 </div>
             </form>
-        </div>
+        </section>
     );
 };

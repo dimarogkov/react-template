@@ -4,6 +4,7 @@ import { App } from './App';
 import { HomePage } from './components/pages/HomePage';
 import { FormPage } from './components/pages/FormPage';
 import { TodosPage } from './components/pages/TodosPage';
+import { ThemePage } from './components/pages/ThemePage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
 
 // basename='/rep' - should have rep name
@@ -16,6 +17,7 @@ export const Root = () => {
                     <Route index element={<HomePage />} />
                     <Route path='form' element={<FormPage />} />
                     <Route path='todos' element={<TodosPage />} />
+                    <Route path='theme' element={<ThemePage />} />
                     <Route path='*' element={<NotFoundPage />} />
                 </Route>
             </Routes>

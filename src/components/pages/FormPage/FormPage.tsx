@@ -28,6 +28,7 @@ export const FormPage = () => {
             </div>
 
             <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
+                {/* select */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <Select register={register} registerName={EnumFormNames.select} className='mb-2 last:mb-0'>
                         <Option value='default' className='hidden'>
@@ -40,7 +41,9 @@ export const FormPage = () => {
 
                     {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}
                 </Label>
+                {/* end select */}
 
+                {/* text */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <Input
                         placeholder='Username'
@@ -51,7 +54,9 @@ export const FormPage = () => {
 
                     {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
                 </Label>
+                {/* end text */}
 
+                {/* number */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <Input
                         type='number'
@@ -63,7 +68,9 @@ export const FormPage = () => {
 
                     {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
                 </Label>
+                {/* end number */}
 
+                {/* email */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <Input
                         type='email'
@@ -75,7 +82,9 @@ export const FormPage = () => {
 
                     {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
                 </Label>
+                {/* end email */}
 
+                {/* phone */}
                 <Label className='w-full mb-5 last:mb-0'>
                     <Input
                         placeholder='Phone'
@@ -86,6 +95,7 @@ export const FormPage = () => {
 
                     {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
                 </Label>
+                {/* end phone */}
 
                 {/* password */}
                 <Label className='w-full mb-5 last:mb-0'>

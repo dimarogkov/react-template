@@ -5,7 +5,7 @@ import { createTodo, deleteTodo, getTodos, updateTodo } from '../../../services/
 import { SearchTodo } from '../../elements/SearchTodo';
 import { AddTodo } from '../../elements/AddTodo';
 import { Todo } from '../../elements/Todo';
-import { BtnLink, Text, Title } from '../../ui';
+import { Badge, BtnLink, Text, Title } from '../../ui';
 
 export const TodosPage = () => {
     const [appliedSearchValue, setAppliedSearchValue] = useState('');
@@ -71,6 +71,12 @@ export const TodosPage = () => {
                     <BtnLink href='/' className='mb-5 last:mb-0'>
                         Back
                     </BtnLink>
+
+                    <div className='flex gap-2 mb-3 last:mb-0'>
+                        <Badge>Axios</Badge>
+                        <Badge>React Query</Badge>
+                        <Badge>Debounce</Badge>
+                    </div>
 
                     <Title>Todos with React Query</Title>
                 </div>

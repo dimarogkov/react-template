@@ -2,7 +2,21 @@ import { useForm } from 'react-hook-form';
 import { formOptions } from '../../../helpers/formOptions';
 import { EnumFormNames } from '../../../types/enums/FormNames';
 import { EnumBtn } from '../../../types/enums/Btn';
-import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Option, Radio, Select, Text, Title } from '../../ui';
+import {
+    Badge,
+    Btn,
+    BtnLink,
+    Checkbox,
+    ErrorMessage,
+    Input,
+    Label,
+    Line,
+    Option,
+    Radio,
+    Select,
+    Text,
+    Title,
+} from '../../ui';
 
 export const FormPage = () => {
     const {
@@ -24,7 +38,12 @@ export const FormPage = () => {
                     Back
                 </BtnLink>
 
-                <Title>React Hook Form</Title>
+                <div className='flex gap-2 mb-3 last:mb-0'>
+                    <Badge>React Hook Form</Badge>
+                    <Badge>Yup Validation</Badge>
+                </div>
+
+                <Title>React Form</Title>
             </div>
 
             <Line />

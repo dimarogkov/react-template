@@ -1,5 +1,5 @@
 import { ThemeController } from '../../elements/ThemeController';
-import { BtnLink, Line, Subtitle, Text, Title } from '../../ui';
+import { Badge, BtnLink, Line, Subtitle, Text, Title } from '../../ui';
 
 export const ThemePage = () => {
     return (
@@ -8,6 +8,10 @@ export const ThemePage = () => {
                 <BtnLink href='/' className='mb-6 last:mb-0'>
                     Back
                 </BtnLink>
+
+                <div className='flex gap-2 mb-3 last:mb-0'>
+                    <Badge>Next Themes</Badge>
+                </div>
 
                 <Title>React Theme</Title>
             </div>

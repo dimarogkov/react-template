@@ -1,6 +1,5 @@
-import { Line } from '../../elements/Line';
 import { Store } from '../../elements/Store';
-import { BtnLink, Text, Title } from '../../ui';
+import { BtnLink, Line, Text, Title } from '../../ui';
 
 export const HomePage = () => {
     return (

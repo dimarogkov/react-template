@@ -1,16 +1,18 @@
 import { ThemeController } from '../../elements/ThemeController';
-import { BtnLink, Subtitle, Text, Title } from '../../ui';
+import { BtnLink, Line, Subtitle, Text, Title } from '../../ui';
 
 export const ThemePage = () => {
     return (
         <section className='relative w-full mb-10 last:mb-0'>
-            <div className='w-full mb-8 last:mb-0'>
+            <div className='w-full'>
                 <BtnLink href='/' className='mb-6 last:mb-0'>
                     Back
                 </BtnLink>
 
                 <Title>React Theme</Title>
             </div>
+
+            <Line />
 
             <div className='w-full'>
                 <ThemeController className='mb-5 last:mb-0' />

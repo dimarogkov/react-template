@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { formOptions } from '../../../helpers/formOptions';
 import { EnumFormNames } from '../../../types/enums/FormNames';
 import { EnumBtn } from '../../../types/enums/Btn';
-import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Option, Radio, Select, Text, Title } from '../../ui';
+import { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Option, Radio, Select, Text, Title } from '../../ui';
 
 export const FormPage = () => {
     const {
@@ -19,13 +19,15 @@ export const FormPage = () => {
 
     return (
         <section className='relative w-full mb-10 last:mb-0'>
-            <div className='w-full mb-8 last:mb-0'>
+            <div className='w-full'>
                 <BtnLink href='/' className='mb-6 last:mb-0'>
                     Back
                 </BtnLink>
 
                 <Title>React Hook Form</Title>
             </div>
+
+            <Line />
 
             <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
                 {/* select */}

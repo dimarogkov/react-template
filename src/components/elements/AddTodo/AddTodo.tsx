@@ -23,7 +23,8 @@ export const AddTodo: React.FC<Props> = ({ isPending, addTodo = () => {} }) => {
                 value={todoTitle}
                 onChange={({ target }) => setTodoTitle(target.value)}
             />
-            <Btn disabled={isPending} onClick={handleAddTodo}>
+
+            <Btn disabled={todoTitle.length === 0 || isPending} onClick={handleAddTodo}>
                 {isPending ? 'Loading...' : 'Add todo'}
             </Btn>
         </div>

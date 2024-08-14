@@ -2,7 +2,7 @@ import { forwardRef, OptionHTMLAttributes, SelectHTMLAttributes } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { EnumFormNames } from '../../types/enums/FormNames';
 import { IFormValues } from '../../types/interfaces/FormValues';
-import { LuChevronDown } from 'react-icons/lu';
+import { ChevronDown } from 'lucide-react';
 
 interface OptionProps extends OptionHTMLAttributes<HTMLOptionElement> {}
 
@@ -26,7 +26,7 @@ export const Select: React.FC<SelectProps> = forwardRef<HTMLSelectElement, Selec
                 {...register(registerName)}
             />
 
-            <LuChevronDown className='absolute right-4 w-5 h-5 text-black' />
+            <ChevronDown className='absolute right-4 w-5 h-5 text-black' />
         </div>
     )
 );

@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import { LuMoon, LuSun } from 'react-icons/lu';
+import { Moon, Sun } from 'lucide-react';
 
 type Props = {
     className?: string;
@@ -14,7 +14,7 @@ export const ThemeController: React.FC<Props> = ({ className = '' }) => {
 
     return (
         <label className={`flex items-center cursor-pointer gap-x-3 ${className}`}>
-            <LuSun className='w-5 h-5 text-black' />
+            <Sun className='w-5 h-5 text-black' />
 
             <input
                 type='checkbox'
@@ -24,7 +24,7 @@ export const ThemeController: React.FC<Props> = ({ className = '' }) => {
                 className='toggle theme-controller text-black border-black'
             />
 
-            <LuMoon className='w-5 h-5 text-black' />
+            <Moon className='w-5 h-5 text-black' />
         </label>
     );
 };

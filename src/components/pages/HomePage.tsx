@@ -1,5 +1,5 @@
-import { Store } from '../../elements/Store';
-import { Badge, BtnLink, Line, Text, Title } from '../../ui';
+import { Store } from '../elements';
+import { Badge, BtnLink, Line, Text, Title } from '../ui';
 
 export const HomePage = () => {
     return (

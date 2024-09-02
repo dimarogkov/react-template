@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import { RootProviders } from './RootProviders';
-import { Root } from './Root';
-
+import { Root, RootProviders } from './components/root';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

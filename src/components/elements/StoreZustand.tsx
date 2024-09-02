@@ -1,5 +1,5 @@
-import { useCount } from '../../../storeZustand/count';
-import { Btn, Subtitle, Text } from '../../ui';
+import { useCount } from '../../storeZustand/count';
+import { Btn, Subtitle, Text } from '../ui';
 
 type Props = {
     className?: string;

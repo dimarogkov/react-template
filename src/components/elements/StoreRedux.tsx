@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from '../../../storeRedux';
-import { addCount, removeCount, resetCount } from '../../../storeRedux/countReducer';
-import { Btn, Subtitle, Text } from '../../ui';
+import { useAppDispatch, useAppSelector } from '../../storeRedux';
+import { addCount, removeCount, resetCount } from '../../storeRedux/countReducer';
+import { Btn, Subtitle, Text } from '../ui';
 
 type Props = {
     className?: string;

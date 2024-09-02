@@ -1,11 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { App } from './App';
-
-import { HomePage } from './components/pages/HomePage';
-import { FormPage } from './components/pages/FormPage';
-import { TodosPage } from './components/pages/TodosPage';
-import { ThemePage } from './components/pages/ThemePage';
-import { NotFoundPage } from './components/pages/NotFoundPage';
+import { App } from '../../App';
+import { FormPage, HomePage, NotFoundPage, ThemePage, TodosPage } from '../pages';
 
 // basename='/rep' - should have rep name
 

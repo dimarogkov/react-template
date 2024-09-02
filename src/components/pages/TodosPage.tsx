@@ -1,11 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { createTodo, deleteTodo, getTodos, updateTodo } from '../../../services/todos';
+import { createTodo, deleteTodo, getTodos, updateTodo } from '../../services/todos';
 
-import { SearchTodo } from '../../elements/SearchTodo';
-import { AddTodo } from '../../elements/AddTodo';
-import { Todo } from '../../elements/Todo';
-import { Badge, BtnLink, Text, Title } from '../../ui';
+import { AddTodo, SearchTodo, Todo } from '../elements';
+import { Badge, BtnLink, Text, Title } from '../ui';
 
 export const TodosPage = () => {
     const [appliedSearchValue, setAppliedSearchValue] = useState('');

@@ -1,8 +1,8 @@
 import { UseMutateFunction } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
-import { ITodo } from '../../../types/interfaces/Todo';
+import { ITodo } from '../../types/interfaces/Todo';
 
-import { Btn, Subtitle, Text } from '../../ui';
+import { Btn, Subtitle, Text } from '../ui';
 import { Trash2 } from 'lucide-react';
 import cn from 'classnames';
 
@@ -12,7 +12,7 @@ type Props = {
     removeTodo: UseMutateFunction<AxiosResponse<ITodo, any>, Error, number, unknown>;
 };
 
-export const Todo: React.FC<Props> = ({ todo, updateTodo, removeTodo }) => {
+export const Todo: React.FC<Props> = ({ todo, updateTodo = () => {}, removeTodo = () => {} }) => {
     const { id, title, userId, completed } = todo;
 
     return (

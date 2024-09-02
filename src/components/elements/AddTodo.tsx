@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Btn, Input } from '../../ui';
+import { Btn, Input } from '../ui';
 
 type Props = {
     isPending: boolean;

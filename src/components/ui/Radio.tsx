@@ -1,31 +1,21 @@
-import { forwardRef, InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes, RefAttributes } from 'react';
 import { UseFormRegister } from 'react-hook-form';
+import { EnumFormNames } from '../../types/enums';
 import { IFormValues } from '../../types/interfaces/FormValues';
-import { EnumFormNames } from '../../types/enums/FormNames';
+
 import { Circle } from 'lucide-react';
 import cn from 'classnames';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTMLInputElement> {
     isChecked: string;
     value?: string;
-    className?: string;
     registerName?: EnumFormNames;
     register?: UseFormRegister<IFormValues>;
 }
 
 export const Radio: React.FC<Props> = forwardRef<HTMLInputElement, Props>(
-    (
-        {
-            isChecked,
-            value = '',
-            className = '',
-            registerName = EnumFormNames.radioType,
-            register = () => {},
-            ...props
-        },
-        ref
-    ) => (
-        <div className={`relative w-5 min-w-5 h-5 ${className}`}>
+    ({ isChecked, value = '', registerName = EnumFormNames.radioType, register = () => {}, ...props }, ref) => (
+        <div className='relative w-5 min-w-5 h-5'>
             <input
                 ref={ref}
                 {...props}

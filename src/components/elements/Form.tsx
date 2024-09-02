@@ -1,8 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { formOptions } from '../../../helpers/formOptions';
-import { EnumFormNames } from '../../../types/enums/FormNames';
-import { EnumBtn } from '../../../types/enums/Btn';
-import { Btn, Checkbox, ErrorMessage, Input, Label, Option, Radio, Select, Text } from '../../ui';
+import { formOptions } from '../../helpers';
+import { EnumBtn, EnumFormNames } from '../../types/enums';
+import { Btn, Checkbox, ErrorMessage, Input, Label, Option, Radio, Select, Text } from '../ui';
 
 type Props = {
     onSubmit: (data: any) => void;
@@ -22,7 +21,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
             {/* select */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Select register={register} registerName={EnumFormNames.select} className='mb-2 last:mb-0'>
-                    <Option value='default' className='hidden'>
+                    <Option value='default' hidden>
                         Select Option
                     </Option>
                     <Option value='option_1'>Option 1</Option>
@@ -125,6 +124,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
                                 register={register}
                                 registerName={EnumFormNames.radioType}
                             />
+
                             <Text>Type One</Text>
                         </div>
                     </Label>

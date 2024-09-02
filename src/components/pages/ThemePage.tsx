@@ -1,5 +1,5 @@
-import { ThemeController } from '../../elements/ThemeController';
-import { Badge, BtnLink, Line, Subtitle, Text, Title } from '../../ui';
+import { ThemeController } from '../elements';
+import { Badge, BtnLink, Line, Subtitle, Text, Title } from '../ui';
 
 export const ThemePage = () => {
     return (
@@ -23,6 +23,7 @@ export const ThemePage = () => {
 
                 <div className='w-full rounded p-4 border-2 border-black dark:border-gray bg-white dark:bg-black'>
                     <Subtitle className='text-black dark:text-gray'>Some Subtitle</Subtitle>
+
                     <Text className='text-black dark:text-gray'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nihil cupiditate magnam mollitia,
                         consectetur assumenda non? Delectus, fugiat tempore reiciendis, quam quibusdam labore rerum

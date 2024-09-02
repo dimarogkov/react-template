@@ -1,11 +1,11 @@
 import { ReactNode, RefAttributes, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import { EnumBtn } from '../../types/enums/Btn';
+import { EnumBtn } from '../../types/enums';
 import cn from 'classnames';
 
-interface Props extends RefAttributes<HTMLAnchorElement> {
+interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnchorElement> {
     href: string;
-    children?: ReactNode;
+    children: ReactNode;
     btnType?: string;
     className?: string;
 }

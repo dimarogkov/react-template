@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Subtitle } from '../../ui';
+import { Subtitle } from '../ui';
 import { Braces } from 'lucide-react';
 
 export const Header = () => {
@@ -11,6 +11,7 @@ export const Header = () => {
                         <span className='flex items-center justify-center w-10 h-10 rounded-full bg-gray'>
                             <Braces className='w-5 h-5 text-black' />
                         </span>
+
                         <span>Next Template</span>
                     </Link>
                 </Subtitle>

@@ -1,5 +1,5 @@
-import { Form } from '../../elements/Form';
-import { Badge, BtnLink, Line, Title } from '../../ui';
+import { Form } from '../elements';
+import { Badge, BtnLink, Line, Title } from '../ui';
 
 export const FormPage = () => {
     const onSubmit = (data: any) => {

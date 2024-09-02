@@ -1,4 +1,4 @@
-import { BtnLink, Text, Title } from '../../ui';
+import { BtnLink, Text, Title } from '../ui';
 
 export const NotFoundPage = () => {
     return (

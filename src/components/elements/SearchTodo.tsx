@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useState } from 'react';
-import { debounce } from '../../helpers/debounce';
+import { debounce } from '../../helpers';
 import { Input } from '../ui';
 
 type Props = {

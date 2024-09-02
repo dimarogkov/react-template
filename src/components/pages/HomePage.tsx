@@ -1,4 +1,4 @@
-import { Store } from '../elements';
+import { StoreRedux, StoreZustand } from '../elements';
 import { Badge, BtnLink, Line, Text, Title } from '../ui';
 
 export const HomePage = () => {
@@ -21,7 +21,11 @@ export const HomePage = () => {
             </div>
 
             <Line />
-            <Store />
+
+            <div className='w-full mb-10 last:mb-0'>
+                <StoreRedux className='mb-10 last:mb-0' />
+                <StoreZustand />
+            </div>
         </section>
     );
 };

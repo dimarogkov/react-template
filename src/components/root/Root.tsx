@@ -6,7 +6,7 @@ import { FormPage, HomePage, NotFoundPage, ThemePage, TodosPage } from '../pages
 
 export const Root = () => {
     return (
-        <Router basename='/'>
+        <Router basename='/react-template'>
             <Routes>
                 <Route path='/' element={<App />}>
                     <Route index element={<HomePage />} />

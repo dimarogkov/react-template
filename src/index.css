@@ -5,13 +5,15 @@
 @tailwind utilities;
 
 html {
-    height: 100%;
+    /* height: 100%; */
+    --fallback-b1: red;
 }
 
 body {
+    /* min-height: 100%; */
     font-family: 'Inter', sans-serif;
     color: #222831;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .loader {

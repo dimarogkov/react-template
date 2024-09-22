@@ -21,7 +21,7 @@ export const ThemeController: React.FC<Props> = ({ className = '' }) => {
                 value='theme'
                 checked={resolvedTheme === 'dark'}
                 onChange={changeTheme}
-                className='toggle theme-controller text-black border-black'
+                className='toggle theme-controller text-black border-black bg-black focus-visible:outline-none'
             />
 
             <Moon className='w-5 h-5 text-black' />

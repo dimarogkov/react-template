@@ -5,15 +5,12 @@
 @tailwind utilities;
 
 html {
-    /* height: 100%; */
-    --fallback-b1: red;
+    --fallback-b1: #fff;
 }
 
 body {
-    /* min-height: 100%; */
     font-family: 'Inter', sans-serif;
     color: #222831;
-    /* background-color: #fff; */
 }
 
 .loader {

@@ -9,24 +9,7 @@ import { Line } from './Line';
 import { Loader } from './Loader';
 import { Radio } from './Radio';
 import { Select, Option } from './Select';
-import { Subtitle } from './Subtitle';
 import { Text } from './Text';
 import { Title } from './Title';
 
-export {
-    Badge,
-    Btn,
-    BtnLink,
-    Checkbox,
-    ErrorMessage,
-    Input,
-    Label,
-    Line,
-    Loader,
-    Radio,
-    Select,
-    Option,
-    Subtitle,
-    Text,
-    Title,
-};
+export { Badge, Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Loader, Radio, Select, Option, Text, Title };

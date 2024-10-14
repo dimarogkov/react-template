@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../storeRedux';
 import { addCount, removeCount, resetCount } from '../../storeRedux/countReducer';
-import { Btn, Subtitle, Text } from '../ui';
+import { EnumTitle } from '../../types/enums';
+import { Btn, Text, Title } from '../ui';
 
 type Props = {
     className?: string;
@@ -12,7 +13,10 @@ export const StoreRedux: React.FC<Props> = ({ className = '' }) => {
 
     return (
         <div className={`w-full ${className}`}>
-            <Subtitle className='mb-5 last:mb-0'>Store with Redux</Subtitle>
+            <Title titleType={EnumTitle.h3} className='mb-5 last:mb-0'>
+                Store with Redux
+            </Title>
+
             <Text className='mb-2 last:mb-0'>{count}</Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-2'>

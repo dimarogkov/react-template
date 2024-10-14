@@ -1,8 +1,9 @@
 import { UseMutateFunction } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
+import { EnumTitle } from '../../types/enums';
 import { ITodo } from '../../types/interfaces/Todo';
 
-import { Btn, Subtitle, Text } from '../ui';
+import { Btn, Text, Title } from '../ui';
 import { Trash2 } from 'lucide-react';
 import cn from 'classnames';
 
@@ -30,7 +31,10 @@ export const Todo: React.FC<Props> = ({ todo, updateTodo = () => {}, removeTodo 
             </button>
 
             <div className='flex-grow w-full mb-3 last:mb-0'>
-                <Subtitle className='mb-2 last:mb-0'>{title}</Subtitle>
+                <Title titleType={EnumTitle.h3} className='mb-2 last:mb-0'>
+                    {title}
+                </Title>
+
                 <Text>User ID - {userId}</Text>
             </div>
 

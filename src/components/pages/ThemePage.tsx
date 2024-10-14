@@ -1,5 +1,6 @@
+import { EnumTitle } from '../../types/enums';
 import { ThemeController } from '../elements';
-import { Badge, BtnLink, Line, Subtitle, Text, Title } from '../ui';
+import { Badge, BtnLink, Line, Text, Title } from '../ui';
 
 export const ThemePage = () => {
     return (
@@ -22,7 +23,9 @@ export const ThemePage = () => {
                 <ThemeController className='mb-5 last:mb-0' />
 
                 <div className='w-full rounded p-4 border-2 border-black dark:border-gray bg-white dark:bg-black'>
-                    <Subtitle className='text-black dark:text-gray'>Some Subtitle</Subtitle>
+                    <Title titleType={EnumTitle.h3} className='text-black dark:text-gray'>
+                        Some Subtitle
+                    </Title>
 
                     <Text className='text-black dark:text-gray'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nihil cupiditate magnam mollitia,

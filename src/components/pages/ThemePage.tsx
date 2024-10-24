@@ -1,5 +1,5 @@
 import { EnumTitle } from '../../types/enums';
-import { BackLink, ThemeController } from '../elements';
+import { BackLink, Breadcrumbs, ThemeController } from '../elements';
 import { Badge, Line, Text, Title } from '../ui';
 
 export const ThemePage = () => {
@@ -7,6 +7,8 @@ export const ThemePage = () => {
         <section className='relative w-full mb-10 last:mb-0'>
             <div className='w-full'>
                 <BackLink className='mb-6 last:mb-0' />
+
+                <Breadcrumbs className='mb-6 last:mb-0' />
 
                 <div className='flex gap-2 mb-5 last:mb-0'>
                     <Badge>Next Themes</Badge>

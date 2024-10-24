@@ -2,8 +2,8 @@ import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../services/todos';
 
-import { AddTodo, SearchTodo, Todo } from '../elements';
-import { Badge, BtnLink, Text, Title } from '../ui';
+import { AddTodo, BackLink, SearchTodo, Todo } from '../elements';
+import { Badge, Text, Title } from '../ui';
 
 export const TodosPage = () => {
     const [appliedSearchValue, setAppliedSearchValue] = useState('');
@@ -18,7 +18,7 @@ export const TodosPage = () => {
         queryKey: ['todos'],
     });
 
-    const { mutate: updateTodoMutation } = useMutation({
+    const { mutate: updateTodoMutation, isPending: isPendingUpdateTodo } = useMutation({
         mutationFn: updateTodo,
         mutationKey: ['update todo'],
         onSuccess: () => refetch(),
@@ -66,9 +66,7 @@ export const TodosPage = () => {
         <section className='relative w-full'>
             <div className='w-full'>
                 <div className='w-full mb-5 last:mb-0'>
-                    <BtnLink href='/' className='mb-5 last:mb-0'>
-                        Back
-                    </BtnLink>
+                    <BackLink className='mb-6 last:mb-0' />
 
                     <div className='flex gap-2 mb-5 last:mb-0'>
                         <Badge>Axios</Badge>
@@ -92,6 +90,7 @@ export const TodosPage = () => {
                         {filteredTodos.map((todo) => (
                             <Todo
                                 todo={todo}
+                                isPending={isPendingUpdateTodo}
                                 updateTodo={updateTodoMutation}
                                 removeTodo={removeTodoMutation}
                                 key={todo.id}

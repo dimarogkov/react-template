@@ -1,3 +1,4 @@
+import { PATHS } from '../../variables/paths';
 import { BtnLink, Text, Title } from '../ui';
 
 export const NotFoundPage = () => {
@@ -9,7 +10,7 @@ export const NotFoundPage = () => {
                 This page doesn’t exist or was removed! We suggest you go back to home.
             </Text>
 
-            <BtnLink href='/'>Go Back-Home</BtnLink>
+            <BtnLink href={PATHS.HOME}>Go Back-Home</BtnLink>
         </section>
     );
 };

@@ -1,5 +1,5 @@
-import { Form } from '../elements';
-import { Badge, BtnLink, Line, Title } from '../ui';
+import { BackLink, Form } from '../elements';
+import { Badge, Line, Title } from '../ui';
 
 export const FormPage = () => {
     const onSubmit = (data: any) => {
@@ -9,9 +9,7 @@ export const FormPage = () => {
     return (
         <section className='relative w-full mb-10 last:mb-0'>
             <div className='w-full'>
-                <BtnLink href='/' className='mb-6 last:mb-0'>
-                    Back
-                </BtnLink>
+                <BackLink className='mb-6 last:mb-0' />
 
                 <div className='flex gap-2 mb-5 last:mb-0'>
                     <Badge>React Hook Form</Badge>

@@ -1,14 +1,12 @@
 import { EnumTitle } from '../../types/enums';
-import { ThemeController } from '../elements';
-import { Badge, BtnLink, Line, Text, Title } from '../ui';
+import { BackLink, ThemeController } from '../elements';
+import { Badge, Line, Text, Title } from '../ui';
 
 export const ThemePage = () => {
     return (
         <section className='relative w-full mb-10 last:mb-0'>
             <div className='w-full'>
-                <BtnLink href='/' className='mb-6 last:mb-0'>
-                    Back
-                </BtnLink>
+                <BackLink className='mb-6 last:mb-0' />
 
                 <div className='flex gap-2 mb-5 last:mb-0'>
                     <Badge>Next Themes</Badge>

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../services/todos';
 
-import { AddTodo, BackLink, SearchTodo, Todo } from '../elements';
+import { AddTodo, BackLink, Breadcrumbs, SearchTodo, Todo } from '../elements';
 import { Badge, Text, Title } from '../ui';
 
 export const TodosPage = () => {
@@ -67,6 +67,8 @@ export const TodosPage = () => {
             <div className='w-full'>
                 <div className='w-full mb-5 last:mb-0'>
                     <BackLink className='mb-6 last:mb-0' />
+
+                    <Breadcrumbs className='mb-6 last:mb-0' />
 
                     <div className='flex gap-2 mb-5 last:mb-0'>
                         <Badge>Axios</Badge>

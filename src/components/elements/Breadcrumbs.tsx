@@ -20,12 +20,12 @@ export const Breadcrumbs: React.FC<Props> = ({ className = '' }) => {
                     <li key={id}>
                         {links.length - 1 !== index ? (
                             <Link to={href} className='flex items-center line-clamp-1 hover:underline'>
-                                <span className='line-clamp-1 text-blue'>{name}</span>
+                                <span className='line-clamp-1'>{name}</span>
 
                                 <ChevronRight className='w-5 min-w-5 h-5 stroke-1 text-black' />
                             </Link>
                         ) : (
-                            <span className='line-clamp-1'>{name}</span>
+                            <span className='line-clamp-1 text-blue'>{name}</span>
                         )}
                     </li>
                 ))}

@@ -18,7 +18,7 @@ export const Header = () => {
                             <Braces className='w-5 h-5 text-black' />
                         </span>
 
-                        <span>Next Template</span>
+                        <span>React Template</span>
                     </Link>
                 </Title>
             </div>

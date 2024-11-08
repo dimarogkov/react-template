@@ -1,4 +1,4 @@
-import { ReactNode, RefAttributes, forwardRef } from 'react';
+import { FC, ReactNode, RefAttributes, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { EnumBtn } from '../../types/enums';
 import cn from 'classnames';
@@ -10,7 +10,7 @@ interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnch
     className?: string;
 }
 
-export const BtnLink: React.FC<Props> = forwardRef<HTMLAnchorElement, Props>(
+export const BtnLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
     ({ href, children, btnType = EnumBtn.default, className = '', ...props }, ref) => (
         <Link
             ref={ref}

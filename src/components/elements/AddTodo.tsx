@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Btn, Input } from '../ui';
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
     addTodo: (title: string) => void;
 };
 
-export const AddTodo: React.FC<Props> = ({ isPending, addTodo = () => {} }) => {
+export const AddTodo: FC<Props> = ({ isPending, addTodo = () => {} }) => {
     const [todoTitle, setTodoTitle] = useState('');
 
     const handleAddTodo = () => {

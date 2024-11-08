@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { PATHS } from '../../variables/paths';
 import { BtnLink } from '../ui';
 
@@ -6,7 +7,7 @@ type Props = {
     className?: string;
 };
 
-export const BackLink: React.FC<Props> = ({ href = PATHS.HOME, className = '' }) => {
+export const BackLink: FC<Props> = ({ href = PATHS.HOME, className = '' }) => {
     return (
         <BtnLink href={href} className={className}>
             Back

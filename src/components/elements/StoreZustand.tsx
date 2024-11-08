@@ -1,4 +1,4 @@
-import { useCount } from '../../storeZustand/count';
+import { useCount } from '../../store/zustand';
 import { EnumTitle } from '../../types/enums';
 import { Btn, Text, Title } from '../ui';
 

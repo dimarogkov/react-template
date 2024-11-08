@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../storeRedux';
-import { addCount, removeCount, resetCount } from '../../storeRedux/countReducer';
+import { useAppDispatch, useAppSelector } from '../../store/redux';
+import { addCount, removeCount, resetCount } from '../../store/redux/countReducer';
 import { EnumTitle } from '../../types/enums';
 import { Btn, Text, Title } from '../ui';
 

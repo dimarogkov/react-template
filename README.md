@@ -20,8 +20,9 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
     -   ui
 -   helpers
 -   services
--   storeRedux
--   storeZustand
+-   store
+    -   redux
+    -   zustand
 -   types
     -   enums
     -   interfaces

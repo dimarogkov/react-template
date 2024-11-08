@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, RefAttributes } from 'react';
+import { FC, forwardRef, InputHTMLAttributes, RefAttributes } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { EnumFormNames } from '../../types/enums';
 import { IFormValues } from '../../types/interfaces/FormValues';
@@ -12,7 +12,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTM
     register?: UseFormRegister<IFormValues>;
 }
 
-export const Checkbox: React.FC<Props> = forwardRef<HTMLInputElement, Props>(
+export const Checkbox: FC<Props> = forwardRef<HTMLInputElement, Props>(
     ({ isChecked, registerName = EnumFormNames.rememberMe, register = () => {}, ...props }, ref) => (
         <div className='relative w-5 min-w-5 h-5'>
             <input

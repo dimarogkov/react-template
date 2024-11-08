@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
 
@@ -5,7 +6,7 @@ type Props = {
     className?: string;
 };
 
-export const ThemeController: React.FC<Props> = ({ className = '' }) => {
+export const ThemeController: FC<Props> = ({ className = '' }) => {
     const { resolvedTheme, setTheme } = useTheme();
 
     const changeTheme = () => {

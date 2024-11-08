@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useCount } from '../../store/zustand';
 import { EnumTitle } from '../../types/enums';
 import { Btn, Text, Title } from '../ui';
@@ -6,7 +7,7 @@ type Props = {
     className?: string;
 };
 
-export const StoreZustand: React.FC<Props> = ({ className = '' }) => {
+export const StoreZustand: FC<Props> = ({ className = '' }) => {
     const { count, addCount, removeCount, resetCount } = useCount((state) => state);
 
     return (

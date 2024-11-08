@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/redux';
 import { addCount, removeCount, resetCount } from '../../store/redux/countReducer';
 import { EnumTitle } from '../../types/enums';
@@ -7,7 +8,7 @@ type Props = {
     className?: string;
 };
 
-export const StoreRedux: React.FC<Props> = ({ className = '' }) => {
+export const StoreRedux: FC<Props> = ({ className = '' }) => {
     const count = useAppSelector((state) => state.count.count);
     const dispatch = useAppDispatch();
 

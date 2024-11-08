@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../helpers';
 import { EnumBtn, EnumFormNames } from '../../types/enums';
@@ -7,7 +8,7 @@ type Props = {
     onSubmit: (data: any) => void;
 };
 
-export const Form: React.FC<Props> = ({ onSubmit }) => {
+export const Form: FC<Props> = ({ onSubmit }) => {
     const {
         register,
         watch,
@@ -18,7 +19,6 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
     return (
         <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
-            {/* select */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Select register={register} registerName={EnumFormNames.select} className='mb-2 last:mb-0'>
                     <Option value='default' hidden>
@@ -31,9 +31,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}
             </Label>
-            {/* end select */}
 
-            {/* text */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Input
                     placeholder='Username'
@@ -44,9 +42,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
             </Label>
-            {/* end text */}
 
-            {/* number */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Input
                     type='number'
@@ -58,9 +54,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
             </Label>
-            {/* end number */}
 
-            {/* email */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Input
                     type='email'
@@ -72,9 +66,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
             </Label>
-            {/* end email */}
 
-            {/* phone */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Input
                     placeholder='Phone'
@@ -85,9 +77,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
             </Label>
-            {/* end phone */}
 
-            {/* password */}
             <Label className='w-full mb-5 last:mb-0'>
                 <Input
                     type='password'
@@ -111,9 +101,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
             </Label>
-            {/* end password */}
 
-            {/* radio */}
             <div className='w-full mb-5 last:mb-0'>
                 <div className='flex gap-4 w-full mb-2 last:mb-0'>
                     <Label className='w-full'>
@@ -144,9 +132,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}
             </div>
-            {/* end radio */}
 
-            {/* checkbox */}
             <Label className='w-full mb-5 last:mb-0'>
                 <div className='flex items-center gap-2 cursor-pointer mb-2 last:mb-0'>
                     <Checkbox
@@ -159,7 +145,6 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
 
                 {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
             </Label>
-            {/* end checkbox */}
 
             <div className='flex flex-wrap gap-2 w-full'>
                 <Btn type='submit'>Send</Btn>

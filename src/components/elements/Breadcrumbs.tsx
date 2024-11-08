@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
@@ -5,7 +6,7 @@ type Props = {
     className?: string;
 };
 
-export const Breadcrumbs: React.FC<Props> = ({ className = '' }) => {
+export const Breadcrumbs: FC<Props> = ({ className = '' }) => {
     const { pathname } = useLocation();
     const links = pathname.split('/').map((link) => ({
         id: crypto.randomUUID(),

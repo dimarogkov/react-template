@@ -1,3 +1,4 @@
+import { Badge } from './Badge';
 import { Btn } from './Btn';
 import { BtnLink } from './BtnLink';
 import { Checkbox } from './Checkbox';
@@ -11,4 +12,4 @@ import { Select, Option } from './Select';
 import { Text } from './Text';
 import { Title } from './Title';
 
-export { Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Loader, Radio, Select, Option, Text, Title };
+export { Badge, Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Loader, Radio, Select, Option, Text, Title };

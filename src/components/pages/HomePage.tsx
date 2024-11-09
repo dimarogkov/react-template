@@ -1,6 +1,6 @@
 import { PATHS } from '../../variables/paths';
-import { Badge, StoreRedux, StoreZustand } from '../elements';
-import { BtnLink, Line, Text, Title } from '../ui';
+import { StoreRedux, StoreZustand } from '../elements';
+import { Badge, BtnLink, Line, Text, Title } from '../ui';
 
 export const HomePage = () => {
     return (
@@ -8,7 +8,7 @@ export const HomePage = () => {
             <div className='w-full mb-5 last:mb-0'>
                 <Badge className='mb-5 last:mb-0'>
                     <Badge.Item>Redux Store</Badge.Item>
-                    <Badge.Item>Redux Store</Badge.Item>
+                    <Badge.Item>Zustand Store</Badge.Item>
                 </Badge>
 
                 <Title className='mb-2 last:mb-0'>Home Page</Title>

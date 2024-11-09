@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../helpers';
 import { EnumBtn, EnumFormNames } from '../../types/enums';
-import { Btn, Checkbox, ErrorMessage, Input, Label, Option, Radio, Select, Text } from '../ui';
+import { Btn, Checkbox, ErrorMessage, Input, Label, Radio, Select, Text } from '../ui';
 
 type Props = {
     onSubmit: (data: any) => void;
@@ -21,12 +21,12 @@ export const Form: FC<Props> = ({ onSubmit }) => {
         <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
             <Label className='w-full mb-5 last:mb-0'>
                 <Select register={register} registerName={EnumFormNames.select} className='mb-2 last:mb-0'>
-                    <Option value='default' hidden>
+                    <Select.Option value='default' hidden>
                         Select Option
-                    </Option>
-                    <Option value='option_1'>Option 1</Option>
-                    <Option value='option_2'>Option 2</Option>
-                    <Option value='option_3'>Option 3</Option>
+                    </Select.Option>
+                    <Select.Option value='option_1'>Option 1</Select.Option>
+                    <Select.Option value='option_2'>Option 2</Select.Option>
+                    <Select.Option value='option_3'>Option 3</Select.Option>
                 </Select>
 
                 {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}

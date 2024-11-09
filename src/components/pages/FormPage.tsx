@@ -1,5 +1,5 @@
-import { BackLink, Badge, Breadcrumbs, Form } from '../elements';
-import { Line, Title } from '../ui';
+import { BackLink, Breadcrumbs, Form } from '../elements';
+import { Badge, Line, Title } from '../ui';
 
 export const FormPage = () => {
     const onSubmit = (data: any) => {

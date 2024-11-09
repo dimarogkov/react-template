@@ -1,6 +1,6 @@
 import { EnumTitle } from '../../types/enums';
-import { BackLink, Badge, Breadcrumbs, ThemeController } from '../elements';
-import { Line, Text, Title } from '../ui';
+import { BackLink, Breadcrumbs, ThemeController } from '../elements';
+import { Badge, Line, Text, Title } from '../ui';
 
 export const ThemePage = () => {
     return (

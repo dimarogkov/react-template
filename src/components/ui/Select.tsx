@@ -12,11 +12,11 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement>, RefAttrib
     register?: UseFormRegister<IFormValues>;
 }
 
-export const Option: FC<OptionProps> = forwardRef<HTMLOptionElement, OptionProps>(({ ...props }, ref) => (
+const SelectOption: FC<OptionProps> = forwardRef<HTMLOptionElement, OptionProps>(({ ...props }, ref) => (
     <option ref={ref} {...props} />
 ));
 
-export const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
+const SelectWrapper: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
     ({ className = '', registerName = EnumFormNames.select, register = () => {}, ...props }, ref) => (
         <div className={`relative flex items-center w-full h-10 ${className}`}>
             <select
@@ -30,3 +30,7 @@ export const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps
         </div>
     )
 );
+
+export const Select = Object.assign(SelectWrapper, {
+    Option: SelectOption,
+});

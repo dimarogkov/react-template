@@ -8,8 +8,8 @@ import { Label } from './Label';
 import { Line } from './Line';
 import { Loader } from './Loader';
 import { Radio } from './Radio';
-import { Select, Option } from './Select';
+import { Select } from './Select';
 import { Text } from './Text';
 import { Title } from './Title';
 
-export { Badge, Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Loader, Radio, Select, Option, Text, Title };
+export { Badge, Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Loader, Radio, Select, Text, Title };

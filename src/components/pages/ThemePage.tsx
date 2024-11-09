@@ -1,6 +1,6 @@
 import { EnumTitle } from '../../types/enums';
-import { BackLink, Breadcrumbs, ThemeController } from '../elements';
-import { Badge, Line, Text, Title } from '../ui';
+import { BackLink, Badge, Breadcrumbs, ThemeController } from '../elements';
+import { Line, Text, Title } from '../ui';
 
 export const ThemePage = () => {
     return (
@@ -10,9 +10,9 @@ export const ThemePage = () => {
 
                 <Breadcrumbs className='mb-6 last:mb-0' />
 
-                <div className='flex gap-2 mb-5 last:mb-0'>
-                    <Badge>Next Themes</Badge>
-                </div>
+                <Badge className='mb-5 last:mb-0'>
+                    <Badge.Item>Next Themes</Badge.Item>
+                </Badge>
 
                 <Title>React Theme</Title>
             </div>

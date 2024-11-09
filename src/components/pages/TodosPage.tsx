@@ -2,8 +2,8 @@ import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../services/todos';
 
-import { AddTodo, BackLink, Breadcrumbs, SearchTodo, Todo } from '../elements';
-import { Badge, Text, Title } from '../ui';
+import { AddTodo, BackLink, Badge, Breadcrumbs, SearchTodo, Todo } from '../elements';
+import { Text, Title } from '../ui';
 
 export const TodosPage = () => {
     const [appliedSearchValue, setAppliedSearchValue] = useState('');
@@ -70,11 +70,11 @@ export const TodosPage = () => {
 
                     <Breadcrumbs className='mb-6 last:mb-0' />
 
-                    <div className='flex gap-2 mb-5 last:mb-0'>
-                        <Badge>Axios</Badge>
-                        <Badge>React Query</Badge>
-                        <Badge>Debounce</Badge>
-                    </div>
+                    <Badge className='flex gap-2 mb-5 last:mb-0'>
+                        <Badge.Item>Axios</Badge.Item>
+                        <Badge.Item>React Query</Badge.Item>
+                        <Badge.Item>Debounce</Badge.Item>
+                    </Badge>
 
                     <Title>Todos with React Query</Title>
                 </div>

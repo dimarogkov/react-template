@@ -1,7 +1,8 @@
 export const PATHS = {
-	HOME: '/',
-	FORM: '/form',
-	TODOS: '/todos',
-	THEME: '/theme',
-	NOT_FOUND: '*',
-}
+    HOME: '/',
+    UI: '/ui',
+    FORM: '/form',
+    TODOS: '/todos',
+    THEME: '/theme',
+    NOT_FOUND: '*',
+};

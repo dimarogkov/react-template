@@ -7,7 +7,7 @@ export const FormPage = () => {
     };
 
     return (
-        <section className='relative w-full mb-10 last:mb-0'>
+        <section className='relative w-full'>
             <div className='w-full'>
                 <BackLink className='mb-6 last:mb-0' />
 

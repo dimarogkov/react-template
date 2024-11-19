@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PATHS } from '../../variables/paths';
 import { App } from '../../App';
-import { FormPage, HomePage, NotFoundPage, ThemePage, TodosPage } from '../pages';
+import { FormPage, HomePage, NotFoundPage, ThemePage, TodosPage, UIPage } from '../pages';
 
 export const Root = () => {
     return (
@@ -9,6 +9,7 @@ export const Root = () => {
             <Routes>
                 <Route path={PATHS.HOME} element={<App />}>
                     <Route index element={<HomePage />} />
+                    <Route path={PATHS.UI} element={<UIPage />} />
                     <Route path={PATHS.FORM} element={<FormPage />} />
                     <Route path={PATHS.TODOS} element={<TodosPage />} />
                     <Route path={PATHS.THEME} element={<ThemePage />} />

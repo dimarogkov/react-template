@@ -1,4 +1,5 @@
 import { EnumAvatar, EnumBtn, EnumTitle } from '../../types/enums';
+import { PATHS } from '../../variables/paths';
 import { BackLink, Breadcrumbs } from '../elements';
 import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Line, Text, Title } from '../ui';
 import { User } from 'lucide-react';
@@ -37,18 +38,18 @@ export const UIPage = () => {
 
             <section className='relative w-full mb-10 last:mb-0'>
                 <div className='flex w-full gap-4 mb-4 last:mb-0'>
-                    <BtnLink href='/ui'>Link Default</BtnLink>
+                    <BtnLink href={PATHS.UI}>Link Default</BtnLink>
 
-                    <BtnLink href='/ui' btnType={EnumBtn.outline}>
+                    <BtnLink href={PATHS.UI} btnType={EnumBtn.outline}>
                         Link Outline
                     </BtnLink>
 
-                    <BtnLink href='/ui'>
+                    <BtnLink href={PATHS.UI}>
                         <User className='w-5 h-5' />
                         <span>Link Icon</span>
                     </BtnLink>
 
-                    <BtnLink href='/ui'>
+                    <BtnLink href={PATHS.UI}>
                         <span>Link Icon</span>
                         <User className='w-5 h-5' />
                     </BtnLink>
@@ -106,7 +107,7 @@ export const UIPage = () => {
                     </Avatar>
 
                     <Avatar isOnline={true}>
-                        <Avatar.Link href='/ui'>
+                        <Avatar.Link href={PATHS.UI}>
                             <Avatar.Img
                                 src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                 className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -128,7 +129,7 @@ export const UIPage = () => {
                     </Avatar>
 
                     <Avatar type={EnumAvatar.square} isOnline={true}>
-                        <Avatar.Link href='/ui'>
+                        <Avatar.Link href={PATHS.UI}>
                             <Avatar.Img
                                 src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                 className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -139,7 +140,7 @@ export const UIPage = () => {
                 <div className='flex w-full gap-4 mb-4 last:mb-0'>
                     <AvatarGroup visibleCount={4}>
                         <Avatar>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -147,7 +148,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -155,7 +156,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -163,7 +164,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -171,7 +172,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -197,7 +198,7 @@ export const UIPage = () => {
                     </Avatar>
 
                     <Avatar size={80} isOnline={true}>
-                        <Avatar.Link href='/ui'>
+                        <Avatar.Link href={PATHS.UI}>
                             <Avatar.Img
                                 src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                 className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -219,7 +220,7 @@ export const UIPage = () => {
                     </Avatar>
 
                     <Avatar type={EnumAvatar.square} size={80} isOnline={true}>
-                        <Avatar.Link href='/ui'>
+                        <Avatar.Link href={PATHS.UI}>
                             <Avatar.Img
                                 src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                 className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -230,7 +231,7 @@ export const UIPage = () => {
                 <div className='flex w-full gap-4 mb-4 last:mb-0'>
                     <AvatarGroup visibleCount={4}>
                         <Avatar size={80}>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -238,7 +239,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar size={80}>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -246,7 +247,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar size={80}>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -254,7 +255,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar size={80}>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'
@@ -262,7 +263,7 @@ export const UIPage = () => {
                             </Avatar.Link>
                         </Avatar>
                         <Avatar size={80}>
-                            <Avatar.Link href='/ui'>
+                            <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     className='transition-all duration-500 will-change-transform hover:scale-110'

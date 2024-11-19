@@ -1,3 +1,4 @@
+import { Avatar, AvatarGroup } from './Avatar';
 import { Badge } from './Badge';
 import { Btn } from './Btn';
 import { BtnLink } from './BtnLink';
@@ -12,4 +13,20 @@ import { Select } from './Select';
 import { Text } from './Text';
 import { Title } from './Title';
 
-export { Badge, Btn, BtnLink, Checkbox, ErrorMessage, Input, Label, Line, Loader, Radio, Select, Text, Title };
+export {
+    Avatar,
+    AvatarGroup,
+    Badge,
+    Btn,
+    BtnLink,
+    Checkbox,
+    ErrorMessage,
+    Input,
+    Label,
+    Line,
+    Loader,
+    Radio,
+    Select,
+    Text,
+    Title,
+};

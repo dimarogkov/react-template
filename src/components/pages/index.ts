@@ -3,5 +3,6 @@ import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
 import { ThemePage } from './ThemePage';
 import { TodosPage } from './TodosPage';
+import { UIPage } from './UIPage';
 
-export { FormPage, HomePage, NotFoundPage, ThemePage, TodosPage };
+export { FormPage, HomePage, NotFoundPage, ThemePage, TodosPage, UIPage };

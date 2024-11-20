@@ -10,7 +10,7 @@ export const ThemePage = () => {
 
                 <Breadcrumbs className='mb-6 last:mb-0' />
 
-                <Badge className='mb-5 last:mb-0'>
+                <Badge className='mb-6 last:mb-0'>
                     <Badge.Item>Next Themes</Badge.Item>
                 </Badge>
 

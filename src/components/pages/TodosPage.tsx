@@ -70,7 +70,7 @@ export const TodosPage = () => {
 
                     <Breadcrumbs className='mb-6 last:mb-0' />
 
-                    <Badge className='flex gap-2 mb-5 last:mb-0'>
+                    <Badge className='mb-6 last:mb-0'>
                         <Badge.Item>Axios</Badge.Item>
                         <Badge.Item>React Query</Badge.Item>
                         <Badge.Item>Debounce</Badge.Item>

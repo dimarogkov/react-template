@@ -1,4 +1,4 @@
-import { EnumAvatar, EnumBtn, EnumTitle } from '../../types/enums';
+import { EnumAvatar, EnumBtn, EnumText, EnumTitle } from '../../types/enums';
 import { PATHS } from '../../variables/paths';
 import { BackLink, Breadcrumbs } from '../elements';
 import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Line, Text, Title } from '../ui';
@@ -22,13 +22,22 @@ export const UIPage = () => {
             <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
                 <div className='w-full mb-5 last:mb-0'>
                     <Title className='mb-2 last:mb-0'>Title H1</Title>
-                    <Title className='mb-2 last:mb-0' titleType={EnumTitle.h2}>
+
+                    <Title titleType={EnumTitle.h2} className='mb-2 last:mb-0'>
                         Title H2
                     </Title>
-                    <Title className='mb-2 last:mb-0' titleType={EnumTitle.h3}>
+
+                    <Title titleType={EnumTitle.h3} className='mb-2 last:mb-0'>
                         Title H3
                     </Title>
-                    <Text>
+
+                    <Text textType={EnumText.large} className='mb-2 last:mb-0'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
+                        accusamus hic dicta blanditiis porro eos voluptate iusto ipsum atque, tenetur ullam enim ipsa.
+                        Modi magnam incidunt minima?
+                    </Text>
+
+                    <Text className='mb-2 last:mb-0'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
                         accusamus hic dicta blanditiis porro eos voluptate iusto ipsum atque, tenetur ullam enim ipsa.
                         Modi magnam incidunt minima?

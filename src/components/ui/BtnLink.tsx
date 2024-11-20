@@ -5,16 +5,18 @@ import cn from 'classnames';
 
 interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnchorElement> {
     href: string;
+    target?: string;
     children: ReactNode;
     btnType?: string;
     className?: string;
 }
 
 export const BtnLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
-    ({ href, children, btnType = EnumBtn.default, className = '', ...props }, ref) => (
+    ({ href, target, children, btnType = EnumBtn.default, className = '', ...props }, ref) => (
         <Link
             ref={ref}
             to={href}
+            target={target}
             {...props}
             className={cn(
                 `flex items-center justify-center gap-2 w-full sm:w-fit sm:min-w-32 lg:min-w-36 h-10 lg:h-11 font-media px-4 rounded transition-opacity duration-300 hover:opacity-80 ${className}`,

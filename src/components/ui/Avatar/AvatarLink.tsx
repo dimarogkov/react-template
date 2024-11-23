@@ -39,6 +39,8 @@ export const AvatarLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                     if (isValidElement(child)) {
                         return cloneElement(child as ReactElement, { type });
                     }
+
+                    return child;
                 })}
             </Link>
         );

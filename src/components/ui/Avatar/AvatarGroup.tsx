@@ -38,7 +38,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         return cloneElement(child as ReactElement, { currentIndex: index });
                     }
 
-                    return null;
+                    return child;
                 })}
 
                 {visibleCount && childArray.length > visibleCount && (

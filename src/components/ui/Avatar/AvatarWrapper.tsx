@@ -53,6 +53,8 @@ export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     if (isValidElement(child)) {
                         return cloneElement(child as ReactElement, { type });
                     }
+
+                    return child;
                 })}
             </div>
         );

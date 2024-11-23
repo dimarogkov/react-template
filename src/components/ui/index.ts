@@ -3,6 +3,7 @@ import { Badge } from './Badge';
 import { Btn } from './Btn';
 import { BtnLink } from './BtnLink';
 import { Checkbox } from './Checkbox';
+import { Dropdown } from './Dropdown';
 import { ErrorMessage } from './ErrorMessage';
 import { Input } from './Input';
 import { Label } from './Label';
@@ -20,6 +21,7 @@ export {
     Btn,
     BtnLink,
     Checkbox,
+    Dropdown,
     ErrorMessage,
     Input,
     Label,

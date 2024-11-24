@@ -3,7 +3,7 @@ import { EnumTitle } from '../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLHeadingElement>, RefAttributes<HTMLHeadingElement> {
     children?: ReactNode;
-    titleType?: string;
+    titleType?: EnumTitle;
     className?: string;
 }
 

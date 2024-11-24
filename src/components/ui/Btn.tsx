@@ -3,7 +3,7 @@ import { EnumBtn } from '../../types/enums';
 import cn from 'classnames';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {
-    btnType?: string;
+    btnType?: EnumBtn;
     className?: string;
 }
 

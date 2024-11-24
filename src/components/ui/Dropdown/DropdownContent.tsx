@@ -16,7 +16,6 @@ import cn from 'classnames';
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     align?: EnumDropdownAlign;
     position?: EnumDropdownPosition;
-    isOpen?: boolean;
     skipPropsToChildren?: boolean;
     className?: string;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
@@ -27,7 +26,6 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
         {
             align = EnumDropdownAlign.start,
             position = EnumDropdownPosition.bottom,
-            isOpen,
             skipPropsToChildren = false,
             setIsOpen = () => {},
             className = '',
@@ -62,8 +60,6 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     'top-0': align === EnumDropdownAlign.start && isHorizontalPosition,
                     'right-0': align === EnumDropdownAlign.end && isVerticalPosition,
                     'bottom-0': align === EnumDropdownAlign.end && isHorizontalPosition,
-                    'opacity-0 invisible': !isOpen,
-                    'opacity-100 visible': isOpen,
                 })}
                 style={dropdownContentStyle}
             >

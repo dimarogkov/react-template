@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FC, useCallback, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useCallback, useState } from 'react';
 import { debounce } from '../../helpers';
 import { Input } from '../ui';
 
 type Props = {
-    setAppliedSearchValue: React.Dispatch<React.SetStateAction<string>>;
+    setAppliedSearchValue: Dispatch<SetStateAction<string>>;
 };
 
 export const SearchTodo: FC<Props> = ({ setAppliedSearchValue }) => {

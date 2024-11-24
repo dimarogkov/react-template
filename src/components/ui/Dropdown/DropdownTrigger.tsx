@@ -23,7 +23,12 @@ export const DropdownTrigger: FC<Props> = forwardRef<HTMLDivElement, Props>(
         const changeIsOpen = () => setIsOpen((prevState) => !prevState);
 
         return (
-            <div ref={ref} {...props} onClick={changeIsOpen} className={`relative w-full cursor-pointer ${className}`}>
+            <summary
+                ref={ref}
+                {...props}
+                onClick={changeIsOpen}
+                className={`relative w-full cursor-pointer list-none ${className}`}
+            >
                 {Children.map(props.children, (child) => {
                     if (isValidElement(child) && !skipPropsToChildren) {
                         return cloneElement(child as ReactElement, { isOpen });
@@ -31,7 +36,7 @@ export const DropdownTrigger: FC<Props> = forwardRef<HTMLDivElement, Props>(
 
                     return child;
                 })}
-            </div>
+            </summary>
         );
     }
 );

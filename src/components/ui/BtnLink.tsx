@@ -7,7 +7,7 @@ interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnch
     href: string;
     target?: string;
     children: ReactNode;
-    btnType?: string;
+    btnType?: EnumBtn;
     className?: string;
 }
 

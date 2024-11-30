@@ -18,7 +18,6 @@ export const HomePage = () => {
                     <BtnLink href={PATHS.STORE}>Store Page</BtnLink>
                     <BtnLink href={PATHS.FORM}>Form Page</BtnLink>
                     <BtnLink href={PATHS.TODOS}>Todos Page</BtnLink>
-                    <BtnLink href={PATHS.THEME}>Theme Page</BtnLink>
                 </div>
             </div>
 

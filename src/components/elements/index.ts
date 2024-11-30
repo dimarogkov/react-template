@@ -8,7 +8,6 @@ import { ProjectInfo } from './ProjectInfo';
 import { SearchTodo } from './SearchTodo';
 import { StoreRedux } from './StoreRedux';
 import { StoreZustand } from './StoreZustand';
-import { ThemeController } from './ThemeController';
 import { Todo } from './Todo';
 
 export {
@@ -22,6 +21,5 @@ export {
     SearchTodo,
     StoreRedux,
     StoreZustand,
-    ThemeController,
     Todo,
 };

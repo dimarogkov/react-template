@@ -137,6 +137,10 @@ export const UIPage = () => {
             </section>
 
             <section className='relative w-full mb-10 last:mb-0'>
+                <div className='flex w-full gap-4 mb-4 last:mb-0'></div>
+            </section>
+
+            <section className='relative w-full mb-10 last:mb-0'>
                 <div className='flex w-full gap-4 mb-4 last:mb-0'>
                     <Avatar>
                         <Avatar.Img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />

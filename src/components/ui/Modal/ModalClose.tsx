@@ -7,7 +7,7 @@ export const ModalClose: FC<Props> = forwardRef<HTMLButtonElement, Props>(({ ...
     <button
         ref={ref}
         {...props}
-        className='absolute top-3 right-3 w-7 h-7 transition-opacity duration-300 hover:opacity-75'
+        className='absolute z-10 top-3 right-3 w-7 h-7 transition-opacity duration-300 hover:opacity-75'
     >
         <X className='w-full h-full text-black' />
     </button>

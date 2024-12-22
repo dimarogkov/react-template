@@ -1,6 +1,6 @@
 import { EnumAvatar, EnumBtn, EnumDropdownAlign, EnumDropdownPosition, EnumText, EnumTitle } from '../../types/enums';
 import { PATHS } from '../../variables/paths';
-import { BackLink, Breadcrumbs, DropdownContent } from '../elements';
+import { BackLink, Breadcrumbs, DropdownContent, ModalContent } from '../elements';
 import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Dropdown, Line, Modal, Text, Title } from '../ui';
 import { User } from 'lucide-react';
 
@@ -136,17 +136,6 @@ export const UIPage = () => {
                             <DropdownContent />
                         </Dropdown.Content>
                     </Dropdown>
-
-                    <Dropdown>
-                        <Dropdown.Trigger>
-                            <Avatar type={EnumAvatar.square} className='w-12 md:w-16 h-12 md:h-16' isOnline>
-                                <Avatar.Img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />
-                            </Avatar>
-                        </Dropdown.Trigger>
-                        <Dropdown.Content align={EnumDropdownAlign.end} position={EnumDropdownPosition.bottom}>
-                            <DropdownContent />
-                        </Dropdown.Content>
-                    </Dropdown>
                 </div>
             </section>
 
@@ -176,6 +165,15 @@ export const UIPage = () => {
                                     </Text>
                                 </div>
                             </div>
+                        </Modal.Content>
+                    </Modal>
+
+                    <Modal>
+                        <Modal.Trigger>
+                            <Btn>Modal Close Btn</Btn>
+                        </Modal.Trigger>
+                        <Modal.Content>
+                            <ModalContent />
                         </Modal.Content>
                     </Modal>
                 </div>

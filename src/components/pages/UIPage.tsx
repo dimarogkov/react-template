@@ -1,7 +1,7 @@
 import { EnumAvatar, EnumBtn, EnumDropdownAlign, EnumDropdownPosition, EnumText, EnumTitle } from '../../types/enums';
 import { PATHS } from '../../variables/paths';
 import { BackLink, Breadcrumbs, DropdownContent, ModalContent } from '../elements';
-import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Dropdown, Line, Modal, Text, Title } from '../ui';
+import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Dropdown, Line, Modal, SimpleLink, Text, Title } from '../ui';
 import { User } from 'lucide-react';
 
 export const UIPage = () => {
@@ -33,14 +33,14 @@ export const UIPage = () => {
 
                     <Text textType={EnumText.large} className='mb-2 last:mb-0'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
-                        accusamus hic dicta blanditiis porro eos voluptate iusto ipsum atque, tenetur ullam enim ipsa.
-                        Modi magnam incidunt minima?
+                        accusamus hic dicta blanditiis porro <SimpleLink href={PATHS.UI}>voluptate iusto</SimpleLink>{' '}
+                        eos ipsum atque, tenetur ullam enim ipsa. Modi magnam incidunt minima?
                     </Text>
 
                     <Text className='mb-2 last:mb-0'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
-                        accusamus hic dicta blanditiis porro eos voluptate iusto ipsum atque, tenetur ullam enim ipsa.
-                        Modi magnam incidunt minima?
+                        accusamus hic dicta blanditiis porro <SimpleLink href={PATHS.UI}>voluptate iusto</SimpleLink>{' '}
+                        eos ipsum atque, tenetur ullam enim ipsa. Modi magnam incidunt minima?
                     </Text>
                 </div>
             </section>

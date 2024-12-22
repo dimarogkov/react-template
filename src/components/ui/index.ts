@@ -9,6 +9,7 @@ import { Input } from './Input';
 import { Label } from './Label';
 import { Line } from './Line';
 import { Loader } from './Loader';
+import { Modal } from './Modal';
 import { Radio } from './Radio';
 import { Select } from './Select';
 import { Text } from './Text';
@@ -27,6 +28,7 @@ export {
     Label,
     Line,
     Loader,
+    Modal,
     Radio,
     Select,
     Text,

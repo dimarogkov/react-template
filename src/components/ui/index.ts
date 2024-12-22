@@ -12,6 +12,7 @@ import { Loader } from './Loader';
 import { Modal } from './Modal';
 import { Radio } from './Radio';
 import { Select } from './Select';
+import { SimpleLink } from './SimpleLink';
 import { Text } from './Text';
 import { Title } from './Title';
 
@@ -31,6 +32,7 @@ export {
     Modal,
     Radio,
     Select,
+    SimpleLink,
     Text,
     Title,
 };

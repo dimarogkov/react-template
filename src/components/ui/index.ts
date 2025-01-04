@@ -6,6 +6,7 @@ import { Checkbox } from './Checkbox';
 import { Dropdown } from './Dropdown';
 import { ErrorMessage } from './ErrorMessage';
 import { Input } from './Input';
+import { InputPassword } from './InputPassword';
 import { Label } from './Label';
 import { Line } from './Line';
 import { Loader } from './Loader';
@@ -26,6 +27,7 @@ export {
     Dropdown,
     ErrorMessage,
     Input,
+    InputPassword,
     Label,
     Line,
     Loader,

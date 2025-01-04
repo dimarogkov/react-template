@@ -17,7 +17,7 @@ export const AvatarImg: FC<Props> = forwardRef<HTMLImageElement, Props>(
                 ref={ref}
                 {...props}
                 alt={props.alt}
-                className={cn(`absolute top-0 left-0 rounded-full object-cover object-center ${className}`, {
+                className={cn(`absolute top-0 left-0 object-cover object-center ${className}`, {
                     'rounded-full': isTypeCircle,
                     'rounded-md': isTypeSquare,
                 })}

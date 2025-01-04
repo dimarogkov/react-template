@@ -8,6 +8,7 @@ type Props = {
 
 export const Breadcrumbs: FC<Props> = ({ className = '' }) => {
     const { pathname } = useLocation();
+    
     const links = pathname.split('/').map((link) => ({
         id: crypto.randomUUID(),
         href: `/${link}`,

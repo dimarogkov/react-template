@@ -7,7 +7,7 @@ type Props = {
     setAppliedSearchValue: Dispatch<SetStateAction<string>>;
 };
 
-export const SearchTodo: FC<Props> = ({ setAppliedSearchValue }) => {
+export const SearchTodo: FC<Props> = ({ setAppliedSearchValue = () => {} }) => {
     const [value, setValue] = useState('');
 
     const applySearchValue = useCallback(debounce(setAppliedSearchValue, 700), []);

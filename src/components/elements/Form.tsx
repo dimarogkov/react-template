@@ -18,9 +18,9 @@ export const Form: FC<Props> = ({ onSubmit }) => {
     } = useForm(formOptions);
 
     return (
-        <form className='w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
-            <Label className='w-full mb-5 last:mb-0'>
-                <Select {...register(EnumFormNames.select)} className='mb-2 last:mb-0'>
+        <form className='flex flex-col gap-5 w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
+            <Label className='flex flex-col gap-2'>
+                <Select {...register(EnumFormNames.select)}>
                     <Select.Option value='default' hidden>
                         Select Option
                     </Select.Option>
@@ -32,48 +32,38 @@ export const Form: FC<Props> = ({ onSubmit }) => {
                 {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}
             </Label>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <Input {...register(EnumFormNames.username)} placeholder='Username' className='mb-2 last:mb-0' />
+            <Label className='flex flex-col gap-2'>
+                <Input {...register(EnumFormNames.username)} placeholder='Username' />
                 {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
             </Label>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <Input {...register(EnumFormNames.age)} type='number' placeholder='Age' className='mb-2 last:mb-0' />
+            <Label className='flex flex-col gap-2'>
+                <Input {...register(EnumFormNames.age)} type='number' placeholder='Age' />
                 {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
             </Label>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <Input {...register(EnumFormNames.email)} placeholder='Email' className='mb-2 last:mb-0' />
+            <Label className='flex flex-col gap-2'>
+                <Input {...register(EnumFormNames.email)} placeholder='Email' />
                 {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
             </Label>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <Input {...register(EnumFormNames.phone)} placeholder='Phone' className='mb-2 last:mb-0' />
+            <Label className='flex flex-col gap-2'>
+                <Input {...register(EnumFormNames.phone)} placeholder='Phone' />
                 {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
             </Label>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <InputPassword
-                    {...register(EnumFormNames.password)}
-                    placeholder='Password'
-                    className='mb-2 last:mb-0'
-                />
-
+            <Label className='flex flex-col gap-2'>
+                <InputPassword {...register(EnumFormNames.password)} placeholder='Password' />
                 {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
             </Label>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <InputPassword
-                    {...register(EnumFormNames.confirmPassword)}
-                    placeholder='Confirm Password'
-                    className='mb-2 last:mb-0'
-                />
-
+            <Label className='flex flex-col gap-2'>
+                <InputPassword {...register(EnumFormNames.confirmPassword)} placeholder='Confirm Password' />
                 {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
             </Label>
 
-            <div className='w-full mb-5 last:mb-0'>
-                <div className='flex gap-4 w-full mb-2 last:mb-0'>
+            <div className='flex flex-col gap-2 w-full'>
+                <div className='flex gap-4 w-full'>
                     <Label className='w-full'>
                         <div className='flex items-center gap-2 cursor-pointer'>
                             <Radio
@@ -101,8 +91,8 @@ export const Form: FC<Props> = ({ onSubmit }) => {
                 {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}
             </div>
 
-            <Label className='w-full mb-5 last:mb-0'>
-                <div className='flex items-center gap-2 cursor-pointer mb-2 last:mb-0'>
+            <Label className='flex flex-col gap-2'>
+                <div className='flex items-center gap-2 cursor-pointer'>
                     <Checkbox {...register(EnumFormNames.rememberMe)} isChecked={watch('rememberMe')} />
                     <Text>Remember me</Text>
                 </div>

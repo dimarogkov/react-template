@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../helpers';
 import { EnumBtn, EnumFormNames } from '../../types/enums';
-import { Btn, Checkbox, ErrorMessage, Input, Label, Radio, Select, Text } from '../ui';
+import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select, Text } from '../ui';
 
 type Props = {
     onSubmit: (data: any) => void;
@@ -53,9 +53,8 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             </Label>
 
             <Label className='w-full mb-5 last:mb-0'>
-                <Input
+                <InputPassword
                     {...register(EnumFormNames.password)}
-                    type='password'
                     placeholder='Password'
                     className='mb-2 last:mb-0'
                 />
@@ -64,9 +63,8 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             </Label>
 
             <Label className='w-full mb-5 last:mb-0'>
-                <Input
+                <InputPassword
                     {...register(EnumFormNames.confirmPassword)}
-                    type='password'
                     placeholder='Confirm Password'
                     className='mb-2 last:mb-0'
                 />

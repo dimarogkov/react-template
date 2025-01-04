@@ -6,7 +6,7 @@ type Props = {
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
 };
 
-export const DropdownContent: FC<Props> = ({ setIsOpen = () => {}, className = '' }) => {
+export const DropdownContent: FC<Props> = ({ className = '', setIsOpen = () => {} }) => {
     return (
         <div className={`relative w-full ${className}`}>
             <ul className='flex flex-col gap-2 w-full mb-4 last:mb-0'>

@@ -1,5 +1,5 @@
-import { EnumAvatar, EnumBtn, EnumDropdownAlign, EnumDropdownPosition, EnumText, EnumTitle } from '../../types/enums';
 import { PATHS } from '../../variables/paths';
+import { EnumAvatar, EnumBtn, EnumDropdownAlign, EnumDropdownPosition, EnumText, EnumTitle } from '../../types/enums';
 import { BackLink, Breadcrumbs, DropdownContent, ModalContent } from '../elements';
 import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Dropdown, Line, Modal, SimpleLink, Text, Title } from '../ui';
 import { User } from 'lucide-react';
@@ -8,11 +8,9 @@ export const UIPage = () => {
     return (
         <>
             <section className='relative w-full'>
-                <div className='w-full'>
-                    <BackLink className='mb-6 last:mb-0' />
-
-                    <Breadcrumbs className='mb-6 last:mb-0' />
-
+                <div className='flex flex-col gap-6 w-full'>
+                    <BackLink />
+                    <Breadcrumbs />
                     <Title>React UI</Title>
                 </div>
             </section>
@@ -20,24 +18,18 @@ export const UIPage = () => {
             <Line />
 
             <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
-                <div className='w-full mb-5 last:mb-0'>
-                    <Title className='mb-2 last:mb-0'>Title H1</Title>
+                <div className='flex flex-col gap-2 w-full mb-5 last:mb-0'>
+                    <Title>Title H1</Title>
+                    <Title titleType={EnumTitle.h2}>Title H2</Title>
+                    <Title titleType={EnumTitle.h3}>Title H3</Title>
 
-                    <Title titleType={EnumTitle.h2} className='mb-2 last:mb-0'>
-                        Title H2
-                    </Title>
-
-                    <Title titleType={EnumTitle.h3} className='mb-2 last:mb-0'>
-                        Title H3
-                    </Title>
-
-                    <Text textType={EnumText.large} className='mb-2 last:mb-0'>
+                    <Text textType={EnumText.large}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
                         accusamus hic dicta blanditiis porro <SimpleLink href={PATHS.UI}>voluptate iusto</SimpleLink>{' '}
                         eos ipsum atque, tenetur ullam enim ipsa. Modi magnam incidunt minima?
                     </Text>
 
-                    <Text className='mb-2 last:mb-0'>
+                    <Text>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
                         accusamus hic dicta blanditiis porro <SimpleLink href={PATHS.UI}>voluptate iusto</SimpleLink>{' '}
                         eos ipsum atque, tenetur ullam enim ipsa. Modi magnam incidunt minima?
@@ -66,11 +58,8 @@ export const UIPage = () => {
 
                 <div className='flex flex-wrap w-full gap-4 mb-4 last:mb-0'>
                     <Btn>Button Default</Btn>
-
                     <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
-
                     <Btn btnType={EnumBtn.disabled}>Button Disabled</Btn>
-
                     <Btn disabled>Button Disabled</Btn>
 
                     <Btn>
@@ -90,12 +79,10 @@ export const UIPage = () => {
                             <User className='w-5 h-5' />
                             <span>Badge Icon</span>
                         </Badge.Item>
-
                         <Badge.Item>
                             <span>Badge Icon</span>
                             <User className='w-5 h-5' />
                         </Badge.Item>
-
                         <Badge.Item>Badge Default</Badge.Item>
                     </Badge>
                 </div>
@@ -148,7 +135,6 @@ export const UIPage = () => {
                         <Modal.Content skipPropsToChildren>
                             <div className='w-full'>
                                 <Title titleType={EnumTitle.h2}>Default Modal</Title>
-
                                 <Line />
 
                                 <div className='flex flex-col gap-2 w-full'>
@@ -202,6 +188,7 @@ export const UIPage = () => {
                         </Avatar.Link>
                     </Avatar>
                 </div>
+
                 <div className='flex w-full gap-4 mb-4 last:mb-0'>
                     <Avatar type={EnumAvatar.square}>
                         <Avatar.Img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />
@@ -224,6 +211,7 @@ export const UIPage = () => {
                         </Avatar.Link>
                     </Avatar>
                 </div>
+
                 <div className='flex w-full gap-4 mb-4 last:mb-0'>
                     <AvatarGroup visibleCount={4}>
                         <Avatar>
@@ -234,6 +222,7 @@ export const UIPage = () => {
                                 />
                             </Avatar.Link>
                         </Avatar>
+
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
@@ -242,6 +231,7 @@ export const UIPage = () => {
                                 />
                             </Avatar.Link>
                         </Avatar>
+
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
@@ -250,6 +240,7 @@ export const UIPage = () => {
                                 />
                             </Avatar.Link>
                         </Avatar>
+
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img
@@ -258,6 +249,7 @@ export const UIPage = () => {
                                 />
                             </Avatar.Link>
                         </Avatar>
+                        
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img

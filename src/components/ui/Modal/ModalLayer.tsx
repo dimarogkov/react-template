@@ -4,11 +4,13 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ModalLayer: FC<Props> = forwardRef<HTMLDivElement, Props>(({ setIsOpen = () => {}, ...props }, ref) => (
-    <div
-        ref={ref}
-        {...props}
-        onClick={() => setIsOpen(false)}
-        className='absolute top-0 left-0 w-full h-full bg-black/30'
-    />
-));
+export const ModalLayer: FC<Props> = forwardRef<HTMLDivElement, Props>(({ setIsOpen = () => {}, ...props }, ref) => {
+    return (
+        <div
+            ref={ref}
+            {...props}
+            onClick={() => setIsOpen(false)}
+            className='absolute top-0 left-0 w-full h-full bg-black/30'
+        />
+    );
+});

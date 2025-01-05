@@ -6,6 +6,13 @@ interface Props extends HTMLAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnc
     className?: string;
 }
 
-export const SimpleLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(({ href, className = '', ...props }, ref) => (
-    <Link ref={ref} {...props} to={href} className={`relative w-auto font-medium text-blue underline ${className}`} />
-));
+export const SimpleLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(({ href, className = '', ...props }, ref) => {
+    return (
+        <Link
+            ref={ref}
+            {...props}
+            to={href}
+            className={`relative w-auto font-medium text-blue underline ${className}`}
+        />
+    );
+});

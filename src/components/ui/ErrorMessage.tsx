@@ -4,8 +4,6 @@ interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTML
     className?: string;
 }
 
-export const ErrorMessage: FC<Props> = forwardRef<HTMLParagraphElement, Props>(
-    ({ className = '', ...props }, ref) => (
-        <p ref={ref} {...props} className={`w-full font-medium text-sm text-red ${className}`} />
-    )
-);
+export const ErrorMessage: FC<Props> = forwardRef<HTMLParagraphElement, Props>(({ className = '', ...props }, ref) => {
+    return <p ref={ref} {...props} className={`w-full font-medium text-sm text-red ${className}`} />;
+});

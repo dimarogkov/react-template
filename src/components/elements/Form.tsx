@@ -65,26 +65,21 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             <div className='flex flex-col gap-2 w-full'>
                 <div className='flex gap-4 w-full'>
                     <Label className='w-full'>
-                        <div className='flex items-center gap-2 cursor-pointer'>
-                            <Radio
-                                {...register(EnumFormNames.radioType)}
-                                isChecked={watch('radioType')}
-                                value='type_one'
-                            />
-
-                            <Text>Type One</Text>
-                        </div>
+                        <Radio
+                            {...register(EnumFormNames.radioType)}
+                            isChecked={watch('radioType')}
+                            value='type_one'
+                            label='Type One'
+                        />
                     </Label>
 
                     <Label className='w-full'>
-                        <div className='flex items-center gap-2 cursor-pointer'>
-                            <Radio
-                                {...register(EnumFormNames.radioType)}
-                                isChecked={watch('radioType')}
-                                value='type_two'
-                            />
-                            <Text>Type Two</Text>
-                        </div>
+                        <Radio
+                            {...register(EnumFormNames.radioType)}
+                            isChecked={watch('radioType')}
+                            value='type_two'
+                            label='Type Two'
+                        />
                     </Label>
                 </div>
 
@@ -92,11 +87,7 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             </div>
 
             <Label className='flex flex-col gap-2'>
-                <div className='flex items-center gap-2 cursor-pointer'>
-                    <Checkbox {...register(EnumFormNames.rememberMe)} isChecked={watch('rememberMe')} />
-                    <Text>Remember me</Text>
-                </div>
-
+                <Checkbox {...register(EnumFormNames.rememberMe)} isChecked={watch('rememberMe')} label='Remember me' />
                 {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
             </Label>
 

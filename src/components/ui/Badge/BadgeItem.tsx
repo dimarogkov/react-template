@@ -4,10 +4,12 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
     className?: string;
 }
 
-export const BadgeItem: FC<Props> = forwardRef<HTMLSpanElement, Props>(({ className = '', ...props }, ref) => (
-    <span
-        ref={ref}
-        {...props}
-        className={`flex items-center gap-2 text-base px-3 py-1.5 rounded bg-gray ${className}`}
-    />
-));
+export const BadgeItem: FC<Props> = forwardRef<HTMLSpanElement, Props>(({ className = '', ...props }, ref) => {
+    return (
+        <span
+            ref={ref}
+            {...props}
+            className={`flex items-center gap-2 text-base px-3 py-1.5 rounded bg-gray ${className}`}
+        />
+    );
+});

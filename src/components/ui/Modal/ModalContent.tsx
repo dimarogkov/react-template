@@ -22,7 +22,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 }
 
 export const ModalContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    ({ isOpen, skipPropsToChildren = false, setIsOpen = () => {}, className = '', ...props }, ref) => {
+    ({ isOpen, skipPropsToChildren = false, className = '', setIsOpen = () => {}, ...props }, ref) => {
         return (
             <div
                 className={cn(

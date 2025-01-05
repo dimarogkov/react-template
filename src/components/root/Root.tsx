@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { FormPage, HomePage, NotFoundPage, StorePage, TodosPage, UIPage } from '../pages';
 import { PATHS } from '../../variables/paths';
 import { App } from '../../App';
-import { FormPage, HomePage, NotFoundPage, StorePage, TodosPage, UIPage } from '../pages';
 
 export const Root = () => {
     return (

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../helpers';
 import { EnumBtn, EnumFormNames } from '../../types/enums';
-import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select, Text } from '../ui';
+import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select } from '../ui';
 
 type Props = {
     onSubmit: (data: any) => void;

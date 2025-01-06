@@ -1,7 +1,7 @@
 import { PATHS } from '../../variables/paths';
 import { EnumAvatar, EnumBtn, EnumDropdownAlign, EnumDropdownPosition, EnumText, EnumTitle } from '../../types/enums';
 import { BackLink, Breadcrumbs, DropdownContent, ModalContent } from '../elements';
-import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Dropdown, Line, Modal, SimpleLink, Text, Title } from '../ui';
+import { Avatar, AvatarGroup, Badge, Btn, BtnLink, Dropdown, Line, Modal, SimpleLink, Tabs, Text, Title } from '../ui';
 import { User } from 'lucide-react';
 
 export const UIPage = () => {
@@ -86,6 +86,30 @@ export const UIPage = () => {
                         <Badge.Item>Badge Default</Badge.Item>
                     </Badge>
                 </div>
+            </section>
+
+            <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
+                <Tabs>
+                    <Tabs.TabList>
+                        <Tabs.Tab>Tab 1</Tabs.Tab>
+                        <Tabs.Tab>Tab 2</Tabs.Tab>
+                        <Tabs.Tab>Tab 3</Tabs.Tab>
+                    </Tabs.TabList>
+                    <Tabs.Panels>
+                        <Tabs.Panel>
+                            Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur, asd dima
+                            and some people. Panel 1.
+                        </Tabs.Panel>
+                        <Tabs.Panel>
+                            Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur. Panel 2.
+                        </Tabs.Panel>
+                        <Tabs.Panel>
+                            Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur. Lorem,
+                            ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur, asd dima and some
+                            people. Panel 3.
+                        </Tabs.Panel>
+                    </Tabs.Panels>
+                </Tabs>
             </section>
 
             <section className='relative w-full mb-10 last:mb-0'>
@@ -249,7 +273,7 @@ export const UIPage = () => {
                                 />
                             </Avatar.Link>
                         </Avatar>
-                        
+
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img

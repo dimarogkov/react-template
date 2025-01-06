@@ -14,6 +14,7 @@ import { Modal } from './Modal';
 import { Radio } from './Radio';
 import { Select } from './Select';
 import { SimpleLink } from './SimpleLink';
+import { Tabs } from './Tabs';
 import { Text } from './Text';
 import { Title } from './Title';
 
@@ -35,6 +36,7 @@ export {
     Radio,
     Select,
     SimpleLink,
+    Tabs,
     Text,
     Title,
 };

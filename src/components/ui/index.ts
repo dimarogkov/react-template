@@ -17,6 +17,7 @@ import { SimpleLink } from './SimpleLink';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
 import { Title } from './Title';
+import { Toast, CreateToast } from './Toast';
 
 export {
     Avatar,
@@ -25,6 +26,7 @@ export {
     Btn,
     BtnLink,
     Checkbox,
+    CreateToast,
     Dropdown,
     ErrorMessage,
     Input,
@@ -39,4 +41,5 @@ export {
     Tabs,
     Text,
     Title,
+    Toast,
 };

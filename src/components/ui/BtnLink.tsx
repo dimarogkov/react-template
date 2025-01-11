@@ -13,6 +13,11 @@ interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnch
 
 export const BtnLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
     ({ href, target, children, btnType = EnumBtn.default, className = '', ...props }, ref) => {
+        const linkClasses = {
+            [EnumBtn.default as string]: 'bg-blue text-white',
+            [EnumBtn.outline as string]: 'border-2 border-blue text-blue',
+        };
+
         return (
             <Link
                 ref={ref}
@@ -21,10 +26,7 @@ export const BtnLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                 {...props}
                 className={cn(
                     `flex items-center justify-center gap-2 w-full sm:w-fit sm:min-w-32 lg:min-w-36 h-10 lg:h-11 font-media px-4 rounded transition-opacity duration-300 hover:opacity-80 ${className}`,
-                    {
-                        'bg-blue text-white': btnType === EnumBtn.default,
-                        'border-2 border-blue text-blue': btnType === EnumBtn.outline,
-                    }
+                    linkClasses[btnType]
                 )}
             >
                 {children}

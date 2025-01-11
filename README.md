@@ -18,6 +18,7 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
     -   pages
     -   root
     -   ui
+-   context
 -   helpers
 -   services
 -   store

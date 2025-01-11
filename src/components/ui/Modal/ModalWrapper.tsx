@@ -25,7 +25,7 @@ export const ModalWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(({ clas
     }, [isModalOpen]);
 
     return (
-        <div ref={ref} {...props} className={`relative w-auto ${className}`}>
+        <div ref={ref} {...props} className={`relative ${className}`}>
             {Children.map(props.children, (child) => {
                 if (isValidElement(child)) {
                     return cloneElement(child as ReactElement, {

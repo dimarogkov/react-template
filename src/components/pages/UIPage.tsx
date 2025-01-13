@@ -33,7 +33,7 @@ export const UIPage = () => {
                 <div className='flex flex-col gap-6 w-full'>
                     <BackLink />
                     <Breadcrumbs />
-                    <Title>React UI</Title>
+                    <Title>UI Elements</Title>
                 </div>
             </section>
 

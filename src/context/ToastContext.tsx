@@ -1,42 +1,53 @@
-import { createContext, FC, ReactNode, useContext, useEffect, useState } from 'react';
-import { ToastOutlet } from './ToastOutlet';
+import { createContext, FC, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { IToast } from '../types/interfaces/Toast';
+import { Toast } from '../components/ui';
 
 interface Props {
     children: ReactNode;
 }
 
-const ToastContext = createContext<(toast: IToast) => void>(() => {});
+interface ToastContextValue {
+    createToast: (toast: IToast, duration: number) => void;
+    closeToast: (toastId: string) => void;
+}
+
+const ToastContext = createContext<ToastContextValue>({
+    createToast: () => {},
+    closeToast: () => {},
+});
 
 export const ToastProvider: FC<Props> = ({ children }) => {
     const [toasts, setToasts] = useState<IToast[]>([]);
 
-    useEffect(() => {
-        toasts.length > 6 && setToasts((prevState) => prevState.slice(1));
-    }, [toasts.length]);
-
     const closeToast = (toastId: string) => {
-        setToasts((prevState) =>
-            prevState.map((toast) => {
-                return toast.id === toastId ? { ...toast, isClosing: true } : toast;
-            })
-        );
+        setToasts((prev) => {
+            const filteredToasts = prev.filter(({ id }) => id !== toastId);
+            const currentToast = prev.find(({ id }) => id === toastId);
 
-        const time = setTimeout(() => setToasts((prev) => prev.filter(({ id }) => id !== toastId)), 300);
-        return () => clearTimeout(time);
+            currentToast?.timeoutId && clearTimeout(currentToast?.timeoutId);
+
+            return filteredToasts;
+        });
     };
 
-    const createToast = (toast: IToast) => {
-        setToasts((prev) => [...prev, toast]);
+    const createToast = useCallback((toast: IToast, duration: number) => {
+        const timeoutId = setTimeout(() => closeToast(toast.id), duration);
+        setToasts((prev) => [{ ...toast, timeoutId }, ...prev]);
+    }, []);
 
-        const time = setTimeout(() => closeToast(toast.id), 3000);
-        return () => clearTimeout(time);
-    };
+    const value = useMemo(() => ({ closeToast, createToast }), [createToast]);
 
     return (
-        <ToastContext.Provider value={createToast}>
+        <ToastContext.Provider value={value}>
             {children}
-            <ToastOutlet toasts={toasts} closeToast={closeToast} />
+
+            {toasts.length > 0 && (
+                <div className='fixed z-10 bottom-0 sm:bottom-2 md:bottom-3 sm:right-2 md:right-3 flex flex-col items-end gap-2 w-full sm:w-auto p-4 sm:p-0'>
+                    {toasts.map((toast) => (
+                        <Toast key={toast.id} toast={toast} closeToast={closeToast} />
+                    ))}
+                </div>
+            )}
         </ToastContext.Provider>
     );
 };

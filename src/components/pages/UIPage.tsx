@@ -175,17 +175,17 @@ export const UIPage = () => {
             <section className='relative w-full mb-10 last:mb-0'>
                 <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
                     <CreateToast
-                        title='This is a Default notification.'
-                        text='This toast message notifies you of something. Whatever that may be.'
+                        title='This is a Info notification.'
+                        text='This toast message notifies you of something.'
                         className='w-full sm:w-auto'
                     >
-                        <Btn>Toast Default</Btn>
+                        <Btn>Toast Info</Btn>
                     </CreateToast>
 
                     <CreateToast
                         type={EnumToast.success}
                         title='This is a Success notification.'
-                        text='This toast message notifies you of all your great successes. You rock!'
+                        text='This toast message notifies you of all your great successes.'
                         className='w-full sm:w-auto'
                     >
                         <Btn>Toast Success</Btn>
@@ -194,7 +194,7 @@ export const UIPage = () => {
                     <CreateToast
                         type={EnumToast.warning}
                         title='This is a Warning notification.'
-                        text='This toast message notifies you of a Warning. Who knows what might have happened.'
+                        text='This toast message notifies you of a Warning.'
                         className='w-full sm:w-auto'
                     >
                         <Btn>Toast Warning</Btn>

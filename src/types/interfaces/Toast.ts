@@ -3,5 +3,5 @@ export interface IToast {
     type: string;
     title: string;
     text: string;
-    isClosing: boolean;
+    timeoutId: NodeJS.Timeout | null;
 }

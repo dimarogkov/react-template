@@ -3,7 +3,7 @@ import { useToast } from '../../../context';
 import { EnumToast } from '../../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    type?: string;
+    type?: EnumToast;
     title: string;
     text?: string;
     duration?: number;

@@ -10,7 +10,6 @@ import {
     useEffect,
     useState,
 } from 'react';
-import { ModalContent } from './ModalContent';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     className?: string;
@@ -28,11 +27,7 @@ export const ModalWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(({ clas
         <div ref={ref} {...props} className={`relative ${className}`}>
             {Children.map(props.children, (child) => {
                 if (isValidElement(child)) {
-                    return cloneElement(child as ReactElement, {
-                        ...(child.type === ModalContent
-                            ? { isOpen: isModalOpen, setIsOpen: setIsModalOpen }
-                            : { setIsOpen: setIsModalOpen }),
-                    });
+                    return cloneElement(child as ReactElement, { isOpen: isModalOpen, setIsOpen: setIsModalOpen });
                 }
 
                 return child;

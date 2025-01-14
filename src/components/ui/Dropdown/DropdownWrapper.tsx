@@ -11,7 +11,6 @@ import {
     useRef,
     useState,
 } from 'react';
-import { DropdownTrigger } from './DropdownTrigger';
 
 interface Props extends DetailsHTMLAttributes<HTMLDetailsElement>, RefAttributes<HTMLDetailsElement> {
     isOpen?: boolean;
@@ -46,9 +45,8 @@ export const DropdownWrapper: FC<Props> = forwardRef<HTMLDetailsElement, Props>(
                 {Children.map(props.children, (child) => {
                     if (isValidElement(child)) {
                         return cloneElement(child as ReactElement, {
-                            ...(child.type === DropdownTrigger
-                                ? { isOpen: isDropdownOpen, setIsOpen: setIsDropdownOpen }
-                                : { setIsOpen: setIsDropdownOpen }),
+                            isOpen: isDropdownOpen,
+                            setIsOpen: setIsDropdownOpen,
                         });
                     }
 

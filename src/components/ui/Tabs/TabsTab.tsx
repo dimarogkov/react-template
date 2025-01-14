@@ -15,13 +15,11 @@ export const TabsTab: FC<Props> = forwardRef<HTMLLIElement, Props>(
             isActive && setActiveIndex(tabIndex);
         }, [isActive, setActiveIndex, tabIndex]);
 
-        const changeTab = () => setActiveIndex(tabIndex);
-
         return (
             <li
                 ref={ref}
                 {...props}
-                onClick={changeTab}
+                onClick={() => setActiveIndex(tabIndex)}
                 className={cn(`relative px-3 py-1.5 rounded-t-md border border-b-0 cursor-pointer ${className}`, {
                     'active-tab border-gray': tabIndex === activeIndex,
                     'border-transparent': tabIndex !== activeIndex,

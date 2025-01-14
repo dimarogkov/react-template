@@ -1,21 +1,24 @@
 import {
     Children,
     cloneElement,
+    Dispatch,
     FC,
     forwardRef,
     HTMLAttributes,
     isValidElement,
     ReactElement,
     RefAttributes,
+    SetStateAction,
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     activeIndex?: number;
     className?: string;
+    setActiveIndex?: Dispatch<SetStateAction<number>>;
 }
 
 export const TabsPanels: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    ({ activeIndex, className = '', ...props }, ref) => {
+    ({ activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         return (
             <div ref={ref} {...props} className={`relative w-full ${className}`}>
                 {Children.map(props.children, (child, index) => {

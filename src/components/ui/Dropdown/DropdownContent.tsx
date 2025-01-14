@@ -17,6 +17,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     align?: EnumDropdownAlign;
     position?: EnumDropdownPosition;
     skipPropsToChildren?: boolean;
+    isOpen?: boolean;
     className?: string;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
 }
@@ -27,6 +28,7 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
             align = EnumDropdownAlign.start,
             position = EnumDropdownPosition.bottom,
             skipPropsToChildren = false,
+            isOpen,
             className = '',
             setIsOpen = () => {},
             ...props

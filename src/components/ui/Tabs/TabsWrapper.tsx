@@ -9,7 +9,6 @@ import {
     RefAttributes,
     useState,
 } from 'react';
-import { TabsList } from './TabsList';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     className?: string;
@@ -22,9 +21,7 @@ export const TabsWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(({ class
         <div ref={ref} {...props} className={`relative w-full ${className}`}>
             {Children.map(props.children, (child) => {
                 if (isValidElement(child)) {
-                    return cloneElement(child as ReactElement, {
-                        ...(child.type === TabsList ? { activeIndex, setActiveIndex } : { activeIndex }),
-                    });
+                    return cloneElement(child as ReactElement, { activeIndex, setActiveIndex });
                 }
 
                 return child;

@@ -1,4 +1,4 @@
-import { Dispatch, FC, forwardRef, HTMLAttributes, MouseEvent, RefAttributes, SetStateAction } from 'react';
+import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;
@@ -8,16 +8,11 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 
 export const DropdownTrigger: FC<Props> = forwardRef<HTMLDivElement, Props>(
     ({ isOpen, className = '', setIsOpen = () => {}, ...props }, ref) => {
-        const changeIsOpen = (e: MouseEvent) => {
-            e.preventDefault();
-            setIsOpen((prevState) => !prevState);
-        };
-
         return (
-            <summary
+            <div
                 ref={ref}
                 {...props}
-                onClick={changeIsOpen}
+                onClick={() => setIsOpen((prevState) => !prevState)}
                 className={`relative cursor-pointer list-none ${className}`}
             />
         );

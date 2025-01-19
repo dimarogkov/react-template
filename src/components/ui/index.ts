@@ -1,3 +1,4 @@
+import { Accordion } from './Accordion';
 import { Avatar, AvatarGroup } from './Avatar';
 import { Badge } from './Badge';
 import { Btn } from './Btn';
@@ -20,6 +21,7 @@ import { Title } from './Title';
 import { Toast, CreateToast } from './Toast';
 
 export {
+    Accordion,
     Avatar,
     AvatarGroup,
     Badge,

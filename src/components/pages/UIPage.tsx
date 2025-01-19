@@ -1,5 +1,6 @@
 import { PATHS } from '../../variables/paths';
 import {
+    EnumAccordionIcon,
     EnumAvatar,
     EnumBtn,
     EnumDropdownAlign,
@@ -10,6 +11,7 @@ import {
 } from '../../types/enums';
 import { BackLink, Breadcrumbs, DropdownContent, ModalContent } from '../elements';
 import {
+    Accordion,
     Avatar,
     AvatarGroup,
     Badge,
@@ -134,6 +136,66 @@ export const UIPage = () => {
                 </Tabs>
             </section>
 
+            <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
+                <Accordion className='mb-10 last:mb-0'>
+                    <Accordion.Item>
+                        <Accordion.Title>Accordion Title 1</Accordion.Title>
+                        <Accordion.Content>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia eveniet.
+                            Vitae veritatis eligendi non officiis nesciunt praesentium sapiente, earum, similique odio
+                            accusamus, quos quis. Aspernatur beatae ipsa praesentium.
+                        </Accordion.Content>
+                    </Accordion.Item>
+                    <Accordion.Item>
+                        <Accordion.Title>Accordion Title 2</Accordion.Title>
+                        <Accordion.Content>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia eveniet.
+                            Vitae veritatis eligendi non officiis nesciunt praesentium sapiente, earum, similique odio
+                            accusamus, quos quis. Aspernatur beatae ipsa praesentium. Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Aperiam atque officia eveniet. Vitae veritatis eligendi non
+                            officiis nesciunt praesentium sapiente, earum, similique odio accusamus, quos quis.
+                            Aspernatur beatae ipsa praesentium.
+                        </Accordion.Content>
+                    </Accordion.Item>
+                    <Accordion.Item>
+                        <Accordion.Title>Accordion Title 3</Accordion.Title>
+                        <Accordion.Content>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia eveniet.
+                            Vitae veritatis eligendi non officiis nesciunt praesentium sapiente.
+                        </Accordion.Content>
+                    </Accordion.Item>
+                </Accordion>
+
+                <Accordion iconType={EnumAccordionIcon.plus}>
+                    <Accordion.Item isOpen>
+                        <Accordion.Title>Accordion Title 1</Accordion.Title>
+                        <Accordion.Content>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia eveniet.
+                            Vitae veritatis eligendi non officiis nesciunt praesentium sapiente, earum, similique odio
+                            accusamus, quos quis. Aspernatur beatae ipsa praesentium.
+                        </Accordion.Content>
+                    </Accordion.Item>
+                    <Accordion.Item>
+                        <Accordion.Title>Accordion Title 2</Accordion.Title>
+                        <Accordion.Content>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia eveniet.
+                            Vitae veritatis eligendi non officiis nesciunt praesentium sapiente, earum, similique odio
+                            accusamus, quos quis. Aspernatur beatae ipsa praesentium. Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Aperiam atque officia eveniet. Vitae veritatis eligendi non
+                            officiis nesciunt praesentium sapiente, earum, similique odio accusamus, quos quis.
+                            Aspernatur beatae ipsa praesentium.
+                        </Accordion.Content>
+                    </Accordion.Item>
+                    <Accordion.Item>
+                        <Accordion.Title>Accordion Title 3</Accordion.Title>
+                        <Accordion.Content>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia eveniet.
+                            Vitae veritatis eligendi non officiis nesciunt praesentium sapiente.
+                        </Accordion.Content>
+                    </Accordion.Item>
+                </Accordion>
+            </section>
+
             <section className='relative w-full mb-10 last:mb-0'>
                 <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
                     <Dropdown className='w-full sm:w-auto'>
@@ -220,7 +282,7 @@ export const UIPage = () => {
                         <Modal.Content skipPropsToChildren>
                             <div className='w-full'>
                                 <Title titleType={EnumTitle.h2}>Default Modal</Title>
-                                <Line className='my-4 sm:my-5' />
+                                <Line className='my-2.5 md:my-4 lg:my-5' />
 
                                 <div className='flex flex-col gap-2 w-full'>
                                     <Text>

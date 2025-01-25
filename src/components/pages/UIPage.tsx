@@ -70,13 +70,13 @@ export const UIPage = () => {
                     </BtnLink>
 
                     <BtnLink href={PATHS.UI}>
-                        <User className='w-5 h-5' />
+                        <User className='size-5' />
                         <span>Link Icon</span>
                     </BtnLink>
 
                     <BtnLink href={PATHS.UI}>
                         <span>Link Icon</span>
-                        <User className='w-5 h-5' />
+                        <User className='size-5' />
                     </BtnLink>
                 </div>
 
@@ -87,25 +87,25 @@ export const UIPage = () => {
                     <Btn disabled>Button Disabled</Btn>
 
                     <Btn>
-                        <User className='w-5 h-5' />
+                        <User className='size-5' />
                         <span>Button Icon</span>
                     </Btn>
 
                     <Btn>
                         <span>Button Icon</span>
-                        <User className='w-5 h-5' />
+                        <User className='size-5' />
                     </Btn>
                 </div>
 
                 <div className='w-full'>
                     <Badge>
                         <Badge.Item>
-                            <User className='w-5 h-5' />
+                            <User className='size-5' />
                             <span>Badge Icon</span>
                         </Badge.Item>
                         <Badge.Item>
                             <span>Badge Icon</span>
-                            <User className='w-5 h-5' />
+                            <User className='size-5' />
                         </Badge.Item>
                         <Badge.Item>Badge Default</Badge.Item>
                     </Badge>

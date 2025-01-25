@@ -48,7 +48,7 @@ export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
             <div
                 ref={ref || avatarRef}
                 {...props}
-                className={cn(`relative skeleton ${className || 'w-12 h-12'}`, {
+                className={cn(`relative skeleton ${className || 'size-12'}`, {
                     'rounded-full': isTypeCircle,
                     'rounded-md': isTypeSquare,
                     'offline-square': isOffline && isTypeSquare,

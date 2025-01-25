@@ -20,7 +20,7 @@ export const ProjectInfo: FC<Props> = ({ className = '' }) => {
 
                 <BtnLink href='https://github.com/dimarogkov/react-template' target='_blank'>
                     <span>Git Repo</span>
-                    <ArrowUpRight className='w-5 h-5' />
+                    <ArrowUpRight className='size-5' />
                 </BtnLink>
             </div>
         </div>

@@ -31,14 +31,14 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
         };
 
         const icon = {
-            [EnumToast.info as string]: <Info className='hidden sm:block w-9 min-w-9 h-9 text-blue stroke-1' />,
+            [EnumToast.info as string]: <Info className='hidden sm:block size-9 min-w-9 text-blue stroke-1' />,
             [EnumToast.success as string]: (
-                <CircleCheck className='hidden sm:block w-9 min-w-9 h-9 text-green stroke-1' />
+                <CircleCheck className='hidden sm:block size-9 min-w-9 text-green stroke-1' />
             ),
             [EnumToast.warning as string]: (
-                <CircleAlert className='hidden sm:block w-9 min-w-9 h-9 text-yellow stroke-1' />
+                <CircleAlert className='hidden sm:block size-9 min-w-9 text-yellow stroke-1' />
             ),
-            [EnumToast.error as string]: <CircleX className='hidden sm:block w-9 min-w-9 h-9 text-red stroke-1' />,
+            [EnumToast.error as string]: <CircleX className='hidden sm:block size-9 min-w-9 text-red stroke-1' />,
         };
 
         return (
@@ -47,7 +47,7 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 {...props}
                 role='alert'
                 className={cn(
-                    `relative flex items-center gap-3 w-full sm:w-auto sm:max-w-[440px] rounded p-2.5 sm:p-3 pr-10 border border-l-4 border-gray bg-white animate-showToastAnimation ${className}`,
+                    `relative flex items-center gap-3 w-full sm:w-[440px] rounded p-2.5 sm:p-3 pr-10 border border-l-4 border-gray bg-white animate-showToastAnimation ${className}`,
                     toastClasses.border[type]
                 )}
             >
@@ -66,7 +66,7 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     onClick={() => closeToast(id)}
                     className='absolute top-1.5 right-1.5 transition-opacity duration-300 hover:opacity-65'
                 >
-                    <X className='w-6 h-6 stroke-1' />
+                    <X className='size-6 stroke-1' />
                 </button>
             </div>
         );

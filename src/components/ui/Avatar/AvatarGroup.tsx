@@ -53,7 +53,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     <div
                         className={cn(
                             `relative flex items-center justify-center text-base bg-gray ${
-                                widthClasses || 'w-12 h-12'
+                                widthClasses || 'size-12'
                             }`,
                             {
                                 'rounded-full': childType === EnumAvatar.circle,

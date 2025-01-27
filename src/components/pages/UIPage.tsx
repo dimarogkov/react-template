@@ -5,6 +5,7 @@ import {
     EnumBtn,
     EnumDropdownAlign,
     EnumDropdownPosition,
+    EnumLoaderType,
     EnumText,
     EnumTitle,
     EnumToast,
@@ -20,6 +21,7 @@ import {
     CreateToast,
     Dropdown,
     Line,
+    Loader,
     Modal,
     SimpleLink,
     Tabs,
@@ -95,6 +97,28 @@ export const UIPage = () => {
                     <Btn>
                         <span>Button Icon</span>
                         <User className='size-5' />
+                    </Btn>
+                </div>
+
+                <div className='flex flex-wrap w-full gap-2.5'>
+                    <Btn>
+                        <Loader />
+                        Loading...
+                    </Btn>
+
+                    <Btn btnType={EnumBtn.outline}>
+                        <Loader loaderType={EnumLoaderType.blue} />
+                        Loading...
+                    </Btn>
+
+                    <Btn btnType={EnumBtn.disabled}>
+                        <Loader />
+                        Loading...
+                    </Btn>
+
+                    <Btn disabled>
+                        <Loader />
+                        Loading...
                     </Btn>
                 </div>
 

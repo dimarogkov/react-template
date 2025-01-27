@@ -25,6 +25,7 @@ import {
     Tabs,
     Text,
     Title,
+    ToggleBtn,
 } from '../ui';
 import { User } from 'lucide-react';
 
@@ -42,7 +43,7 @@ export const UIPage = () => {
             <Line />
 
             <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
-                <div className='flex flex-col gap-2 w-full mb-5 last:mb-0'>
+                <div className='flex flex-col gap-2 w-full'>
                     <Title>Title H1</Title>
                     <Title titleType={EnumTitle.h2}>Title H2</Title>
                     <Title titleType={EnumTitle.h3}>Title H3</Title>
@@ -61,8 +62,8 @@ export const UIPage = () => {
                 </div>
             </section>
 
-            <section className='relative w-full mb-10 last:mb-0'>
-                <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
+            <section className='relative flex flex-col gap-4 w-full mb-10 last:mb-0'>
+                <div className='flex flex-wrap w-full gap-2.5'>
                     <BtnLink href={PATHS.UI}>Link Default</BtnLink>
 
                     <BtnLink href={PATHS.UI} btnType={EnumBtn.outline}>
@@ -80,7 +81,7 @@ export const UIPage = () => {
                     </BtnLink>
                 </div>
 
-                <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
+                <div className='flex flex-wrap w-full gap-2.5'>
                     <Btn>Button Default</Btn>
                     <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
                     <Btn btnType={EnumBtn.disabled}>Button Disabled</Btn>
@@ -110,6 +111,11 @@ export const UIPage = () => {
                         <Badge.Item>Badge Default</Badge.Item>
                     </Badge>
                 </div>
+
+                <div className='flex flex-wrap w-full gap-2.5'>
+                    <ToggleBtn />
+                    <ToggleBtn isActive />
+                </div>
             </section>
 
             <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
@@ -136,8 +142,8 @@ export const UIPage = () => {
                 </Tabs>
             </section>
 
-            <section className='relative w-full md:w-[50%] mb-10 last:mb-0'>
-                <Accordion className='mb-10 last:mb-0'>
+            <section className='relative flex flex-col gap-10 w-full md:w-[50%] mb-10 last:mb-0'>
+                <Accordion>
                     <Accordion.Item>
                         <Accordion.Title>Accordion Title 1</Accordion.Title>
                         <Accordion.Content>
@@ -196,8 +202,8 @@ export const UIPage = () => {
                 </Accordion>
             </section>
 
-            <section className='relative w-full mb-10 last:mb-0'>
-                <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
+            <section className='relative w-full mb-2.5 last:mb-0'>
+                <div className='flex flex-wrap w-full gap-2.5'>
                     <Dropdown className='w-full sm:w-auto'>
                         <Dropdown.Trigger>
                             <Btn>Dropdown Default</Btn>
@@ -234,8 +240,8 @@ export const UIPage = () => {
                 </div>
             </section>
 
-            <section className='relative w-full mb-10 last:mb-0'>
-                <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
+            <section className='relative w-full mb-2.5 last:mb-0'>
+                <div className='flex flex-wrap w-full gap-2.5'>
                     <CreateToast
                         title='This is a Info notification.'
                         text='This toast message notifies you of something.'
@@ -274,7 +280,7 @@ export const UIPage = () => {
             </section>
 
             <section className='relative w-full mb-10 last:mb-0'>
-                <div className='flex flex-wrap w-full gap-2.5 mb-4 last:mb-0'>
+                <div className='flex flex-wrap w-full gap-2.5'>
                     <Modal className='w-full sm:w-auto'>
                         <Modal.Trigger>
                             <Btn>Modal Default</Btn>
@@ -312,8 +318,8 @@ export const UIPage = () => {
                 </div>
             </section>
 
-            <section className='relative w-full mb-10 last:mb-0'>
-                <div className='flex w-full gap-2.5 mb-4 last:mb-0'>
+            <section className='relative flex flex-col gap-4 w-full mb-10 last:mb-0'>
+                <div className='flex w-full gap-2.5'>
                     <Avatar>
                         <Avatar.Img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />
                     </Avatar>
@@ -336,7 +342,7 @@ export const UIPage = () => {
                     </Avatar>
                 </div>
 
-                <div className='flex w-full gap-2.5 mb-4 last:mb-0'>
+                <div className='flex w-full gap-2.5'>
                     <Avatar type={EnumAvatar.square}>
                         <Avatar.Img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' />
                     </Avatar>
@@ -359,7 +365,7 @@ export const UIPage = () => {
                     </Avatar>
                 </div>
 
-                <div className='flex w-full gap-2.5 mb-4 last:mb-0'>
+                <div className='flex w-full gap-2.5'>
                     <AvatarGroup visibleCount={4}>
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>

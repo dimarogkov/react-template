@@ -30,7 +30,7 @@ export const ToggleBtn: FC<Props> = forwardRef<HTMLButtonElement, Props>(
             >
                 <span
                     className={cn(
-                        'relative block w-5 h-5 rounded-full transition-all duration-300',
+                        'relative block size-5 rounded-full transition-all duration-300',
                         {
                             'translate-x-[calc(100%+2px)] bg-blue': isActive,
                             'translate-x-0 bg-gray': !isActive,

@@ -390,7 +390,7 @@ export const UIPage = () => {
                 </div>
 
                 <div className='flex w-full gap-2.5'>
-                    <AvatarGroup visibleCount={4}>
+                    <AvatarGroup visibleCount={3}>
                         <Avatar>
                             <Avatar.Link href={PATHS.UI}>
                                 <Avatar.Img

@@ -1,5 +1,3 @@
-/** @type {import('tailwindcss').Config} */
-
 module.exports = {
     darkMode: 'class',
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -15,7 +13,7 @@ module.exports = {
                 white: '#fff',
             },
             animation: {
-                showToastAnimation: 'showToast 0.4s ease-in-out',
+                showToastAnimation: 'showToast 0.3s ease-in-out',
             },
             keyframes: {
                 showToast: {

@@ -12,6 +12,7 @@ import { Label } from './Label';
 import { Line } from './Line';
 import { Loader } from './Loader';
 import { Modal } from './Modal';
+import { Progress } from './Progress';
 import { Radio } from './Radio';
 import { Select } from './Select';
 import { SimpleLink } from './SimpleLink';
@@ -38,6 +39,7 @@ export {
     Line,
     Loader,
     Modal,
+    Progress,
     Radio,
     Select,
     SimpleLink,

@@ -16,11 +16,11 @@ import { Progress } from './Progress';
 import { Radio } from './Radio';
 import { Select } from './Select';
 import { SimpleLink } from './SimpleLink';
+import { SwitchBtn } from './SwitchBtn';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
 import { Title } from './Title';
 import { Toast, CreateToast } from './Toast';
-import { ToggleBtn } from './ToggleBtn';
 
 export {
     Accordion,
@@ -43,9 +43,9 @@ export {
     Radio,
     Select,
     SimpleLink,
+    SwitchBtn,
     Tabs,
     Text,
     Title,
     Toast,
-    ToggleBtn,
 };

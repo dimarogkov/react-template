@@ -2,12 +2,12 @@
 
 [Project Demo](https://dimarogkov.github.io/react-template)
 
-This is **React Template** for development. Technolgies used: **React, TypeScript, Tailwind CSS, Axios, React Query, React Hook Form, Yup, Debounce, Redux Toolkit, Zustand.**
+This is **React Template** for development. Technolgies used: **React, TypeScript, Tailwind CSS, Axios, React Query, React Hook Form, Yup, Frame Motion, Debounce, Redux Toolkit, Zustand.**
 
 ## Installation Steps
 
 -   Download the repository
--   Use the 18th version of Node.js
+-   Use the v18.20.2 version of Node.js
 -   Run `npm i`
 -   Run `npm run start`
 
@@ -18,7 +18,6 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
     -   pages
     -   root
     -   ui
--   context
 -   helpers
 -   services
 -   store

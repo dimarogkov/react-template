@@ -8,10 +8,14 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     activeIndex?: number;
     className?: string;
     children: ReactNode;
+    setActiveIndex?: () => void;
 }
 
 export const AccordionContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    ({ iconType, accordionIndex = 0, activeIndex, className = '', children, ...props }, ref) => {
+    (
+        { iconType, accordionIndex = 0, activeIndex, className = '', children, setActiveIndex = () => {}, ...props },
+        ref
+    ) => {
         const animation: HTMLMotionProps<'div'> = {
             initial: { height: 0 },
             animate: { height: 'auto' },

@@ -2,7 +2,6 @@ import { Dispatch, FC, forwardRef, ReactNode, RefAttributes, SetStateAction } fr
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { ModalLayer } from './ModalLayer';
 import { ModalClose } from './ModalClose';
-import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;

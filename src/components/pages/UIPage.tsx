@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import { PATHS } from '../../variables/paths';
 import {
     EnumAccordionIcon,
@@ -17,7 +18,6 @@ import {
     Badge,
     Btn,
     BtnLink,
-    CreateToast,
     Dropdown,
     Line,
     Loader,
@@ -28,6 +28,7 @@ import {
     Tabs,
     Text,
     Title,
+    Toast,
 } from '../ui';
 import { User } from 'lucide-react';
 
@@ -314,40 +315,72 @@ export const UIPage = () => {
 
             <section className='relative w-full mb-2.5 last:mb-0'>
                 <div className='flex flex-wrap w-full gap-2.5'>
-                    <CreateToast
-                        title='This is a Info notification.'
-                        text='This toast message notifies you of something.'
-                        className='w-full sm:w-auto'
+                    <Btn
+                        onClick={() =>
+                            toast.custom((t) => (
+                                <Toast
+                                    toast={t}
+                                    data={{
+                                        title: 'This is a Info notification.',
+                                        text: 'This toast message notifies you of something.',
+                                    }}
+                                />
+                            ))
+                        }
                     >
-                        <Btn>Toast Info</Btn>
-                    </CreateToast>
+                        Toast Info
+                    </Btn>
 
-                    <CreateToast
-                        type={EnumToast.success}
-                        title='This is a Success notification.'
-                        text='This toast message notifies you of all your great successes.'
-                        className='w-full sm:w-auto'
+                    <Btn
+                        onClick={() =>
+                            toast.custom((t) => (
+                                <Toast
+                                    toast={t}
+                                    type={EnumToast.success}
+                                    data={{
+                                        title: 'This is a Success notification.',
+                                        text: 'This toast message notifies you of all your great successes.',
+                                    }}
+                                />
+                            ))
+                        }
                     >
-                        <Btn>Toast Success</Btn>
-                    </CreateToast>
+                        Toast Success
+                    </Btn>
 
-                    <CreateToast
-                        type={EnumToast.warning}
-                        title='This is a Warning notification.'
-                        text='This toast message notifies you of a Warning.'
-                        className='w-full sm:w-auto'
+                    <Btn
+                        onClick={() =>
+                            toast.custom((t) => (
+                                <Toast
+                                    toast={t}
+                                    type={EnumToast.warning}
+                                    data={{
+                                        title: 'This is a Warning notification.',
+                                        text: 'This toast message notifies you of a Warning.',
+                                    }}
+                                />
+                            ))
+                        }
                     >
-                        <Btn>Toast Warning</Btn>
-                    </CreateToast>
+                        Toast Warning
+                    </Btn>
 
-                    <CreateToast
-                        type={EnumToast.error}
-                        title='This is a Error notification'
-                        text='This toast message notifies you of an Error. It is probably not your fault.'
-                        className='w-full sm:w-auto'
+                    <Btn
+                        onClick={() =>
+                            toast.custom((t) => (
+                                <Toast
+                                    toast={t}
+                                    type={EnumToast.error}
+                                    data={{
+                                        title: 'This is a Error notification.',
+                                        text: 'This toast message notifies you of an Error. It is probably not your fault.',
+                                    }}
+                                />
+                            ))
+                        }
                     >
-                        <Btn>Toast Error</Btn>
-                    </CreateToast>
+                        Toast Error
+                    </Btn>
                 </div>
             </section>
 

@@ -20,7 +20,7 @@ import { SwitchBtn } from './SwitchBtn';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
 import { Title } from './Title';
-import { Toast, CreateToast } from './Toast';
+import { Toast } from './Toast';
 
 export {
     Accordion,
@@ -30,7 +30,6 @@ export {
     Btn,
     BtnLink,
     Checkbox,
-    CreateToast,
     Dropdown,
     ErrorMessage,
     Input,

@@ -1,4 +1,4 @@
-import { FC, forwardRef, RefAttributes } from 'react';
+import { Dispatch, FC, forwardRef, RefAttributes, SetStateAction } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { EnumDropdownAlign, EnumDropdownPosition } from '../../../types/enums';
 import cn from 'classnames';
@@ -8,11 +8,19 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     position?: EnumDropdownPosition;
     isOpen?: boolean;
     className?: string;
+    setIsOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
     (
-        { align = EnumDropdownAlign.start, position = EnumDropdownPosition.bottom, isOpen, className = '', ...props },
+        {
+            align = EnumDropdownAlign.start,
+            position = EnumDropdownPosition.bottom,
+            isOpen,
+            className = '',
+            setIsOpen = () => {},
+            ...props
+        },
         ref
     ) => {
         const isVerticalPosition = position === EnumDropdownPosition.top || position === EnumDropdownPosition.bottom;

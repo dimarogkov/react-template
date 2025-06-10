@@ -73,31 +73,25 @@ export const UIPage = () => {
                         Link Outline
                     </BtnLink>
 
-                    <BtnLink href={PATHS.UI}>
-                        <User className='size-5' />
-                        <span>Link Icon</span>
+                    <BtnLink href={PATHS.UI} btnType={EnumBtn.ghost}>
+                        Link Ghost
                     </BtnLink>
 
                     <BtnLink href={PATHS.UI}>
-                        <span>Link Icon</span>
                         <User className='size-5' />
+                        <span>Link Icon</span>
                     </BtnLink>
                 </div>
 
                 <div className='flex flex-wrap w-full gap-2.5'>
                     <Btn>Button Default</Btn>
                     <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
-                    <Btn btnType={EnumBtn.disabled}>Button Disabled</Btn>
+                    <Btn btnType={EnumBtn.ghost}>Button Ghost</Btn>
                     <Btn disabled>Button Disabled</Btn>
 
                     <Btn>
                         <User className='size-5' />
                         <span>Button Icon</span>
-                    </Btn>
-
-                    <Btn>
-                        <span>Button Icon</span>
-                        <User className='size-5' />
                     </Btn>
                 </div>
 
@@ -109,11 +103,6 @@ export const UIPage = () => {
 
                     <Btn btnType={EnumBtn.outline}>
                         <Loader loaderType={EnumLoaderType.blue} />
-                        Loading...
-                    </Btn>
-
-                    <Btn btnType={EnumBtn.disabled}>
-                        <Loader />
                         Loading...
                     </Btn>
 

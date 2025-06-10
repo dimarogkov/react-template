@@ -94,7 +94,7 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             <div className='flex flex-wrap gap-2 w-full'>
                 <Btn type='submit'>Send</Btn>
 
-                <Btn type='button' btnType={EnumBtn.disabled} disabled={!isSubmitted} onClick={() => reset()}>
+                <Btn type='button' btnType={EnumBtn.ghost} disabled={!isSubmitted} onClick={() => reset()}>
                     Reset
                 </Btn>
             </div>

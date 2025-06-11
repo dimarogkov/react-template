@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { FormPage, HomePage, NotFoundPage, StorePage, TodosPage, UIPage } from '../pages';
-import { PATHS } from '../../variables/paths';
+import { PATHS } from '../../variables';
+import { ComponentsPage, FormPage, HomePage, NotFoundPage, StorePage, TodosPage } from '../pages';
 import { App } from '../../App';
 
 export const Root = () => {
@@ -9,10 +9,10 @@ export const Root = () => {
             <Routes>
                 <Route path={PATHS.HOME} element={<App />}>
                     <Route index element={<HomePage />} />
-                    <Route path={PATHS.UI} element={<UIPage />} />
-                    <Route path={PATHS.STORE} element={<StorePage />} />
-                    <Route path={PATHS.FORM} element={<FormPage />} />
-                    <Route path={PATHS.TODOS} element={<TodosPage />} />
+                    <Route path={PATHS.PAGES.COMPONENTS} element={<ComponentsPage />} />
+                    <Route path={PATHS.PAGES.STORE} element={<StorePage />} />
+                    <Route path={PATHS.PAGES.FORM} element={<FormPage />} />
+                    <Route path={PATHS.PAGES.TODOS} element={<TodosPage />} />
                     <Route path={PATHS.NOT_FOUND} element={<NotFoundPage />} />
                 </Route>
             </Routes>

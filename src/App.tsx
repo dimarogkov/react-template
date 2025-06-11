@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { Header } from './components/elements/Header';
+import { Breadcrumbs, Header } from './components/blocks';
 
 export const App = () => {
     return (
         <>
             <Header />
+            <Breadcrumbs />
 
-            <main className='relative w-full max-w-screen-2xl p-4 sm:p-5 m-auto'>
+            <main className='relative w-full py-5'>
                 <Outlet />
             </main>
 

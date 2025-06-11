@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,7 +9,8 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Geist', sans-serif;
+    font-optical-sizing: auto;
     color: #222831;
 }
 
@@ -41,6 +42,10 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.container {
+    @apply w-full max-w-6xl px-4 md:px-5 m-auto;
 }
 
 .online::before,

@@ -1,6 +1,6 @@
 import { FC, forwardRef, InputHTMLAttributes, RefAttributes } from 'react';
-import { Check } from 'lucide-react';
 import { Text } from './Text';
+import { Check } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTMLInputElement> {
@@ -21,7 +21,7 @@ export const Checkbox: FC<Props> = forwardRef<HTMLInputElement, Props>(
                 />
 
                 <span
-                    className={cn('flex items-center justify-center w-full h-full bg-transparent rounded border', {
+                    className={cn('flex items-center justify-center w-full h-full bg-transparent rounded-md border', {
                         'border-gray': !isChecked,
                         'border-blue bg-blue': isChecked,
                     })}

@@ -6,27 +6,27 @@ export const DEV_ICONS: IDevIcon[] = [
         text: 'React',
     },
     {
-        icon: 'devicon-redux-original',
-        text: 'Redux',
-    },
-    {
         icon: 'devicon-typescript-plain',
         text: 'TypeScript',
-    },
-    {
-        icon: 'devicon-reactrouter-plain',
-        text: 'React Router',
     },
     {
         icon: 'devicon-tailwindcss-original',
         text: 'Tailwind CSS',
     },
     {
-        icon: 'devicon-framermotion-original',
-        text: 'Frame Motion',
+        icon: 'devicon-redux-original',
+        text: 'Redux Toolkit',
+    },
+    {
+        icon: 'devicon-reactrouter-plain',
+        text: 'React Router',
     },
     {
         icon: 'devicon-axios-plain',
         text: 'Axios',
+    },
+    {
+        icon: 'devicon-framermotion-original',
+        text: 'Frame Motion',
     },
 ];

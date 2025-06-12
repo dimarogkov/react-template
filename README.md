@@ -2,7 +2,7 @@
 
 [Project Demo](https://dimarogkov.github.io/react-template)
 
-This is **React Template** for development. Technolgies used: **React.js, TypeScript, Tailwind CSS, Axios, React Query, React Hook Form, Yup, Frame Motion, Redux Toolkit, Zustand.**
+This is **React Template** for development. Technolgies used: **React.js, TypeScript, Tailwind CSS, Redux Toolkit, Zustand, Axios, React Query, React Hook Form, Yup, Frame Motion.**
 
 ## Installation Steps
 
@@ -14,6 +14,7 @@ This is **React Template** for development. Technolgies used: **React.js, TypeSc
 ## File Structure
 
 -   components
+    -   blocks
     -   elements
     -   pages
     -   root

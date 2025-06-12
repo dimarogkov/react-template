@@ -110,15 +110,12 @@ export const ComponentsPage = () => {
 
                     <div className='w-full'>
                         <Badge>
-                            <Badge.Item>
-                                <User className='size-5' />
-                                <span>Badge Icon</span>
-                            </Badge.Item>
-                            <Badge.Item>
-                                <span>Badge Icon</span>
-                                <User className='size-5' />
-                            </Badge.Item>
                             <Badge.Item>Badge Default</Badge.Item>
+
+                            <Badge.Item>
+                                <User className='size-5' />
+                                <span>Badge Icon</span>
+                            </Badge.Item>
                         </Badge>
                     </div>
 

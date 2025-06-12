@@ -33,7 +33,7 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
             </button>
 
             <div className='flex-grow w-full mb-3 last:mb-0'>
-                <Title titleType={EnumTitle.h3} className='mb-2 last:mb-0'>
+                <Title titleType={EnumTitle.h3} className='truncate mb-2 last:mb-0'>
                     {title}
                 </Title>
 

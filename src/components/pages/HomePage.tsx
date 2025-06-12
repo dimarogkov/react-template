@@ -20,7 +20,7 @@ export const HomePage = () => {
 
                         <Text textType={EnumText.large}>
                             This is React Template for development. Technolgies used: React.js, TypeScript, Tailwind
-                            CSS, Axios, React Query, React Hook Form, Yup, Frame Motion, Redux Toolkit, Zustand.
+                            CSS, Redux Toolkit, Zustand, Axios, React Query, React Hook Form, Yup, Frame Motion.
                         </Text>
 
                         <BtnLink href='https://github.com/dimarogkov/react-template' target='_blank'>

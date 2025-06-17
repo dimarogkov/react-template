@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/redux';
 import { addCount, removeCount, resetCount } from '../../store/redux/countReducer';
-import { EnumTitle } from '../../types/enums';
+import { EnumText, EnumTitle } from '../../types/enums';
 import { Btn, Text, Title } from '../ui';
 import { RotateCcw } from 'lucide-react';
 
@@ -19,7 +19,9 @@ export const StoreRedux: FC<Props> = ({ className = '' }) => {
                 Store with Redux
             </Title>
 
-            <Text className='mb-2 last:mb-0'>{count}</Text>
+            <Text textType={EnumText.large} className='font-medium text-title mb-2 last:mb-0'>
+                {count}
+            </Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-2'>
                 <Btn onClick={() => dispatch(removeCount(5))}>- 5</Btn>

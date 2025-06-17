@@ -9,7 +9,7 @@ export const BadgeItem: FC<Props> = forwardRef<HTMLSpanElement, Props>(({ classN
         <span
             ref={ref}
             {...props}
-            className={`flex items-center gap-1.5 text-base px-3 py-1.5 rounded-md bg-gray ${className}`}
+            className={`flex items-center gap-1.5 text-base px-3 py-1.5 rounded-md bg-border ${className}`}
         />
     );
 });

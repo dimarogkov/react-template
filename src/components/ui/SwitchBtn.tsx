@@ -26,8 +26,8 @@ export const SwitchBtn: FC<Props> = forwardRef<HTMLButtonElement, Props>(
                 className={cn(
                     `relative flex w-12 h-[26px] rounded-full p-0.5 border outline-none transition-colors duration-300 ${className}`,
                     {
-                        'justify-start border-gray': !isActive,
-                        'justify-end border-blue': isActive,
+                        'justify-start border-text': !isActive,
+                        'justify-end border-title': isActive,
                     }
                 )}
             >
@@ -35,8 +35,8 @@ export const SwitchBtn: FC<Props> = forwardRef<HTMLButtonElement, Props>(
                     layout
                     transition={{ type: 'spring', visualDuration: 0.3, bounce: 0.2 }}
                     className={cn('relative size-5 rounded-full transition-colors duration-300', {
-                        'bg-blue': isActive,
-                        'bg-gray': !isActive,
+                        'bg-title': isActive,
+                        'bg-text': !isActive,
                     })}
                 />
             </button>

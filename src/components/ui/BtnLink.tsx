@@ -14,9 +14,10 @@ interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnch
 export const BtnLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
     ({ href, target, children, btnType = EnumBtn.default, className = '', ...props }, ref) => {
         const btnLinkClasses = {
-            [EnumBtn.default as string]: 'bg-blue text-white',
-            [EnumBtn.outline as string]: 'border-2 border-blue text-blue',
-            [EnumBtn.ghost as string]: 'text-black',
+            [EnumBtn.default as string]: 'bg-yellow text-bg',
+            [EnumBtn.secondary as string]: 'bg-title text-bg',
+            [EnumBtn.outline as string]: 'border border-border text-title',
+            [EnumBtn.ghost as string]: 'text-text',
         };
 
         return (
@@ -29,7 +30,7 @@ export const BtnLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                     `flex items-center justify-center gap-1.5 w-full sm:w-fit h-10 font-media px-4 rounded-md transition-all duration-300 will-change-transform active:scale-95 ${className}`,
                     btnLinkClasses[btnType],
                     {
-                        'hover:bg-gray': btnType === EnumBtn.ghost,
+                        'hover:bg-border': btnType === EnumBtn.ghost,
                         'hover:opacity-80': btnType !== EnumBtn.ghost,
                     }
                 )}

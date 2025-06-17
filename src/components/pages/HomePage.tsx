@@ -9,10 +9,10 @@ export const HomePage = () => {
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <div className='flex flex-col gap-4 w-full mb-8 last:mb-0'>
+                    <div className='flex flex-col gap-6 w-full mb-8 last:mb-0'>
                         <Title titleType={EnumTitle.h2}>React Template</Title>
 
-                        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 w-full'>
+                        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 w-full'>
                             {DEV_ICONS.map((icon, text) => (
                                 <DevIcon key={text} devIcon={icon} />
                             ))}

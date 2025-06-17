@@ -40,7 +40,7 @@ export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
         const avatarStyle = {
             ...(currentIndex && {
                 left: `${currentIndex * Math.round(currentWidth / 4) * -1}px`,
-                outline: `${Math.round(currentWidth / 30)}px solid white`,
+                outline: `3px solid #0a0a0a`,
             }),
         };
 

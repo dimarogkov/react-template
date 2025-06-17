@@ -8,7 +8,7 @@ export const App = () => {
             <Header />
             <Breadcrumbs />
 
-            <main className='relative w-full py-5'>
+            <main className='relative w-full py-7 md:py-10'>
                 <Outlet />
             </main>
 

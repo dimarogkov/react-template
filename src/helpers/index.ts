@@ -1,6 +1,7 @@
 import { convertUrlToString } from './convertUrlToString';
 import { debounce } from './debounce';
 import { formOptions } from './formOptions';
+import { getHighlightCode } from './getHighlightCode';
 import { setDataToLocalStorage, getDataFromLocalStorage } from './localStorage';
 
-export { convertUrlToString, debounce, formOptions, setDataToLocalStorage, getDataFromLocalStorage };
+export { convertUrlToString, debounce, formOptions, getHighlightCode, setDataToLocalStorage, getDataFromLocalStorage };

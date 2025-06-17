@@ -1,10 +1,15 @@
 export const PATHS = {
     HOME: '/',
     PAGES: {
-        COMPONENTS: '/components',
-        STORE: '/store',
-        FORM: '/form',
-        TODOS: '/todos',
+        MAIN: {
+            COMPONENTS: '/components',
+            STORE: '/store',
+            FORM: '/form',
+            TODOS: '/todos',
+        },
+        COMPONENTS: {
+            TITLE: '/title',
+        },
     },
     NOT_FOUND: '*',
 };

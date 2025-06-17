@@ -85,7 +85,7 @@ export const TodosPage = () => {
                     {filteredTodos?.length === 0 && <Text>No todos found. Try searching again.</Text>}
 
                     {filteredTodos && (
-                        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 w-full'>
+                        <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-5 w-full'>
                             {filteredTodos.map((todo) => (
                                 <Todo
                                     key={todo.id}

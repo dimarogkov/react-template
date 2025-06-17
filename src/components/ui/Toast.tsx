@@ -19,13 +19,13 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
 
         const toastClasses = {
             border: {
-                [EnumToast.info as string]: 'border-l-blue',
+                [EnumToast.info as string]: 'border-l-title',
                 [EnumToast.success as string]: 'border-l-green',
                 [EnumToast.warning as string]: 'border-l-yellow',
                 [EnumToast.error as string]: 'border-l-red',
             },
             text: {
-                [EnumToast.info as string]: 'text-blue',
+                [EnumToast.info as string]: 'text-title',
                 [EnumToast.success as string]: 'text-green',
                 [EnumToast.warning as string]: 'text-yellow',
                 [EnumToast.error as string]: 'text-red',
@@ -33,7 +33,7 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
         };
 
         const icon = {
-            [EnumToast.info as string]: <Info className='hidden sm:block size-9 min-w-9 text-blue stroke-1' />,
+            [EnumToast.info as string]: <Info className='hidden sm:block size-9 min-w-9 text-title stroke-1' />,
             [EnumToast.success as string]: (
                 <CircleCheck className='hidden sm:block size-9 min-w-9 text-green stroke-1' />
             ),
@@ -48,7 +48,7 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 ref={ref}
                 {...props}
                 className={cn(
-                    `relative flex items-center gap-3 w-full sm:w-[440px] rounded-md p-2.5 sm:p-3 pr-10 border border-l-4 border-gray bg-white ${className}`,
+                    `relative flex items-center gap-3 w-full sm:w-[440px] rounded-md p-2.5 sm:p-3 pr-10 border border-l-4 border-border bg-bg ${className}`,
                     toastClasses.border[type],
                     {
                         'animate-leave': !t.visible,
@@ -71,7 +71,7 @@ export const Toast: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     onClick={() => toast.dismiss(t.id)}
                     className='absolute top-1.5 right-1.5 outline-none transition-opacity duration-300 hover:opacity-65'
                 >
-                    <X className='size-6 stroke-1' />
+                    <X className='size-6' />
                 </button>
             </div>
         );

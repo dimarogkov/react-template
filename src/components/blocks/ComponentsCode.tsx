@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 
 export const ComponentsCode: FC<Props> = forwardRef<HTMLDivElement, Props>(({ codeArr, children, ...props }, ref) => {
     return (
-        <div ref={ref} {...props} className='relative flex flex-col gap-4 md:gap-5 w-full py-4 md:py-5 scroll-mt-32'>
+        <div ref={ref} {...props} className='relative flex flex-col gap-4 md:gap-5 w-full py-4 md:py-5 scroll-mt-36'>
             <div className='w-full'>{children}</div>
 
             {codeArr.map((code) => (

@@ -62,45 +62,6 @@ export const ComponentsPage = () => {
                         </BtnLink>
                     </div>
 
-                    <div className='flex flex-wrap w-full gap-2.5'>
-                        <Btn>Button Default</Btn>
-                        <Btn btnType={EnumBtn.secondary}>Button Secondary</Btn>
-                        <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
-                        <Btn btnType={EnumBtn.ghost}>Button Ghost</Btn>
-
-                        <Btn>
-                            <User className='size-5' />
-                            <span>Button Icon</span>
-                        </Btn>
-                    </div>
-
-                    <div className='flex flex-wrap w-full gap-2.5'>
-                        <Btn>
-                            <Loader />
-                            Loading...
-                        </Btn>
-
-                        <Btn btnType={EnumBtn.secondary}>
-                            <Loader />
-                            Loading...
-                        </Btn>
-
-                        <Btn btnType={EnumBtn.outline}>
-                            <Loader loaderType={EnumLoaderType.light} />
-                            Loading...
-                        </Btn>
-
-                        <Btn btnType={EnumBtn.ghost}>
-                            <Loader loaderType={EnumLoaderType.light} />
-                            Loading...
-                        </Btn>
-
-                        <Btn disabled>
-                            <Loader loaderType={EnumLoaderType.light} />
-                            Loading...
-                        </Btn>
-                    </div>
-
                     <div className='w-full'>
                         <Badge>
                             <Badge.Item>Badge Default</Badge.Item>

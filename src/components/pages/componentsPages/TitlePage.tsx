@@ -48,8 +48,9 @@ export const TitlePage = () => {
                         </Title>
 
                         <Text>
-                            Add enum file <span className='badge-item'>EnumTitle</span> and custom component&nbsp;
-                            <span className='badge-item'>Title</span> to your project.
+                            Include an <span className='badge-item'>EnumTitle</span> file to define button variants,
+                            along with a custom <span className='badge-item'>Title</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

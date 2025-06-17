@@ -1,6 +1,7 @@
+import { User } from 'lucide-react';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
-import { NPM_CLASSNAMES_CODE, TEXT_CODE, TEXT_ENUM_CODE, TEXT_USAGE_CODE } from '../../../variables/code';
+import { EnumBtn, EnumText, EnumTitle } from '../../../types/enums';
+import { BTN_CODE, BTN_ENUM_CODE, BTN_USAGE_CODE, NPM_CLASSNAMES_CODE } from '../../../variables/code';
 import {
     ComponentsCode,
     ComponentsHead,
@@ -8,9 +9,9 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
-import { SimpleLink, Text, Title } from '../../ui';
+import { Btn, SimpleLink, Text, Title } from '../../ui';
 
-export const TextPage = () => {
+export const BtnPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
 
     return (
@@ -22,22 +23,26 @@ export const TextPage = () => {
 
                     <ComponentsHead>
                         <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
-                            Text
+                            Button
                         </Title>
 
-                        <Text textType={EnumText.large}>Styles for text.</Text>
+                        <Text textType={EnumText.large}>
+                            Displays a button or a component that looks like a button.
+                        </Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <Text textType={EnumText.large} className='mb-5 last:mb-0'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
-                            aliquid accusamus hic dicta blanditiis porro
-                        </Text>
+                        <div className='flex flex-col gap-4 w-full'>
+                            <Btn>Button Default</Btn>
+                            <Btn btnType={EnumBtn.secondary}>Button Secondary</Btn>
+                            <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
+                            <Btn btnType={EnumBtn.ghost}>Button Ghost</Btn>
 
-                        <Text>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
-                            aliquid accusamus hic dicta blanditiis porro
-                        </Text>
+                            <Btn>
+                                <User className='size-5' />
+                                <span>Button Icon</span>
+                            </Btn>
+                        </div>
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
@@ -60,19 +65,19 @@ export const TextPage = () => {
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TEXT_ENUM_CODE, TEXT_CODE]}>
+                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[BTN_ENUM_CODE, BTN_CODE]}>
                         <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
                             Code
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumText</span> file to define button variants,
-                            along with a custom <span className='badge-item'>Text</span> component for consistent and
+                            Include an <span className='badge-item'>EnumBtn</span> file to define button variants, along
+                            with a custom <span className='badge-item'>Btn</span> component for consistent and
                             maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[TEXT_USAGE_CODE]}>
+                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BTN_USAGE_CODE]}>
                         <Title titleType={EnumTitle.h4}>Usage</Title>
                     </ComponentsCode>
 

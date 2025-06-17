@@ -5,7 +5,6 @@ ReactNode,
 RefAttributes, 
 forwardRef 
 } from 'react';
- 
 import { EnumTitle } from '../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLHeadingElement>, RefAttributes<HTMLHeadingElement> {

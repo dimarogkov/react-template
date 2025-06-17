@@ -1,29 +1,50 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { COMPONENTS_SECTIONS } from '../../variables/code';
 import { EnumText } from '../../types/enums';
+import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
 import { Text } from '../ui';
 import cn from 'classnames';
 
 type Props = {
     sectionRef: React.MutableRefObject<Record<string, HTMLElement | null>>;
+    withInstallation?: boolean;
 };
 
-export const ComponentsNavigation: FC<Props> = ({ sectionRef }) => {
+export const ComponentsNavigation: FC<Props> = ({ sectionRef, withInstallation = false }) => {
     const [activeSection, setActiveSection] = useState('');
+    const [sectionsArr, setSectionsArr] = useState<IComponentsSection[]>([]);
     const { scrollY } = useScroll();
 
+    useEffect(() => {
+        const arr = withInstallation
+            ? [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS]
+            : [...COMPONENTS_SECTIONS];
+
+        setSectionsArr(arr);
+    }, [withInstallation]);
+
     useMotionValueEvent(scrollY, 'change', () => {
-        for (const { id } of COMPONENTS_SECTIONS) {
+        let found = false;
+
+        for (const { id } of sectionsArr) {
             const el = sectionRef.current[id];
             if (!el) continue;
 
             const rect = el.getBoundingClientRect();
 
             if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
-                setActiveSection(id);
+                if (activeSection !== id) {
+                    setActiveSection(id);
+                }
+
+                found = true;
                 break;
             }
+        }
+
+        if (!found && activeSection !== '') {
+            setActiveSection('');
         }
     });
 
@@ -38,7 +59,7 @@ export const ComponentsNavigation: FC<Props> = ({ sectionRef }) => {
                 <Text className='text-text/70 mb-2 last:mb-0'>On this Page</Text>
 
                 <ul className='flex flex-col gap-0.5 w-full'>
-                    {COMPONENTS_SECTIONS.map(({ id, text }) => (
+                    {sectionsArr.map(({ id, text }) => (
                         <li key={id}>
                             <Text textType={EnumText.large}>
                                 <button

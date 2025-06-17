@@ -35,7 +35,7 @@ export const AccordionItem: FC<Props> = forwardRef<HTMLDivElement, Props>(
             <div
                 ref={ref}
                 {...props}
-                className={`relative w-full border-b border-gray last:border-b-0 overflow-hidden ${className}`}
+                className={`relative w-full border-b border-border last:border-b-0 overflow-hidden ${className}`}
             >
                 {Children.map(props.children, (child) => {
                     if (isValidElement(child)) {

@@ -22,12 +22,12 @@ export const Checkbox: FC<Props> = forwardRef<HTMLInputElement, Props>(
 
                 <span
                     className={cn('flex items-center justify-center w-full h-full bg-transparent rounded-md border', {
-                        'border-gray': !isChecked,
-                        'border-blue bg-blue': isChecked,
+                        'border-border': !isChecked,
+                        'border-yellow bg-yellow': isChecked,
                     })}
                 >
                     <Check
-                        className={cn('size-4 text-blue', {
+                        className={cn('size-4 text-bg', {
                             'opacity-0 invisible': !isChecked,
                             'opacity-1 visible': isChecked,
                         })}

@@ -1,79 +1,87 @@
-import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { PATHS } from '../../variables';
-import {
-    EnumAccordionIcon,
-    EnumAvatar,
-    EnumBtn,
-    EnumLoaderType,
-    EnumProgress,
-    EnumText,
-    EnumTitle,
-    EnumToast,
-} from '../../types/enums';
-import {
-    Accordion,
-    Avatar,
-    AvatarGroup,
-    Badge,
-    Btn,
-    BtnLink,
-    Dropdown,
-    Line,
-    Loader,
-    Modal,
-    Progress,
-    SimpleLink,
-    SwitchBtn,
-    Tabs,
-    Text,
-    Title,
-    Toast,
-} from '../ui';
-import { CircleAlert, CircleCheck, CircleX, Info, User } from 'lucide-react';
+import { convertUrlToString } from '../../helpers';
+import { EnumText, EnumTitle } from '../../types/enums';
+import { Line, Text, Title } from '../ui';
 
 export const ComponentsPage = () => {
+    const { MAIN, COMPONENTS } = PATHS.PAGES;
+
+    const linksArr = Object.values(COMPONENTS).map((path) => ({
+        name: convertUrlToString(path),
+        href: `${MAIN.COMPONENTS}${path}`,
+    }));
+
     return (
         <>
-            <section className='relative w-full mb-10 last:mb-0'>
+            <section className='relative w-full'>
+                <div className='container'>
+                    <div className='w-full'>
+                        <Title titleType={EnumTitle.h2} className='mb-2 last:mb-0'>
+                            Components
+                        </Title>
+
+                        <Text textType={EnumText.large}>
+                            Here you can find all the components available in the template. We are working on adding
+                            more components.
+                        </Text>
+
+                        <Line />
+
+                        <div className='flex flex-wrap gap-4 w-full'>
+                            {linksArr.map(({ name, href }) => (
+                                <Link key={name} to={href} className='font-medium text-lg text-text hover:underline'>
+                                    {name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* <section className='relative w-full mb-10 last:mb-0 mt-10'>
                 <div className='container'>
                     <div className='flex flex-col gap-2 w-full'>
                         <Title>Title H1</Title>
                         <Title titleType={EnumTitle.h2}>Title H2</Title>
                         <Title titleType={EnumTitle.h3}>Title H3</Title>
                         <Title titleType={EnumTitle.h4}>Title H4</Title>
-                        <Title titleType={EnumTitle.h5}>Title H5</Title>
 
                         <Text textType={EnumText.large}>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
                             aliquid accusamus hic dicta blanditiis porro{' '}
-                            <SimpleLink href={PATHS.PAGES.COMPONENTS}>voluptate iusto</SimpleLink> eos ipsum atque,
-                            tenetur ullam enim ipsa. Modi magnam incidunt minima?
+                            <SimpleLink href={MAIN.COMPONENTS}>voluptate iusto</SimpleLink> eos ipsum atque, tenetur
+                            ullam enim ipsa. Modi magnam incidunt minima?
                         </Text>
 
                         <Text>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
                             aliquid accusamus hic dicta blanditiis porro{' '}
-                            <SimpleLink href={PATHS.PAGES.COMPONENTS}>voluptate iusto</SimpleLink> eos ipsum atque,
-                            tenetur ullam enim ipsa. Modi magnam incidunt minima?
+                            <SimpleLink href={MAIN.COMPONENTS}>voluptate iusto</SimpleLink> eos ipsum atque, tenetur
+                            ullam enim ipsa. Modi magnam incidunt minima?
                         </Text>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-10 last:mb-0'>
+            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container flex flex-col gap-4'>
                     <div className='flex flex-wrap w-full gap-2.5'>
-                        <BtnLink href={PATHS.PAGES.COMPONENTS}>Link Default</BtnLink>
+                        <BtnLink href={MAIN.COMPONENTS}>Link Default</BtnLink>
 
-                        <BtnLink href={PATHS.PAGES.COMPONENTS} btnType={EnumBtn.outline}>
+                        <BtnLink href={MAIN.COMPONENTS} btnType={EnumBtn.secondary}>
+                            Link Secondary
+                        </BtnLink>
+
+                        <BtnLink href={MAIN.COMPONENTS} btnType={EnumBtn.outline}>
                             Link Outline
                         </BtnLink>
 
-                        <BtnLink href={PATHS.PAGES.COMPONENTS} btnType={EnumBtn.ghost}>
+                        <BtnLink href={MAIN.COMPONENTS} btnType={EnumBtn.ghost}>
                             Link Ghost
                         </BtnLink>
 
-                        <BtnLink href={PATHS.PAGES.COMPONENTS}>
+                        <BtnLink href={MAIN.COMPONENTS}>
                             <User className='size-5' />
                             <span>Link Icon</span>
                         </BtnLink>
@@ -81,9 +89,9 @@ export const ComponentsPage = () => {
 
                     <div className='flex flex-wrap w-full gap-2.5'>
                         <Btn>Button Default</Btn>
+                        <Btn btnType={EnumBtn.secondary}>Button Secondary</Btn>
                         <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
                         <Btn btnType={EnumBtn.ghost}>Button Ghost</Btn>
-                        <Btn disabled>Button Disabled</Btn>
 
                         <Btn>
                             <User className='size-5' />
@@ -97,13 +105,23 @@ export const ComponentsPage = () => {
                             Loading...
                         </Btn>
 
+                        <Btn btnType={EnumBtn.secondary}>
+                            <Loader />
+                            Loading...
+                        </Btn>
+
                         <Btn btnType={EnumBtn.outline}>
-                            <Loader loaderType={EnumLoaderType.blue} />
+                            <Loader loaderType={EnumLoaderType.light} />
+                            Loading...
+                        </Btn>
+
+                        <Btn btnType={EnumBtn.ghost}>
+                            <Loader loaderType={EnumLoaderType.light} />
                             Loading...
                         </Btn>
 
                         <Btn disabled>
-                            <Loader />
+                            <Loader loaderType={EnumLoaderType.light} />
                             Loading...
                         </Btn>
                     </div>
@@ -124,9 +142,9 @@ export const ComponentsPage = () => {
                         <SwitchBtn isActive />
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-10 last:mb-0'>
+            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
                     <div className='flex flex-col gap-6 w-full'>
                         <div className='flex flex-col gap-2.5 w-full'>
@@ -149,9 +167,9 @@ export const ComponentsPage = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-10 last:mb-0'>
+            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
                     <div className='w-full'>
                         <Tabs>
@@ -178,9 +196,9 @@ export const ComponentsPage = () => {
                         </Tabs>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-10 last:mb-0'>
+            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
                     <div className='flex flex-col gap-10 w-full'>
                         <Accordion>
@@ -242,9 +260,9 @@ export const ComponentsPage = () => {
                         </Accordion>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-2.5 last:mb-0'>
+            {/* <section className='relative w-full mb-2.5 last:mb-0'>
                 <div className='container'>
                     <div className='flex flex-wrap w-full gap-2.5'>
                         <Dropdown className='w-full sm:w-fit'>
@@ -302,9 +320,9 @@ export const ComponentsPage = () => {
                         </Modal>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-2.5 last:mb-0'>
+            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
                     <div className='flex flex-wrap w-full gap-2.5'>
                         <Btn
@@ -379,9 +397,9 @@ export const ComponentsPage = () => {
                         </Btn>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
-            <section className='relative w-full mb-10 last:mb-0'>
+            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container flex flex-col gap-4'>
                     <div className='flex w-full gap-2.5'>
                         <Avatar>
@@ -397,7 +415,7 @@ export const ComponentsPage = () => {
                         </Avatar>
 
                         <Avatar isOnline>
-                            <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                            <Avatar.Link href={MAIN.COMPONENTS}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     hasHover
@@ -420,7 +438,7 @@ export const ComponentsPage = () => {
                         </Avatar>
 
                         <Avatar type={EnumAvatar.square} isOnline>
-                            <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                            <Avatar.Link href={MAIN.COMPONENTS}>
                                 <Avatar.Img
                                     src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                     hasHover
@@ -432,7 +450,7 @@ export const ComponentsPage = () => {
                     <div className='flex w-full gap-2.5'>
                         <AvatarGroup visibleCount={3}>
                             <Avatar>
-                                <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                                <Avatar.Link href={MAIN.COMPONENTS}>
                                     <Avatar.Img
                                         src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                         hasHover
@@ -441,7 +459,7 @@ export const ComponentsPage = () => {
                             </Avatar>
 
                             <Avatar>
-                                <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                                <Avatar.Link href={MAIN.COMPONENTS}>
                                     <Avatar.Img
                                         src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                         hasHover
@@ -450,7 +468,7 @@ export const ComponentsPage = () => {
                             </Avatar>
 
                             <Avatar>
-                                <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                                <Avatar.Link href={MAIN.COMPONENTS}>
                                     <Avatar.Img
                                         src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                         hasHover
@@ -459,7 +477,7 @@ export const ComponentsPage = () => {
                             </Avatar>
 
                             <Avatar>
-                                <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                                <Avatar.Link href={MAIN.COMPONENTS}>
                                     <Avatar.Img
                                         src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                         hasHover
@@ -468,7 +486,7 @@ export const ComponentsPage = () => {
                             </Avatar>
 
                             <Avatar>
-                                <Avatar.Link href={PATHS.PAGES.COMPONENTS}>
+                                <Avatar.Link href={MAIN.COMPONENTS}>
                                     <Avatar.Img
                                         src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
                                         hasHover
@@ -478,7 +496,7 @@ export const ComponentsPage = () => {
                         </AvatarGroup>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 };

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useCount } from '../../store/zustand';
-import { EnumTitle } from '../../types/enums';
+import { EnumText, EnumTitle } from '../../types/enums';
 import { Btn, Text, Title } from '../ui';
 import { RotateCcw } from 'lucide-react';
 
@@ -17,7 +17,9 @@ export const StoreZustand: FC<Props> = ({ className = '' }) => {
                 Store with Zustand
             </Title>
 
-            <Text className='mb-2 last:mb-0'>{count}</Text>
+            <Text textType={EnumText.large} className='font-medium text-title mb-2 last:mb-0'>
+                {count}
+            </Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-2'>
                 <Btn onClick={() => removeCount(5)}>- 5</Btn>

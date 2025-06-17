@@ -12,7 +12,7 @@ export const SimpleLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(({ hre
             ref={ref}
             {...props}
             to={href}
-            className={`relative w-auto font-medium text-blue underline ${className}`}
+            className={`relative w-auto font-medium text-title underline ${className}`}
         />
     );
 });

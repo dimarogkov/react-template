@@ -22,7 +22,7 @@ export const Progress: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 ref={ref}
                 {...props}
                 className={cn(`relative rounded-md overflow-hidden ${className}`, {
-                    'w-full h-2 bg-gray': type === EnumProgress.line,
+                    'w-full h-2 bg-border': type === EnumProgress.line,
                 })}
             >
                 {type === EnumProgress.circle ? (
@@ -34,7 +34,7 @@ export const Progress: FC<Props> = forwardRef<HTMLDivElement, Props>(
                                 r={normalizedRadius}
                                 fill='transparent'
                                 strokeWidth={6}
-                                className='stroke-gray'
+                                className='stroke-border'
                             />
                             <circle
                                 r={normalizedRadius}
@@ -46,7 +46,7 @@ export const Progress: FC<Props> = forwardRef<HTMLDivElement, Props>(
                                 strokeDasharray={`${circumference} ${circumference}`}
                                 strokeDashoffset={strokeDashoffset}
                                 transform={`rotate(-90 ${radius} ${radius})`}
-                                className='stroke-blue transition-all duration-300'
+                                className='stroke-yellow transition-all duration-300'
                             />
                         </svg>
 
@@ -59,7 +59,7 @@ export const Progress: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     </div>
                 ) : (
                     <span
-                        className='absolute top-0 left-0 h-full rounded-md bg-blue transition-all duration-300'
+                        className='absolute top-0 left-0 h-full rounded-md bg-yellow transition-all duration-300'
                         style={{ width: `${value}%` }}
                     />
                 )}

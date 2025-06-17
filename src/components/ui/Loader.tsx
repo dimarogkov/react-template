@@ -8,17 +8,15 @@ interface Props extends SVGProps<SVGSVGElement>, RefAttributes<SVGSVGElement> {
 }
 
 export const Loader: FC<Props> = forwardRef<SVGSVGElement, Props>(
-    ({ size = 20, loaderType = EnumLoaderType.light, className = '', ...props }, ref) => {
+    ({ size = 20, loaderType = EnumLoaderType.dark, className = '', ...props }, ref) => {
         const circleFill = {
-            [EnumLoaderType.light as string]: 'fill-white/50',
             [EnumLoaderType.dark as string]: 'fill-black/30',
-            [EnumLoaderType.blue as string]: 'fill-blue/30',
+            [EnumLoaderType.light as string]: 'fill-title/50',
         };
 
         const lineFill = {
-            [EnumLoaderType.light as string]: 'fill-white',
-            [EnumLoaderType.dark as string]: 'fill-black',
-            [EnumLoaderType.blue as string]: 'fill-blue',
+            [EnumLoaderType.dark as string]: 'fill-bg',
+            [EnumLoaderType.light as string]: 'fill-title',
         };
 
         const loaderSize = {

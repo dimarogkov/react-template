@@ -35,7 +35,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
         const groupStyle = {
             ...(visibleCount && {
                 left: `${visibleCount * Math.round(currentWidth / 4) * -1}px`,
-                outline: `${Math.round(currentWidth / 30)}px solid white`,
+                outline: `3px solid #0a0a0a`,
             }),
         };
 
@@ -52,7 +52,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 {visibleCount && childArray.length > visibleCount && (
                     <div
                         className={cn(
-                            `relative flex items-center justify-center text-base bg-gray ${
+                            `relative flex items-center justify-center text-base text-bg bg-title ${
                                 widthClasses || 'size-12'
                             }`,
                             {

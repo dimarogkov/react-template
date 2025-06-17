@@ -27,13 +27,13 @@ export const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(
                         className={cn(
                             'flex items-center justify-center w-full h-full bg-transparent rounded-full border',
                             {
-                                'border-gray': isChecked !== value,
-                                'border-blue': isChecked === value,
+                                'border-border': isChecked !== value,
+                                'border-yellow': isChecked === value,
                             }
                         )}
                     >
                         <Circle
-                            className={cn('size-3 rounded-full text-blue bg-blue', {
+                            className={cn('size-3 rounded-full text-yellow bg-yellow', {
                                 'opacity-0 invisible': isChecked !== value,
                                 'opacity-1 visible': isChecked === value,
                             })}

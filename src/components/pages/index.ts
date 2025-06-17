@@ -4,5 +4,6 @@ import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
 import { StorePage } from './StorePage';
 import { TodosPage } from './TodosPage';
+import { TitlePage } from './componentsPages/TitlePage';
 
-export { ComponentsPage, FormPage, HomePage, NotFoundPage, StorePage, TodosPage };
+export { ComponentsPage, FormPage, HomePage, NotFoundPage, StorePage, TodosPage, TitlePage };

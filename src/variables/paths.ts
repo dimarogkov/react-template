@@ -8,6 +8,7 @@ export const PATHS = {
             TODOS: '/todos',
         },
         COMPONENTS: {
+            TEXT: '/text',
             TITLE: '/title',
         },
     },

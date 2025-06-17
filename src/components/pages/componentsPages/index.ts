@@ -1,3 +1,4 @@
+import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 
-export { TitlePage };
+export { TextPage, TitlePage };

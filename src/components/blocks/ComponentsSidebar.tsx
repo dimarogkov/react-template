@@ -17,7 +17,7 @@ export const ComponentsSidebar = () => {
             <div className='w-full'>
                 <Text className='text-text/70 mb-2 last:mb-0'>Components</Text>
 
-                <ul className='w-full'>
+                <ul className='flex flex-col gap-1 w-full'>
                     {linksArr.map(({ name, href }) => (
                         <li key={name} className='w-full'>
                             <NavLink

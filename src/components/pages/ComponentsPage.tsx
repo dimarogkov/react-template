@@ -28,7 +28,7 @@ export const ComponentsPage = () => {
 
                         <Line />
 
-                        <div className='flex flex-wrap gap-4 w-full'>
+                        <div className='grid grid-cols-4 gap-4 w-full'>
                             {linksArr.map(({ name, href }) => (
                                 <Link key={name} to={href} className='font-medium text-lg text-text hover:underline'>
                                     {name}
@@ -38,31 +38,6 @@ export const ComponentsPage = () => {
                     </div>
                 </div>
             </section>
-
-            {/* <section className='relative w-full mb-10 last:mb-0 mt-10'>
-                <div className='container'>
-                    <div className='flex flex-col gap-2 w-full'>
-                        <Title>Title H1</Title>
-                        <Title titleType={EnumTitle.h2}>Title H2</Title>
-                        <Title titleType={EnumTitle.h3}>Title H3</Title>
-                        <Title titleType={EnumTitle.h4}>Title H4</Title>
-
-                        <Text textType={EnumText.large}>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
-                            aliquid accusamus hic dicta blanditiis porro{' '}
-                            <SimpleLink href={MAIN.COMPONENTS}>voluptate iusto</SimpleLink> eos ipsum atque, tenetur
-                            ullam enim ipsa. Modi magnam incidunt minima?
-                        </Text>
-
-                        <Text>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
-                            aliquid accusamus hic dicta blanditiis porro{' '}
-                            <SimpleLink href={MAIN.COMPONENTS}>voluptate iusto</SimpleLink> eos ipsum atque, tenetur
-                            ullam enim ipsa. Modi magnam incidunt minima?
-                        </Text>
-                    </div>
-                </div>
-            </section> */}
 
             {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container flex flex-col gap-4'>

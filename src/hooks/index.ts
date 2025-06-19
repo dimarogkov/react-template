@@ -1,3 +1,4 @@
+import { usePrevNextComponentPath } from './usePrevNextComponentPath';
 import { useSectionsRefs } from './useSectionsRefs';
 
-export { useSectionsRefs };
+export { usePrevNextComponentPath, useSectionsRefs };

@@ -3,6 +3,7 @@ import { EnumText, EnumTitle } from '../../../types/enums';
 import { TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import {
     ComponentsCode,
+    ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
@@ -58,7 +59,7 @@ export const TitlePage = () => {
                         <Title titleType={EnumTitle.h4}>Usage</Title>
                     </ComponentsCode>
 
-                    {/* <ComponentsFooter /> */}
+                    <ComponentsFooter />
                 </div>
             </div>
         </section>

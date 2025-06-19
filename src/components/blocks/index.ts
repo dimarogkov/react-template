@@ -1,6 +1,7 @@
 import { Breadcrumbs } from './Breadcrumbs';
 import { ComponentsCode } from './ComponentsCode';
 import { ComponentsCodeDetail } from './ComponentsCodeDetail';
+import { ComponentsFooter } from './ComponentsFooter';
 import { ComponentsHead } from './ComponentsHead';
 import { ComponentsNavigation } from './ComponentsNavigation';
 import { ComponentsPreview } from './ComponentsPreview';
@@ -11,6 +12,7 @@ export {
     Breadcrumbs,
     ComponentsCode,
     ComponentsCodeDetail,
+    ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,

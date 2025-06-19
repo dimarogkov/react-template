@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { COMPONENTS_SECTIONS } from '../../variables/code';
-import { EnumText } from '../../types/enums';
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
 import { Text } from '../ui';
 import cn from 'classnames';
@@ -61,7 +60,7 @@ export const ComponentsNavigation: FC<Props> = ({ sectionRef, withInstallation =
                 <ul className='flex flex-col gap-0.5 w-full'>
                     {sectionsArr.map(({ id, text }) => (
                         <li key={id}>
-                            <Text textType={EnumText.large}>
+                            <Text>
                                 <button
                                     onClick={() => handleScroll(id)}
                                     className={cn('transition-colors duration-200 hover:text-title', {

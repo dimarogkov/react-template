@@ -7,9 +7,9 @@ import {
     NotFoundPage,
     StorePage,
     TodosPage,
-    TitlePage,
-    TextPage,
     BtnPage,
+    TextPage,
+    TitlePage,
 } from '../pages';
 import { App } from '../../App';
 

@@ -35,27 +35,6 @@ export const ComponentsPage = () => {
 
             {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container flex flex-col gap-4'>
-                    <div className='flex flex-wrap w-full gap-2.5'>
-                        <BtnLink href={MAIN.COMPONENTS}>Link Default</BtnLink>
-
-                        <BtnLink href={MAIN.COMPONENTS} btnType={EnumBtn.secondary}>
-                            Link Secondary
-                        </BtnLink>
-
-                        <BtnLink href={MAIN.COMPONENTS} btnType={EnumBtn.outline}>
-                            Link Outline
-                        </BtnLink>
-
-                        <BtnLink href={MAIN.COMPONENTS} btnType={EnumBtn.ghost}>
-                            Link Ghost
-                        </BtnLink>
-
-                        <BtnLink href={MAIN.COMPONENTS}>
-                            <User className='size-5' />
-                            <span>Link Icon</span>
-                        </BtnLink>
-                    </div>
-
                     <div className='w-full'>
                         <Badge>
                             <Badge.Item>Badge Default</Badge.Item>

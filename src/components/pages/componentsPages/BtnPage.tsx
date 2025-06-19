@@ -1,6 +1,16 @@
 import { useSectionsRefs } from '../../../hooks';
 import { EnumBtn, EnumText, EnumTitle } from '../../../types/enums';
-import { BTN_CODE, BTN_ENUM_CODE, BTN_USAGE_CODE, NPM_CLASSNAMES_CODE } from '../../../variables/code';
+import { PATHS } from '../../../variables';
+import {
+    BTN_LINK_CODE,
+    BTN_CODE,
+    BTN_ENUM_CODE,
+    BTN_USAGE_CODE,
+    NPM_CLASSNAMES_CODE,
+    BTN_LINK_USAGE_CODE,
+    BTN_WRAPPER_CODE,
+    COMPONENTS_SECTIONS,
+} from '../../../variables/code';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -14,13 +24,20 @@ import { User } from 'lucide-react';
 
 export const BtnPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
+    const { MAIN, COMPONENTS } = PATHS.PAGES;
+
+    const sectionsArr = [
+        { id: 'installation', text: 'Installation' },
+        ...COMPONENTS_SECTIONS,
+        { id: 'link', text: 'Link' },
+    ];
 
     return (
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
                     <ComponentsSidebar />
-                    <ComponentsNavigation sectionRef={sectionRef} withInstallation />
+                    <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
                         <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
@@ -33,11 +50,15 @@ export const BtnPage = () => {
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <div className='flex flex-col gap-4 w-full'>
+                        <div className='flex flex-wrap gap-4 w-full'>
                             <Btn>Default Button</Btn>
                             <Btn btnType={EnumBtn.secondary}>Secondary Button</Btn>
                             <Btn btnType={EnumBtn.outline}>Outline Button</Btn>
                             <Btn btnType={EnumBtn.ghost}>Ghost Button</Btn>
+
+                            <Btn isLink>
+                                <Btn.Link href={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`}>Link Button</Btn.Link>
+                            </Btn>
 
                             <Btn>
                                 <User className='size-5' />
@@ -66,7 +87,11 @@ export const BtnPage = () => {
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[BTN_ENUM_CODE, BTN_CODE]}>
+                    <ComponentsCode
+                        id='code'
+                        ref={registerRef('code')}
+                        codeArr={[BTN_ENUM_CODE, BTN_CODE, BTN_WRAPPER_CODE, BTN_LINK_CODE]}
+                    >
                         <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
                             Code
                         </Title>
@@ -80,6 +105,18 @@ export const BtnPage = () => {
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BTN_USAGE_CODE]}>
                         <Title titleType={EnumTitle.h4}>Usage</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode id='link' ref={registerRef('link')} codeArr={[BTN_LINK_USAGE_CODE]}>
+                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                            Link
+                        </Title>
+
+                        <Text>
+                            You can use the <span className='badge-item'>isLink</span> prop and&nbsp;
+                            <span className='badge-item'>Btn.Link</span> child component to make another component look
+                            like a button. Here's an example of a link that looks like a button.
+                        </Text>
                     </ComponentsCode>
 
                     <ComponentsFooter />

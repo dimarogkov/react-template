@@ -1,5 +1,5 @@
-import { BTN_CODE } from './btn';
+import { BTN_CODE, BTN_WRAPPER_CODE, BTN_LINK_CODE } from './btn';
 import { BTN_ENUM_CODE } from './enum';
-import { BTN_USAGE_CODE } from './usage';
+import { BTN_USAGE_CODE, BTN_LINK_USAGE_CODE } from './usage';
 
-export { BTN_CODE, BTN_ENUM_CODE, BTN_USAGE_CODE };
+export { BTN_CODE, BTN_WRAPPER_CODE, BTN_LINK_CODE, BTN_ENUM_CODE, BTN_USAGE_CODE, BTN_LINK_USAGE_CODE };

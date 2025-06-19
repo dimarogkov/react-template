@@ -1,7 +1,4 @@
-export const BTN_USAGE_CODE = `import { EnumBtn } from '../../../types/enums';
-import { Btn } from '../../ui';
-
-{/* Default Button */}
+export const BTN_USAGE_CODE = `{/* Default Button */}
 <Btn>Default Button</Btn>
 
 {/* Secondary Button */}

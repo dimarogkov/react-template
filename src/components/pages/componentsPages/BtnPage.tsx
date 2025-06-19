@@ -1,15 +1,16 @@
-import { User } from 'lucide-react';
 import { useSectionsRefs } from '../../../hooks';
 import { EnumBtn, EnumText, EnumTitle } from '../../../types/enums';
 import { BTN_CODE, BTN_ENUM_CODE, BTN_USAGE_CODE, NPM_CLASSNAMES_CODE } from '../../../variables/code';
 import {
     ComponentsCode,
+    ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
 import { Btn, SimpleLink, Text, Title } from '../../ui';
+import { User } from 'lucide-react';
 
 export const BtnPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
@@ -33,14 +34,14 @@ export const BtnPage = () => {
 
                     <ComponentsPreview>
                         <div className='flex flex-col gap-4 w-full'>
-                            <Btn>Button Default</Btn>
-                            <Btn btnType={EnumBtn.secondary}>Button Secondary</Btn>
-                            <Btn btnType={EnumBtn.outline}>Button Outline</Btn>
-                            <Btn btnType={EnumBtn.ghost}>Button Ghost</Btn>
+                            <Btn>Default Button</Btn>
+                            <Btn btnType={EnumBtn.secondary}>Secondary Button</Btn>
+                            <Btn btnType={EnumBtn.outline}>Outline Button</Btn>
+                            <Btn btnType={EnumBtn.ghost}>Ghost Button</Btn>
 
                             <Btn>
                                 <User className='size-5' />
-                                <span>Button Icon</span>
+                                <span>Icon Button</span>
                             </Btn>
                         </div>
                     </ComponentsPreview>
@@ -81,7 +82,7 @@ export const BtnPage = () => {
                         <Title titleType={EnumTitle.h4}>Usage</Title>
                     </ComponentsCode>
 
-                    {/* <ComponentsFooter /> */}
+                    <ComponentsFooter />
                 </div>
             </div>
         </section>

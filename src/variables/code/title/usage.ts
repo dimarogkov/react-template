@@ -1,7 +1,4 @@
-export const TITLE_USAGE_CODE = `import { EnumTitle } from '../../types/enums';
-import { Title } from '../ui';
-
-{/* H1 title */}
+export const TITLE_USAGE_CODE = `{/* H1 title */}
 <Title>Title H1</Title>
 
 {/* H2 title */}

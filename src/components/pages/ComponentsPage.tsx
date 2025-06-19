@@ -1,16 +1,10 @@
 import { Link } from 'react-router-dom';
-import { PATHS } from '../../variables';
-import { convertUrlToString } from '../../helpers';
+import { getComponentsLinks } from '../../helpers';
 import { EnumText, EnumTitle } from '../../types/enums';
 import { Line, Text, Title } from '../ui';
 
 export const ComponentsPage = () => {
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
-
-    const linksArr = Object.values(COMPONENTS).map((path) => ({
-        name: convertUrlToString(path),
-        href: `${MAIN.COMPONENTS}${path}`,
-    }));
+    const linksArr = getComponentsLinks();
 
     return (
         <>

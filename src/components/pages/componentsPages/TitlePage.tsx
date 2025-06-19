@@ -1,6 +1,6 @@
 import { useSectionsRefs } from '../../../hooks';
 import { EnumText, EnumTitle } from '../../../types/enums';
-import { TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -19,7 +19,7 @@ export const TitlePage = () => {
             <div className='container'>
                 <div className='w-full'>
                     <ComponentsSidebar />
-                    <ComponentsNavigation sectionRef={sectionRef} />
+                    <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
 
                     <ComponentsHead>
                         <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>

@@ -1,27 +1,17 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { COMPONENTS_SECTIONS } from '../../variables/code';
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
 import { Text } from '../ui';
 import cn from 'classnames';
 
 type Props = {
     sectionRef: React.MutableRefObject<Record<string, HTMLElement | null>>;
-    withInstallation?: boolean;
+    sectionsArr: IComponentsSection[];
 };
 
-export const ComponentsNavigation: FC<Props> = ({ sectionRef, withInstallation = false }) => {
+export const ComponentsNavigation: FC<Props> = ({ sectionRef, sectionsArr }) => {
     const [activeSection, setActiveSection] = useState('');
-    const [sectionsArr, setSectionsArr] = useState<IComponentsSection[]>([]);
     const { scrollY } = useScroll();
-
-    useEffect(() => {
-        const arr = withInstallation
-            ? [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS]
-            : [...COMPONENTS_SECTIONS];
-
-        setSectionsArr(arr);
-    }, [withInstallation]);
 
     useMotionValueEvent(scrollY, 'change', () => {
         let found = false;

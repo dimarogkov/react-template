@@ -1,7 +1,7 @@
 import { DEV_ICONS } from '../../variables';
 import { EnumText, EnumTitle } from '../../types/enums';
 import { DevIcon } from '../elements/DevIcon';
-import { BtnLink, Text, Title } from '../ui';
+import { Btn, Text, Title } from '../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const HomePage = () => {
@@ -23,10 +23,12 @@ export const HomePage = () => {
                             CSS, Redux Toolkit, Zustand, Axios, React Query, React Hook Form, Yup, Frame Motion.
                         </Text>
 
-                        <BtnLink href='https://github.com/dimarogkov/react-template' target='_blank'>
-                            <span>Git Repo</span>
-                            <ArrowUpRight className='size-5' />
-                        </BtnLink>
+                        <Btn isLink>
+                            <Btn.Link href='https://github.com/dimarogkov/react-template' target='_blank'>
+                                <span>Git Repo</span>
+                                <ArrowUpRight className='size-5' />
+                            </Btn.Link>
+                        </Btn>
                     </div>
                 </div>
             </div>

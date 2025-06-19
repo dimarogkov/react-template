@@ -2,7 +2,6 @@ import { Accordion } from './Accordion';
 import { Avatar, AvatarGroup } from './Avatar';
 import { Badge } from './Badge';
 import { Btn } from './Btn';
-import { BtnLink } from './BtnLink';
 import { Checkbox } from './Checkbox';
 import { Dropdown } from './Dropdown';
 import { ErrorMessage } from './ErrorMessage';
@@ -28,7 +27,6 @@ export {
     AvatarGroup,
     Badge,
     Btn,
-    BtnLink,
     Checkbox,
     Dropdown,
     ErrorMessage,

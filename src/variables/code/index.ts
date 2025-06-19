@@ -1,5 +1,5 @@
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
-import { BTN_CODE, BTN_ENUM_CODE, BTN_USAGE_CODE } from './btn';
+import { BTN_CODE, BTN_ENUM_CODE, BTN_LINK_CODE, BTN_LINK_USAGE_CODE, BTN_USAGE_CODE, BTN_WRAPPER_CODE } from './btn';
 import { NPM_CLASSNAMES_CODE } from './npm';
 import { TEXT_CODE, TEXT_ENUM_CODE, TEXT_USAGE_CODE } from './text';
 import { TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from './title';
@@ -12,8 +12,11 @@ export const COMPONENTS_SECTIONS: IComponentsSection[] = [
 export {
     NPM_CLASSNAMES_CODE,
     BTN_CODE,
+    BTN_WRAPPER_CODE,
+    BTN_LINK_CODE,
     BTN_ENUM_CODE,
     BTN_USAGE_CODE,
+    BTN_LINK_USAGE_CODE,
     TEXT_ENUM_CODE,
     TEXT_CODE,
     TEXT_USAGE_CODE,

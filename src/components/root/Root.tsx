@@ -17,7 +17,7 @@ export const Root = () => {
     const { MAIN, COMPONENTS } = PATHS.PAGES;
 
     return (
-        <Router basename='/react-template'>
+        <Router>
             <Routes>
                 <Route path={PATHS.HOME} element={<App />}>
                     <Route index element={<HomePage />} />

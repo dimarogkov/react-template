@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useSectionsRefs } from '../../../hooks';
 import { EnumText, EnumTitle } from '../../../types/enums';
 import {
@@ -16,6 +17,7 @@ import {
     ComponentsSidebar,
 } from '../../blocks';
 import { SimpleLink, Text, Title } from '../../ui';
+import { ArrowUpRight } from 'lucide-react';
 
 export const TextPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
@@ -70,8 +72,16 @@ export const TextPage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TEXT_ENUM_CODE, TEXT_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
-                            Code
+                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                            <span>Code</span>
+
+                            <Link
+                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Text.tsx'
+                                target='_blank'
+                                className='transition-colors duration-300 hover:text-text'
+                            >
+                                <ArrowUpRight />
+                            </Link>
                         </Title>
 
                         <Text>

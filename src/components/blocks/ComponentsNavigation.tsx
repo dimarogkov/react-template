@@ -47,7 +47,7 @@ export const ComponentsNavigation: FC<Props> = ({ sectionRef, sectionsArr }) => 
             <div className='w-full'>
                 <Text className='text-text/70 mb-2 last:mb-0'>On this Page</Text>
 
-                <ul className='flex flex-col gap-0.5 w-full'>
+                <ul className='flex flex-col gap-1 w-full'>
                     {sectionsArr.map(({ id, text }) => (
                         <li key={id}>
                             <Text>

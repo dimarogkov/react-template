@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { getHighlightCode } from '../../helpers';
 import { ClipboardCheck, Clipboard } from 'lucide-react';
+import { Loader } from '../ui';
+import { EnumLoaderType } from '../../types/enums';
 
 type Props = {
     code: string;
@@ -22,15 +24,27 @@ export const ComponentsCodeDetail: FC<Props> = ({ code }) => {
 
     return (
         <div className='relative w-full rounded-md overflow-hidden border border-border'>
-            <button
-                type='button'
-                onClick={handleCopy}
-                className='absolute top-2 right-2 flex items-center justify-center size-8 rounded-md transition-colors hover:bg-border'
-            >
-                {copied ? <ClipboardCheck className='size-5 text-text' /> : <Clipboard className='size-5 text-text' />}
-            </button>
+            {highlightCode ? (
+                <>
+                    <button
+                        type='button'
+                        onClick={handleCopy}
+                        className='absolute top-2 right-2 flex items-center justify-center size-8 rounded-md transition-colors hover:bg-border'
+                    >
+                        {copied ? (
+                            <ClipboardCheck className='size-5 text-text' />
+                        ) : (
+                            <Clipboard className='size-5 text-text' />
+                        )}
+                    </button>
 
-            <div className='text-base' dangerouslySetInnerHTML={{ __html: highlightCode }} />
+                    <div className='text-base' dangerouslySetInnerHTML={{ __html: highlightCode }} />
+                </>
+            ) : (
+                <div className='flex items-center justify-center w-full h-24'>
+                    <Loader loaderType={EnumLoaderType.light} />
+                </div>
+            )}
         </div>
     );
 };

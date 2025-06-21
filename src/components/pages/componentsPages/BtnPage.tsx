@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useSectionsRefs } from '../../../hooks';
 import { EnumBtn, EnumText, EnumTitle } from '../../../types/enums';
 import { PATHS } from '../../../variables';
@@ -20,7 +21,7 @@ import {
     ComponentsSidebar,
 } from '../../blocks';
 import { Btn, SimpleLink, Text, Title } from '../../ui';
-import { User } from 'lucide-react';
+import { ArrowUpRight, User } from 'lucide-react';
 
 export const BtnPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
@@ -92,8 +93,16 @@ export const BtnPage = () => {
                         ref={registerRef('code')}
                         codeArr={[BTN_ENUM_CODE, BTN_CODE, BTN_WRAPPER_CODE, BTN_LINK_CODE]}
                     >
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
-                            Code
+                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                            <span>Code</span>
+
+                            <Link
+                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Btn'
+                                target='_blank'
+                                className='transition-colors duration-300 hover:text-text'
+                            >
+                                <ArrowUpRight />
+                            </Link>
                         </Title>
 
                         <Text>

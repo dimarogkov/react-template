@@ -22,7 +22,7 @@ export const ComponentsPage = () => {
 
                         <Line />
 
-                        <div className='grid grid-cols-4 gap-4 w-full'>
+                        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full'>
                             {linksArr.map(({ name, href }) => (
                                 <Link key={name} to={href} className='font-medium text-lg text-text hover:underline'>
                                     {name}

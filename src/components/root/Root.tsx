@@ -7,6 +7,7 @@ import {
     NotFoundPage,
     StorePage,
     TodosPage,
+    AccordionPage,
     BtnPage,
     TextPage,
     TitlePage,
@@ -24,6 +25,7 @@ export const Root = () => {
 
                     <Route path={MAIN.COMPONENTS}>
                         <Route index element={<ComponentsPage />} />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.ACCORDION}`} element={<AccordionPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />

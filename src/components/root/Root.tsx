@@ -11,6 +11,7 @@ import {
     BtnPage,
     TextPage,
     TitlePage,
+    AvatarPage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -26,6 +27,7 @@ export const Root = () => {
                     <Route path={MAIN.COMPONENTS}>
                         <Route index element={<ComponentsPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.ACCORDION}`} element={<AccordionPage />} />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`} element={<AvatarPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />

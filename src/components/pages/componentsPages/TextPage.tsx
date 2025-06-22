@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
@@ -8,6 +6,8 @@ import {
     TEXT_ENUM_CODE,
     TEXT_USAGE_CODE,
 } from '../../../variables/code';
+import { useSectionsRefs } from '../../../hooks';
+import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -16,6 +16,7 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
+import { TextPreview } from '../../elements/preview';
 import { SimpleLink, Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -40,15 +41,7 @@ export const TextPage = () => {
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <Text textType={EnumText.large} className='mb-5 last:mb-0'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
-                            aliquid accusamus hic dicta blanditiis porro
-                        </Text>
-
-                        <Text>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati
-                            aliquid accusamus hic dicta blanditiis porro
-                        </Text>
+                        <TextPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
@@ -85,9 +78,9 @@ export const TextPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumText</span> file to define button variants,
-                            along with a custom <span className='badge-item'>Text</span> component for consistent and
-                            maintainable button usage throughout the project.
+                            Include an <span className='badge-item'>EnumText</span> file to define texts variants, along
+                            with a custom <span className='badge-item'>Text</span> component for consistent and
+                            maintainable text usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

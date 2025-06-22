@@ -9,6 +9,7 @@ export const PATHS = {
         },
         COMPONENTS: {
             ACCORDION: '/accordion',
+            AVATAR: '/avatar',
             BTN: '/button',
             TEXT: '/text',
             TITLE: '/title',

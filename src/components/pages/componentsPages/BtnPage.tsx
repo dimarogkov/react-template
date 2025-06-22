@@ -1,7 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useSectionsRefs } from '../../../hooks';
-import { EnumBtn, EnumText, EnumTitle } from '../../../types/enums';
-import { PATHS } from '../../../variables';
 import {
     BTN_LINK_CODE,
     BTN_CODE,
@@ -12,6 +9,8 @@ import {
     BTN_WRAPPER_CODE,
     COMPONENTS_SECTIONS,
 } from '../../../variables/code';
+import { useSectionsRefs } from '../../../hooks';
+import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -20,12 +19,12 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
-import { Btn, SimpleLink, Text, Title } from '../../ui';
-import { ArrowUpRight, User } from 'lucide-react';
+import { BtnPreview } from '../../elements/preview';
+import { SimpleLink, Text, Title } from '../../ui';
+import { ArrowUpRight } from 'lucide-react';
 
 export const BtnPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
 
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
@@ -51,21 +50,7 @@ export const BtnPage = () => {
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <div className='flex flex-wrap gap-4 w-full'>
-                            <Btn>Default Button</Btn>
-                            <Btn btnType={EnumBtn.secondary}>Secondary Button</Btn>
-                            <Btn btnType={EnumBtn.outline}>Outline Button</Btn>
-                            <Btn btnType={EnumBtn.ghost}>Ghost Button</Btn>
-
-                            <Btn isLink>
-                                <Btn.Link href={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`}>Link Button</Btn.Link>
-                            </Btn>
-
-                            <Btn>
-                                <User className='size-5' />
-                                <span>Icon Button</span>
-                            </Btn>
-                        </div>
+                        <BtnPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>

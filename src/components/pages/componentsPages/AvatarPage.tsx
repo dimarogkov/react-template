@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import {
-    ACCORDION_CODE,
-    ACCORDION_CONTENT_CODE,
-    ACCORDION_ENUM_CODE,
-    ACCORDION_ITEM_CODE,
-    ACCORDION_TITLE_CODE,
-    ACCORDION_USAGE_ACTIVE_CODE,
-    ACCORDION_USAGE_CODE,
-    ACCORDION_WRAPPER_CODE,
-    COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
+    COMPONENTS_SECTIONS,
+    AVATAR_ENUM_CODE,
+    AVATAR_CODE,
+    AVATAR_WRAPPER_CODE,
+    AVATAR_LINK_CODE,
+    AVATAR_IMG_CODE,
+    AVATAR_GROUP_CODE,
+    AVATAR_USAGE_CODE,
+    AVATAR_GROUP_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import { EnumText, EnumTitle } from '../../../types/enums';
@@ -21,17 +21,17 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
-import { AccordionPreview } from '../../elements/preview';
 import { SimpleLink, Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
+import { AvatarPreview } from '../../elements/preview';
 
-export const AccordionPage = () => {
+export const AvatarPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
-        { id: 'active', text: 'Active' },
+        { id: 'group', text: 'Group' },
     ];
 
     return (
@@ -43,16 +43,16 @@ export const AccordionPage = () => {
 
                     <ComponentsHead>
                         <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
-                            <span>Accordion</span>
+                            Avatar
                         </Title>
 
                         <Text textType={EnumText.large}>
-                            A vertically stacked set of interactive headings that each reveal a section of content.
+                            An image element with a fallback for representing the user.
                         </Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <AccordionPreview />
+                        <AvatarPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
@@ -79,19 +79,19 @@ export const AccordionPage = () => {
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            ACCORDION_ENUM_CODE,
-                            ACCORDION_CODE,
-                            ACCORDION_WRAPPER_CODE,
-                            ACCORDION_ITEM_CODE,
-                            ACCORDION_TITLE_CODE,
-                            ACCORDION_CONTENT_CODE,
+                            AVATAR_ENUM_CODE,
+                            AVATAR_CODE,
+                            AVATAR_WRAPPER_CODE,
+                            AVATAR_LINK_CODE,
+                            AVATAR_IMG_CODE,
+                            AVATAR_GROUP_CODE,
                         ]}
                     >
                         <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Accordion'
+                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Avatar'
                                 target='_blank'
                                 className='transition-colors duration-300 hover:text-text'
                             >
@@ -100,24 +100,26 @@ export const AccordionPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumAccordionIcon</span> file to define accordions
-                            variants, along with a custom <span className='badge-item'>Accordion</span> component for
-                            consistent and maintainable accordion usage throughout the project.
+                            Include an <span className='badge-item'>EnumAvatar</span> file to define avatars variants,
+                            along with a custom <span className='badge-item'>Avatar</span> component for consistent and
+                            maintainable avatar usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
+                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[AVATAR_USAGE_CODE]}>
                         <Title titleType={EnumTitle.h4}>Usage</Title>
                     </ComponentsCode>
 
-                    <ComponentsCode id='active' ref={registerRef('active')} codeArr={[ACCORDION_USAGE_ACTIVE_CODE]}>
+                    <ComponentsCode id='group' ref={registerRef('group')} codeArr={[AVATAR_GROUP_USAGE_CODE]}>
                         <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
-                            Active
+                            Group
                         </Title>
 
                         <Text>
-                            To make an <span className='badge-item'>Accordion.Item</span> initially open, add the&nbsp;
-                            <span className='badge-item'>isOpen</span> prop to it.
+                            To group multiple avatars together, wrap them with the&nbsp;
+                            <span className='badge-item'>AvatarGroup</span> component. You can also use the&nbsp;
+                            <span className='badge-item'>visibleCount</span> prop to limit the number of avatars
+                            displayed.
                         </Text>
                     </ComponentsCode>
 

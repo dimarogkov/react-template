@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
+import { COMPONENTS_SECTIONS, TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import { EnumText, EnumTitle } from '../../../types/enums';
-import { COMPONENTS_SECTIONS, TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -10,6 +10,7 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
+import { TitlePreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -32,17 +33,7 @@ export const TitlePage = () => {
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <Title className='mb-1.5 last:mb-0'>Title H1</Title>
-
-                        <Title titleType={EnumTitle.h2} className='mb-1.5 last:mb-0'>
-                            Title H2
-                        </Title>
-
-                        <Title titleType={EnumTitle.h3} className='mb-1.5 last:mb-0'>
-                            Title H3
-                        </Title>
-
-                        <Title titleType={EnumTitle.h4}>Title H4</Title>
+                        <TitlePreview />
                     </ComponentsPreview>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TITLE_ENUM_CODE, TITLE_CODE]}>
@@ -59,9 +50,9 @@ export const TitlePage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumTitle</span> file to define button variants,
+                            Include an <span className='badge-item'>EnumTitle</span> file to define headings variants,
                             along with a custom <span className='badge-item'>Title</span> component for consistent and
-                            maintainable button usage throughout the project.
+                            maintainable title usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

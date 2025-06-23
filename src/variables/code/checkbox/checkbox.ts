@@ -1,4 +1,10 @@
-import { FC, forwardRef, InputHTMLAttributes, RefAttributes, useEffect, useState } from 'react';
+export const CHECKBOX_CODE = `import { 
+	FC, 
+	forwardRef, 
+	InputHTMLAttributes, 
+	RefAttributes, useEffect, 
+	useState 
+} from 'react';
 import { Text } from './Text';
 import { Check } from 'lucide-react';
 import cn from 'classnames';
@@ -21,7 +27,7 @@ export const Checkbox: FC<Props> = forwardRef<HTMLInputElement, Props>(
 
         return (
             <div
-                className={cn(`flex items-center gap-2 cursor-pointer select-none ${className}`, {
+                className={cn(\`flex items-center gap-2 cursor-pointer select-none \${className}\`, {
                     'opacity-70 pointer-events-none': props.disabled,
                 })}
             >
@@ -57,4 +63,4 @@ export const Checkbox: FC<Props> = forwardRef<HTMLInputElement, Props>(
             </div>
         );
     }
-);
+);`;

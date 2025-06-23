@@ -12,6 +12,7 @@ export const PATHS = {
             AVATAR: '/avatar',
             BADGE: '/badge',
             BTN: '/button',
+            CHECKBOX: '/checkbox',
             TEXT: '/text',
             TITLE: '/title',
         },

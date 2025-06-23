@@ -16,7 +16,10 @@ export const DevIcon: FC<Props> = ({ devIcon, className = '' }) => {
             className={`relative flex flex-col gap-2 w-full text-center p-5 rounded-md border border-border cursor-pointer transition-colors duration-300 hover:text-title hover:border-title ${className}`}
         >
             <i className={`text-[32px] sm:text-[40px] ${icon}`} />
-            <Text textType={EnumText.large}>{text}</Text>
+
+            <Text textType={EnumText.large} className='select-none'>
+                {text}
+            </Text>
         </div>
     );
 };

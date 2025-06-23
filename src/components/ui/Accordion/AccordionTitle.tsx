@@ -39,7 +39,7 @@ export const AccordionTitle: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 ref={ref}
                 {...props}
                 onClick={toggleAccordion}
-                className={`relative flex items-center justify-between w-full text-base p-2.5 sm:p-3 cursor-pointer transition-all duration-300 ${className}`}
+                className={`relative flex items-center justify-between w-full text-base p-2.5 sm:p-3 cursor-pointer transition-all duration-300 select-none ${className}`}
             >
                 {props.children}
                 {iconType && icon[iconType]}

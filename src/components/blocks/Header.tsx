@@ -20,7 +20,7 @@ export const Header = () => {
                             <i className='text-[24px] md:text-[26px] text-bg devicon-react-original' />
                         </span>
 
-                        <Text textType={EnumText.large} className='!w-fit font-medium text-title'>
+                        <Text textType={EnumText.large} className='!w-fit font-medium text-title select-none'>
                             React Template
                         </Text>
                     </Link>

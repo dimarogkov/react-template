@@ -35,17 +35,6 @@ export const ComponentsPage = () => {
 
             {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container flex flex-col gap-4'>
-                    <div className='w-full'>
-                        <Badge>
-                            <Badge.Item>Badge Default</Badge.Item>
-
-                            <Badge.Item>
-                                <User className='size-5' />
-                                <span>Badge Icon</span>
-                            </Badge.Item>
-                        </Badge>
-                    </div>
-
                     <div className='flex flex-wrap w-full gap-2.5'>
                         <SwitchBtn />
                         <SwitchBtn isActive />

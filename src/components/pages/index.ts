@@ -4,7 +4,7 @@ import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
 import { StorePage } from './StorePage';
 import { TodosPage } from './TodosPage';
-import { AccordionPage, AvatarPage, BadgePage, BtnPage, TextPage, TitlePage } from './componentsPages';
+import { AccordionPage, AvatarPage, BadgePage, BtnPage, CheckboxPage, TextPage, TitlePage } from './componentsPages';
 
 export {
     ComponentsPage,
@@ -17,6 +17,7 @@ export {
     AvatarPage,
     BadgePage,
     BtnPage,
+    CheckboxPage,
     TextPage,
     TitlePage,
 };

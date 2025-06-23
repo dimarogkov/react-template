@@ -21,6 +21,7 @@ import {
 } from './avatar';
 import { BADGE_CODE, BADGE_USAGE_CODE } from './badge';
 import { BTN_CODE, BTN_ENUM_CODE, BTN_LINK_CODE, BTN_LINK_USAGE_CODE, BTN_USAGE_CODE, BTN_WRAPPER_CODE } from './btn';
+import { CHECKBOX_CODE, CHECKBOX_USAGE_CODE } from './checkbox';
 import { NPM_CLASSNAMES_CODE } from './npm';
 import { TEXT_CODE, TEXT_ENUM_CODE, TEXT_USAGE_CODE } from './text';
 import { TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from './title';
@@ -56,6 +57,8 @@ export {
     BTN_ENUM_CODE,
     BTN_USAGE_CODE,
     BTN_LINK_USAGE_CODE,
+    CHECKBOX_CODE,
+    CHECKBOX_USAGE_CODE,
     TEXT_ENUM_CODE,
     TEXT_CODE,
     TEXT_USAGE_CODE,

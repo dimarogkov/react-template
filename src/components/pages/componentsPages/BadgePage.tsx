@@ -41,7 +41,7 @@ export const BadgePage = () => {
                             <span>Code</span>
 
                             <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Badge'
+                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Badge.tsx'
                                 target='_blank'
                                 className='transition-colors duration-300 hover:text-text'
                             >

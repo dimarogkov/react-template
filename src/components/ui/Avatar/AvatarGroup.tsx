@@ -52,7 +52,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 {visibleCount && childArray.length > visibleCount && (
                     <div
                         className={cn(
-                            `relative flex items-center justify-center text-base text-bg bg-title ${
+                            `relative flex items-center justify-center text-base text-bg bg-title select-none ${
                                 widthClasses || 'size-12'
                             }`,
                             {

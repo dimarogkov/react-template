@@ -12,6 +12,7 @@ import {
     TextPage,
     TitlePage,
     AvatarPage,
+    BadgePage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -28,6 +29,8 @@ export const Root = () => {
                         <Route index element={<ComponentsPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.ACCORDION}`} element={<AccordionPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`} element={<AvatarPage />} />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BADGE}`} element={<BadgePage />} />
+
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />

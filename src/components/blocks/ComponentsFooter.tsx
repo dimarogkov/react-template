@@ -6,7 +6,7 @@ export const ComponentsFooter = () => {
     const { prevPath, nextPath } = usePrevNextComponentPath();
 
     return (
-        <div className='relative flex justify-between w-full pt-4 md:pt-5'>
+        <div className='relative flex flex-wrap justify-between gap-2.5 w-full pt-4 md:pt-5'>
             {[prevPath, nextPath].map(({ href, name }, index) => (
                 <Link
                     key={href}

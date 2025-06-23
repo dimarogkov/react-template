@@ -8,10 +8,10 @@ export const StorePage = () => {
             <div className='container'>
                 <div className='w-full'>
                     <div className='flex flex-col gap-6 w-full'>
-                        <Badge>
-                            <Badge.Item>Redux Store</Badge.Item>
-                            <Badge.Item>Zustand Store</Badge.Item>
-                        </Badge>
+                        <div className='flex flex-wrap gap-2 w-full'>
+                            <Badge>Redux Store</Badge>
+                            <Badge>Zustand Store</Badge>
+                        </div>
 
                         <Title titleType={EnumTitle.h2}>Redux & Zustand Store</Title>
                     </div>

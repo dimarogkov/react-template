@@ -29,6 +29,7 @@ export const Header = () => {
                         {Object.values(MAIN).map((path) => (
                             <li key={path}>
                                 <NavLink
+                                    end
                                     to={path}
                                     className={({ isActive }) =>
                                         cn(

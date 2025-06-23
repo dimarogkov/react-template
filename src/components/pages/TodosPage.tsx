@@ -67,11 +67,11 @@ export const TodosPage = () => {
             <div className='container'>
                 <div className='w-full'>
                     <div className='flex flex-col gap-6 w-full mb-5 last:mb-0'>
-                        <Badge>
-                            <Badge.Item>Axios</Badge.Item>
-                            <Badge.Item>React Query</Badge.Item>
-                            <Badge.Item>Debounce</Badge.Item>
-                        </Badge>
+                        <div className='flex flex-wrap gap-2 w-full'>
+                            <Badge>Axios</Badge>
+                            <Badge>React Query</Badge>
+                            <Badge>Debounce</Badge>
+                        </div>
 
                         <Title titleType={EnumTitle.h2}>Todos with React Query</Title>
                     </div>

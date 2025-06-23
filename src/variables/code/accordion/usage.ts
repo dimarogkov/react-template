@@ -25,7 +25,7 @@ export const ACCORDION_USAGE_CODE = `{/* Default Accordion */}
 
 {/* Accordion with Plus Icon */}
 <Accordion iconType={EnumAccordionIcon.plus}>
-	<Accordion.Item isOpen>
+	<Accordion.Item>
 		<Accordion.Title>Accordion Title 1</Accordion.Title>
 		<Accordion.Content>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam atque officia

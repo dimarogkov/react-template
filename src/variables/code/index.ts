@@ -19,6 +19,7 @@ import {
     AVATAR_USAGE_CODE,
     AVATAR_WRAPPER_CODE,
 } from './avatar';
+import { BADGE_CODE, BADGE_USAGE_CODE } from './badge';
 import { BTN_CODE, BTN_ENUM_CODE, BTN_LINK_CODE, BTN_LINK_USAGE_CODE, BTN_USAGE_CODE, BTN_WRAPPER_CODE } from './btn';
 import { NPM_CLASSNAMES_CODE } from './npm';
 import { TEXT_CODE, TEXT_ENUM_CODE, TEXT_USAGE_CODE } from './text';
@@ -47,6 +48,8 @@ export {
     AVATAR_GROUP_CODE,
     AVATAR_USAGE_CODE,
     AVATAR_GROUP_USAGE_CODE,
+    BADGE_CODE,
+    BADGE_USAGE_CODE,
     BTN_CODE,
     BTN_WRAPPER_CODE,
     BTN_LINK_CODE,

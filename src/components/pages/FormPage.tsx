@@ -10,10 +10,10 @@ export const FormPage = () => {
             <div className='container'>
                 <div className='w-full'>
                     <div className='flex flex-col gap-6 w-full'>
-                        <Badge>
-                            <Badge.Item>React Hook Form</Badge.Item>
-                            <Badge.Item>Yup Validation</Badge.Item>
-                        </Badge>
+                        <div className='flex flex-wrap gap-2 w-full'>
+                            <Badge>React Hook Form</Badge>
+                            <Badge>Yup Validation</Badge>
+                        </div>
 
                         <Title titleType={EnumTitle.h2}>React Form</Title>
                     </div>

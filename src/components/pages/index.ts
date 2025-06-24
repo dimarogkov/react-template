@@ -12,6 +12,8 @@ import {
     CheckboxPage,
     InputPage,
     InputPasswordPage,
+    LabelPage,
+    LoaderPage,
     TextPage,
     TitlePage,
 } from './componentsPages';
@@ -30,6 +32,8 @@ export {
     CheckboxPage,
     InputPage,
     InputPasswordPage,
+    LabelPage,
+    LoaderPage,
     TextPage,
     TitlePage,
 };

@@ -15,6 +15,8 @@ export const PATHS = {
             CHECKBOX: '/checkbox',
             INPUT: '/input',
             INPUT_PASSWORD: '/input-password',
+            LABEL: '/label',
+            LOADER: '/loader',
             TEXT: '/text',
             TITLE: '/title',
         },

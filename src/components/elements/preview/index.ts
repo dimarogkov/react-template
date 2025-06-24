@@ -5,6 +5,7 @@ import { BtnPreview } from './BtnPreview';
 import { CheckboxPreview } from './CheckboxPreview';
 import { InputPasswordPreview } from './InputPasswordPreview';
 import { InputPreview } from './InputPreview';
+import { LoaderPreview } from './LoaderPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 
@@ -16,6 +17,7 @@ export {
     CheckboxPreview,
     InputPasswordPreview,
     InputPreview,
+    LoaderPreview,
     TextPreview,
     TitlePreview,
 };

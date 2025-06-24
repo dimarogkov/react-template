@@ -8,12 +8,14 @@ import {
     StorePage,
     TodosPage,
     AccordionPage,
-    BtnPage,
-    TextPage,
-    TitlePage,
     AvatarPage,
+    BtnPage,
     BadgePage,
     CheckboxPage,
+    InputPage,
+    InputPasswordPage,
+    TextPage,
+    TitlePage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -33,6 +35,11 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BADGE}`} element={<BadgePage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.CHECKBOX}`} element={<CheckboxPage />} />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT}`} element={<InputPage />} />
+                        <Route
+                            path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT_PASSWORD}`}
+                            element={<InputPasswordPage />}
+                        />
 
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />

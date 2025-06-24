@@ -25,7 +25,6 @@ input:-webkit-autofill:hover,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:focus,
 textarea:-webkit-autofill:hover {
-    -webkit-text-fill-color: #a1a1a1;
     background: -webkit-linear-gradient(
         top,
         hsla(0, 0%, 100%, 0),
@@ -34,7 +33,6 @@ textarea:-webkit-autofill:hover {
         hsla(0, 0%, 100%, 0)
     );
     -webkit-box-shadow: inset 0 0 0 1000px transparent;
-    color: #a1a1a1;
     -webkit-transition: background-color 5000s ease-in-out 0s;
     transition: background-color 5000s ease-in-out 0s;
 }

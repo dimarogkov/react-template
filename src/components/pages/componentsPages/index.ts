@@ -5,6 +5,8 @@ import { BtnPage } from './BtnPage';
 import { CheckboxPage } from './CheckboxPage';
 import { InputPage } from './InputPage';
 import { InputPasswordPage } from './InputPasswordPage';
+import { LabelPage } from './LabelPage';
+import { LoaderPage } from './LoaderPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 
@@ -16,6 +18,8 @@ export {
     CheckboxPage,
     InputPage,
     InputPasswordPage,
+    LabelPage,
+    LoaderPage,
     TextPage,
     TitlePage,
 };

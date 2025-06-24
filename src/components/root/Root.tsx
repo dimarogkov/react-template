@@ -16,6 +16,8 @@ import {
     InputPasswordPage,
     TextPage,
     TitlePage,
+    LabelPage,
+    LoaderPage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -40,6 +42,8 @@ export const Root = () => {
                             path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT_PASSWORD}`}
                             element={<InputPasswordPage />}
                         />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.LABEL}`} element={<LabelPage />} />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.LOADER}`} element={<LoaderPage />} />
 
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />

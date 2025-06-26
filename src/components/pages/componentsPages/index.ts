@@ -7,6 +7,7 @@ import { InputPage } from './InputPage';
 import { InputPasswordPage } from './InputPasswordPage';
 import { LabelPage } from './LabelPage';
 import { LoaderPage } from './LoaderPage';
+import { ProgressPage } from './ProgressPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 
@@ -20,6 +21,7 @@ export {
     InputPasswordPage,
     LabelPage,
     LoaderPage,
+    ProgressPage,
     TextPage,
     TitlePage,
 };

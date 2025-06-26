@@ -9,15 +9,16 @@ import {
     TodosPage,
     AccordionPage,
     AvatarPage,
-    BtnPage,
     BadgePage,
+    BtnPage,
     CheckboxPage,
     InputPage,
     InputPasswordPage,
-    TextPage,
-    TitlePage,
     LabelPage,
     LoaderPage,
+    ProgressPage,
+    TextPage,
+    TitlePage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -37,6 +38,7 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BADGE}`} element={<BadgePage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.CHECKBOX}`} element={<CheckboxPage />} />
+                        {/* Dropdown */}
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT}`} element={<InputPage />} />
                         <Route
                             path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT_PASSWORD}`}
@@ -44,7 +46,12 @@ export const Root = () => {
                         />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.LABEL}`} element={<LabelPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.LOADER}`} element={<LoaderPage />} />
-
+                        {/* Modal */}
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
+                        {/* Radio */}
+                        {/* Select */}
+                        {/* SimpleLink */}
+                        {/* SwitchBtn */}
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />
                     </Route>

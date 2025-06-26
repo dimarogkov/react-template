@@ -14,6 +14,7 @@ import {
     InputPasswordPage,
     LabelPage,
     LoaderPage,
+    ProgressPage,
     TextPage,
     TitlePage,
 } from './componentsPages';
@@ -34,6 +35,7 @@ export {
     InputPasswordPage,
     LabelPage,
     LoaderPage,
+    ProgressPage,
     TextPage,
     TitlePage,
 };

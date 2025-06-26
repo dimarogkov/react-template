@@ -17,6 +17,7 @@ export const PATHS = {
             INPUT_PASSWORD: '/input-password',
             LABEL: '/label',
             LOADER: '/loader',
+            PROGRESS: '/progress',
             TEXT: '/text',
             TITLE: '/title',
         },

@@ -18,6 +18,7 @@ export const PATHS = {
             LABEL: '/label',
             LOADER: '/loader',
             PROGRESS: '/progress',
+            RADIO: '/radio',
             TEXT: '/text',
             TITLE: '/title',
         },

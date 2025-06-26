@@ -8,6 +8,7 @@ import { InputPasswordPage } from './InputPasswordPage';
 import { LabelPage } from './LabelPage';
 import { LoaderPage } from './LoaderPage';
 import { ProgressPage } from './ProgressPage';
+import { RadioPage } from './RadioPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 
@@ -22,6 +23,7 @@ export {
     LabelPage,
     LoaderPage,
     ProgressPage,
+    RadioPage,
     TextPage,
     TitlePage,
 };

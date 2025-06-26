@@ -15,6 +15,7 @@ import {
     LabelPage,
     LoaderPage,
     ProgressPage,
+    RadioPage,
     TextPage,
     TitlePage,
 } from './componentsPages';
@@ -36,6 +37,7 @@ export {
     LabelPage,
     LoaderPage,
     ProgressPage,
+    RadioPage,
     TextPage,
     TitlePage,
 };

@@ -1,4 +1,4 @@
-import { FC, forwardRef, InputHTMLAttributes, RefAttributes } from 'react';
+export const RADIO_CODE = `import { FC, forwardRef, InputHTMLAttributes, RefAttributes } from 'react';
 import { Text } from './Text';
 import { Circle } from 'lucide-react';
 import cn from 'classnames';
@@ -11,7 +11,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTM
 export const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(({ label, className = '', ...props }, ref) => {
     return (
         <div
-            className={cn(`flex items-center gap-2 cursor-pointer ${className}`, {
+            className={cn(\`flex items-center gap-2 cursor-pointer \${className}\`, {
                 'opacity-70 pointer-events-none': props.disabled,
             })}
         >
@@ -41,4 +41,4 @@ export const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(({ label, cl
             {label && <Text>{label}</Text>}
         </div>
     );
-});
+});`;

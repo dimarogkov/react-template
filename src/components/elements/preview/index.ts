@@ -7,6 +7,7 @@ import { InputPasswordPreview } from './InputPasswordPreview';
 import { InputPreview } from './InputPreview';
 import { LoaderPreview } from './LoaderPreview';
 import { ProgressPreview } from './ProgressPreview';
+import { RadioPreview } from './RadioPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 
@@ -20,6 +21,7 @@ export {
     InputPreview,
     LoaderPreview,
     ProgressPreview,
+    RadioPreview,
     TextPreview,
     TitlePreview,
 };

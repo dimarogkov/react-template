@@ -68,18 +68,18 @@ export const Form: FC<Props> = ({ onSubmit }) => {
                     <Label className='w-full'>
                         <Radio
                             {...register(EnumFormNames.radioType)}
-                            isChecked={watch('radioType')}
                             value='type_one'
                             label='Type One'
+                            checked={watch('radioType') === 'type_one'}
                         />
                     </Label>
 
                     <Label className='w-full'>
                         <Radio
                             {...register(EnumFormNames.radioType)}
-                            isChecked={watch('radioType')}
                             value='type_two'
                             label='Type Two'
+                            checked={watch('radioType') === 'type_two'}
                         />
                     </Label>
                 </div>

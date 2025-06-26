@@ -44,31 +44,6 @@ export const ComponentsPage = () => {
 
             {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
-                    <div className='flex flex-col gap-6 w-full'>
-                        <div className='flex flex-col gap-2.5 w-full'>
-                            <Text textType={EnumText.large}>Progress</Text>
-                            <Progress value={25} />
-                            <Progress value={50} />
-                            <Progress value={75} />
-                            <Progress value={100} />
-                        </div>
-
-                        <div className='flex flex-col gap-2.5 w-full'>
-                            <Text textType={EnumText.large}>Circle Progress</Text>
-
-                            <div className='flex flex-wrap gap-5 sm:gap-10 w-full'>
-                                <Progress type={EnumProgress.circle} value={25} />
-                                <Progress type={EnumProgress.circle} value={50} />
-                                <Progress type={EnumProgress.circle} value={75} />
-                                <Progress type={EnumProgress.circle} value={100} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
-
-            {/* <section className='relative w-full mb-10 last:mb-0'>
-                <div className='container'>
                     <div className='w-full'>
                         <Tabs>
                             <Tabs.TabList>

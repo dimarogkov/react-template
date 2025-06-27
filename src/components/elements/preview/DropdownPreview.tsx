@@ -14,7 +14,7 @@ export const DropdownPreview = () => {
             <Dropdown.Content className='sm:w-[200px]'>
                 <ul className='flex flex-col gap-1 w-full'>
                     {linksArr.map((link) => (
-                        <li>
+                        <li key={link}>
                             <Text>
                                 <Link
                                     to={pathname}

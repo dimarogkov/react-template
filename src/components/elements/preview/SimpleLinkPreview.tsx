@@ -1,15 +1,14 @@
-import { PATHS } from '../../../variables';
+import { useLocation } from 'react-router-dom';
 import { SimpleLink, Text } from '../../ui';
 
 export const SimpleLinkPreview = () => {
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
-    const href = `${MAIN.COMPONENTS}${COMPONENTS.SIMPLE_LINK}`;
+    const { pathname } = useLocation();
 
     return (
         <>
             <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae repellendus maxime esse aut quidem itaque
-                ipsum beatae corporis, nobis <SimpleLink href={href}>natus</SimpleLink> ex molestiae quam temporibus
+                ipsum beatae corporis, nobis <SimpleLink href={pathname}>natus</SimpleLink> ex molestiae quam temporibus
                 placeat ad mollitia. Itaque, debitis perferendis!
             </Text>
         </>

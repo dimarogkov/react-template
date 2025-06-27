@@ -13,6 +13,7 @@ export const PATHS = {
             BADGE: '/badge',
             BTN: '/button',
             CHECKBOX: '/checkbox',
+            DROPDOWN: '/dropdown',
             INPUT: '/input',
             INPUT_PASSWORD: '/input-password',
             LABEL: '/label',

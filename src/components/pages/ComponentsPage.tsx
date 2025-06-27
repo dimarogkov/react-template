@@ -22,7 +22,7 @@ export const ComponentsPage = () => {
 
                         <Line />
 
-                        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full'>
+                        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 w-full'>
                             {linksArr.map(({ name, href }) => (
                                 <Link key={name} to={href} className='font-medium text-lg text-text hover:underline'>
                                     {name}
@@ -65,31 +65,6 @@ export const ComponentsPage = () => {
             {/* <section className='relative w-full mb-2.5 last:mb-0'>
                 <div className='container'>
                     <div className='flex flex-wrap w-full gap-2.5'>
-                        <Dropdown className='w-full sm:w-fit'>
-                            <Dropdown.Trigger>
-                                <Btn>Dropdown Trigger</Btn>
-                            </Dropdown.Trigger>
-                            <Dropdown.Content className='md:w-[400px]'>
-                                <ul className='flex flex-col gap-2 w-full mb-4 last:mb-0'>
-                                    <li>
-                                        <Text>
-                                            Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet
-                                            consectetur, asd dima and some people.
-                                        </Text>
-                                    </li>
-                                    <li>
-                                        <Text>Item 2</Text>
-                                    </li>
-                                    <li>
-                                        <Text>Item 3</Text>
-                                    </li>
-                                    <li>
-                                        <Text>Item 4</Text>
-                                    </li>
-                                </ul>
-                            </Dropdown.Content>
-                        </Dropdown>
-
                         <Modal className='w-full sm:w-auto'>
                             <Modal.Trigger>
                                 <Btn>Modal Trigger</Btn>

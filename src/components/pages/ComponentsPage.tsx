@@ -34,15 +34,6 @@ export const ComponentsPage = () => {
             </section>
 
             {/* <section className='relative w-full mb-10 last:mb-0'>
-                <div className='container flex flex-col gap-4'>
-                    <div className='flex flex-wrap w-full gap-2.5'>
-                        <SwitchBtn />
-                        <SwitchBtn isActive />
-                    </div>
-                </div>
-            </section> */}
-
-            {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
                     <div className='w-full'>
                         <Tabs>

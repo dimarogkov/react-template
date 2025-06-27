@@ -9,6 +9,7 @@ import { LoaderPreview } from './LoaderPreview';
 import { ProgressPreview } from './ProgressPreview';
 import { RadioPreview } from './RadioPreview';
 import { SimpleLinkPreview } from './SimpleLinkPreview';
+import { SwitchPreview } from './SwitchPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 
@@ -24,6 +25,7 @@ export {
     ProgressPreview,
     RadioPreview,
     SimpleLinkPreview,
+    SwitchPreview,
     TextPreview,
     TitlePreview,
 };

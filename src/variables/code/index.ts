@@ -1,5 +1,5 @@
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
-import { NPM_CLASSNAMES_CODE } from './npm';
+import { NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE } from './npm';
 import {
     ACCORDION_CODE,
     ACCORDION_CONTENT_CODE,
@@ -30,6 +30,7 @@ import { LOADER_CODE, LOADER_ENUM_CODE, LOADER_USAGE_CODE } from './loader';
 import { PROGRESS_CODE, PROGRESS_ENUM_CODE, PROGRESS_USAGE_CODE } from './progress';
 import { RADIO_CODE, RADIO_USAGE_CODE } from './radio';
 import { SIMPLE_LINK_CODE, SIMPLE_LINK_USAGE_CODE } from './simple-link';
+import { SWITCH_CODE, SWITCH_USAGE_CODE } from './switch';
 import { TEXT_CODE, TEXT_ENUM_CODE, TEXT_USAGE_CODE } from './text';
 import { TITLE_CODE, TITLE_ENUM_CODE, TITLE_USAGE_CODE } from './title';
 
@@ -40,6 +41,7 @@ export const COMPONENTS_SECTIONS: IComponentsSection[] = [
 
 export {
     NPM_CLASSNAMES_CODE,
+    NPM_FRAMER_MOTION_CODE,
     ACCORDION_ENUM_CODE,
     ACCORDION_CODE,
     ACCORDION_WRAPPER_CODE,
@@ -82,6 +84,8 @@ export {
     RADIO_USAGE_CODE,
     SIMPLE_LINK_CODE,
     SIMPLE_LINK_USAGE_CODE,
+    SWITCH_CODE,
+    SWITCH_USAGE_CODE,
     TEXT_ENUM_CODE,
     TEXT_CODE,
     TEXT_USAGE_CODE,

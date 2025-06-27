@@ -1,4 +1,11 @@
-import { ButtonHTMLAttributes, FC, forwardRef, RefAttributes, useEffect, useState } from 'react';
+export const SWITCH_CODE = `import { 
+	ButtonHTMLAttributes,
+	FC,
+	forwardRef,
+	RefAttributes,
+	useEffect,
+	useState
+} from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 
@@ -24,7 +31,7 @@ export const SwitchBtn: FC<Props> = forwardRef<HTMLButtonElement, Props>(
                 type='button'
                 onClick={toggleSwitchBtn}
                 className={cn(
-                    `relative flex w-12 h-[26px] rounded-full p-0.5 border outline-none transition-colors duration-300 ${className}`,
+                    \`relative flex w-12 h-[26px] rounded-full p-0.5 border outline-none transition-colors duration-300 \${className}\`,
                     {
                         'justify-start border-text': !isActive,
                         'justify-end border-title': isActive,
@@ -42,4 +49,4 @@ export const SwitchBtn: FC<Props> = forwardRef<HTMLButtonElement, Props>(
             </button>
         );
     }
-);
+);`;

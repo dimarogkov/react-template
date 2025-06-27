@@ -9,6 +9,7 @@ import {
     AVATAR_IMG_CODE,
     AVATAR_GROUP_CODE,
     AVATAR_USAGE_CODE,
+    AVATAR_LINK_USAGE_CODE,
     AVATAR_GROUP_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
@@ -31,6 +32,7 @@ export const AvatarPage = () => {
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
+        { id: 'link', text: 'Link' },
         { id: 'group', text: 'Group' },
     ];
 
@@ -108,6 +110,18 @@ export const AvatarPage = () => {
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[AVATAR_USAGE_CODE]}>
                         <Title titleType={EnumTitle.h4}>Usage</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode id='link' ref={registerRef('link')} codeArr={[AVATAR_LINK_USAGE_CODE]}>
+                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                            Link
+                        </Title>
+
+                        <Text>
+                            To make the avatar clickable, wrap it with the&nbsp;
+                            <span className='badge-item'>Avatar.Link</span> child component and provide an&nbsp;
+                            <span className='badge-item'>href</span> prop.
+                        </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='group' ref={registerRef('group')} codeArr={[AVATAR_GROUP_USAGE_CODE]}>

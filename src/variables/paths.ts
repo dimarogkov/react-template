@@ -19,6 +19,7 @@ export const PATHS = {
             LOADER: '/loader',
             PROGRESS: '/progress',
             RADIO: '/radio',
+            SIMPLE_LINK: '/simple-link',
             TEXT: '/text',
             TITLE: '/title',
         },

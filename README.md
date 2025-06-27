@@ -2,7 +2,7 @@
 
 [Project Demo](https://react-template-mocha.vercel.app/)
 
-This is **React Template** for development. Technolgies used: **React.js, TypeScript, Tailwind CSS, Redux Toolkit, Zustand, Axios, React Query, React Hook Form, Yup, Frame Motion.**
+This is **React Template** for development. Technolgies used: **React, TypeScript, Tailwind CSS, Redux Toolkit, Zustand, Axios, React Query, React Hook Form, Yup, Frame Motion.**
 
 ## Installation Steps
 

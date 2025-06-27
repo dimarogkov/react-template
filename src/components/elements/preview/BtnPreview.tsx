@@ -1,10 +1,10 @@
-import { PATHS } from '../../../variables';
+import { useLocation } from 'react-router-dom';
 import { EnumBtn } from '../../../types/enums';
 import { Btn } from '../../ui';
 import { User } from 'lucide-react';
 
 export const BtnPreview = () => {
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
+    const { pathname } = useLocation();
 
     return (
         <div className='flex flex-wrap gap-2.5 w-full'>
@@ -14,7 +14,7 @@ export const BtnPreview = () => {
             <Btn btnType={EnumBtn.ghost}>Ghost Button</Btn>
 
             <Btn isLink>
-                <Btn.Link href={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`}>Link Button</Btn.Link>
+                <Btn.Link href={pathname}>Link Button</Btn.Link>
             </Btn>
 
             <Btn>

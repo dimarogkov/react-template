@@ -118,9 +118,9 @@ export const DropdownPage = () => {
 
                         <Text>
                             Include an <span className='badge-item'>EnumDropdownAlign</span> and&nbsp;
-                            <span className='badge-item'>EnumDropdownPosition</span> file to define accordions variants,
-                            along with a custom <span className='badge-item'>Dropdown</span> component for consistent
-                            and maintainable accordion usage throughout the project.
+                            <span className='badge-item'>EnumDropdownPosition</span> files to define accordions
+                            variants, along with a custom <span className='badge-item'>Dropdown</span> component for
+                            consistent and maintainable accordion usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

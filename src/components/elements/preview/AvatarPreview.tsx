@@ -1,9 +1,9 @@
-import { PATHS } from '../../../variables';
+import { useLocation } from 'react-router-dom';
 import { EnumAvatar } from '../../../types/enums';
 import { Avatar, AvatarGroup } from '../../ui';
 
 export const AvatarPreview = () => {
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
+    const { pathname } = useLocation();
     const imgSrc = 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp';
 
     return (
@@ -22,7 +22,7 @@ export const AvatarPreview = () => {
                 </Avatar>
 
                 <Avatar isOnline>
-                    <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                    <Avatar.Link href={pathname}>
                         <Avatar.Img src={imgSrc} hasHover />
                     </Avatar.Link>
                 </Avatar>
@@ -42,7 +42,7 @@ export const AvatarPreview = () => {
                 </Avatar>
 
                 <Avatar type={EnumAvatar.square} isOnline>
-                    <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                    <Avatar.Link href={pathname}>
                         <Avatar.Img src={imgSrc} hasHover />
                     </Avatar.Link>
                 </Avatar>
@@ -51,31 +51,31 @@ export const AvatarPreview = () => {
             <div className='flex w-full gap-2.5'>
                 <AvatarGroup visibleCount={3}>
                     <Avatar>
-                        <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                        <Avatar.Link href={pathname}>
                             <Avatar.Img src={imgSrc} hasHover />
                         </Avatar.Link>
                     </Avatar>
 
                     <Avatar>
-                        <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                        <Avatar.Link href={pathname}>
                             <Avatar.Img src={imgSrc} hasHover />
                         </Avatar.Link>
                     </Avatar>
 
                     <Avatar>
-                        <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                        <Avatar.Link href={pathname}>
                             <Avatar.Img src={imgSrc} hasHover />
                         </Avatar.Link>
                     </Avatar>
 
                     <Avatar>
-                        <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                        <Avatar.Link href={pathname}>
                             <Avatar.Img src={imgSrc} hasHover />
                         </Avatar.Link>
                     </Avatar>
 
                     <Avatar>
-                        <Avatar.Link href={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`}>
+                        <Avatar.Link href={pathname}>
                             <Avatar.Img src={imgSrc} hasHover />
                         </Avatar.Link>
                     </Avatar>

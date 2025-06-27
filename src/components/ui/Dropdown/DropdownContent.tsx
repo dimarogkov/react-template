@@ -27,23 +27,27 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
         const isHorizontalPosition = position === EnumDropdownPosition.left || position === EnumDropdownPosition.right;
 
         const animation: HTMLMotionProps<'div'> = {
-            initial: { y: 10, opacity: 0 },
-            animate: { y: 0, opacity: 1, transition: { duration: 0.3, ease: [0.215, 0.61, 0.355, 1] } },
-            exit: { y: -5, opacity: 0 },
+            initial: { scale: 0.95, opacity: 0 },
+            animate: { scale: 1, opacity: 1, transition: { ease: [0.215, 0.61, 0.355, 1] } },
+            exit: { scale: 0.95, opacity: 0 },
         };
 
         const dropdownContentStyle = {
             ...(position === EnumDropdownPosition.top && {
                 bottom: 'calc(100% + 4px)',
+                transformOrigin: 'bottom left',
             }),
             ...(position === EnumDropdownPosition.right && {
                 left: 'calc(100% + 4px)',
+                transformOrigin: 'top left',
             }),
             ...(position === EnumDropdownPosition.bottom && {
                 top: 'calc(100% + 4px)',
+                transformOrigin: 'top left',
             }),
             ...(position === EnumDropdownPosition.left && {
                 right: 'calc(100% + 4px)',
+                transformOrigin: 'top right',
             }),
         };
 
@@ -55,7 +59,7 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         {...props}
                         {...animation}
                         className={cn(
-                            `absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-2.5 border border-border bg-bg ${className}`,
+                            `absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-2 border border-border bg-bg will-change-transform ${className}`,
                             {
                                 'left-0': align === EnumDropdownAlign.start && isVerticalPosition,
                                 'top-0': align === EnumDropdownAlign.start && isHorizontalPosition,

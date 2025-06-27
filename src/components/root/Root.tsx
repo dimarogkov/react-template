@@ -12,6 +12,7 @@ import {
     BadgePage,
     BtnPage,
     CheckboxPage,
+    DropdownPage,
     InputPage,
     InputPasswordPage,
     LabelPage,
@@ -41,7 +42,7 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BADGE}`} element={<BadgePage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.CHECKBOX}`} element={<CheckboxPage />} />
-                        {/* Dropdown */}
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.DROPDOWN}`} element={<DropdownPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT}`} element={<InputPage />} />
                         <Route
                             path={`${MAIN.COMPONENTS}${COMPONENTS.INPUT_PASSWORD}`}
@@ -55,8 +56,10 @@ export const Root = () => {
                         {/* Select */}
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.SIMPLE_LINK}`} element={<SimpleLinkPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.SWITCH}`} element={<SwitchPage />} />
+                        {/* Tabs */}
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />
+                        {/* Toast */}
                     </Route>
 
                     <Route path={MAIN.STORE} element={<StorePage />} />

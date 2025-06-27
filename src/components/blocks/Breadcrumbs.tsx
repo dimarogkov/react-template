@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PATHS } from '../../variables';
+import { convertUrlToString } from '../../helpers';
 import { ChevronRight } from 'lucide-react';
 
 type Props = {
@@ -10,20 +11,21 @@ type Props = {
 export const Breadcrumbs: FC<Props> = ({ className = '' }) => {
     const { pathname } = useLocation();
     const { MAIN, COMPONENTS } = PATHS.PAGES;
+
     const pathsArr = [...Object.values(MAIN), ...Object.values(COMPONENTS).map((path) => `${MAIN.COMPONENTS}${path}`)];
     const isBreadcrumbVisible = pathsArr.includes(pathname);
 
     const links = pathname.split('/').map((link) => ({
         id: crypto.randomUUID(),
         href: `/${link}`,
-        name: link ? `${link.charAt(0).toUpperCase()}${link.slice(1)}` : 'Home',
+        name: link ? convertUrlToString(link) : 'Home',
     }));
 
     return (
         <>
             {isBreadcrumbVisible && (
                 <section
-                    className={`sticky z-10 top-16 lg:top-20 left-0 w-full h-11 border-b border-border bg-bg ${className}`}
+                    className={`sticky z-20 top-16 lg:top-20 left-0 w-full h-11 border-b border-border bg-bg ${className}`}
                 >
                     <div className='container h-full'>
                         <ul className='flex items-center gap-1 w-full h-full'>

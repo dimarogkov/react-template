@@ -1,5 +1,5 @@
 import { EnumTitle } from '../../types/enums';
-import { StoreRedux, StoreZustand } from '../elements';
+import { StoreReduxToolkit, StoreZustand } from '../elements';
 import { Badge, Line, Title } from '../ui';
 
 export const StorePage = () => {
@@ -9,17 +9,17 @@ export const StorePage = () => {
                 <div className='w-full'>
                     <div className='flex flex-col gap-6 w-full'>
                         <div className='flex flex-wrap gap-2 w-full'>
-                            <Badge>Redux Store</Badge>
+                            <Badge>Redux Toolkit Store</Badge>
                             <Badge>Zustand Store</Badge>
                         </div>
 
-                        <Title titleType={EnumTitle.h2}>Redux & Zustand Store</Title>
+                        <Title titleType={EnumTitle.h2}>Redux Toolkit & Zustand Store</Title>
                     </div>
 
                     <Line />
 
                     <div className='flex flex-col gap-10 w-full'>
-                        <StoreRedux />
+                        <StoreReduxToolkit />
                         <StoreZustand />
                     </div>
                 </div>

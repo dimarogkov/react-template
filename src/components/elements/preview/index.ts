@@ -3,6 +3,7 @@ import { AvatarPreview } from './AvatarPreview';
 import { BadgePreview } from './BadgePreview';
 import { BtnPreview } from './BtnPreview';
 import { CheckboxPreview } from './CheckboxPreview';
+import { DropdownPreview } from './DropdownPreview';
 import { InputPasswordPreview } from './InputPasswordPreview';
 import { InputPreview } from './InputPreview';
 import { LoaderPreview } from './LoaderPreview';
@@ -19,6 +20,7 @@ export {
     BadgePreview,
     BtnPreview,
     CheckboxPreview,
+    DropdownPreview,
     InputPasswordPreview,
     InputPreview,
     LoaderPreview,

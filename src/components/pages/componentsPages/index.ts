@@ -9,6 +9,7 @@ import { LabelPage } from './LabelPage';
 import { LoaderPage } from './LoaderPage';
 import { ProgressPage } from './ProgressPage';
 import { RadioPage } from './RadioPage';
+import { SimpleLinkPage } from './SimpleLinkPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 
@@ -24,6 +25,7 @@ export {
     LoaderPage,
     ProgressPage,
     RadioPage,
+    SimpleLinkPage,
     TextPage,
     TitlePage,
 };

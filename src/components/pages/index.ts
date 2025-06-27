@@ -16,6 +16,7 @@ import {
     LoaderPage,
     ProgressPage,
     RadioPage,
+    SimpleLinkPage,
     TextPage,
     TitlePage,
 } from './componentsPages';
@@ -38,6 +39,7 @@ export {
     LoaderPage,
     ProgressPage,
     RadioPage,
+    SimpleLinkPage,
     TextPage,
     TitlePage,
 };

@@ -18,6 +18,7 @@ import {
     LoaderPage,
     ProgressPage,
     RadioPage,
+    SimpleLinkPage,
     TextPage,
     TitlePage,
 } from '../pages';
@@ -51,7 +52,7 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.RADIO}`} element={<RadioPage />} />
                         {/* Select */}
-                        {/* SimpleLink */}
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.SIMPLE_LINK}`} element={<SimpleLinkPage />} />
                         {/* SwitchBtn */}
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />

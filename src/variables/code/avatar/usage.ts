@@ -11,10 +11,9 @@ export const AVATAR_USAGE_CODE = `{/* Default Avatar */}
 {/* Offline Avatar */}
 <Avatar isOffline>
 	<Avatar.Img src='/user.png' />
-</Avatar>
+</Avatar>`;
 
-{/* Link Avatar */}
-<Avatar>
+export const AVATAR_LINK_USAGE_CODE = `<Avatar>
 	<Avatar.Link href='/user'>
 		<Avatar.Img src='/user.png' hasHover />
 	</Avatar.Link>

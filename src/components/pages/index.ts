@@ -17,6 +17,7 @@ import {
     ProgressPage,
     RadioPage,
     SimpleLinkPage,
+    SwitchPage,
     TextPage,
     TitlePage,
 } from './componentsPages';
@@ -40,6 +41,7 @@ export {
     ProgressPage,
     RadioPage,
     SimpleLinkPage,
+    SwitchPage,
     TextPage,
     TitlePage,
 };

@@ -15,7 +15,7 @@ import { Progress } from './Progress';
 import { Radio } from './Radio';
 import { Select } from './Select';
 import { SimpleLink } from './SimpleLink';
-import { SwitchBtn } from './SwitchBtn';
+import { Switch } from './Switch';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
 import { Title } from './Title';
@@ -40,7 +40,7 @@ export {
     Radio,
     Select,
     SimpleLink,
-    SwitchBtn,
+    Switch,
     Tabs,
     Text,
     Title,

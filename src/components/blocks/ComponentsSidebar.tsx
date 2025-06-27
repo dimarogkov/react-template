@@ -9,7 +9,7 @@ export const ComponentsSidebar = () => {
     return (
         <section className='fixed z-10 top-[164px] hidden xl:block w-[210px] px-4 -ml-[210px]'>
             <div className='w-full'>
-                <Text className='text-text/70 mb-2 last:mb-0'>Components</Text>
+                <Text className='text-text/70 pl-3 mb-2 last:mb-0'>Components</Text>
 
                 <ul className='flex flex-col gap-1 w-full'>
                     {linksArr.map(({ name, href }) => (

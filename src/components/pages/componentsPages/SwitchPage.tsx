@@ -1,16 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
-    ACCORDION_CODE,
-    ACCORDION_CONTENT_CODE,
-    ACCORDION_ENUM_CODE,
-    ACCORDION_ITEM_CODE,
-    ACCORDION_TITLE_CODE,
-    ACCORDION_USAGE_ACTIVE_CODE,
-    ACCORDION_USAGE_CODE,
-    ACCORDION_WRAPPER_CODE,
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
+    SWITCH_CODE,
+    SWITCH_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import { EnumText, EnumTitle } from '../../../types/enums';
@@ -22,18 +16,14 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
-import { AccordionPreview } from '../../elements/preview';
+import { SwitchPreview } from '../../elements/preview';
 import { SimpleLink, Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
-export const AccordionPage = () => {
+export const SwitchPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = [
-        { id: 'installation', text: 'Installation' },
-        ...COMPONENTS_SECTIONS,
-        { id: 'active', text: 'Active' },
-    ];
+    const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
 
     return (
         <section className='relative w-full'>
@@ -44,16 +34,16 @@ export const AccordionPage = () => {
 
                     <ComponentsHead>
                         <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
-                            Accordion
+                            Switch
                         </Title>
 
                         <Text textType={EnumText.large}>
-                            A vertically stacked set of interactive headings that each reveal a section of content.
+                            A control that allows the user to toggle between checked and not checked.
                         </Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <AccordionPreview />
+                        <SwitchPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
@@ -92,23 +82,12 @@ export const AccordionPage = () => {
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode
-                        id='code'
-                        ref={registerRef('code')}
-                        codeArr={[
-                            ACCORDION_ENUM_CODE,
-                            ACCORDION_CODE,
-                            ACCORDION_WRAPPER_CODE,
-                            ACCORDION_ITEM_CODE,
-                            ACCORDION_TITLE_CODE,
-                            ACCORDION_CONTENT_CODE,
-                        ]}
-                    >
+                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[SWITCH_CODE]}>
                         <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Accordion'
+                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Switch.tsx'
                                 target='_blank'
                                 className='transition-colors duration-300 hover:text-text'
                             >
@@ -117,25 +96,13 @@ export const AccordionPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumAccordionIcon</span> file to define accordions
-                            variants, along with a custom <span className='badge-item'>Accordion</span> component for
-                            consistent and maintainable accordion usage throughout the project.
+                            Include a custom <span className='badge-item'>Switch</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
+                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[SWITCH_USAGE_CODE]}>
                         <Title titleType={EnumTitle.h4}>Usage</Title>
-                    </ComponentsCode>
-
-                    <ComponentsCode id='active' ref={registerRef('active')} codeArr={[ACCORDION_USAGE_ACTIVE_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
-                            Active
-                        </Title>
-
-                        <Text>
-                            To make an <span className='badge-item'>Accordion.Item</span> initially open, add the&nbsp;
-                            <span className='badge-item'>isOpen</span> prop to it.
-                        </Text>
                     </ComponentsCode>
 
                     <ComponentsFooter />

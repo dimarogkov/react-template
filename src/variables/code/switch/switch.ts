@@ -1,4 +1,4 @@
-export const SWITCH_CODE = `import { 
+export const SWITCH_CODE = `import {
 	ButtonHTMLAttributes,
 	FC,
 	forwardRef,

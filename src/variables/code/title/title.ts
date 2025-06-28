@@ -1,9 +1,9 @@
-export const TITLE_CODE = `import { 
-FC, 
-HTMLAttributes, 
-ReactNode, 
-RefAttributes, 
-forwardRef 
+export const TITLE_CODE = `import {
+	FC,
+	HTMLAttributes,
+	ReactNode,
+	RefAttributes,
+	forwardRef
 } from 'react';
 import { EnumTitle } from '../../types/enums';
 

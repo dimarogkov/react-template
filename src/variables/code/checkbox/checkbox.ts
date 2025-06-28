@@ -1,9 +1,9 @@
-export const CHECKBOX_CODE = `import { 
-	FC, 
-	forwardRef, 
-	InputHTMLAttributes, 
-	RefAttributes, useEffect, 
-	useState 
+export const CHECKBOX_CODE = `import {
+	FC,
+	forwardRef,
+	InputHTMLAttributes,
+	RefAttributes, useEffect,
+	useState
 } from 'react';
 import { Text } from './Text';
 import { Check } from 'lucide-react';

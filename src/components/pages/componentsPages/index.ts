@@ -8,6 +8,7 @@ import { InputPage } from './InputPage';
 import { InputPasswordPage } from './InputPasswordPage';
 import { LabelPage } from './LabelPage';
 import { LoaderPage } from './LoaderPage';
+import { ModalPage } from './ModalPage';
 import { ProgressPage } from './ProgressPage';
 import { RadioPage } from './RadioPage';
 import { SimpleLinkPage } from './SimpleLinkPage';
@@ -26,6 +27,7 @@ export {
     InputPasswordPage,
     LabelPage,
     LoaderPage,
+    ModalPage,
     ProgressPage,
     RadioPage,
     SimpleLinkPage,

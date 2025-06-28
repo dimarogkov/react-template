@@ -14,14 +14,14 @@ export const Input: FC<Props> = forwardRef<HTMLInputElement, Props>(({ className
     );
 });`;
 
-export const INPUT_PASSWORD_CODE = `import { 
+export const INPUT_PASSWORD_CODE = `import {
     FC,
     InputHTMLAttributes,
     RefAttributes,
     forwardRef,
     MouseEvent,
     useRef,
-    useState 
+    useState
 } from 'react';
 import { Input } from './Input';
 import { Eye, EyeOff } from 'lucide-react';

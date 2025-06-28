@@ -1,6 +1,6 @@
-export const DROPDOWN_CODE = `import { DropdownContent } from './DropdownContent';
+export const DROPDOWN_CODE = `import { DropdownWrapper } from './DropdownWrapper';
 import { DropdownTrigger } from './DropdownTrigger';
-import { DropdownWrapper } from './DropdownWrapper';
+import { DropdownContent } from './DropdownContent';
 
 export const Dropdown = Object.assign(DropdownWrapper, {
     Trigger: DropdownTrigger,
@@ -66,7 +66,7 @@ export const DropdownWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
     }
 );`;
 
-export const DROPDOWN_TRIGGER_CODE = `import { 
+export const DROPDOWN_TRIGGER_CODE = `import {
 	Dispatch,
 	FC,
 	forwardRef,
@@ -94,7 +94,7 @@ export const DropdownTrigger: FC<Props> = forwardRef<HTMLDivElement, Props>(
     }
 );`;
 
-export const DROPDOWN_CONTENT_CODE = `import { 
+export const DROPDOWN_CONTENT_CODE = `import {
 	Dispatch,
 	FC,
 	forwardRef,

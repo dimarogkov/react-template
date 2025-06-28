@@ -7,6 +7,7 @@ import { DropdownPreview } from './DropdownPreview';
 import { InputPasswordPreview } from './InputPasswordPreview';
 import { InputPreview } from './InputPreview';
 import { LoaderPreview } from './LoaderPreview';
+import { ModalPreview } from './ModalPreview';
 import { ProgressPreview } from './ProgressPreview';
 import { RadioPreview } from './RadioPreview';
 import { SimpleLinkPreview } from './SimpleLinkPreview';
@@ -24,6 +25,7 @@ export {
     InputPasswordPreview,
     InputPreview,
     LoaderPreview,
+    ModalPreview,
     ProgressPreview,
     RadioPreview,
     SimpleLinkPreview,

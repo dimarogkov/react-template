@@ -17,6 +17,7 @@ import {
     InputPasswordPage,
     LabelPage,
     LoaderPage,
+    ModalPage,
     ProgressPage,
     RadioPage,
     SimpleLinkPage,
@@ -50,7 +51,7 @@ export const Root = () => {
                         />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.LABEL}`} element={<LabelPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.LOADER}`} element={<LoaderPage />} />
-                        {/* Modal */}
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.MODAL}`} element={<ModalPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.RADIO}`} element={<RadioPage />} />
                         {/* Select */}

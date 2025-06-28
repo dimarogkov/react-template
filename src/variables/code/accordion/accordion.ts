@@ -1,7 +1,7 @@
-export const ACCORDION_CODE = `import { AccordionContent } from './AccordionContent';
+export const ACCORDION_CODE = `import { AccordionWrapper } from './AccordionWrapper';
 import { AccordionItem } from './AccordionItem';
 import { AccordionTitle } from './AccordionTitle';
-import { AccordionWrapper } from './AccordionWrapper';
+import { AccordionContent } from './AccordionContent';
 
 export const Accordion = Object.assign(AccordionWrapper, {
 	Item: AccordionItem,
@@ -106,13 +106,13 @@ export const AccordionItem: FC<Props> = forwardRef<HTMLDivElement, Props>(
 	}
 );`;
 
-export const ACCORDION_TITLE_CODE = `import { 
-	Dispatch, 
-	FC, 
-	forwardRef, 
-	HTMLAttributes, 
-	RefAttributes, 
-	SetStateAction 
+export const ACCORDION_TITLE_CODE = `import {
+	Dispatch,
+	FC,
+	forwardRef,
+	HTMLAttributes,
+	RefAttributes,
+	SetStateAction
 } from 'react';
 import { EnumAccordionIcon } from '../../../types/enums';
 import { ChevronDown, Plus } from 'lucide-react';

@@ -1,5 +1,2 @@
-export const PROGRESS_USAGE_CODE = `{/* Default Progress */}
-<Progress value={25} />
-
-{/* Circle Progress */}
-<Progress type={EnumProgress.circle} value={25} />`;
+export const PROGRESS_USAGE_CODE = `{/* Line Type by default */}
+<Progress type='line | circle' value={25} />`;

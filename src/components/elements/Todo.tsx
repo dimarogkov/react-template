@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { UseMutateFunction } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
-import { EnumTitle } from '../../types/enums';
 import { ITodo } from '../../types/interfaces/Todo';
 import { Btn, Text, Title } from '../ui';
 import { Trash2 } from 'lucide-react';
@@ -33,7 +32,7 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
             </button>
 
             <div className='flex-grow w-full pr-8 mb-5 last:mb-0'>
-                <Title titleType={EnumTitle.h4} className='truncate mb-1 last:mb-0'>
+                <Title size='h4' className='truncate mb-1 last:mb-0'>
                     {title}
                 </Title>
 

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { COMPONENTS_SECTIONS, NPM_CLASSNAMES_CODE, RADIO_CODE, RADIO_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -27,11 +26,11 @@ export const RadioPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Radio
                         </Title>
 
-                        <Text textType={EnumText.large}>
+                        <Text size='large'>
                             A set of checkable buttons—known as radio buttons—where no more than one of the buttons can
                             be checked at a time.
                         </Text>
@@ -42,7 +41,7 @@ export const RadioPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Installation
                         </Title>
 
@@ -62,7 +61,7 @@ export const RadioPage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[RADIO_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -81,7 +80,7 @@ export const RadioPage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[RADIO_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsFooter />

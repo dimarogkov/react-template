@@ -1,13 +1,6 @@
 import { Link } from 'react-router-dom';
-import {
-    COMPONENTS_SECTIONS,
-    NPM_CLASSNAMES_CODE,
-    TEXT_CODE,
-    TEXT_ENUM_CODE,
-    TEXT_USAGE_CODE,
-} from '../../../variables/code';
+import { COMPONENTS_SECTIONS, NPM_CLASSNAMES_CODE, TEXT_CODE, TEXT_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -33,11 +26,11 @@ export const TextPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Text
                         </Title>
 
-                        <Text textType={EnumText.large}>Styles for text.</Text>
+                        <Text size='large'>Styles for text.</Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
@@ -45,7 +38,7 @@ export const TextPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Installation
                         </Title>
 
@@ -64,8 +57,8 @@ export const TextPage = () => {
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TEXT_ENUM_CODE, TEXT_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TEXT_CODE]}>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -78,14 +71,13 @@ export const TextPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumText</span> file to define texts variants, along
-                            with a custom <span className='badge-item'>Text</span> component for consistent and
-                            maintainable text usage throughout the project.
+                            Include a custom <span className='badge-item'>Text</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[TEXT_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsFooter />

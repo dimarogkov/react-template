@@ -1,7 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { PATHS } from '../../variables';
 import { convertUrlToString } from '../../helpers';
-import { EnumText } from '../../types/enums';
 import { Text } from '../ui';
 import cn from 'classnames';
 
@@ -20,7 +19,7 @@ export const Header = () => {
                             <i className='text-[24px] md:text-[26px] text-bg devicon-react-original' />
                         </span>
 
-                        <Text textType={EnumText.large} className='!w-fit font-medium text-title select-none'>
+                        <Text size='large' className='!w-fit font-medium text-title select-none'>
                             React Template
                         </Text>
                     </Link>

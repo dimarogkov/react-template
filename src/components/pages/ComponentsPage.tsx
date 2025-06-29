@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getComponentsLinks } from '../../helpers';
-import { EnumText, EnumTitle } from '../../types/enums';
-import { Line, Text, Title } from '../ui';
+import { Separator, Text, Title } from '../ui';
 
 export const ComponentsPage = () => {
     const linksArr = getComponentsLinks();
@@ -11,16 +10,16 @@ export const ComponentsPage = () => {
             <section className='relative w-full'>
                 <div className='container'>
                     <div className='w-full'>
-                        <Title titleType={EnumTitle.h2} className='mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-2 last:mb-0'>
                             Components
                         </Title>
 
-                        <Text textType={EnumText.large}>
+                        <Text size='large'>
                             Here you can find all the components available in the template. We are working on adding
                             more components.
                         </Text>
 
-                        <Line />
+                        <Separator className='my-5' />
 
                         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 w-full'>
                             {linksArr.map(({ name, href }) => (
@@ -87,7 +86,7 @@ export const ComponentsPage = () => {
                                 toast.custom((t) => (
                                     <Toast
                                         toast={t}
-                                        type={EnumToast.success}
+                                        type='success'
                                         data={{
                                             title: 'This is a Success notification.',
                                             text: 'This toast message notifies you of all your great successes.',
@@ -105,7 +104,7 @@ export const ComponentsPage = () => {
                                 toast.custom((t) => (
                                     <Toast
                                         toast={t}
-                                        type={EnumToast.warning}
+                                        type='warning'
                                         data={{
                                             title: 'This is a Warning notification.',
                                             text: 'This toast message notifies you of a Warning.',
@@ -123,7 +122,7 @@ export const ComponentsPage = () => {
                                 toast.custom((t) => (
                                     <Toast
                                         toast={t}
-                                        type={EnumToast.error}
+                                        type='error'
                                         data={{
                                             title: 'This is a Error notification.',
                                             text: 'This toast message notifies you of an Error. It is probably not your fault.',

@@ -11,10 +11,9 @@ import {
     SetStateAction,
     useEffect,
 } from 'react';
-import { EnumAccordionIcon } from '../../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    iconType?: EnumAccordionIcon;
+    iconType?: 'arrow' | 'plus';
     accordionIndex?: number;
     activeIndex?: number;
     isOpen?: boolean;

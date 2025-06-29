@@ -1,9 +1,8 @@
 import { FC, forwardRef, ReactNode, RefAttributes } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
-import { EnumAccordionIcon } from '../../../types/enums';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
-    iconType?: EnumAccordionIcon;
+    iconType?: 'arrow' | 'plus';
     accordionIndex?: number;
     activeIndex?: number;
     className?: string;

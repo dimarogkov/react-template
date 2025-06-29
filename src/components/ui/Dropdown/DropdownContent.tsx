@@ -1,30 +1,19 @@
 import { Dispatch, FC, forwardRef, RefAttributes, SetStateAction } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
-import { EnumDropdownAlign, EnumDropdownPosition } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
-    align?: EnumDropdownAlign;
-    position?: EnumDropdownPosition;
+    align?: 'start' | 'end';
+    position?: 'bottom' | 'left' | 'right' | 'top';
     isOpen?: boolean;
     className?: string;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    (
-        {
-            align = EnumDropdownAlign.start,
-            position = EnumDropdownPosition.bottom,
-            isOpen,
-            className = '',
-            setIsOpen = () => {},
-            ...props
-        },
-        ref
-    ) => {
-        const isVerticalPosition = position === EnumDropdownPosition.top || position === EnumDropdownPosition.bottom;
-        const isHorizontalPosition = position === EnumDropdownPosition.left || position === EnumDropdownPosition.right;
+    ({ align = 'start', position = 'bottom', isOpen, className = '', setIsOpen = () => {}, ...props }, ref) => {
+        const isVerticalPosition = position === 'top' || position === 'bottom';
+        const isHorizontalPosition = position === 'left' || position === 'right';
 
         const animation: HTMLMotionProps<'div'> = {
             initial: { scale: 0.95, opacity: 0 },
@@ -33,19 +22,19 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
         };
 
         const dropdownContentStyle = {
-            ...(position === EnumDropdownPosition.top && {
+            ...(position === 'top' && {
                 bottom: 'calc(100% + 4px)',
                 transformOrigin: 'bottom left',
             }),
-            ...(position === EnumDropdownPosition.right && {
+            ...(position === 'right' && {
                 left: 'calc(100% + 4px)',
                 transformOrigin: 'top left',
             }),
-            ...(position === EnumDropdownPosition.bottom && {
+            ...(position === 'bottom' && {
                 top: 'calc(100% + 4px)',
                 transformOrigin: 'top left',
             }),
-            ...(position === EnumDropdownPosition.left && {
+            ...(position === 'left' && {
                 right: 'calc(100% + 4px)',
                 transformOrigin: 'top right',
             }),
@@ -61,10 +50,10 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         className={cn(
                             `absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-2 border border-border bg-bg will-change-transform ${className}`,
                             {
-                                'left-0': align === EnumDropdownAlign.start && isVerticalPosition,
-                                'top-0': align === EnumDropdownAlign.start && isHorizontalPosition,
-                                'right-0': align === EnumDropdownAlign.end && isVerticalPosition,
-                                'bottom-0': align === EnumDropdownAlign.end && isHorizontalPosition,
+                                'left-0': align === 'start' && isVerticalPosition,
+                                'top-0': align === 'start' && isHorizontalPosition,
+                                'right-0': align === 'end' && isVerticalPosition,
+                                'bottom-0': align === 'end' && isHorizontalPosition,
                             }
                         )}
                         style={dropdownContentStyle}

@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../services/todos';
-import { EnumTitle } from '../../types/enums';
 import { AddTodo, SearchTodo, Todo } from '../elements';
 import { Badge, Text, Title } from '../ui';
 
@@ -73,7 +72,7 @@ export const TodosPage = () => {
                             <Badge>Debounce</Badge>
                         </div>
 
-                        <Title titleType={EnumTitle.h2}>Todos with React Query</Title>
+                        <Title size='h2'>Todos with React Query</Title>
                     </div>
 
                     <SearchTodo setAppliedSearchValue={setAppliedSearchValue} />

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, LOADER_CODE, LOADER_ENUM_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, LOADER_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -25,21 +24,19 @@ export const LoaderPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Loader
                         </Title>
 
-                        <Text textType={EnumText.large}>
-                            A reusable component for indicating loading or processing states.
-                        </Text>
+                        <Text size='large'>A reusable component for indicating loading or processing states.</Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
                         <LoaderPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[LOADER_ENUM_CODE, LOADER_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[LOADER_CODE]}>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -52,14 +49,13 @@ export const LoaderPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumLoaderType</span> file to define loader types
-                            variants, along with a custom <span className='badge-item'>Loader</span> component for
-                            consistent and maintainable avatar usage throughout the project.
+                            Include a custom <span className='badge-item'>Loader</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[LOADER_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsFooter />

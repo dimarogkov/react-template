@@ -1,13 +1,6 @@
 import { Link } from 'react-router-dom';
-import {
-    COMPONENTS_SECTIONS,
-    NPM_CLASSNAMES_CODE,
-    PROGRESS_CODE,
-    PROGRESS_ENUM_CODE,
-    PROGRESS_USAGE_CODE,
-} from '../../../variables/code';
+import { COMPONENTS_SECTIONS, NPM_CLASSNAMES_CODE, PROGRESS_CODE, PROGRESS_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -33,11 +26,11 @@ export const ProgressPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Progress
                         </Title>
 
-                        <Text textType={EnumText.large}>
+                        <Text size='large'>
                             Displays an indicator showing the completion progress of a task, typically displayed as a
                             progress bar.
                         </Text>
@@ -48,7 +41,7 @@ export const ProgressPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Installation
                         </Title>
 
@@ -67,8 +60,8 @@ export const ProgressPage = () => {
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[PROGRESS_ENUM_CODE, PROGRESS_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[PROGRESS_CODE]}>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -81,14 +74,13 @@ export const ProgressPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumProgress</span> file to define loader types
-                            variants, along with a custom <span className='badge-item'>Progress</span> component for
-                            consistent and maintainable avatar usage throughout the project.
+                            Include a custom <span className='badge-item'>Progress</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[PROGRESS_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsFooter />

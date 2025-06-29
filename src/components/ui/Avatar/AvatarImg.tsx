@@ -1,18 +1,17 @@
 import { FC, forwardRef, RefAttributes } from 'react';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'img'>, RefAttributes<HTMLImageElement> {
-    type?: EnumAvatar;
+    type?: 'circle' | 'square';
     hasHover?: boolean;
     className?: string;
 }
 
 export const AvatarImg: FC<Props> = forwardRef<HTMLImageElement, Props>(
-    ({ type = EnumAvatar.circle, hasHover = false, className = '', ...props }, ref) => {
-        const isTypeCircle = type === EnumAvatar.circle;
-        const isTypeSquare = type === EnumAvatar.square;
+    ({ type = 'circle', hasHover = false, className = '', ...props }, ref) => {
+        const isTypeCircle = type === 'circle';
+        const isTypeSquare = type === 'square';
 
         const animation: HTMLMotionProps<'img'> = {
             whileHover: { scale: 1.1, transition: { duration: 0.5, ease: [0.215, 0.61, 0.355, 1] } },

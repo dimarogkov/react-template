@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { COMPONENTS_SECTIONS, INPUT_CODE, INPUT_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -25,11 +24,11 @@ export const InputPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Input
                         </Title>
 
-                        <Text textType={EnumText.large}>
+                        <Text size='large'>
                             Displays a form input field or a component that looks like an input field.
                         </Text>
                     </ComponentsHead>
@@ -39,7 +38,7 @@ export const InputPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[INPUT_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -58,7 +57,7 @@ export const InputPage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[INPUT_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsFooter />

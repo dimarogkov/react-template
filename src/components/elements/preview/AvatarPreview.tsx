@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-import { EnumAvatar } from '../../../types/enums';
 import { Avatar, AvatarGroup } from '../../ui';
 
 export const AvatarPreview = () => {
@@ -17,10 +16,6 @@ export const AvatarPreview = () => {
                     <Avatar.Img src={imgSrc} />
                 </Avatar>
 
-                <Avatar isOffline>
-                    <Avatar.Img src={imgSrc} />
-                </Avatar>
-
                 <Avatar isOnline>
                     <Avatar.Link href={pathname}>
                         <Avatar.Img src={imgSrc} hasHover />
@@ -29,19 +24,15 @@ export const AvatarPreview = () => {
             </div>
 
             <div className='flex w-full gap-2.5'>
-                <Avatar type={EnumAvatar.square}>
+                <Avatar type='square'>
                     <Avatar.Img src={imgSrc} />
                 </Avatar>
 
-                <Avatar type={EnumAvatar.square} isOnline>
+                <Avatar type='square' isOnline>
                     <Avatar.Img src={imgSrc} />
                 </Avatar>
 
-                <Avatar type={EnumAvatar.square} isOffline>
-                    <Avatar.Img src={imgSrc} />
-                </Avatar>
-
-                <Avatar type={EnumAvatar.square} isOnline>
+                <Avatar type='square' isOnline>
                     <Avatar.Link href={pathname}>
                         <Avatar.Img src={imgSrc} hasHover />
                     </Avatar.Link>

@@ -1,6 +1,5 @@
-import { EnumTitle } from '../../types/enums';
 import { Form } from '../elements';
-import { Badge, Line, Title } from '../ui';
+import { Badge, Separator, Title } from '../ui';
 
 export const FormPage = () => {
     const onSubmit = (data: any) => console.log(data);
@@ -15,10 +14,10 @@ export const FormPage = () => {
                             <Badge>Yup Validation</Badge>
                         </div>
 
-                        <Title titleType={EnumTitle.h2}>React Form</Title>
+                        <Title size='h2'>React Form</Title>
                     </div>
 
-                    <Line />
+                    <Separator className='my-5' />
                     <Form onSubmit={onSubmit} />
                 </div>
             </div>

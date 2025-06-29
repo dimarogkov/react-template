@@ -10,6 +10,7 @@ import { LoaderPreview } from './LoaderPreview';
 import { ModalPreview } from './ModalPreview';
 import { ProgressPreview } from './ProgressPreview';
 import { RadioPreview } from './RadioPreview';
+import { SeparatorPreview } from './SeparatorPreview';
 import { SimpleLinkPreview } from './SimpleLinkPreview';
 import { SwitchPreview } from './SwitchPreview';
 import { TextPreview } from './TextPreview';
@@ -28,6 +29,7 @@ export {
     ModalPreview,
     ProgressPreview,
     RadioPreview,
+    SeparatorPreview,
     SimpleLinkPreview,
     SwitchPreview,
     TextPreview,

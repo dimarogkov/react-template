@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { formOptions } from '../../helpers';
-import { EnumBtn, EnumFormNames } from '../../types/enums';
+import { EnumFormNames } from '../../types/enums';
 import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select } from '../ui';
 import { RotateCcw, SendHorizontal } from 'lucide-react';
 
@@ -98,7 +98,7 @@ export const Form: FC<Props> = ({ onSubmit }) => {
                     <SendHorizontal className='size-5' />
                 </Btn>
 
-                <Btn type='button' btnType={EnumBtn.ghost} disabled={!isSubmitted} onClick={() => reset()}>
+                <Btn type='button' variant='ghost' disabled={!isSubmitted} onClick={() => reset()}>
                     <RotateCcw className='size-5' />
                     <span>Reset</span>
                 </Btn>

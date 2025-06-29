@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import {
     NPM_CLASSNAMES_CODE,
     COMPONENTS_SECTIONS,
-    AVATAR_ENUM_CODE,
     AVATAR_CODE,
     AVATAR_WRAPPER_CODE,
     AVATAR_LINK_CODE,
@@ -13,7 +12,6 @@ import {
     AVATAR_GROUP_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -44,13 +42,11 @@ export const AvatarPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Avatar
                         </Title>
 
-                        <Text textType={EnumText.large}>
-                            An image element with a fallback for representing the user.
-                        </Text>
+                        <Text size='large'>An image element with a fallback for representing the user.</Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
@@ -58,7 +54,7 @@ export const AvatarPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Installation
                         </Title>
 
@@ -81,7 +77,6 @@ export const AvatarPage = () => {
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            AVATAR_ENUM_CODE,
                             AVATAR_CODE,
                             AVATAR_WRAPPER_CODE,
                             AVATAR_LINK_CODE,
@@ -89,7 +84,7 @@ export const AvatarPage = () => {
                             AVATAR_GROUP_CODE,
                         ]}
                     >
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -102,18 +97,17 @@ export const AvatarPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumAvatar</span> file to define avatars variants,
-                            along with a custom <span className='badge-item'>Avatar</span> component for consistent and
-                            maintainable avatar usage throughout the project.
+                            Include a custom <span className='badge-item'>Avatar</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[AVATAR_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsCode id='link' ref={registerRef('link')} codeArr={[AVATAR_LINK_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Link
                         </Title>
 
@@ -125,7 +119,7 @@ export const AvatarPage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='group' ref={registerRef('group')} codeArr={[AVATAR_GROUP_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Group
                         </Title>
 

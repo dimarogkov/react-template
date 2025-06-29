@@ -11,27 +11,22 @@ import {
     useRef,
     useState,
 } from 'react';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     currentIndex?: number;
-    type?: EnumAvatar;
+    type?: 'circle' | 'square';
     isOnline?: boolean;
-    isOffline?: boolean;
     className?: string;
 }
 
 export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    (
-        { currentIndex, type = EnumAvatar.circle, isOnline = false, isOffline = false, className = '', ...props },
-        ref
-    ) => {
+    ({ currentIndex, type = 'circle', isOnline = false, className = '', ...props }, ref) => {
         const [currentWidth, setCurrentWidth] = useState(0);
         const avatarRef = useRef<HTMLDivElement>(null);
 
-        const isTypeCircle = type === EnumAvatar.circle;
-        const isTypeSquare = type === EnumAvatar.square;
+        const isTypeCircle = type === 'circle';
+        const isTypeSquare = type === 'square';
 
         useEffect(() => {
             setCurrentWidth(avatarRef.current?.offsetWidth || 48);
@@ -51,9 +46,7 @@ export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 className={cn(`relative skeleton ${className || 'size-12'}`, {
                     'rounded-full': isTypeCircle,
                     'rounded-md': isTypeSquare,
-                    'offline-square': isOffline && isTypeSquare,
                     'online-square': isOnline && isTypeSquare,
-                    offline: isOffline && isTypeCircle,
                     online: isOnline && isTypeCircle,
                 })}
                 style={avatarStyle}

@@ -48,9 +48,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .online::before,
-.offline::before,
-.online-square::before,
-.offline-square::before {
+.online-square::before {
     position: absolute;
     z-index: 1;
     content: '';
@@ -63,13 +61,7 @@ input[type='number']::-webkit-outer-spin-button {
     background-color: oklch(64.8% 0.15 160 / 1);
 }
 
-.offline::before,
-.offline-square::before {
-    background-color: #d4d4d4;
-}
-
-.online-square::before,
-.offline-square::before {
+.online-square::before {
     top: -10%;
     right: -10%;
 }

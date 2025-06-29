@@ -8,12 +8,12 @@ import { ErrorMessage } from './ErrorMessage';
 import { Input } from './Input';
 import { InputPassword } from './InputPassword';
 import { Label } from './Label';
-import { Line } from './Line';
 import { Loader } from './Loader';
 import { Modal } from './Modal';
 import { Progress } from './Progress';
 import { Radio } from './Radio';
 import { Select } from './Select';
+import { Separator } from './Separator';
 import { SimpleLink } from './SimpleLink';
 import { Switch } from './Switch';
 import { Tabs } from './Tabs';
@@ -33,12 +33,12 @@ export {
     Input,
     InputPassword,
     Label,
-    Line,
     Loader,
     Modal,
     Progress,
     Radio,
     Select,
+    Separator,
     SimpleLink,
     Switch,
     Tabs,

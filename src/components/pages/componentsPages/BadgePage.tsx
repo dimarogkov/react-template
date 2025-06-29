@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { COMPONENTS_SECTIONS, BADGE_CODE, BADGE_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -25,11 +24,11 @@ export const BadgePage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Badge
                         </Title>
 
-                        <Text textType={EnumText.large}>Displays a badge or a component that looks like a badge.</Text>
+                        <Text size='large'>Displays a badge or a component that looks like a badge.</Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
@@ -37,7 +36,7 @@ export const BadgePage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[BADGE_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -56,7 +55,7 @@ export const BadgePage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BADGE_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsFooter />

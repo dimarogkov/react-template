@@ -20,15 +20,14 @@ export const ACCORDION_WRAPPER_CODE = `import {
 	RefAttributes,
 	useState,
 } from 'react';
-import { EnumAccordionIcon } from '../../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-	iconType?: EnumAccordionIcon;
+	iconType?: 'arrow' | 'plus';
 	className?: string;
 }
 
 export const AccordionWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
-	({ iconType = EnumAccordionIcon.arrow, className = '', ...props }, ref) => {
+	({ iconType = 'arrow', className = '', ...props }, ref) => {
 		const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
 		return (
@@ -63,10 +62,9 @@ export const ACCORDION_ITEM_CODE = `import {
 	SetStateAction,
 	useEffect,
 } from 'react';
-import { EnumAccordionIcon } from '../../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-	iconType?: EnumAccordionIcon;
+	iconType?: 'arrow' | 'plus';
 	accordionIndex?: number;
 	activeIndex?: number;
 	isOpen?: boolean;
@@ -106,20 +104,12 @@ export const AccordionItem: FC<Props> = forwardRef<HTMLDivElement, Props>(
 	}
 );`;
 
-export const ACCORDION_TITLE_CODE = `import {
-	Dispatch,
-	FC,
-	forwardRef,
-	HTMLAttributes,
-	RefAttributes,
-	SetStateAction
-} from 'react';
-import { EnumAccordionIcon } from '../../../types/enums';
+export const ACCORDION_TITLE_CODE = `import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import { ChevronDown, Plus } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    iconType?: EnumAccordionIcon;
+    iconType?: 'arrow' | 'plus';
     accordionIndex?: number;
     activeIndex?: number;
     className?: string;
@@ -129,14 +119,14 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 export const AccordionTitle: FC<Props> = forwardRef<HTMLDivElement, Props>(
     ({ iconType, accordionIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         const icon = {
-            [EnumAccordionIcon.arrow as string]: (
+            arrow: (
                 <ChevronDown
                     className={cn('size-5 transition-transform duration-300 will-change-transform', {
                         'rotate-180': accordionIndex === activeIndex,
                     })}
                 />
             ),
-            [EnumAccordionIcon.plus as string]: (
+            plus: (
                 <Plus
                     className={cn('size-5 transition-transform duration-300 will-change-transform', {
                         'rotate-45': accordionIndex === activeIndex,
@@ -154,21 +144,20 @@ export const AccordionTitle: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 ref={ref}
                 {...props}
                 onClick={toggleAccordion}
-                className={\`relative flex items-center justify-between w-full text-base p-2.5 sm:p-3 cursor-pointer transition-all duration-300 \${className}\`}
+                className={\`relative flex items-center justify-between w-full text-base p-2.5 sm:p-3 cursor-pointer transition-all duration-300 select-none \${className}\`}
             >
                 {props.children}
                 {iconType && icon[iconType]}
             </div>
         );
     }
-)`;
+);`;
 
 export const ACCORDION_CONTENT_CODE = `import { FC, forwardRef, ReactNode, RefAttributes } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
-import { EnumAccordionIcon } from '../../../types/enums';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
-    iconType?: EnumAccordionIcon;
+    iconType?: 'arrow' | 'plus';
     accordionIndex?: number;
     activeIndex?: number;
     className?: string;

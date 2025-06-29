@@ -1,19 +1,18 @@
-import { EnumBtn, EnumTitle } from '../../../types/enums';
-import { Btn, Line, Modal, Text, Title } from '../../ui';
+import { Btn, Modal, Separator, Text, Title } from '../../ui';
 
 export const ModalPreview = () => {
     return (
         <Modal>
             <Modal.Trigger>
-                <Btn btnType={EnumBtn.outline}>Modal</Btn>
+                <Btn variant='outline'>Modal</Btn>
             </Modal.Trigger>
             <Modal.Content>
                 <div className='w-full'>
-                    <Title titleType={EnumTitle.h3} className='p-2.5 md:p-4'>
+                    <Title size='h3' className='p-2.5 md:p-4'>
                         Modal Title
                     </Title>
 
-                    <Line className='!m-0' />
+                    <Separator />
 
                     <div className='flex flex-col gap-2.5 w-full p-2.5 md:p-4'>
                         <Text>

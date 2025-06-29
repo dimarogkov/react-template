@@ -1,10 +1,9 @@
 import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
-import { EnumAccordionIcon } from '../../../types/enums';
 import { ChevronDown, Plus } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    iconType?: EnumAccordionIcon;
+    iconType?: 'arrow' | 'plus';
     accordionIndex?: number;
     activeIndex?: number;
     className?: string;
@@ -14,14 +13,14 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 export const AccordionTitle: FC<Props> = forwardRef<HTMLDivElement, Props>(
     ({ iconType, accordionIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         const icon = {
-            [EnumAccordionIcon.arrow as string]: (
+            arrow: (
                 <ChevronDown
                     className={cn('size-5 transition-transform duration-300 will-change-transform', {
                         'rotate-180': accordionIndex === activeIndex,
                     })}
                 />
             ),
-            [EnumAccordionIcon.plus as string]: (
+            plus: (
                 <Plus
                     className={cn('size-5 transition-transform duration-300 will-change-transform', {
                         'rotate-45': accordionIndex === activeIndex,

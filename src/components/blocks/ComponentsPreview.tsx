@@ -1,5 +1,4 @@
 import { FC, ReactNode } from 'react';
-import { EnumTitle } from '../../types/enums';
 import { Title } from '../ui';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
 export const ComponentsPreview: FC<Props> = ({ children }) => {
     return (
         <div className='relative w-full py-4 md:py-5'>
-            <Title titleType={EnumTitle.h4} className='mb-3 md:mb-5 last:mb-0'>
+            <Title size='h4' className='mb-3 md:mb-5 last:mb-0'>
                 Preview
             </Title>
 

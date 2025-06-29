@@ -21,6 +21,7 @@ export const PATHS = {
             MODAL: '/modal',
             PROGRESS: '/progress',
             RADIO: '/radio',
+            SEPARATOR: '/separator',
             SIMPLE_LINK: '/simple-link',
             SWITCH: '/switch',
             TEXT: '/text',

@@ -1,6 +1,5 @@
-import { EnumTitle } from '../../types/enums';
 import { StoreReduxToolkit, StoreZustand } from '../elements';
-import { Badge, Line, Title } from '../ui';
+import { Badge, Separator, Title } from '../ui';
 
 export const StorePage = () => {
     return (
@@ -13,10 +12,10 @@ export const StorePage = () => {
                             <Badge>Zustand Store</Badge>
                         </div>
 
-                        <Title titleType={EnumTitle.h2}>Redux Toolkit & Zustand Store</Title>
+                        <Title size='h2'>Redux Toolkit & Zustand Store</Title>
                     </div>
 
-                    <Line />
+                    <Separator className='my-5' />
 
                     <div className='flex flex-col gap-10 w-full'>
                         <StoreReduxToolkit />

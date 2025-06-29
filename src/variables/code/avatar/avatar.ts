@@ -23,27 +23,22 @@ export const AVATAR_WRAPPER_CODE = `import {
 	useRef,
 	useState,
 } from 'react';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
 	currentIndex?: number;
-	type?: EnumAvatar;
+	type?: 'circle' | 'square';
 	isOnline?: boolean;
-	isOffline?: boolean;
 	className?: string;
 }
 
 export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
-	(
-		{ currentIndex, type = EnumAvatar.circle, isOnline = false, isOffline = false, className = '', ...props },
-		ref
-	) => {
+	({ currentIndex, type = 'circle', isOnline = false, className = '', ...props }, ref) => {
 		const [currentWidth, setCurrentWidth] = useState(0);
 		const avatarRef = useRef<HTMLDivElement>(null);
 
-		const isTypeCircle = type === EnumAvatar.circle;
-		const isTypeSquare = type === EnumAvatar.square;
+		const isTypeCircle = type === 'circle';
+		const isTypeSquare = type === 'square';
 
 		useEffect(() => {
 			setCurrentWidth(avatarRef.current?.offsetWidth || 48);
@@ -63,9 +58,7 @@ export const AvatarWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
 				className={cn(\`relative skeleton \${className || 'size-12'}\`, {
 					'rounded-full': isTypeCircle,
 					'rounded-md': isTypeSquare,
-					'offline-square': isOffline && isTypeSquare,
 					'online-square': isOnline && isTypeSquare,
-					offline: isOffline && isTypeCircle,
 					online: isOnline && isTypeCircle,
 				})}
 				style={avatarStyle}
@@ -94,20 +87,19 @@ export const AVATAR_LINK_CODE = `import {
 	RefAttributes,
 } from 'react';
 import { Link } from 'react-router-dom';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnchorElement> {
 	href: string;
-	type?: EnumAvatar;
+	type?: 'circle' | 'square';
 	className?: string;
 	children?: ReactNode;
 }
 
 export const AvatarLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
-	({ href, type = EnumAvatar.circle, children, className = '', ...props }, ref) => {
-		const isTypeCircle = type === EnumAvatar.circle;
-		const isTypeSquare = type === EnumAvatar.square;
+	({ href, type = 'circle', children, className = '', ...props }, ref) => {
+		const isTypeCircle = type === 'circle';
+		const isTypeSquare = type === 'square';
 
 		return (
 			<Link
@@ -133,19 +125,18 @@ export const AvatarLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
 
 export const AVATAR_IMG_CODE = `import { FC, forwardRef, RefAttributes } from 'react';
 import { HTMLMotionProps, motion } from 'framer-motion';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'img'>, RefAttributes<HTMLImageElement> {
-    type?: EnumAvatar;
+    type?: 'circle' | 'square';
     hasHover?: boolean;
     className?: string;
 }
 
 export const AvatarImg: FC<Props> = forwardRef<HTMLImageElement, Props>(
-    ({ type = EnumAvatar.circle, hasHover = false, className = '', ...props }, ref) => {
-        const isTypeCircle = type === EnumAvatar.circle;
-        const isTypeSquare = type === EnumAvatar.square;
+    ({ type = 'circle', hasHover = false, className = '', ...props }, ref) => {
+        const isTypeCircle = type === 'circle';
+        const isTypeSquare = type === 'square';
 
         const animation: HTMLMotionProps<'img'> = {
             whileHover: { scale: 1.1, transition: { duration: 0.5, ease: [0.215, 0.61, 0.355, 1] } },
@@ -180,7 +171,6 @@ export const AVATAR_GROUP_CODE = `import {
 	useRef,
 	useState,
 } from 'react';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -194,7 +184,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
 		const groupRef = useRef<HTMLDivElement>(null);
 
 		const childArray = Children.toArray(props.children) as ReactElement[];
-		const childType = childArray[0].props.type || EnumAvatar.circle;
+		const childType = childArray[0].props.type || 'circle';
 		const widthClasses = childArray[0].props.className;
 
 		useEffect(() => {
@@ -221,12 +211,12 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
 				{visibleCount && childArray.length > visibleCount && (
 					<div
 						className={cn(
-							\`relative flex items-center justify-center text-base text-bg bg-title \${
+							\`relative flex items-center justify-center text-base text-bg bg-title select-none \${
 								widthClasses || 'size-12'
 							}\`,
 							{
-								'rounded-full': childType === EnumAvatar.circle,
-								'rounded-md': childType === EnumAvatar.square,
+								'rounded-full': childType === 'circle',
+								'rounded-md': childType === 'square',
 							}
 						)}
 						style={groupStyle}

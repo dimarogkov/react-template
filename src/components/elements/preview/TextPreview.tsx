@@ -1,10 +1,9 @@
-import { EnumText } from '../../../types/enums';
 import { Text } from '../../ui';
 
 export const TextPreview = () => {
     return (
         <>
-            <Text textType={EnumText.large} className='mb-2.5 last:mb-0'>
+            <Text size='large' className='mb-2.5 last:mb-0'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus obcaecati aliquid
                 accusamus hic dicta blanditiis porro
             </Text>

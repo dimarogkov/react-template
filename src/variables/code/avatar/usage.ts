@@ -1,15 +1,10 @@
-export const AVATAR_USAGE_CODE = `{/* Default Avatar */}
-<Avatar>
+export const AVATAR_USAGE_CODE = `{/* Circle Type by default */}
+<Avatar type='circle | square'>
 	<Avatar.Img src='/user.png' />
 </Avatar>
 
 {/* Online Avatar */}
 <Avatar isOnline>
-	<Avatar.Img src='/user.png' />
-</Avatar>
-
-{/* Offline Avatar */}
-<Avatar isOffline>
 	<Avatar.Img src='/user.png' />
 </Avatar>`;
 

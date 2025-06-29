@@ -9,15 +9,14 @@ import {
     RefAttributes,
     useState,
 } from 'react';
-import { EnumAccordionIcon } from '../../../types/enums';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    iconType?: EnumAccordionIcon;
+    iconType?: 'arrow' | 'plus';
     className?: string;
 }
 
 export const AccordionWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    ({ iconType = EnumAccordionIcon.arrow, className = '', ...props }, ref) => {
+    ({ iconType = 'arrow', className = '', ...props }, ref) => {
         const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
         return (

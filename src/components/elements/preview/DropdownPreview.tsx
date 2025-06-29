@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import { EnumBtn } from '../../../types/enums';
 import { Btn, Dropdown, Text } from '../../ui';
 
 export const DropdownPreview = () => {
@@ -9,7 +8,7 @@ export const DropdownPreview = () => {
     return (
         <Dropdown className='w-full sm:w-fit'>
             <Dropdown.Trigger>
-                <Btn btnType={EnumBtn.outline}>Dropdown</Btn>
+                <Btn variant='outline'>Dropdown</Btn>
             </Dropdown.Trigger>
             <Dropdown.Content className='sm:w-[200px]'>
                 <ul className='flex flex-col gap-1 w-full'>

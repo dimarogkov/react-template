@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import {
     ACCORDION_CODE,
     ACCORDION_CONTENT_CODE,
-    ACCORDION_ENUM_CODE,
     ACCORDION_ITEM_CODE,
     ACCORDION_TITLE_CODE,
     ACCORDION_USAGE_ACTIVE_CODE,
@@ -13,7 +12,6 @@ import {
     NPM_FRAMER_MOTION_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -43,11 +41,11 @@ export const AccordionPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Accordion
                         </Title>
 
-                        <Text textType={EnumText.large}>
+                        <Text size='large'>
                             A vertically stacked set of interactive headings that each reveal a section of content.
                         </Text>
                     </ComponentsHead>
@@ -57,7 +55,7 @@ export const AccordionPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Installation
                         </Title>
 
@@ -96,7 +94,6 @@ export const AccordionPage = () => {
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            ACCORDION_ENUM_CODE,
                             ACCORDION_CODE,
                             ACCORDION_WRAPPER_CODE,
                             ACCORDION_ITEM_CODE,
@@ -104,7 +101,7 @@ export const AccordionPage = () => {
                             ACCORDION_CONTENT_CODE,
                         ]}
                     >
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -117,18 +114,17 @@ export const AccordionPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumAccordionIcon</span> file to define accordions
-                            variants, along with a custom <span className='badge-item'>Accordion</span> component for
-                            consistent and maintainable accordion usage throughout the project.
+                            Include a custom <span className='badge-item'>Accordion</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsCode id='active' ref={registerRef('active')} codeArr={[ACCORDION_USAGE_ACTIVE_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Active
                         </Title>
 

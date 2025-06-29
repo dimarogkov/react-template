@@ -11,7 +11,6 @@ import {
     useRef,
     useState,
 } from 'react';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -25,7 +24,7 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
         const groupRef = useRef<HTMLDivElement>(null);
 
         const childArray = Children.toArray(props.children) as ReactElement[];
-        const childType = childArray[0].props.type || EnumAvatar.circle;
+        const childType = childArray[0].props.type || 'circle';
         const widthClasses = childArray[0].props.className;
 
         useEffect(() => {
@@ -52,12 +51,12 @@ export const AvatarGroup: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 {visibleCount && childArray.length > visibleCount && (
                     <div
                         className={cn(
-                            `relative flex items-center justify-center text-base text-bg bg-title select-none ${
+                            `relative flex items-center justify-center font-medium text-base text-bg bg-title select-none ${
                                 widthClasses || 'size-12'
                             }`,
                             {
-                                'rounded-full': childType === EnumAvatar.circle,
-                                'rounded-md': childType === EnumAvatar.square,
+                                'rounded-full': childType === 'circle',
+                                'rounded-md': childType === 'square',
                             }
                         )}
                         style={groupStyle}

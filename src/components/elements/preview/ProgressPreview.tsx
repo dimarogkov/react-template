@@ -1,4 +1,3 @@
-import { EnumProgress } from '../../../types/enums';
 import { Progress } from '../../ui';
 
 export const ProgressPreview = () => {
@@ -12,10 +11,10 @@ export const ProgressPreview = () => {
             </div>
 
             <div className='flex flex-wrap gap-5 w-full'>
-                <Progress type={EnumProgress.circle} value={25} />
-                <Progress type={EnumProgress.circle} value={50} />
-                <Progress type={EnumProgress.circle} value={75} />
-                <Progress type={EnumProgress.circle} value={100} />
+                <Progress type='circle' value={25} />
+                <Progress type='circle' value={50} />
+                <Progress type='circle' value={75} />
+                <Progress type='circle' value={100} />
             </div>
         </>
     );

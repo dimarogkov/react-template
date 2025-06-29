@@ -10,20 +10,19 @@ import {
     RefAttributes,
 } from 'react';
 import { Link } from 'react-router-dom';
-import { EnumAvatar } from '../../../types/enums';
 import cn from 'classnames';
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnchorElement> {
     href: string;
-    type?: EnumAvatar;
+    type?: 'circle' | 'square';
     className?: string;
     children?: ReactNode;
 }
 
 export const AvatarLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
-    ({ href, type = EnumAvatar.circle, children, className = '', ...props }, ref) => {
-        const isTypeCircle = type === EnumAvatar.circle;
-        const isTypeSquare = type === EnumAvatar.square;
+    ({ href, type = 'circle', children, className = '', ...props }, ref) => {
+        const isTypeCircle = type === 'circle';
+        const isTypeSquare = type === 'square';
 
         return (
             <Link

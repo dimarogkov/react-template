@@ -4,7 +4,6 @@ import {
     DROPDOWN_ALIGN_USAGE_CODE,
     DROPDOWN_CODE,
     DROPDOWN_CONTENT_CODE,
-    DROPDOWN_ENUM_CODE,
     DROPDOWN_POSITION_USAGE_CODE,
     DROPDOWN_TRIGGER_CODE,
     DROPDOWN_USAGE_CODE,
@@ -13,7 +12,6 @@ import {
     NPM_FRAMER_MOTION_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
-import { EnumText, EnumTitle } from '../../../types/enums';
 import {
     ComponentsCode,
     ComponentsFooter,
@@ -44,11 +42,11 @@ export const DropdownPage = () => {
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
-                        <Title titleType={EnumTitle.h2} className='mb-1 md:mb-2 last:mb-0'>
+                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
                             Dropdown
                         </Title>
 
-                        <Text textType={EnumText.large}>
+                        <Text size='large'>
                             Displays a menu to the user — such as a set of actions or functions — triggered by a button.
                         </Text>
                     </ComponentsHead>
@@ -58,7 +56,7 @@ export const DropdownPage = () => {
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Installation
                         </Title>
 
@@ -96,15 +94,9 @@ export const DropdownPage = () => {
                     <ComponentsCode
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[
-                            DROPDOWN_ENUM_CODE,
-                            DROPDOWN_CODE,
-                            DROPDOWN_WRAPPER_CODE,
-                            DROPDOWN_TRIGGER_CODE,
-                            DROPDOWN_CONTENT_CODE,
-                        ]}
+                        codeArr={[DROPDOWN_CODE, DROPDOWN_WRAPPER_CODE, DROPDOWN_TRIGGER_CODE, DROPDOWN_CONTENT_CODE]}
                     >
-                        <Title titleType={EnumTitle.h4} className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
@@ -117,15 +109,13 @@ export const DropdownPage = () => {
                         </Title>
 
                         <Text>
-                            Include an <span className='badge-item'>EnumDropdownAlign</span> and&nbsp;
-                            <span className='badge-item'>EnumDropdownPosition</span> files to define accordions
-                            variants, along with a custom <span className='badge-item'>Dropdown</span> component for
-                            consistent and maintainable accordion usage throughout the project.
+                            Include a custom <span className='badge-item'>Dropdown</span> component for consistent and
+                            maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[DROPDOWN_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4}>Usage</Title>
+                        <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsCode
@@ -133,7 +123,7 @@ export const DropdownPage = () => {
                         ref={registerRef('position')}
                         codeArr={[DROPDOWN_POSITION_USAGE_CODE]}
                     >
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Position
                         </Title>
 
@@ -145,7 +135,7 @@ export const DropdownPage = () => {
                     </ComponentsCode>
 
                     <ComponentsCode id='align' ref={registerRef('align')} codeArr={[DROPDOWN_ALIGN_USAGE_CODE]}>
-                        <Title titleType={EnumTitle.h4} className='mb-1 md:mb-1.5 last:mb-0'>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Align
                         </Title>
 

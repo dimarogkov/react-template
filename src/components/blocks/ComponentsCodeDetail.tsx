@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { getHighlightCode } from '../../helpers';
-import { ClipboardCheck, Clipboard } from 'lucide-react';
 import { Loader } from '../ui';
-import { EnumLoaderType } from '../../types/enums';
+import { ClipboardCheck, Clipboard } from 'lucide-react';
 
 type Props = {
     code: string;
@@ -42,7 +41,7 @@ export const ComponentsCodeDetail: FC<Props> = ({ code }) => {
                 </>
             ) : (
                 <div className='flex items-center justify-center w-full h-24'>
-                    <Loader loaderType={EnumLoaderType.light} />
+                    <Loader />
                 </div>
             )}
         </div>

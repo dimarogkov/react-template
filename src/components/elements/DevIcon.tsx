@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { EnumText } from '../../types/enums';
 import { IDevIcon } from '../../types/interfaces/DevIcon';
 import { Text } from '../ui';
 
@@ -17,7 +16,7 @@ export const DevIcon: FC<Props> = ({ devIcon, className = '' }) => {
         >
             <i className={`text-[32px] sm:text-[40px] ${icon}`} />
 
-            <Text textType={EnumText.large} className='select-none'>
+            <Text size='large' className='select-none'>
                 {text}
             </Text>
         </div>

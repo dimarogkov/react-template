@@ -4,11 +4,11 @@ export const MODAL_USAGE_CODE = `<Modal>
 	</Modal.Trigger>
 	<Modal.Content>
 		<div>
-			<Title titleType={EnumTitle.h3} className='p-2.5 md:p-4'>
+			<Title size='h3' className='p-2.5 md:p-4'>
 				Modal Title
 			</Title>
 
-			<Line />
+			<Separator />
 
 			<div className='flex flex-col gap-2.5 w-full p-2.5 md:p-4'>
 				<Text>

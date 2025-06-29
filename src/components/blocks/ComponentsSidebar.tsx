@@ -8,7 +8,7 @@ export const ComponentsSidebar = () => {
 
     return (
         <section className='fixed z-10 top-[164px] hidden xl:block w-[210px] px-4 -ml-[210px]'>
-            <div className='w-full'>
+            <div className='w-full h-[calc(100svh-204px)] overflow-auto'>
                 <Text className='text-text/70 pl-3 mb-2 last:mb-0'>Components</Text>
 
                 <ul className='flex flex-col gap-1 w-full'>

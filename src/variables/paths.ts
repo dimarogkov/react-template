@@ -24,6 +24,7 @@ export const PATHS = {
             SEPARATOR: '/separator',
             SIMPLE_LINK: '/simple-link',
             SWITCH: '/switch',
+            TABS: '/tabs',
             TEXT: '/text',
             TITLE: '/title',
         },

@@ -11,7 +11,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTM
 export const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(({ label, className = '', ...props }, ref) => {
     return (
         <div
-            className={cn(`flex items-center gap-2 cursor-pointer ${className}`, {
+            className={cn(`flex items-center gap-2 cursor-pointer select-none ${className}`, {
                 'opacity-70 pointer-events-none': props.disabled,
             })}
         >

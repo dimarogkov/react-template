@@ -23,7 +23,7 @@ export const ACCORDION_USAGE_CODE = `{/* Arrow iconType by default */}
 	</Accordion.Item>
 </Accordion>`;
 
-export const ACCORDION_USAGE_ACTIVE_CODE = `<Accordion>
+export const ACCORDION_ACTIVE_USAGE_CODE = `<Accordion>
 	<Accordion.Item>
 		<Accordion.Title>Accordion Title 1</Accordion.Title>
 		<Accordion.Content>

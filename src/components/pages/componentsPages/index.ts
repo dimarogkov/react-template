@@ -14,6 +14,7 @@ import { RadioPage } from './RadioPage';
 import { SeparatorPage } from './SeparatorPage';
 import { SimpleLinkPage } from './SimpleLinkPage';
 import { SwitchPage } from './SwitchPage';
+import { TabsPage } from './TabsPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 
@@ -34,6 +35,7 @@ export {
     SeparatorPage,
     SimpleLinkPage,
     SwitchPage,
+    TabsPage,
     TextPage,
     TitlePage,
 };

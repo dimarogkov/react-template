@@ -23,6 +23,7 @@ import {
     SeparatorPage,
     SimpleLinkPage,
     SwitchPage,
+    TabsPage,
     TextPage,
     TitlePage,
 } from '../pages';
@@ -59,7 +60,7 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.SEPARATOR}`} element={<SeparatorPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.SIMPLE_LINK}`} element={<SimpleLinkPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.SWITCH}`} element={<SwitchPage />} />
-                        {/* Tabs */}
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TABS}`} element={<TabsPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />
                         {/* Toast */}

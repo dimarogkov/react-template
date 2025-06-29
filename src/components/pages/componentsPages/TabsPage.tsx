@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import {
-    ACCORDION_CODE,
-    ACCORDION_CONTENT_CODE,
-    ACCORDION_ITEM_CODE,
-    ACCORDION_TITLE_CODE,
-    ACCORDION_ACTIVE_USAGE_CODE,
-    ACCORDION_USAGE_CODE,
-    ACCORDION_WRAPPER_CODE,
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
+    TABS_ACTIVE_USAGE_CODE,
+    TABS_CODE,
+    TABS_LIST_CODE,
+    TABS_PANEL_CODE,
+    TABS_PANELS_CODE,
+    TABS_TAB_CODE,
+    TABS_USAGE_CODE,
+    TABS_WRAPPER_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -20,11 +21,11 @@ import {
     ComponentsPreview,
     ComponentsSidebar,
 } from '../../blocks';
-import { AccordionPreview } from '../../elements/preview';
+import { TabsPreview } from '../../elements/preview';
 import { SimpleLink, Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
-export const AccordionPage = () => {
+export const TabsPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [
@@ -42,16 +43,16 @@ export const AccordionPage = () => {
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Accordion
+                            Tabs
                         </Title>
 
                         <Text size='large'>
-                            A vertically stacked set of interactive headings that each reveal a section of content.
+                            A set of layered sections of content—known as tab panels—that are displayed one at a time.
                         </Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <AccordionPreview />
+                        <TabsPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
@@ -94,18 +95,19 @@ export const AccordionPage = () => {
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            ACCORDION_CODE,
-                            ACCORDION_WRAPPER_CODE,
-                            ACCORDION_ITEM_CODE,
-                            ACCORDION_TITLE_CODE,
-                            ACCORDION_CONTENT_CODE,
+                            TABS_CODE,
+                            TABS_WRAPPER_CODE,
+                            TABS_LIST_CODE,
+                            TABS_TAB_CODE,
+                            TABS_PANELS_CODE,
+                            TABS_PANEL_CODE,
                         ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Accordion'
+                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Tabs'
                                 target='_blank'
                                 className='transition-colors duration-300 hover:text-text'
                             >
@@ -114,23 +116,23 @@ export const AccordionPage = () => {
                         </Title>
 
                         <Text>
-                            Include a custom <span className='badge-item'>Accordion</span> component for consistent and
+                            Include a custom <span className='badge-item'>Tabs</span> component for consistent and
                             maintainable button usage throughout the project.
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
+                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[TABS_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
-                    <ComponentsCode id='active' ref={registerRef('active')} codeArr={[ACCORDION_ACTIVE_USAGE_CODE]}>
+                    <ComponentsCode id='active' ref={registerRef('active')} codeArr={[TABS_ACTIVE_USAGE_CODE]}>
                         <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Active
                         </Title>
 
                         <Text>
-                            To make an <span className='badge-item'>Accordion.Item</span> initially open, add the&nbsp;
-                            <span className='badge-item'>isOpen</span> prop to it.
+                            To make an <span className='badge-item'>Tabs.Tab</span> initially active, add the&nbsp;
+                            <span className='badge-item'>isActive</span> prop to it.
                         </Text>
                     </ComponentsCode>
 

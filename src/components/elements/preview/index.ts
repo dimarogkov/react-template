@@ -13,6 +13,7 @@ import { RadioPreview } from './RadioPreview';
 import { SeparatorPreview } from './SeparatorPreview';
 import { SimpleLinkPreview } from './SimpleLinkPreview';
 import { SwitchPreview } from './SwitchPreview';
+import { TabsPreview } from './TabsPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 
@@ -32,6 +33,7 @@ export {
     SeparatorPreview,
     SimpleLinkPreview,
     SwitchPreview,
+    TabsPreview,
     TextPreview,
     TitlePreview,
 };

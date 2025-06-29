@@ -21,6 +21,7 @@ import {
     SeparatorPage,
     SimpleLinkPage,
     SwitchPage,
+    TabsPage,
     TextPage,
     TitlePage,
 } from './componentsPages';
@@ -48,6 +49,7 @@ export {
     SeparatorPage,
     SimpleLinkPage,
     SwitchPage,
+    TabsPage,
     TextPage,
     TitlePage,
 };

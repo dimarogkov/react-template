@@ -34,35 +34,6 @@ export const ComponentsPage = () => {
 
             {/* <section className='relative w-full mb-10 last:mb-0'>
                 <div className='container'>
-                    <div className='w-full'>
-                        <Tabs>
-                            <Tabs.TabList>
-                                <Tabs.Tab>Tab 1</Tabs.Tab>
-                                <Tabs.Tab>Tab 2</Tabs.Tab>
-                                <Tabs.Tab>Tab 3</Tabs.Tab>
-                            </Tabs.TabList>
-                            <Tabs.Panels>
-                                <Tabs.Panel>
-                                    Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur,
-                                    asd dima and some people. Panel 1.
-                                </Tabs.Panel>
-                                <Tabs.Panel>
-                                    Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur.
-                                    Panel 2.
-                                </Tabs.Panel>
-                                <Tabs.Panel>
-                                    Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur.
-                                    Lorem, ipsum dolor sit amet consectetur. Lorem, ipsum dolor sit amet consectetur,
-                                    asd dima and some people. Panel 3.
-                                </Tabs.Panel>
-                            </Tabs.Panels>
-                        </Tabs>
-                    </div>
-                </div>
-            </section> */}
-
-            {/* <section className='relative w-full mb-10 last:mb-0'>
-                <div className='container'>
                     <div className='flex flex-wrap w-full gap-2.5'>
                         <Btn
                             onClick={() =>

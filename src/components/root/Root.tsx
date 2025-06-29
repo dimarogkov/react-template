@@ -10,6 +10,7 @@ import {
     AccordionPage,
     AvatarPage,
     BadgePage,
+    BreadcrumbPage,
     BtnPage,
     CheckboxPage,
     DropdownPage,
@@ -43,6 +44,7 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.ACCORDION}`} element={<AccordionPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.AVATAR}`} element={<AvatarPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BADGE}`} element={<BadgePage />} />
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BREADCRUMB}`} element={<BreadcrumbPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.CHECKBOX}`} element={<CheckboxPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.DROPDOWN}`} element={<DropdownPage />} />

@@ -1,6 +1,7 @@
 import { AccordionPage } from './AccordionPage';
 import { AvatarPage } from './AvatarPage';
 import { BadgePage } from './BadgePage';
+import { BreadcrumbPage } from './BreadcrumbPage';
 import { BtnPage } from './BtnPage';
 import { CheckboxPage } from './CheckboxPage';
 import { DropdownPage } from './DropdownPage';
@@ -22,6 +23,7 @@ export {
     AccordionPage,
     AvatarPage,
     BadgePage,
+    BreadcrumbPage,
     BtnPage,
     CheckboxPage,
     DropdownPage,

@@ -1,4 +1,4 @@
-import { Breadcrumbs } from './Breadcrumbs';
+import { Breadcrumb } from './Breadcrumb';
 import { ComponentsCode } from './ComponentsCode';
 import { ComponentsCodeDetail } from './ComponentsCodeDetail';
 import { ComponentsFooter } from './ComponentsFooter';
@@ -9,7 +9,7 @@ import { ComponentsSidebar } from './ComponentsSidebar';
 import { Header } from './Header';
 
 export {
-    Breadcrumbs,
+    Breadcrumb,
     ComponentsCode,
     ComponentsCodeDetail,
     ComponentsFooter,

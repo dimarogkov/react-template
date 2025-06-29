@@ -8,7 +8,7 @@ type Props = {
     className?: string;
 };
 
-export const Breadcrumbs: FC<Props> = ({ className = '' }) => {
+export const Breadcrumb: FC<Props> = ({ className = '' }) => {
     const { pathname } = useLocation();
     const { MAIN, COMPONENTS } = PATHS.PAGES;
 

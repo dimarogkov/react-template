@@ -11,6 +11,7 @@ export const PATHS = {
             ACCORDION: '/accordion',
             AVATAR: '/avatar',
             BADGE: '/badge',
+            BREADCRUMB: '/breadcrumb',
             BTN: '/button',
             CHECKBOX: '/checkbox',
             DROPDOWN: '/dropdown',

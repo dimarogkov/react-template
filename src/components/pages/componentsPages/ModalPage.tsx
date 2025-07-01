@@ -9,6 +9,7 @@ import {
     MODAL_USAGE_CODE,
     MODAL_WRAPPER_CODE,
     NPM_FRAMER_MOTION_CODE,
+    NPM_LUCIDE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -17,10 +18,9 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
-    ComponentsSidebar,
 } from '../../blocks';
 import { ModalPreview } from '../../elements/preview';
-import { SimpleLink, Text, Title } from '../../ui';
+import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const ModalPage = () => {
@@ -32,7 +32,6 @@ export const ModalPage = () => {
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsSidebar />
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
@@ -53,25 +52,9 @@ export const ModalPage = () => {
                     <ComponentsCode
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[NPM_LUCIDE_CODE, NPM_FRAMER_MOTION_CODE]}
                     >
-                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                            Installation
-                        </Title>
-
-                        <Text>
-                            This component relies on the <span className='badge-item'>framer-motion</span> library for
-                            power JavaScript animations with the performance of native browser APIs. Full documentation
-                            is available via the links -&nbsp;
-                            <SimpleLink href='https://motion.dev/' target='_blank'>
-                                Homepage
-                            </SimpleLink>
-                            ,&nbsp;
-                            <SimpleLink href='https://www.npmjs.com/package/framer-motion' target='_blank'>
-                                NPM Page
-                            </SimpleLink>
-                            .
-                        </Text>
+                        <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 
                     <ComponentsCode

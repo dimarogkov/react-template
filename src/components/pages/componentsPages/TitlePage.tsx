@@ -7,7 +7,6 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
-    ComponentsSidebar,
 } from '../../blocks';
 import { TitlePreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -20,7 +19,6 @@ export const TitlePage = () => {
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsSidebar />
                     <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
 
                     <ComponentsHead>

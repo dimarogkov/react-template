@@ -47,6 +47,27 @@ input[type='number']::-webkit-outer-spin-button {
     @apply w-full max-w-4xl px-4 md:px-5 m-auto;
 }
 
+.sidebar {
+    scrollbar-width: none;
+}
+
+.sidebar::before {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.8), transparent);
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.sidebar.sidebar-no-fade::before {
+    opacity: 0;
+}
+
 .online::before,
 .online-square::before {
     position: absolute;

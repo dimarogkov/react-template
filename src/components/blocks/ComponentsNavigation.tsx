@@ -43,11 +43,11 @@ export const ComponentsNavigation: FC<Props> = ({ sectionRef, sectionsArr }) => 
     };
 
     return (
-        <motion.section className='fixed z-10 top-[164px] hidden xl:block w-[210px] px-4 ml-[56rem]'>
+        <motion.section className='fixed z-10 top-[164px] right-0 hidden xl:block w-52 px-5'>
             <div className='w-full'>
                 <Text className='text-text/70 mb-2 last:mb-0'>On this Page</Text>
 
-                <ul className='flex flex-col gap-1 w-full'>
+                <ul className='flex flex-col gap-1.5 w-full'>
                     {sectionsArr.map(({ id, text }) => (
                         <li key={id}>
                             <Text>

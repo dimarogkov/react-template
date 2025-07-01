@@ -5,8 +5,8 @@ import { ComponentsFooter } from './ComponentsFooter';
 import { ComponentsHead } from './ComponentsHead';
 import { ComponentsNavigation } from './ComponentsNavigation';
 import { ComponentsPreview } from './ComponentsPreview';
-import { ComponentsSidebar } from './ComponentsSidebar';
 import { Header } from './Header';
+import { Sidebar } from './Sidebar';
 
 export {
     Breadcrumb,
@@ -16,6 +16,6 @@ export {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
-    ComponentsSidebar,
     Header,
+    Sidebar,
 };

@@ -1,5 +1,5 @@
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
-import { NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE } from './npm';
+import { NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE, NPM_LUCIDE_CODE } from './npm';
 import {
     ACCORDION_CODE,
     ACCORDION_CONTENT_CODE,
@@ -70,6 +70,7 @@ export const COMPONENTS_SECTIONS: IComponentsSection[] = [
 export {
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
+    NPM_LUCIDE_CODE,
     ACCORDION_CODE,
     ACCORDION_WRAPPER_CODE,
     ACCORDION_ITEM_CODE,

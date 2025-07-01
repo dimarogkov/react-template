@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, INPUT_PASSWORD_CODE, INPUT_PASSWORD_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    INPUT_PASSWORD_CODE,
+    INPUT_PASSWORD_USAGE_CODE,
+    NPM_LUCIDE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -7,7 +12,6 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
-    ComponentsSidebar,
 } from '../../blocks';
 import { InputPasswordPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -16,12 +20,13 @@ import { ArrowUpRight } from 'lucide-react';
 export const InputPasswordPage = () => {
     const { sectionRef, registerRef } = useSectionsRefs();
 
+    const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
     return (
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsSidebar />
-                    <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
+                    <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
@@ -36,6 +41,10 @@ export const InputPasswordPage = () => {
                     <ComponentsPreview>
                         <InputPasswordPreview />
                     </ComponentsPreview>
+
+                    <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_LUCIDE_CODE]}>
+                        <Title size='h4'>Installation</Title>
+                    </ComponentsCode>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[INPUT_PASSWORD_CODE]}>
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

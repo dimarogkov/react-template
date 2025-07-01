@@ -9,10 +9,10 @@ interface Props extends HTMLAttributes<HTMLHeadingElement>, RefAttributes<HTMLHe
 export const Title: FC<Props> = forwardRef<HTMLHeadingElement, Props>(
     ({ children, size = 'h1', className = '', ...props }, ref) => {
         const titleSize = {
-            h1: 'text-4xl md:text-5xl',
-            h2: 'text-3xl md:text-4xl',
-            h3: 'text-2xl md:text-3xl',
-            h4: 'text-xl md:text-2xl',
+            h1: '!leading-tight text-4xl md:text-5xl',
+            h2: '!leading-tight text-3xl md:text-4xl',
+            h3: '!leading-tight text-2xl md:text-3xl',
+            h4: '!leading-tight text-xl md:text-2xl',
         };
 
         return (

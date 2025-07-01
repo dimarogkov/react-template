@@ -17,6 +17,7 @@
         "classnames": "^2.5.1",
         "framer-motion": "^12.5.0",
         "lucide-react": "^0.427.0",
+        "ogl": "^1.0.11",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.51.5",

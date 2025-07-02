@@ -27,6 +27,7 @@ import {
     TabsPage,
     TextPage,
     TitlePage,
+    ToastPage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -65,7 +66,7 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TABS}`} element={<TabsPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TEXT}`} element={<TextPage />} />
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TITLE}`} element={<TitlePage />} />
-                        {/* Toast */}
+                        <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TOAST}`} element={<ToastPage />} />
                     </Route>
 
                     <Route path={MAIN.STORE} element={<StorePage />} />

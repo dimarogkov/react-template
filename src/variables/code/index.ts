@@ -1,5 +1,5 @@
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
-import { NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE, NPM_LUCIDE_CODE } from './npm';
+import { NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE, NPM_HOT_TOAST_CODE, NPM_LUCIDE_CODE } from './npm';
 import {
     ACCORDION_CODE,
     ACCORDION_CONTENT_CODE,
@@ -61,6 +61,7 @@ import {
 } from './tabs';
 import { TEXT_CODE, TEXT_USAGE_CODE } from './text';
 import { TITLE_CODE, TITLE_USAGE_CODE } from './title';
+import { TOAST_TYPE_CODE, TOAST_CODE, TOAST_MAIN_USAGE_CODE, TOAST_USAGE_CODE } from './toast';
 
 export const COMPONENTS_SECTIONS: IComponentsSection[] = [
     { id: 'code', text: 'Code' },
@@ -70,6 +71,7 @@ export const COMPONENTS_SECTIONS: IComponentsSection[] = [
 export {
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
+    NPM_HOT_TOAST_CODE,
     NPM_LUCIDE_CODE,
     ACCORDION_CODE,
     ACCORDION_WRAPPER_CODE,
@@ -141,4 +143,8 @@ export {
     TEXT_USAGE_CODE,
     TITLE_CODE,
     TITLE_USAGE_CODE,
+    TOAST_TYPE_CODE,
+    TOAST_CODE,
+    TOAST_MAIN_USAGE_CODE,
+    TOAST_USAGE_CODE,
 };

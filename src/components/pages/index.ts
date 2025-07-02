@@ -25,6 +25,7 @@ import {
     TabsPage,
     TextPage,
     TitlePage,
+    ToastPage,
 } from './componentsPages';
 
 export {
@@ -54,4 +55,5 @@ export {
     TabsPage,
     TextPage,
     TitlePage,
+    ToastPage,
 };

@@ -11,7 +11,7 @@ export const App = () => {
     const linksArr = getComponentsLinks().map((link) => link.href);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0 });
     }, [pathname]);
 
     return (

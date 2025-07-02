@@ -17,6 +17,7 @@ import { SwitchPreview } from './SwitchPreview';
 import { TabsPreview } from './TabsPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
+import { ToastPreview } from './ToastPreview';
 
 export {
     AccordionPreview,
@@ -38,4 +39,5 @@ export {
     TabsPreview,
     TextPreview,
     TitlePreview,
+    ToastPreview,
 };

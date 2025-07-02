@@ -18,6 +18,7 @@ import { SwitchPage } from './SwitchPage';
 import { TabsPage } from './TabsPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
+import { ToastPage } from './ToastPage';
 
 export {
     AccordionPage,
@@ -40,4 +41,5 @@ export {
     TabsPage,
     TextPage,
     TitlePage,
+    ToastPage,
 };

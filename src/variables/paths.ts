@@ -28,6 +28,7 @@ export const PATHS = {
             TABS: '/tabs',
             TEXT: '/text',
             TITLE: '/title',
+            TOAST: '/toast',
         },
     },
     NOT_FOUND: '*',

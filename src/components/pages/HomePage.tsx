@@ -5,6 +5,8 @@ import { Btn, Text, Title } from '../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const HomePage = () => {
+    const { MAIN, COMPONENTS } = PATHS.PAGES;
+
     return (
         <section className='relative w-full h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] py-7 md:py-10'>
             <div className='absolute top-0 left-0 w-full h-full rotate-180'>
@@ -29,8 +31,8 @@ export const HomePage = () => {
                     </Text>
 
                     <div className='flex flex-wrap gap-2 w-full'>
-                        <Btn variant='secondary' isLink>
-                            <Btn.Link href={PATHS.PAGES.MAIN.COMPONENTS}>Get Started</Btn.Link>
+                        <Btn isLink>
+                            <Btn.Link href={`${MAIN.COMPONENTS}${COMPONENTS.ACCORDION}`}>Get Started</Btn.Link>
                         </Btn>
 
                         <Btn variant='outline' isLink>

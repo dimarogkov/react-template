@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import cn from 'classnames';
 
 type Props = {
@@ -24,13 +23,12 @@ export const SidebarLink: FC<Props> = ({ link, isActive }) => {
         >
             <span>{name}</span>
 
-            {isActive && (
-                <motion.div
-                    layoutId='line'
-                    className='absolute -left-4 w-[1px] h-full bg-title'
-                    transition={{ type: 'spring', stiffness: 300, damping: 35 }}
-                />
-            )}
+            <div
+                className={cn('absolute -left-4 w-[1px] h-full bg-title transition-opacity duration-200', {
+                    'opacity-100': isActive,
+                    'opacity-0': !isActive,
+                })}
+            />
         </Link>
     );
 };

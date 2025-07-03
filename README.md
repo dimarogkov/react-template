@@ -16,6 +16,7 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
 -   components
     -   blocks
     -   elements
+    -   other
     -   pages
     -   root
     -   ui
@@ -29,3 +30,4 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
     -   enums
     -   interfaces
 -   variables
+    -   code

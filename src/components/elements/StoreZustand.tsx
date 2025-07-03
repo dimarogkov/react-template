@@ -24,7 +24,7 @@ export const StoreZustand: FC<Props> = ({ className = '' }) => {
                 <Btn onClick={() => removeCount(5)}>- 5</Btn>
                 <Btn onClick={() => addCount(5)}>+ 5</Btn>
 
-                <Btn onClick={() => resetCount()}>
+                <Btn variant='outline' onClick={() => resetCount()}>
                     <RotateCcw className='size-5' />
                     <span>Reset</span>
                 </Btn>

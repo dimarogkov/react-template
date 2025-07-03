@@ -26,7 +26,7 @@ export const StoreReduxToolkit: FC<Props> = ({ className = '' }) => {
                 <Btn onClick={() => dispatch(removeCount(5))}>- 5</Btn>
                 <Btn onClick={() => dispatch(addCount(5))}>+ 5</Btn>
 
-                <Btn onClick={() => dispatch(resetCount())}>
+                <Btn variant='outline' onClick={() => dispatch(resetCount())}>
                     <RotateCcw className='size-5' />
                     <span>Reset</span>
                 </Btn>

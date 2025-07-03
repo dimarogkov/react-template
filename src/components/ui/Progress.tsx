@@ -45,7 +45,7 @@ export const Progress: FC<Props> = forwardRef<HTMLDivElement, Props>(
                                 strokeDasharray={`${circumference} ${circumference}`}
                                 strokeDashoffset={strokeDashoffset}
                                 transform={`rotate(-90 ${radius} ${radius})`}
-                                className='stroke-yellow transition-all duration-300'
+                                className='stroke-title transition-all duration-300'
                             />
                         </svg>
 
@@ -58,7 +58,7 @@ export const Progress: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     </div>
                 ) : (
                     <span
-                        className='absolute top-0 left-0 h-full rounded-md bg-yellow transition-all duration-300'
+                        className='absolute top-0 left-0 h-full rounded-md bg-title transition-all duration-300'
                         style={{ width: `${value}%` }}
                     />
                 )}

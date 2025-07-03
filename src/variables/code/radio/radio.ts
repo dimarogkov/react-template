@@ -11,7 +11,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement>, RefAttributes<HTM
 export const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(({ label, className = '', ...props }, ref) => {
     return (
         <div
-            className={cn(\`flex items-center gap-2 cursor-pointer \${className}\`, {
+            className={cn(\`flex items-center gap-2 cursor-pointer select-none \${className}\`, {
                 'opacity-70 pointer-events-none': props.disabled,
             })}
         >
@@ -26,11 +26,11 @@ export const Radio: FC<Props> = forwardRef<HTMLInputElement, Props>(({ label, cl
                 <span
                     className={cn('flex items-center justify-center w-full h-full bg-transparent rounded-full border', {
                         'border-border': !props.checked,
-                        'border-yellow': props.checked,
+                        'border-title': props.checked,
                     })}
                 >
                     <Circle
-                        className={cn('size-3 rounded-full text-yellow bg-yellow', {
+                        className={cn('size-3 rounded-full text-title bg-title', {
                             'opacity-0 invisible': !props.checked,
                             'opacity-1 visible': props.checked,
                         })}

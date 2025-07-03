@@ -8,7 +8,7 @@ export const HomePage = () => {
     const { MAIN, COMPONENTS } = PATHS.PAGES;
 
     return (
-        <section className='relative w-full h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] py-7 md:py-10'>
+        <section className='relative w-full sm:h-[calc(100svh-64px)] min-h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)] py-7 md:py-10'>
             <div className='absolute top-0 left-0 w-full h-full rotate-180'>
                 <Aurora colorStops={['#facc15', '#ff94b4', '#ff6467']} blend={0.5} amplitude={1.0} speed={0.3} />
             </div>
@@ -25,7 +25,7 @@ export const HomePage = () => {
                         ))}
                     </div>
 
-                    <Text size='large'>
+                    <Text size='large' className='text-title'>
                         A curated set of accessible, ready-to-use components for modern web apps. Designed to save you
                         time and help you create stunning UIs effortlessly.
                     </Text>

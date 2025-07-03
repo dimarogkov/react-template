@@ -16,6 +16,8 @@ type Props = {
 export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, removeTodo = () => {} }) => {
     const { id, title, userId, completed } = todo;
 
+    const toggleTodo = () => updateTodo(todo);
+
     return (
         <div
             className={cn('relative flex flex-col w-full rounded-md border p-4 transition-opacity duration-300', {
@@ -39,7 +41,7 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
                 <Text>User ID - {userId}</Text>
             </div>
 
-            <Btn onClick={() => updateTodo(todo)} className='sm:!w-full'>
+            <Btn variant='secondary' onClick={toggleTodo} className='sm:!w-full'>
                 {completed ? 'Uncomplete Todo' : 'Complete Todo'}
             </Btn>
         </div>

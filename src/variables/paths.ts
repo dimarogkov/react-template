@@ -3,8 +3,8 @@ export const PATHS = {
     PAGES: {
         MAIN: {
             COMPONENTS: '/components',
-            STORE: '/store',
             FORM: '/form',
+            STORE: '/store',
             TODOS: '/todos',
         },
         COMPONENTS: {
@@ -29,6 +29,10 @@ export const PATHS = {
             TEXT: '/text',
             TITLE: '/title',
             TOAST: '/toast',
+        },
+        STORE: {
+            REDUX_TOOLKIT: '/redux-toolkit',
+            ZUSTAND: '/zustand',
         },
     },
     NOT_FOUND: '*',

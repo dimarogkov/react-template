@@ -15,9 +15,7 @@ export const Header = () => {
                         to={PATHS.HOME}
                         className='flex items-center gap-2.5 transition-opacity duration-300 hover:opacity-75'
                     >
-                        <span className='flex items-center justify-center size-9 md:size-10 rounded-md bg-yellow'>
-                            <i className='text-[24px] md:text-[26px] text-bg devicon-react-original' />
-                        </span>
+                        <i className='text-[26px] md:text-[30px] text-title devicon-react-original' />
 
                         <Text size='large' className='!w-fit font-medium text-title select-none'>
                             React Template
@@ -34,7 +32,7 @@ export const Header = () => {
                                         cn(
                                             `flex items-center justify-center gap-2 w-full sm:w-fit h-8 font-media px-3 rounded-md transition-colors duration-300`,
                                             {
-                                                'text-yellow pointer-events-none': isActive,
+                                                'text-title pointer-events-none': isActive,
                                                 'hover:bg-border': !isActive,
                                             }
                                         )

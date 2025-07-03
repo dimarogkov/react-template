@@ -27,6 +27,7 @@ import {
     TitlePage,
     ToastPage,
 } from './componentsPages';
+import { ReduxToolkitPage } from './storePages';
 
 export {
     ComponentsPage,
@@ -56,4 +57,5 @@ export {
     TextPage,
     TitlePage,
     ToastPage,
+    ReduxToolkitPage,
 };

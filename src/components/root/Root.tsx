@@ -28,11 +28,12 @@ import {
     TextPage,
     TitlePage,
     ToastPage,
+    ReduxToolkitPage,
 } from '../pages';
 import { App } from '../../App';
 
 export const Root = () => {
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
+    const { MAIN, COMPONENTS, STORE } = PATHS.PAGES;
 
     return (
         <Router>
@@ -69,7 +70,12 @@ export const Root = () => {
                         <Route path={`${MAIN.COMPONENTS}${COMPONENTS.TOAST}`} element={<ToastPage />} />
                     </Route>
 
-                    <Route path={MAIN.STORE} element={<StorePage />} />
+                    <Route path={MAIN.STORE}>
+                        <Route index element={<StorePage />} />
+                        <Route path={`${MAIN.STORE}${STORE.REDUX_TOOLKIT}`} element={<ReduxToolkitPage />} />
+                        <Route path={`${MAIN.STORE}${STORE.ZUSTAND}`} element={<ReduxToolkitPage />} />
+                    </Route>
+
                     <Route path={MAIN.FORM} element={<FormPage />} />
                     <Route path={MAIN.TODOS} element={<TodosPage />} />
                     <Route path={PATHS.NOT_FOUND} element={<NotFoundPage />} />

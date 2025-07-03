@@ -1,13 +1,14 @@
 import { useLocation } from 'react-router-dom';
 import { PATHS } from '../variables';
-import { getComponentsLinks } from '../helpers';
+import { getLinks } from '../helpers';
 
 export const usePrevNextComponentPath = () => {
     const { pathname } = useLocation();
     const { MAIN } = PATHS.PAGES;
-    const linksArr = getComponentsLinks();
+    const { componentsLinks, storeLinks } = getLinks();
 
     const mainLink = { href: MAIN.COMPONENTS, name: 'Components' };
+    const linksArr = [...Object.values(componentsLinks), ...Object.values(storeLinks)];
 
     const pathIndex = linksArr.findIndex(({ href }) => href === pathname);
     const prevPath = linksArr[pathIndex - 1] || mainLink;

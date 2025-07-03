@@ -104,7 +104,14 @@ export const AccordionItem: FC<Props> = forwardRef<HTMLDivElement, Props>(
 	}
 );`;
 
-export const ACCORDION_TITLE_CODE = `import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
+export const ACCORDION_TITLE_CODE = `import {
+	Dispatch,
+	FC,
+	forwardRef,
+	HTMLAttributes,
+	RefAttributes,
+	SetStateAction
+} from 'react';
 import { ChevronDown, Plus } from 'lucide-react';
 import cn from 'classnames';
 

@@ -2,13 +2,15 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { PATHS } from './variables';
-import { getComponentsLinks } from './helpers';
+import { getLinks } from './helpers';
 import { Breadcrumb, Header, Sidebar } from './components/blocks';
 import cn from 'classnames';
 
 export const App = () => {
     const { pathname } = useLocation();
-    const linksArr = getComponentsLinks().map((link) => link.href);
+    const { componentsLinks, storeLinks } = getLinks();
+
+    const linksArr = [...Object.values(componentsLinks), ...Object.values(storeLinks)].map(({ href }) => href);
 
     useEffect(() => {
         window.scrollTo({ top: 0 });

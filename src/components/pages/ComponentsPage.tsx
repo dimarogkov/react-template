@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { getComponentsLinks } from '../../helpers';
+import { getLinks } from '../../helpers';
 import { Separator, Text, Title } from '../ui';
 
 export const ComponentsPage = () => {
-    const linksArr = getComponentsLinks();
+    const { componentsLinks } = getLinks();
 
     return (
         <>
@@ -22,7 +22,7 @@ export const ComponentsPage = () => {
                         <Separator className='my-5' />
 
                         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full'>
-                            {linksArr.map(({ name, href }) => (
+                            {componentsLinks.map(({ name, href }) => (
                                 <Link key={name} to={href} className='font-medium text-lg text-text hover:underline'>
                                     {name}
                                 </Link>

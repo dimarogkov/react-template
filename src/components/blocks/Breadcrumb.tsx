@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PATHS } from '../../variables';
-import { convertUrlToString } from '../../helpers';
+import { convertUrlToString, getLinks } from '../../helpers';
 import { ChevronRight } from 'lucide-react';
 
 type Props = {
@@ -10,9 +10,15 @@ type Props = {
 
 export const Breadcrumb: FC<Props> = ({ className = '' }) => {
     const { pathname } = useLocation();
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
+    const { componentsLinks, storeLinks } = getLinks();
+    const { MAIN } = PATHS.PAGES;
 
-    const pathsArr = [...Object.values(MAIN), ...Object.values(COMPONENTS).map((path) => `${MAIN.COMPONENTS}${path}`)];
+    const pathsArr = [
+        ...Object.values(MAIN),
+        ...componentsLinks.map(({ href }) => href),
+        ...storeLinks.map(({ href }) => href),
+    ];
+
     const isBreadcrumbVisible = pathsArr.includes(pathname);
 
     const links = pathname.split('/').map((link) => ({

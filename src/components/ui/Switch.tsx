@@ -28,7 +28,7 @@ export const Switch: FC<Props> = forwardRef<HTMLButtonElement, Props>(
                     {
                         'opacity-60 pointer-events-none': props.disabled,
                         'justify-start border-text': !isActive,
-                        'justify-end border-yellow': isActive,
+                        'justify-end border-title': isActive,
                     }
                 )}
             >
@@ -36,7 +36,7 @@ export const Switch: FC<Props> = forwardRef<HTMLButtonElement, Props>(
                     layout
                     transition={{ type: 'spring', visualDuration: 0.3, bounce: 0.2 }}
                     className={cn('relative size-5 rounded-full transition-colors duration-300', {
-                        'bg-yellow': isActive,
+                        'bg-title': isActive,
                         'bg-text': !isActive,
                     })}
                 />

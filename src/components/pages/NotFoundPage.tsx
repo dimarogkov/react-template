@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export const NotFoundPage = () => {
     return (
-        <section className='relative flex items-center w-full h-[calc(100svh-104px)] lg:h-[calc(100svh-120px)] pb-16 lg:pb-20'>
+        <section className='relative flex items-center w-full h-[calc(100svh-120px)] md:h-[calc(100svh-144px)] lg:h-[calc(100svh-160px)] pb-16 lg:pb-20'>
             <div className='container'>
                 <div className='w-full text-center'>
                     <Title size='h2' className='mb-1 last:mb-0'>

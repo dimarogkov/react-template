@@ -1,10 +1,10 @@
 export const SWITCH_CODE = `import {
-	ButtonHTMLAttributes,
-	FC,
-	forwardRef,
-	RefAttributes,
-	useEffect,
-	useState
+    ButtonHTMLAttributes,
+    FC,
+    forwardRef,
+    RefAttributes,
+    useEffect,
+    useState
 } from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';

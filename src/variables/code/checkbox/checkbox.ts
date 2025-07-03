@@ -1,9 +1,10 @@
 export const CHECKBOX_CODE = `import {
-	FC,
-	forwardRef,
-	InputHTMLAttributes,
-	RefAttributes, useEffect,
-	useState
+    FC,
+    forwardRef,
+    InputHTMLAttributes,
+    RefAttributes,
+    useEffect,
+    useState
 } from 'react';
 import { Text } from './Text';
 import { Check } from 'lucide-react';
@@ -42,13 +43,10 @@ export const Checkbox: FC<Props> = forwardRef<HTMLInputElement, Props>(
                     />
 
                     <span
-                        className={cn(
-                            'flex items-center justify-center w-full h-full bg-transparent rounded-md border',
-                            {
-                                'border-border': !isCheckboxActive,
-                                'border-yellow bg-yellow': isCheckboxActive,
-                            }
-                        )}
+                        className={cn('flex items-center justify-center w-full h-full rounded-md border', {
+                            'border-border bg-transparent': !isCheckboxActive,
+                            'border-title bg-title': isCheckboxActive,
+                        })}
                     >
                         <Check
                             className={cn('size-4 text-bg', {

@@ -2,7 +2,7 @@ import { Separator, Text, Title } from '../../ui';
 
 export const SeparatorPreview = () => {
     return (
-        <div className='w-full'>
+        <div className='relative w-full'>
             <Title size='h3' className='mb-2.5 last:mb-0'>
                 Separator Title
             </Title>

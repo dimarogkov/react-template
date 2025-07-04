@@ -1,17 +1,12 @@
-import { FC } from 'react';
-import { useCount } from '../../store/zustand';
-import { Btn, Text, Title } from '../ui';
+import { useCount } from '../../../store/zustand';
+import { Btn, Text, Title } from '../../ui';
 import { RotateCcw } from 'lucide-react';
 
-type Props = {
-    className?: string;
-};
-
-export const StoreZustand: FC<Props> = ({ className = '' }) => {
+export const ZustandPreview = () => {
     const { count, addCount, removeCount, resetCount } = useCount((state) => state);
 
     return (
-        <div className={`w-full ${className}`}>
+        <div className='relative w-full'>
             <Title size='h3' className='mb-5 last:mb-0'>
                 Store with Zustand
             </Title>
@@ -20,7 +15,7 @@ export const StoreZustand: FC<Props> = ({ className = '' }) => {
                 {count}
             </Text>
 
-            <div className='flex flex-col sm:flex-row w-full gap-2'>
+            <div className='flex flex-col sm:flex-row w-full gap-2.5'>
                 <Btn onClick={() => removeCount(5)}>- 5</Btn>
                 <Btn onClick={() => addCount(5)}>+ 5</Btn>
 

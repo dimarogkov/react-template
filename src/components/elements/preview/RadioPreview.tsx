@@ -5,7 +5,7 @@ export const RadioPreview = () => {
     const [selectedValue, setSelectedValue] = useState('checked_radio');
 
     return (
-        <div className='flex flex-col gap-2.5 w-full'>
+        <div className='relative flex flex-col gap-2.5 w-full'>
             <Label>
                 <Radio
                     name='radio'

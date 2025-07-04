@@ -4,7 +4,7 @@ import { CircleAlert, CircleCheck, CircleX, Info } from 'lucide-react';
 
 export const ToastPreview = () => {
     return (
-        <div className='flex flex-wrap w-full gap-2.5'>
+        <div className='relative flex flex-wrap w-full gap-2.5'>
             <Btn
                 variant='outline'
                 onClick={() =>

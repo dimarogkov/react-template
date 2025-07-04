@@ -1,28 +1,36 @@
-import { StoreReduxToolkit, StoreZustand } from '../elements';
-import { Badge, Separator, Title } from '../ui';
+import { Link } from 'react-router-dom';
+import { getLinks } from '../../helpers';
+import { Separator, Text, Title } from '../ui';
 
 export const StorePage = () => {
+    const { storeLinks } = getLinks();
+
     return (
-        <section className='relative w-full'>
-            <div className='container'>
-                <div className='w-full'>
-                    <div className='flex flex-col gap-6 w-full'>
-                        <div className='flex flex-wrap gap-2 w-full'>
-                            <Badge>Redux Toolkit Store</Badge>
-                            <Badge>Zustand Store</Badge>
+        <>
+            <section className='relative w-full'>
+                <div className='container'>
+                    <div className='w-full'>
+                        <Title size='h2' className='mb-2 last:mb-0'>
+                            Store
+                        </Title>
+
+                        <Text size='large'>
+                            Here you can explore all the state management solutions included in this template. We are
+                            continuously working on adding more integrations and improving existing ones.
+                        </Text>
+
+                        <Separator className='my-5' />
+
+                        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full'>
+                            {storeLinks.map(({ name, href }) => (
+                                <Link key={name} to={href} className='font-medium text-lg text-text hover:underline'>
+                                    {name}
+                                </Link>
+                            ))}
                         </div>
-
-                        <Title size='h2'>Redux Toolkit & Zustand Store</Title>
-                    </div>
-
-                    <Separator className='my-5' />
-
-                    <div className='flex flex-col gap-10 w-full'>
-                        <StoreReduxToolkit />
-                        <StoreZustand />
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };

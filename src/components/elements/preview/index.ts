@@ -19,6 +19,7 @@ import { TabsPreview } from './TabsPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 import { ToastPreview } from './ToastPreview';
+import { ZustandPreview } from './ZustandPreview';
 
 export {
     AccordionPreview,
@@ -42,4 +43,5 @@ export {
     TextPreview,
     TitlePreview,
     ToastPreview,
+    ZustandPreview,
 };

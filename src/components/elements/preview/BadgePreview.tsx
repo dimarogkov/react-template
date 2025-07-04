@@ -3,7 +3,7 @@ import { Badge } from '../../ui';
 
 export const BadgePreview = () => {
     return (
-        <div className='flex flex-wrap gap-2 w-full'>
+        <div className='relative flex flex-wrap gap-2 w-full'>
             <Badge>Default Badge</Badge>
 
             <Badge>

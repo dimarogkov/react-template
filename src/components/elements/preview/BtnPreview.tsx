@@ -6,7 +6,7 @@ export const BtnPreview = () => {
     const { pathname } = useLocation();
 
     return (
-        <div className='flex flex-wrap gap-2.5 w-full'>
+        <div className='relative flex flex-wrap gap-2.5 w-full'>
             <Btn>Default Button</Btn>
             <Btn variant='secondary'>Secondary Button</Btn>
             <Btn variant='outline'>Outline Button</Btn>

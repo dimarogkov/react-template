@@ -2,7 +2,7 @@ import { Title } from '../../ui';
 
 export const TitlePreview = () => {
     return (
-        <div className='flex flex-col gap-1.5 w-full'>
+        <div className='relative flex flex-col gap-1.5 w-full'>
             <Title>Title H1</Title>
             <Title size='h2'>Title H2</Title>
             <Title size='h3'>Title H3</Title>

@@ -6,7 +6,7 @@ export const AvatarPreview = () => {
     const imgSrc = 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp';
 
     return (
-        <div className='flex flex-col gap-4'>
+        <div className='relative flex flex-col gap-4'>
             <div className='flex w-full gap-2.5'>
                 <Avatar>
                     <Avatar.Img src={imgSrc} />

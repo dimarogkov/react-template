@@ -8,7 +8,7 @@ export const ZustandPreview = () => {
     return (
         <div className='relative w-full'>
             <Title size='h3' className='mb-5 last:mb-0'>
-                Store with Zustand
+                Count
             </Title>
 
             <Text size='large' className='font-medium text-title mb-2 last:mb-0'>

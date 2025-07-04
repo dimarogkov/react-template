@@ -6,7 +6,7 @@ export const ZustandPreview = () => {
 
     return (
         <div className='relative w-full'>
-            <Title size='h3'>Store with Zustand</Title>
+            <Title size='h3'>Count</Title>
             <Text size='large'>{count}</Text>
 
             <div className='flex flex-col sm:flex-row w-full gap-2.5'>

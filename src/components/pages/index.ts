@@ -1,8 +1,7 @@
-import { ComponentsPage } from './ComponentsPage';
+import { DocumentationPage } from './DocumentationPage';
 import { FormPage } from './FormPage';
 import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
-import { StorePage } from './StorePage';
 import { TodosPage } from './TodosPage';
 import {
     AccordionPage,
@@ -30,11 +29,10 @@ import {
 import { ReduxToolkitPage, ZustandPage } from './storePages';
 
 export {
-    ComponentsPage,
-    FormPage,
     HomePage,
+    DocumentationPage,
+    FormPage,
     NotFoundPage,
-    StorePage,
     TodosPage,
     AccordionPage,
     AvatarPage,

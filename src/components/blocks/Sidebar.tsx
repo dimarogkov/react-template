@@ -7,6 +7,7 @@ import { Text } from '../ui';
 import cn from 'classnames';
 
 export const Sidebar = () => {
+    const [isStart, setIsStart] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
     const sidebarRef = useRef<HTMLDivElement>(null);
     const { pathname } = useLocation();
@@ -17,6 +18,7 @@ export const Sidebar = () => {
     });
 
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+        setIsStart(latest === 0);
         setIsEnd(latest >= 0.99);
     });
 
@@ -25,7 +27,8 @@ export const Sidebar = () => {
             <motion.div
                 ref={sidebarRef}
                 className={cn('sidebar w-full h-[calc(100svh-204px)] overflow-auto', {
-                    'sidebar-no-fade': isEnd,
+                    'sidebar-bottom-no-fade': isEnd,
+                    'sidebar-top-no-fade': isStart,
                 })}
             >
                 <div className='flex flex-col gap-3.5 w-full'>

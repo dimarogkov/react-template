@@ -2,9 +2,8 @@ export const PATHS = {
     HOME: '/',
     PAGES: {
         MAIN: {
-            COMPONENTS: '/components',
+            DOCUMENTATION: '/documentation',
             FORM: '/form',
-            STORE: '/store',
             TODOS: '/todos',
         },
         COMPONENTS: {

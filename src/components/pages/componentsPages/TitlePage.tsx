@@ -13,13 +13,13 @@ import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const TitlePage = () => {
-    const { sectionRef, registerRef } = useSectionsRefs();
+    const { sectionsRef, registerRef } = useSectionsRefs();
 
     return (
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsNavigation sectionRef={sectionRef} sectionsArr={COMPONENTS_SECTIONS} />
+                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>

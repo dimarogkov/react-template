@@ -15,7 +15,9 @@ export const Header = () => {
                         to={PATHS.HOME}
                         className='flex items-center gap-2.5 transition-opacity duration-300 hover:opacity-75'
                     >
-                        <i className='text-[26px] md:text-[30px] text-title devicon-react-original' />
+                        <span className='flex items-center justify-center size-9 rounded-md bg-title'>
+                            <i className='text-[24px] md:text-[28px] text-bg devicon-react-original' />
+                        </span>
 
                         <Text size='large' className='!w-fit font-medium text-title select-none'>
                             React Template

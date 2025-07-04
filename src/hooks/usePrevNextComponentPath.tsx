@@ -7,7 +7,7 @@ export const usePrevNextComponentPath = () => {
     const { MAIN } = PATHS.PAGES;
     const { componentsLinks, storeLinks } = getLinks();
 
-    const mainLink = { href: MAIN.COMPONENTS, name: 'Components' };
+    const mainLink = { href: MAIN.DOCUMENTATION, name: 'Documentation' };
     const linksArr = [...Object.values(componentsLinks), ...Object.values(storeLinks)];
 
     const pathIndex = linksArr.findIndex(({ href }) => href === pathname);

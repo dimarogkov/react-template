@@ -5,7 +5,7 @@ import { Btn, Text, Title } from '../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const HomePage = () => {
-    const { MAIN, COMPONENTS } = PATHS.PAGES;
+    const { MAIN } = PATHS.PAGES;
 
     return (
         <section className='relative w-full sm:h-[calc(100svh-64px)] min-h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)] py-7 md:py-10'>
@@ -32,7 +32,7 @@ export const HomePage = () => {
 
                     <div className='flex flex-wrap gap-2 w-full'>
                         <Btn isLink>
-                            <Btn.Link href={`${MAIN.COMPONENTS}${COMPONENTS.ACCORDION}`}>Get Started</Btn.Link>
+                            <Btn.Link href={MAIN.DOCUMENTATION}>Get Started</Btn.Link>
                         </Btn>
 
                         <Btn variant='outline' isLink>

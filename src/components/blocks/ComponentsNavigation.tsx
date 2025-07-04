@@ -1,44 +1,41 @@
-import { FC, useState } from 'react';
+import { FC, MutableRefObject, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
 import { Text } from '../ui';
 import cn from 'classnames';
 
 type Props = {
-    sectionRef: React.MutableRefObject<Record<string, HTMLElement | null>>;
+    sectionsRef: MutableRefObject<Record<string, HTMLElement | null>>;
     sectionsArr: IComponentsSection[];
 };
 
-export const ComponentsNavigation: FC<Props> = ({ sectionRef, sectionsArr }) => {
+export const ComponentsNavigation: FC<Props> = ({ sectionsRef, sectionsArr }) => {
     const [activeSection, setActiveSection] = useState('');
     const { scrollY } = useScroll();
 
-    useMotionValueEvent(scrollY, 'change', () => {
-        let found = false;
-
+    const findActiveSection = () => {
         for (const { id } of sectionsArr) {
-            const el = sectionRef.current[id];
+            const el = sectionsRef.current[id];
             if (!el) continue;
 
-            const rect = el.getBoundingClientRect();
+            const { top, bottom } = el.getBoundingClientRect();
+            const targetPoint = window.innerHeight / 3;
 
-            if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
-                if (activeSection !== id) {
-                    setActiveSection(id);
-                }
-
-                found = true;
-                break;
+            if (top <= targetPoint && bottom >= targetPoint) {
+                return id;
             }
         }
 
-        if (!found && activeSection !== '') {
-            setActiveSection('');
-        }
+        return '';
+    };
+
+    useMotionValueEvent(scrollY, 'change', () => {
+        const section = findActiveSection();
+        section !== activeSection && setActiveSection(section);
     });
 
     const handleScroll = (id: string) => {
-        const el = sectionRef.current[id];
+        const el = sectionsRef.current[id];
         el && el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 

@@ -22,7 +22,7 @@ import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const ToastPage = () => {
-    const { sectionRef, registerRef } = useSectionsRefs();
+    const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
 
@@ -30,7 +30,7 @@ export const ToastPage = () => {
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsNavigation sectionRef={sectionRef} sectionsArr={sectionsArr} />
+                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>

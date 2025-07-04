@@ -2,7 +2,7 @@ import { Checkbox, Label } from '../../ui';
 
 export const CheckboxPreview = () => {
     return (
-        <div className='flex flex-col gap-2.5 w-full'>
+        <div className='relative flex flex-col gap-2.5 w-full'>
             <Label>
                 <Checkbox label='Accept terms and conditions' />
             </Label>

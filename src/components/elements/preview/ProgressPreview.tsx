@@ -3,7 +3,7 @@ import { Progress } from '../../ui';
 export const ProgressPreview = () => {
     return (
         <>
-            <div className='flex flex-col gap-2.5 w-full mb-5 last:mb-0'>
+            <div className='relative flex flex-col gap-2.5 w-full mb-5 last:mb-0'>
                 <Progress value={25} />
                 <Progress value={50} />
                 <Progress value={75} />

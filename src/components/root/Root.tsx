@@ -29,6 +29,7 @@ import {
     TitlePage,
     ToastPage,
     ReduxToolkitPage,
+    ZustandPage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -73,7 +74,7 @@ export const Root = () => {
                     <Route path={MAIN.STORE}>
                         <Route index element={<StorePage />} />
                         <Route path={`${MAIN.STORE}${STORE.REDUX_TOOLKIT}`} element={<ReduxToolkitPage />} />
-                        <Route path={`${MAIN.STORE}${STORE.ZUSTAND}`} element={<ReduxToolkitPage />} />
+                        <Route path={`${MAIN.STORE}${STORE.ZUSTAND}`} element={<ZustandPage />} />
                     </Route>
 
                     <Route path={MAIN.FORM} element={<FormPage />} />

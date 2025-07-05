@@ -23,6 +23,7 @@ import {
     SimpleLinkPage,
     SwitchPage,
     TabsPage,
+    TextareaPage,
     TextPage,
     TitlePage,
     ToastPage,
@@ -67,6 +68,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SWITCH}`} element={<SwitchPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TABS}`} element={<TabsPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TEXT}`} element={<TextPage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TEXTAREA}`} element={<TextareaPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TITLE}`} element={<TitlePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TOAST}`} element={<ToastPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${STORE.ZUSTAND}`} element={<ZustandPage />} />

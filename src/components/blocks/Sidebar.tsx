@@ -23,7 +23,7 @@ export const Sidebar = () => {
     });
 
     return (
-        <section className='fixed z-10 top-[164px] hidden xl:block w-52 px-5'>
+        <section className='fixed z-10 top-[164px] left-0 hidden xl:block w-52 px-5'>
             <motion.div
                 ref={sidebarRef}
                 className={cn('sidebar w-full h-[calc(100svh-204px)] overflow-auto', {

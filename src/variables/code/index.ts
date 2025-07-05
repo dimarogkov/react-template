@@ -74,6 +74,7 @@ import {
     TABS_WRAPPER_CODE,
 } from './tabs';
 import { TEXT_CODE, TEXT_USAGE_CODE } from './text';
+import { TEXTAREA_CODE, TEXTAREA_USAGE_CODE } from './textarea';
 import { TITLE_CODE, TITLE_USAGE_CODE } from './title';
 import { TOAST_TYPE_CODE, TOAST_CODE, TOAST_MAIN_USAGE_CODE, TOAST_USAGE_CODE } from './toast';
 import { ZUSTAND_CODE, ZUSTAND_COUNT_CODE, ZUSTAND_TYPE_CODE, ZUSTAND_USAGE_CODE } from './zustand';
@@ -163,6 +164,8 @@ export {
     TABS_ACTIVE_USAGE_CODE,
     TEXT_CODE,
     TEXT_USAGE_CODE,
+    TEXTAREA_CODE,
+    TEXTAREA_USAGE_CODE,
     TITLE_CODE,
     TITLE_USAGE_CODE,
     TOAST_TYPE_CODE,

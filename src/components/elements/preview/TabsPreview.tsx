@@ -6,7 +6,7 @@ export const TabsPreview = () => {
             <Tabs.TabList>
                 <Tabs.Tab>Tab 1</Tabs.Tab>
                 <Tabs.Tab>Tab 2</Tabs.Tab>
-                <Tabs.Tab isActive>Tab 3</Tabs.Tab>
+                <Tabs.Tab>Tab 3</Tabs.Tab>
             </Tabs.TabList>
             <Tabs.Panels>
                 <Tabs.Panel>

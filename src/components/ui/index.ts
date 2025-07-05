@@ -18,6 +18,7 @@ import { SimpleLink } from './SimpleLink';
 import { Switch } from './Switch';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
+import { Textarea } from './Textarea';
 import { Title } from './Title';
 import { Toast } from './Toast';
 
@@ -43,6 +44,7 @@ export {
     Switch,
     Tabs,
     Text,
+    Textarea,
     Title,
     Toast,
 };

@@ -66,7 +66,7 @@ export const CheckboxPage = () => {
 
                         <Text>
                             Include a custom <span className='badge-item'>Checkbox</span> component for consistent and
-                            maintainable button usage throughout the project.
+                            maintainable usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

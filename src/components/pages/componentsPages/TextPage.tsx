@@ -54,7 +54,7 @@ export const TextPage = () => {
 
                         <Text>
                             Include a custom <span className='badge-item'>Text</span> component for consistent and
-                            maintainable button usage throughout the project.
+                            maintainable usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

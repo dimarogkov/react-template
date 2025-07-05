@@ -67,8 +67,8 @@ export const ToastPage = () => {
 
                         <Text>
                             Include a custom <span className='badge-item'>IToastData</span> and&nbsp;
-                            <span className='badge-item'>Toast</span> component for consistent and maintainable button
-                            usage throughout the project.
+                            <span className='badge-item'>Toast</span> component for consistent and maintainable usage
+                            throughout the project.
                         </Text>
                     </ComponentsCode>
 

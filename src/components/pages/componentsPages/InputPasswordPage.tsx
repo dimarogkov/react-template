@@ -61,7 +61,7 @@ export const InputPasswordPage = () => {
 
                         <Text>
                             Include a custom <span className='badge-item'>InputPassword</span> component for consistent
-                            and maintainable button usage throughout the project.
+                            and maintainable usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

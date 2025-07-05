@@ -26,6 +26,7 @@ export const PATHS = {
             SWITCH: '/switch',
             TABS: '/tabs',
             TEXT: '/text',
+            TEXTAREA: '/textarea',
             TITLE: '/title',
             TOAST: '/toast',
         },

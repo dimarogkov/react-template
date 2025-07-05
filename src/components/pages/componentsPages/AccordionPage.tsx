@@ -86,7 +86,7 @@ export const AccordionPage = () => {
 
                         <Text>
                             Include a custom <span className='badge-item'>Accordion</span> component for consistent and
-                            maintainable button usage throughout the project.
+                            maintainable usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

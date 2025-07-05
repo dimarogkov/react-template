@@ -16,6 +16,7 @@ import { SeparatorPreview } from './SeparatorPreview';
 import { SimpleLinkPreview } from './SimpleLinkPreview';
 import { SwitchPreview } from './SwitchPreview';
 import { TabsPreview } from './TabsPreview';
+import { TextareaPreview } from './TextareaPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 import { ToastPreview } from './ToastPreview';
@@ -40,6 +41,7 @@ export {
     SimpleLinkPreview,
     SwitchPreview,
     TabsPreview,
+    TextareaPreview,
     TextPreview,
     TitlePreview,
     ToastPreview,

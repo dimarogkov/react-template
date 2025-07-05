@@ -16,6 +16,7 @@ import { SeparatorPage } from './SeparatorPage';
 import { SimpleLinkPage } from './SimpleLinkPage';
 import { SwitchPage } from './SwitchPage';
 import { TabsPage } from './TabsPage';
+import { TextareaPage } from './TextareaPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 import { ToastPage } from './ToastPage';
@@ -39,6 +40,7 @@ export {
     SimpleLinkPage,
     SwitchPage,
     TabsPage,
+    TextareaPage,
     TextPage,
     TitlePage,
     ToastPage,

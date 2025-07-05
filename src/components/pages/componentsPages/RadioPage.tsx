@@ -67,7 +67,7 @@ export const RadioPage = () => {
 
                         <Text>
                             Include a custom <span className='badge-item'>Radio</span> component for consistent and
-                            maintainable button usage throughout the project.
+                            maintainable usage throughout the project.
                         </Text>
                     </ComponentsCode>
 

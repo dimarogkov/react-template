@@ -1,5 +1,4 @@
 import { DocumentationPage } from './DocumentationPage';
-import { FormPage } from './FormPage';
 import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
 import { TodosPage } from './TodosPage';
@@ -27,12 +26,12 @@ import {
     TitlePage,
     ToastPage,
 } from './componentsPages';
+import { YupPage } from './formValidationPages';
 import { ReduxToolkitPage, ZustandPage } from './storePages';
 
 export {
     HomePage,
     DocumentationPage,
-    FormPage,
     NotFoundPage,
     TodosPage,
     AccordionPage,
@@ -57,6 +56,7 @@ export {
     TextPage,
     TitlePage,
     ToastPage,
+    YupPage,
     ReduxToolkitPage,
     ZustandPage,
 };

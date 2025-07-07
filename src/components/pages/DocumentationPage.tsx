@@ -3,13 +3,18 @@ import { getLinks } from '../../helpers';
 import { Separator, Text, Title } from '../ui';
 
 export const DocumentationPage = () => {
-    const { componentsLinks, storeLinks } = getLinks();
+    const { componentsLinks, formValidationLinks, storeLinks } = getLinks();
 
     const documentationItemsArr = [
         {
             title: 'Components',
             text: 'Here you can find all the components available in the template. We are working on adding more components.',
             links: componentsLinks,
+        },
+        {
+            title: 'Form Validation',
+            text: 'Here you can learn about different form validation methods using popular libraries like Yup and Zod. We are constantly working on adding more examples and improving developer experience.',
+            links: formValidationLinks,
         },
         {
             title: 'Store',
@@ -22,7 +27,7 @@ export const DocumentationPage = () => {
         <>
             <section className='relative w-full'>
                 <div className='container'>
-                    <div className='flex flex-col gap-10 w-full'>
+                    <div className='flex flex-col gap-20 w-full'>
                         {documentationItemsArr.map(({ title, text, links }) => (
                             <div key={title} className='w-full'>
                                 <Title size='h2' className='mb-2 last:mb-0'>

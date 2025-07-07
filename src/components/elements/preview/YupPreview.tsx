@@ -1,15 +1,9 @@
-import { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { formOptions } from '../../helpers';
-import { EnumFormNames } from '../../types/enums';
-import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select } from '../ui';
+import { formOptions } from '../../../form-validation/yup';
+import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select, Textarea } from '../../ui';
 import { RotateCcw, SendHorizontal } from 'lucide-react';
 
-type Props = {
-    onSubmit: (data: any) => void;
-};
-
-export const Form: FC<Props> = ({ onSubmit }) => {
+export const YupPreview = () => {
     const {
         register,
         watch,
@@ -18,10 +12,12 @@ export const Form: FC<Props> = ({ onSubmit }) => {
         formState: { errors, isSubmitted },
     } = useForm(formOptions);
 
+    const onSubmit = (data: any) => console.log(data);
+
     return (
-        <form className='flex flex-col gap-5 w-full max-w-xl' onSubmit={handleSubmit(onSubmit)}>
+        <form className='relative flex flex-col gap-5 w-full' onSubmit={handleSubmit(onSubmit)}>
             <Label className='flex flex-col gap-2'>
-                <Select {...register(EnumFormNames.select)}>
+                <Select {...register('select')}>
                     <Select.Option value='default' hidden>
                         Select Option
                     </Select.Option>
@@ -34,40 +30,44 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <Input {...register(EnumFormNames.username)} placeholder='Username' />
+                <Input {...register('username')} placeholder='Username' />
                 {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <Input {...register(EnumFormNames.age)} type='number' placeholder='Age' />
+                <Input {...register('age')} type='number' placeholder='Age' />
                 {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <Input {...register(EnumFormNames.email)} placeholder='Email' />
+                <Input {...register('email')} placeholder='Email' />
                 {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <Input {...register(EnumFormNames.phone)} placeholder='Phone' />
+                <Input {...register('phone')} placeholder='Phone' />
                 {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <InputPassword {...register(EnumFormNames.password)} placeholder='Password' />
+                <InputPassword {...register('password')} placeholder='Password' />
                 {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <InputPassword {...register(EnumFormNames.confirmPassword)} placeholder='Confirm Password' />
+                <InputPassword {...register('confirmPassword')} placeholder='Confirm Password' />
                 {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
+            </Label>
+
+            <Label>
+                <Textarea placeholder='Type your message here.' />
             </Label>
 
             <div className='flex flex-col gap-2 w-full'>
                 <div className='flex gap-4 w-full'>
                     <Label className='w-full'>
                         <Radio
-                            {...register(EnumFormNames.radioType)}
+                            {...register('radioType')}
                             value='type_one'
                             label='Type One'
                             checked={watch('radioType') === 'type_one'}
@@ -76,7 +76,7 @@ export const Form: FC<Props> = ({ onSubmit }) => {
 
                     <Label className='w-full'>
                         <Radio
-                            {...register(EnumFormNames.radioType)}
+                            {...register('radioType')}
                             value='type_two'
                             label='Type Two'
                             checked={watch('radioType') === 'type_two'}
@@ -88,7 +88,7 @@ export const Form: FC<Props> = ({ onSubmit }) => {
             </div>
 
             <Label className='flex flex-col gap-2'>
-                <Checkbox {...register(EnumFormNames.rememberMe)} isChecked={watch('rememberMe')} label='Remember me' />
+                <Checkbox {...register('rememberMe')} isChecked={watch('rememberMe')} label='Remember me' />
                 {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
             </Label>
 

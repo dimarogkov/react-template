@@ -4,7 +4,6 @@ export const PATHS = {
     PAGES: {
         MAIN: {
             DOCUMENTATION: '/documentation',
-            FORM: '/form',
             TODOS: '/todos',
         },
         COMPONENTS: {

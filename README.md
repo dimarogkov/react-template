@@ -20,14 +20,16 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
     -   pages
     -   root
     -   ui
+-   form validation
+    -   yup
+    -   zod
 -   helpers
 -   hooks
 -   services
 -   store
-    -   redux
+    -   redux-toolkit
     -   zustand
 -   types
-    -   enums
     -   interfaces
 -   variables
     -   code

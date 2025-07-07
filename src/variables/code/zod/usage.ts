@@ -1,18 +1,21 @@
-export const YUP_USAGE_CODE = `import { useForm } from 'react-hook-form';
-import { formOptions } from '../../../form-validation/yup';
+export const ZOD_USAGE_CODE = `import z from 'zod';
+import { useForm } from 'react-hook-form';
+import { formOptions, validationSchema } from '../../../form-validation/zod';
 import { Btn, Checkbox, ErrorMessage, Input, InputPassword, Label, Radio, Select, Textarea } from '../../ui';
 import { RotateCcw, SendHorizontal } from 'lucide-react';
 
-export const YupPreview = () => {
+type FormData = z.infer<typeof validationSchema>;
+
+export const ZodPreview = () => {
     const {
         register,
         watch,
         handleSubmit,
         reset,
         formState: { errors, isSubmitted },
-    } = useForm(formOptions);
+    } = useForm<FormData>(formOptions);
 
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit = (data: FormData) => console.log(data);
 
     return (
         <form className='relative flex flex-col gap-5 w-full' onSubmit={handleSubmit(onSubmit)}>
@@ -35,7 +38,7 @@ export const YupPreview = () => {
             </Label>
 
             <Label className='flex flex-col gap-2'>
-                <Input {...register('age')} type='number' placeholder='Age' />
+                <Input {...register('age', { valueAsNumber: true })} type='number' placeholder='Age' />
                 {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
             </Label>
 

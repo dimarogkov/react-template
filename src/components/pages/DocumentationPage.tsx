@@ -27,7 +27,7 @@ export const DocumentationPage = () => {
         <>
             <section className='relative w-full'>
                 <div className='container'>
-                    <div className='flex flex-col gap-20 w-full'>
+                    <div className='flex flex-col gap-12 md:gap-20 w-full'>
                         {documentationItemsArr.map(({ title, text, links }) => (
                             <div key={title} className='w-full'>
                                 <Title size='h2' className='mb-2 last:mb-0'>

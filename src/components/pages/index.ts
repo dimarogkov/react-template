@@ -26,7 +26,7 @@ import {
     TitlePage,
     ToastPage,
 } from './componentsPages';
-import { YupPage } from './formValidationPages';
+import { YupPage, ZodPage } from './formValidationPages';
 import { ReduxToolkitPage, ZustandPage } from './storePages';
 
 export {
@@ -57,6 +57,7 @@ export {
     TitlePage,
     ToastPage,
     YupPage,
+    ZodPage,
     ReduxToolkitPage,
     ZustandPage,
 };

@@ -1,13 +1,13 @@
 export const YUP_CODE = `import { formOptions } from './formOptions';
+import { validationSchema } from './schema';
 
-export { formOptions };`;
+export { formOptions, validationSchema };`;
 
-export const YUP_OPTIONS_CODE = `import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+export const YUP_SCHEMA_CODE = `import * as yup from 'yup';
 
 const phoneRegex = /(?=.*\\+[0-9]{3}\\s?[0-9]{2}\\s?[0-9]{3}\\s?[0-9]{4,5}$)/;
 
-const validationSchema = yup
+export const validationSchema = yup
 	.object({
 		username: yup.string().trim().required('Missing name'),
 		age: yup
@@ -32,7 +32,10 @@ const validationSchema = yup
 		radioType: yup.string().required('Radio Type is required'),
 		rememberMe: yup.bool().required().oneOf([true], 'Remember me is required'),
 	})
-	.required();
+	.required();`;
+
+export const YUP_OPTIONS_CODE = `import { yupResolver } from '@hookform/resolvers/yup';
+import { validationSchema } from './schema';
 
 export const formOptions = {
 	resolver: yupResolver(validationSchema),
@@ -41,7 +44,7 @@ export const formOptions = {
 		age: 18,
 		email: '',
 		phone: '',
-		select: 'default',
+		select: '',
 		password: '',
 		confirmPassword: '',
 		radioType: '',

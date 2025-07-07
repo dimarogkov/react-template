@@ -21,6 +21,7 @@ import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 import { ToastPreview } from './ToastPreview';
 import { YupPreview } from './YupPreview';
+import { ZodPreview } from './ZodPreview';
 import { ZustandPreview } from './ZustandPreview';
 
 export {
@@ -47,5 +48,6 @@ export {
     TitlePreview,
     ToastPreview,
     YupPreview,
+    ZodPreview,
     ZustandPreview,
 };

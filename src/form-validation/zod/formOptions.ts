@@ -1,8 +1,8 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { validationSchema } from './schema';
 
 export const formOptions = {
-    resolver: yupResolver(validationSchema),
+    resolver: zodResolver(validationSchema),
     defaultValues: {
         username: '',
         age: 18,

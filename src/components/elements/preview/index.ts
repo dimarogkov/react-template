@@ -20,6 +20,7 @@ import { TextareaPreview } from './TextareaPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 import { ToastPreview } from './ToastPreview';
+import { YupPreview } from './YupPreview';
 import { ZustandPreview } from './ZustandPreview';
 
 export {
@@ -45,5 +46,6 @@ export {
     TextPreview,
     TitlePreview,
     ToastPreview,
+    YupPreview,
     ZustandPreview,
 };

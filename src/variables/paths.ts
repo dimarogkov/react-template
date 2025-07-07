@@ -1,5 +1,6 @@
 export const PATHS = {
     HOME: '/',
+    NOT_FOUND: '*',
     PAGES: {
         MAIN: {
             DOCUMENTATION: '/documentation',
@@ -30,10 +31,13 @@ export const PATHS = {
             TITLE: '/title',
             TOAST: '/toast',
         },
+        FORM_VALIDATION: {
+            YUP: '/yup',
+            ZOD: '/zod',
+        },
         STORE: {
             REDUX_TOOLKIT: '/redux-toolkit',
             ZUSTAND: '/zustand',
         },
     },
-    NOT_FOUND: '*',
 };

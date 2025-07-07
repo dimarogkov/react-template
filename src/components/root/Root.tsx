@@ -9,7 +9,6 @@ import {
     CheckboxPage,
     DropdownPage,
     DocumentationPage,
-    FormPage,
     HomePage,
     InputPage,
     InputPasswordPage,
@@ -28,19 +27,22 @@ import {
     TitlePage,
     ToastPage,
     TodosPage,
+    YupPage,
     ReduxToolkitPage,
     ZustandPage,
 } from '../pages';
 import { App } from '../../App';
 
 export const Root = () => {
-    const { MAIN, COMPONENTS, STORE } = PATHS.PAGES;
+    const { MAIN, COMPONENTS, FORM_VALIDATION, STORE } = PATHS.PAGES;
 
     return (
         <Router>
             <Routes>
                 <Route path={PATHS.HOME} element={<App />}>
                     <Route index element={<HomePage />} />
+                    <Route path={MAIN.TODOS} element={<TodosPage />} />
+                    <Route path={PATHS.NOT_FOUND} element={<NotFoundPage />} />
 
                     <Route path={MAIN.DOCUMENTATION}>
                         <Route index element={<DocumentationPage />} />
@@ -61,7 +63,6 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.MODAL}`} element={<ModalPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.RADIO}`} element={<RadioPage />} />
-                        <Route path={`${MAIN.DOCUMENTATION}${STORE.REDUX_TOOLKIT}`} element={<ReduxToolkitPage />} />
                         {/* Select */}
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SEPARATOR}`} element={<SeparatorPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SIMPLE_LINK}`} element={<SimpleLinkPage />} />
@@ -71,12 +72,13 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TEXTAREA}`} element={<TextareaPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TITLE}`} element={<TitlePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TOAST}`} element={<ToastPage />} />
+
+                        <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.YUP}`} element={<YupPage />} />
+                        {/* <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.ZOD}`} element={<ZodPage />} /> */}
+
+                        <Route path={`${MAIN.DOCUMENTATION}${STORE.REDUX_TOOLKIT}`} element={<ReduxToolkitPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${STORE.ZUSTAND}`} element={<ZustandPage />} />
                     </Route>
-
-                    <Route path={MAIN.FORM} element={<FormPage />} />
-                    <Route path={MAIN.TODOS} element={<TodosPage />} />
-                    <Route path={PATHS.NOT_FOUND} element={<NotFoundPage />} />
                 </Route>
             </Routes>
         </Router>

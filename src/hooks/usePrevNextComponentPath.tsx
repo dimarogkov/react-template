@@ -5,10 +5,15 @@ import { getLinks } from '../helpers';
 export const usePrevNextComponentPath = () => {
     const { pathname } = useLocation();
     const { MAIN } = PATHS.PAGES;
-    const { componentsLinks, storeLinks } = getLinks();
+    const { componentsLinks, formValidationLinks, storeLinks } = getLinks();
 
     const mainLink = { href: MAIN.DOCUMENTATION, name: 'Documentation' };
-    const linksArr = [...Object.values(componentsLinks), ...Object.values(storeLinks)];
+
+    const linksArr = [
+        ...Object.values(componentsLinks),
+        ...Object.values(formValidationLinks),
+        ...Object.values(storeLinks),
+    ];
 
     const pathIndex = linksArr.findIndex(({ href }) => href === pathname);
     const prevPath = linksArr[pathIndex - 1] || mainLink;

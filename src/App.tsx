@@ -8,9 +8,13 @@ import cn from 'classnames';
 
 export const App = () => {
     const { pathname } = useLocation();
-    const { componentsLinks, storeLinks } = getLinks();
+    const { componentsLinks, formValidationLinks, storeLinks } = getLinks();
 
-    const linksArr = [...Object.values(componentsLinks), ...Object.values(storeLinks)].map(({ href }) => href);
+    const linksArr = [
+        ...Object.values(componentsLinks),
+        ...Object.values(formValidationLinks),
+        ...Object.values(storeLinks),
+    ].map(({ href }) => href);
 
     useEffect(() => {
         window.scrollTo({ top: 0 });

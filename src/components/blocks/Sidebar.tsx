@@ -11,7 +11,7 @@ export const Sidebar = () => {
     const [isEnd, setIsEnd] = useState(false);
     const sidebarRef = useRef<HTMLDivElement>(null);
     const { pathname } = useLocation();
-    const { componentsLinks, storeLinks } = getLinks();
+    const { componentsLinks, formValidationLinks, storeLinks } = getLinks();
 
     const { scrollYProgress } = useScroll({
         container: sidebarRef,
@@ -21,6 +21,21 @@ export const Sidebar = () => {
         setIsStart(latest === 0);
         setIsEnd(latest >= 0.99);
     });
+
+    const sidebarItems = [
+        {
+            title: 'Components',
+            links: componentsLinks,
+        },
+        {
+            title: 'Form Validation',
+            links: formValidationLinks,
+        },
+        {
+            title: 'Store',
+            links: storeLinks,
+        },
+    ];
 
     return (
         <section className='fixed z-10 top-[164px] left-0 hidden xl:block w-52 px-5'>
@@ -32,29 +47,19 @@ export const Sidebar = () => {
                 })}
             >
                 <div className='flex flex-col gap-3.5 w-full'>
-                    <div className='w-full'>
-                        <Text className='text-title mb-3 last:mb-0'>Components</Text>
+                    {sidebarItems.map(({ title, links }) => (
+                        <div key={title} className='w-full'>
+                            <Text className='text-title mb-3 last:mb-0'>{title}</Text>
 
-                        <ul className='flex flex-col gap-3.5 w-full pl-4 border-l border-border'>
-                            {componentsLinks.map((link) => (
-                                <li key={link.name} className='w-full'>
-                                    <SidebarLink link={link} isActive={pathname === link.href} />
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className='w-full'>
-                        <Text className='text-title mb-3 last:mb-0'>Store</Text>
-
-                        <ul className='flex flex-col gap-3.5 w-full pl-4 border-l border-border'>
-                            {storeLinks.map((link) => (
-                                <li key={link.name} className='w-full'>
-                                    <SidebarLink link={link} isActive={pathname === link.href} />
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                            <ul className='flex flex-col gap-3.5 w-full pl-4 border-l border-border'>
+                                {links.map((link) => (
+                                    <li key={link.name} className='w-full'>
+                                        <SidebarLink link={link} isActive={pathname === link.href} />
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </motion.div>
         </section>

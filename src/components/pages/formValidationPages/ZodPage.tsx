@@ -3,11 +3,11 @@ import {
     COMPONENTS_SECTIONS,
     NPM_HOOK_FORM_CODE,
     NPM_HOOK_FORM_RESOLVERS_CODE,
-    NPM_YUP_CODE,
-    YUP_CODE,
-    YUP_OPTIONS_CODE,
-    YUP_SCHEMA_CODE,
-    YUP_USAGE_CODE,
+    NPM_ZOD_CODE,
+    ZOD_CODE,
+    ZOD_SCHEMA_CODE,
+    ZOD_USAGE_CODE,
+    ZOP_OPTIONS_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -17,11 +17,11 @@ import {
     ComponentsNavigation,
     ComponentsPreview,
 } from '../../blocks';
-import { YupPreview } from '../../elements/preview';
+import { ZodPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
-export const YupPage = () => {
+export const ZodPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
@@ -34,7 +34,7 @@ export const YupPage = () => {
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Validation with Yup
+                            Validation with Zod
                         </Title>
 
                         <Text size='large'>
@@ -44,13 +44,13 @@ export const YupPage = () => {
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <YupPreview />
+                        <ZodPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_YUP_CODE, NPM_HOOK_FORM_CODE, NPM_HOOK_FORM_RESOLVERS_CODE]}
+                        codeArr={[NPM_ZOD_CODE, NPM_HOOK_FORM_CODE, NPM_HOOK_FORM_RESOLVERS_CODE]}
                     >
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
@@ -58,13 +58,13 @@ export const YupPage = () => {
                     <ComponentsCode
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[YUP_CODE, YUP_SCHEMA_CODE, YUP_OPTIONS_CODE]}
+                        codeArr={[ZOD_CODE, ZOD_SCHEMA_CODE, ZOP_OPTIONS_CODE]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/form-validation/yup'
+                                to='https://github.com/dimarogkov/react-template/tree/master/src/form-validation/zod'
                                 target='_blank'
                                 className='transition-colors duration-300 hover:text-text'
                             >
@@ -73,7 +73,7 @@ export const YupPage = () => {
                         </Title>
                     </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[YUP_USAGE_CODE]}>
+                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZOD_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 

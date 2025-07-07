@@ -28,6 +28,7 @@ import {
     ToastPage,
     TodosPage,
     YupPage,
+    ZodPage,
     ReduxToolkitPage,
     ZustandPage,
 } from '../pages';
@@ -74,7 +75,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TOAST}`} element={<ToastPage />} />
 
                         <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.YUP}`} element={<YupPage />} />
-                        {/* <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.ZOD}`} element={<ZodPage />} /> */}
+                        <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.ZOD}`} element={<ZodPage />} />
 
                         <Route path={`${MAIN.DOCUMENTATION}${STORE.REDUX_TOOLKIT}`} element={<ReduxToolkitPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${STORE.ZUSTAND}`} element={<ZustandPage />} />

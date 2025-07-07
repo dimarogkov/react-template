@@ -18,7 +18,7 @@ export const YupPreview = () => {
         <form className='relative flex flex-col gap-5 w-full' onSubmit={handleSubmit(onSubmit)}>
             <Label className='flex flex-col gap-2'>
                 <Select {...register('select')}>
-                    <Select.Option value='default' hidden>
+                    <Select.Option value='' hidden>
                         Select Option
                     </Select.Option>
                     <Select.Option value='option_1'>Option 1</Select.Option>

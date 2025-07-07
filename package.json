@@ -28,6 +28,7 @@
         "typescript": "4.9.5",
         "web-vitals": "^2.1.4",
         "yup": "^1.4.0",
+        "zod": "^3.25.75",
         "zustand": "^4.5.4"
     },
     "scripts": {

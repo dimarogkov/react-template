@@ -17,19 +17,6 @@ export const YupPreview = () => {
     return (
         <form className='relative flex flex-col gap-5 w-full' onSubmit={handleSubmit(onSubmit)}>
             <Label className='flex flex-col gap-2'>
-                <Select {...register('select')}>
-                    <Select.Option value='' hidden>
-                        Select Option
-                    </Select.Option>
-                    <Select.Option value='option_1'>Option 1</Select.Option>
-                    <Select.Option value='option_2'>Option 2</Select.Option>
-                    <Select.Option value='option_3'>Option 3</Select.Option>
-                </Select>
-
-                {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}
-            </Label>
-
-            <Label className='flex flex-col gap-2'>
                 <Input {...register('username')} placeholder='Username' />
                 {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
             </Label>
@@ -47,6 +34,19 @@ export const YupPreview = () => {
             <Label className='flex flex-col gap-2'>
                 <Input {...register('phone')} placeholder='Phone' />
                 {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
+            </Label>
+
+            <Label className='flex flex-col gap-2'>
+                <Select {...register('select')}>
+                    <Select.Option value='' hidden>
+                        Select Option
+                    </Select.Option>
+                    <Select.Option value='option_1'>Option 1</Select.Option>
+                    <Select.Option value='option_2'>Option 2</Select.Option>
+                    <Select.Option value='option_3'>Option 3</Select.Option>
+                </Select>
+
+                {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}
             </Label>
 
             <Label className='flex flex-col gap-2'>

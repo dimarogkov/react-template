@@ -5,13 +5,13 @@ import { getLinks } from '../helpers';
 export const usePrevNextComponentPath = () => {
     const { pathname } = useLocation();
     const { MAIN } = PATHS.PAGES;
-    const { componentsLinks, dataLinks, formValidationLinks, storeLinks } = getLinks();
+    const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
 
     const mainLink = { href: MAIN.DOCUMENTATION, name: 'Documentation' };
 
     const linksArr = [
         ...Object.values(componentsLinks),
-        ...Object.values(dataLinks),
+        ...Object.values(dataFetchingLinks),
         ...Object.values(formValidationLinks),
         ...Object.values(storeLinks),
     ];

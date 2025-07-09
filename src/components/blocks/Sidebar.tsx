@@ -11,7 +11,7 @@ export const Sidebar = () => {
     const [isEnd, setIsEnd] = useState(false);
     const sidebarRef = useRef<HTMLDivElement>(null);
     const { pathname } = useLocation();
-    const { componentsLinks, dataLinks, formValidationLinks, storeLinks } = getLinks();
+    const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
 
     const { scrollYProgress } = useScroll({
         container: sidebarRef,
@@ -28,8 +28,8 @@ export const Sidebar = () => {
             links: componentsLinks,
         },
         {
-            title: 'Data',
-            links: dataLinks,
+            title: 'Data Fetching',
+            links: dataFetchingLinks,
         },
         {
             title: 'Form Validation',

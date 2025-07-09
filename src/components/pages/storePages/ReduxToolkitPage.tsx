@@ -3,7 +3,6 @@ import {
     COMPONENTS_SECTIONS,
     NPM_REDUX_TOOLKIT_CODE,
     REDUX_TOOLKIT_CODE,
-    REDUX_TOOLKIT_TYPE_CODE,
     REDUX_TOOLKIT_COUNT_CODE,
     REDUX_TOOLKIT_PROVIDER_USAGE_CODE,
     REDUX_TOOLKIT_USAGE_CODE,
@@ -56,7 +55,7 @@ export const ReduxToolkitPage = () => {
                     <ComponentsCode
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[REDUX_TOOLKIT_CODE, REDUX_TOOLKIT_TYPE_CODE, REDUX_TOOLKIT_COUNT_CODE]}
+                        codeArr={[REDUX_TOOLKIT_CODE, REDUX_TOOLKIT_COUNT_CODE]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>

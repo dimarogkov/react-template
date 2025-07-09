@@ -2,7 +2,7 @@ import { PATHS } from '../variables';
 import { convertUrlToString } from './convertUrlToString';
 
 export const getLinks = () => {
-    const { MAIN, COMPONENTS, DATA, FORM_VALIDATION, STORE } = PATHS.PAGES;
+    const { MAIN, COMPONENTS, DATA_FETCHING, FORM_VALIDATION, STORE } = PATHS.PAGES;
 
     const generateLinks = (paths: string[]) => {
         return paths.map((path) => ({
@@ -12,9 +12,9 @@ export const getLinks = () => {
     };
 
     const componentsLinks = generateLinks(Object.values(COMPONENTS));
-    const dataLinks = generateLinks(Object.values(DATA));
+    const dataFetchingLinks = generateLinks(Object.values(DATA_FETCHING));
     const formValidationLinks = generateLinks(Object.values(FORM_VALIDATION));
     const storeLinks = generateLinks(Object.values(STORE));
 
-    return { componentsLinks, dataLinks, formValidationLinks, storeLinks };
+    return { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks };
 };

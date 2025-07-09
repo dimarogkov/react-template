@@ -3,7 +3,7 @@ import { getLinks } from '../../helpers';
 import { Separator, Text, Title } from '../ui';
 
 export const DocumentationPage = () => {
-    const { componentsLinks, dataLinks, formValidationLinks, storeLinks } = getLinks();
+    const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
 
     const documentationItemsArr = [
         {
@@ -12,9 +12,9 @@ export const DocumentationPage = () => {
             links: componentsLinks,
         },
         {
-            title: 'Data',
-            text: '-',
-            links: dataLinks,
+            title: 'Data Fetching',
+            text: 'Here you can find libraries that help you fetch, cache, and manage asynchronous data in your application.',
+            links: dataFetchingLinks,
         },
         {
             title: 'Form Validation',

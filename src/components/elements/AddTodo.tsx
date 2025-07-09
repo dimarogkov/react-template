@@ -15,7 +15,7 @@ export const AddTodo: FC<Props> = ({ isPending, addTodo = () => {} }) => {
     };
 
     return (
-        <div className='flex flex-wrap w-full gap-3 mb-6 md:mb-8 last:mb-0'>
+        <div className='flex flex-wrap w-full gap-2.5'>
             <Input
                 name='search'
                 placeholder='Add Todo'

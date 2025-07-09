@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { UseMutateFunction } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
+import { UseMutateFunction } from '@tanstack/react-query';
 import { ITodo } from '../../types/interfaces/Todo';
 import { Btn, Text, Title } from '../ui';
-import { Trash2 } from 'lucide-react';
+import { X } from 'lucide-react';
 import cn from 'classnames';
 
 type Props = {
@@ -16,8 +16,6 @@ type Props = {
 export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, removeTodo = () => {} }) => {
     const { id, title, userId, completed } = todo;
 
-    const toggleTodo = () => updateTodo(todo);
-
     return (
         <div
             className={cn('relative flex flex-col w-full rounded-md border p-4 transition-opacity duration-300', {
@@ -27,10 +25,11 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
             })}
         >
             <button
-                className='absolute z-10 top-2 right-2 flex items-center justify-center size-7 rounded-md border border-red bg-red/15 outline-none transition-opacity duration-300 hover:opacity-70'
+                type='button'
                 onClick={() => removeTodo(id)}
+                className='absolute top-1.5 right-1.5 outline-none transition-opacity duration-300 hover:opacity-65'
             >
-                <Trash2 className='size-4 text-red' />
+                <X className='size-5' />
             </button>
 
             <div className='flex-grow w-full pr-8 mb-5 last:mb-0'>
@@ -41,8 +40,8 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
                 <Text>User ID - {userId}</Text>
             </div>
 
-            <Btn variant='secondary' onClick={toggleTodo} className='sm:!w-full'>
-                {completed ? 'Uncomplete Todo' : 'Complete Todo'}
+            <Btn variant='secondary' onClick={() => updateTodo(todo)} className='sm:!w-full'>
+                {completed ? 'Uncomplete' : 'Complete'}
             </Btn>
         </div>
     );

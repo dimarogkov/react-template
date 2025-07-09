@@ -3,13 +3,18 @@ import { getLinks } from '../../helpers';
 import { Separator, Text, Title } from '../ui';
 
 export const DocumentationPage = () => {
-    const { componentsLinks, formValidationLinks, storeLinks } = getLinks();
+    const { componentsLinks, dataLinks, formValidationLinks, storeLinks } = getLinks();
 
     const documentationItemsArr = [
         {
             title: 'Components',
             text: 'Here you can find all the components available in the template. We are working on adding more components.',
             links: componentsLinks,
+        },
+        {
+            title: 'Data',
+            text: '-',
+            links: dataLinks,
         },
         {
             title: 'Form Validation',

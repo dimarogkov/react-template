@@ -26,6 +26,7 @@ import {
     TitlePage,
     ToastPage,
 } from './componentsPages';
+import { ReactQueryPage } from './dataPages';
 import { YupPage, ZodPage } from './formValidationPages';
 import { ReduxToolkitPage, ZustandPage } from './storePages';
 
@@ -56,6 +57,7 @@ export {
     TextPage,
     TitlePage,
     ToastPage,
+    ReactQueryPage,
     YupPage,
     ZodPage,
     ReduxToolkitPage,

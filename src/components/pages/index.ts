@@ -1,7 +1,6 @@
 import { DocumentationPage } from './DocumentationPage';
 import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
-import { TodosPage } from './TodosPage';
 import {
     AccordionPage,
     AvatarPage,
@@ -34,7 +33,6 @@ export {
     HomePage,
     DocumentationPage,
     NotFoundPage,
-    TodosPage,
     AccordionPage,
     AvatarPage,
     BadgePage,

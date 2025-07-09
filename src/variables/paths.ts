@@ -4,7 +4,6 @@ export const PATHS = {
     PAGES: {
         MAIN: {
             DOCUMENTATION: '/documentation',
-            TODOS: '/todos',
         },
         COMPONENTS: {
             ACCORDION: '/accordion',
@@ -30,7 +29,7 @@ export const PATHS = {
             TITLE: '/title',
             TOAST: '/toast',
         },
-        DATA: {
+        DATA_FETCHING: {
             REACT_QUERY: '/react-query',
             // RTK_QUERY: 'rtk-query',
         },

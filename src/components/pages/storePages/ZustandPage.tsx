@@ -4,7 +4,6 @@ import {
     NPM_ZUSTAND_CODE,
     ZUSTAND_CODE,
     ZUSTAND_COUNT_CODE,
-    ZUSTAND_TYPE_CODE,
     ZUSTAND_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
@@ -46,11 +45,7 @@ export const ZustandPage = () => {
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 
-                    <ComponentsCode
-                        id='code'
-                        ref={registerRef('code')}
-                        codeArr={[ZUSTAND_CODE, ZUSTAND_TYPE_CODE, ZUSTAND_COUNT_CODE]}
-                    >
+                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[ZUSTAND_CODE, ZUSTAND_COUNT_CODE]}>
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 

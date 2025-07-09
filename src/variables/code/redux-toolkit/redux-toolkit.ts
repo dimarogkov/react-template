@@ -15,12 +15,11 @@ export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = createDispatchHook<RootState>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = createSelectorHook();`;
 
-export const REDUX_TOOLKIT_TYPE_CODE = `export interface ICountState {
-    count: number;
-}`;
-
 export const REDUX_TOOLKIT_COUNT_CODE = `import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ICountState } from '../../types/interfaces/CountState';
+
+interface ICountState {
+    count: number;
+}
 
 const initialState: ICountState = {
     count: 0,

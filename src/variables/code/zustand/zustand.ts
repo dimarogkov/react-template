@@ -2,15 +2,14 @@ export const ZUSTAND_CODE = `import { useCount } from './count';
 
 export { useCount };`;
 
-export const ZUSTAND_TYPE_CODE = `export interface ICountStore {
+export const ZUSTAND_COUNT_CODE = `import { create } from 'zustand';
+
+interface ICountStore {
     count: number;
     addCount: (count: number) => void;
     removeCount: (count: number) => void;
     resetCount: () => void;
-}`;
-
-export const ZUSTAND_COUNT_CODE = `import { create } from 'zustand';
-import { ICountStore } from '../../types/interfaces/CountStore';
+}
 
 export const useCount = create<ICountStore>((set) => ({
     count: 0,

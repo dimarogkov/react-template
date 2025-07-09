@@ -26,7 +26,6 @@ import {
     TextPage,
     TitlePage,
     ToastPage,
-    TodosPage,
     ReactQueryPage,
     YupPage,
     ZodPage,
@@ -36,14 +35,13 @@ import {
 import { App } from '../../App';
 
 export const Root = () => {
-    const { MAIN, COMPONENTS, DATA, FORM_VALIDATION, STORE } = PATHS.PAGES;
+    const { MAIN, COMPONENTS, DATA_FETCHING, FORM_VALIDATION, STORE } = PATHS.PAGES;
 
     return (
         <Router>
             <Routes>
                 <Route path={PATHS.HOME} element={<App />}>
                     <Route index element={<HomePage />} />
-                    <Route path={MAIN.TODOS} element={<TodosPage />} />
                     <Route path={PATHS.NOT_FOUND} element={<NotFoundPage />} />
 
                     <Route path={MAIN.DOCUMENTATION}>
@@ -75,8 +73,11 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TITLE}`} element={<TitlePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TOAST}`} element={<ToastPage />} />
 
-                        <Route path={`${MAIN.DOCUMENTATION}${DATA.REACT_QUERY}`} element={<ReactQueryPage />} />
-                        {/* <Route path={`${MAIN.DOCUMENTATION}${DATA.RTK_QUERY}`} element={<RtkQueryPage />} /> */}
+                        <Route
+                            path={`${MAIN.DOCUMENTATION}${DATA_FETCHING.REACT_QUERY}`}
+                            element={<ReactQueryPage />}
+                        />
+                        {/* <Route path={`${MAIN.DOCUMENTATION}${DATA_FETCHING.RTK_QUERY}`} element={<RtkQueryPage />} /> */}
 
                         <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.YUP}`} element={<YupPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.ZOD}`} element={<ZodPage />} />

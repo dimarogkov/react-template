@@ -8,10 +8,11 @@ import cn from 'classnames';
 
 export const App = () => {
     const { pathname } = useLocation();
-    const { componentsLinks, formValidationLinks, storeLinks } = getLinks();
+    const { componentsLinks, dataLinks, formValidationLinks, storeLinks } = getLinks();
 
     const linksArr = [
         ...Object.values(componentsLinks),
+        ...Object.values(dataLinks),
         ...Object.values(formValidationLinks),
         ...Object.values(storeLinks),
     ].map(({ href }) => href);

@@ -30,6 +30,10 @@ export const PATHS = {
             TITLE: '/title',
             TOAST: '/toast',
         },
+        DATA: {
+            REACT_QUERY: '/react-query',
+            // RTK_QUERY: 'rtk-query',
+        },
         FORM_VALIDATION: {
             YUP: '/yup',
             ZOD: '/zod',

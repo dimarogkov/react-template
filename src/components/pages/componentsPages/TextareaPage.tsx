@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, TEXTAREA_CODE, TEXTAREA_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    TEXTAREA_CODE,
+    TEXTAREA_USAGE_CODE,
+    TEXTAREA_CONTROLLING_USAGE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -15,11 +20,13 @@ import { ArrowUpRight } from 'lucide-react';
 export const TextareaPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
+    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'controlling', text: 'Controlling' }];
+
     return (
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />
+                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
@@ -54,6 +61,21 @@ export const TextareaPage = () => {
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[TEXTAREA_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode
+                        id='controlling'
+                        ref={registerRef('controlling')}
+                        codeArr={[TEXTAREA_CONTROLLING_USAGE_CODE]}
+                    >
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                            Controlling
+                        </Title>
+
+                        <Text>
+                            To control the Textarea, add <span className='badge-item'>value</span> and&nbsp;
+                            <span className='badge-item'>onChange</span> onChange props to manage its state manually.
+                        </Text>
                     </ComponentsCode>
 
                     <ComponentsFooter />

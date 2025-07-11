@@ -10,12 +10,14 @@ type Props = {
 
 export const Breadcrumb: FC<Props> = ({ className = '' }) => {
     const { pathname } = useLocation();
-    const { componentsLinks, storeLinks } = getLinks();
+    const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
     const { MAIN } = PATHS.PAGES;
 
     const pathsArr = [
         ...Object.values(MAIN),
         ...componentsLinks.map(({ href }) => href),
+        ...dataFetchingLinks.map(({ href }) => href),
+        ...formValidationLinks.map(({ href }) => href),
         ...storeLinks.map(({ href }) => href),
     ];
 

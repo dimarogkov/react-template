@@ -41,7 +41,7 @@ export const ZodPreview = () => {
 
             <Label className='flex flex-col gap-2'>
                 <Select {...register('select')}>
-                    <Select.Option value='' hidden>
+                    <Select.Option value='' disabled hidden>
                         Select Option
                     </Select.Option>
                     <Select.Option value='option_1'>Option 1</Select.Option>
@@ -89,9 +89,9 @@ export const ZodPreview = () => {
 
                 {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}
             </div>
-
+        
             <Label className='flex flex-col gap-2'>
-                <Checkbox {...register('rememberMe')} isChecked={watch('rememberMe')} label='Remember me' />
+                <Checkbox {...register('rememberMe')} label='Remember me' checked={watch('rememberMe')} />
                 {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
             </Label>
 

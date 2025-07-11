@@ -5,6 +5,7 @@ import {
     NPM_LUCIDE_CODE,
     RADIO_CODE,
     RADIO_USAGE_CODE,
+    RADIO_CONTROLLING_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -21,7 +22,11 @@ import { ArrowUpRight } from 'lucide-react';
 export const RadioPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+    const sectionsArr = [
+        { id: 'installation', text: 'Installation' },
+        ...COMPONENTS_SECTIONS,
+        { id: 'controlling', text: 'Controlling' },
+    ];
 
     return (
         <section className='relative w-full'>
@@ -73,6 +78,21 @@ export const RadioPage = () => {
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[RADIO_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode
+                        id='controlling'
+                        ref={registerRef('controlling')}
+                        codeArr={[RADIO_CONTROLLING_USAGE_CODE]}
+                    >
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                            Controlling
+                        </Title>
+
+                        <Text>
+                            To control the Radio, add <span className='badge-item'>checked</span> and&nbsp;
+                            <span className='badge-item'>onChange</span> onChange props to manage its state manually.
+                        </Text>
                     </ComponentsCode>
 
                     <ComponentsFooter />

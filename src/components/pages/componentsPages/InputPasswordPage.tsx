@@ -3,6 +3,7 @@ import {
     COMPONENTS_SECTIONS,
     INPUT_PASSWORD_CODE,
     INPUT_PASSWORD_USAGE_CODE,
+    INPUT_PASSWORD_CONTROLLING_USAGE_CODE,
     NPM_LUCIDE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
@@ -20,7 +21,11 @@ import { ArrowUpRight } from 'lucide-react';
 export const InputPasswordPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+    const sectionsArr = [
+        { id: 'installation', text: 'Installation' },
+        ...COMPONENTS_SECTIONS,
+        { id: 'controlling', text: 'Controlling' },
+    ];
 
     return (
         <section className='relative w-full'>
@@ -67,6 +72,21 @@ export const InputPasswordPage = () => {
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[INPUT_PASSWORD_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode
+                        id='controlling'
+                        ref={registerRef('controlling')}
+                        codeArr={[INPUT_PASSWORD_CONTROLLING_USAGE_CODE]}
+                    >
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                            Controlling
+                        </Title>
+
+                        <Text>
+                            To control the Input, add <span className='badge-item'>value</span> and&nbsp;
+                            <span className='badge-item'>onChange</span> onChange props to manage its state manually.
+                        </Text>
                     </ComponentsCode>
 
                     <ComponentsFooter />

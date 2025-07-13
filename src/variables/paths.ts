@@ -28,6 +28,7 @@ export const PATHS = {
             TEXTAREA: '/textarea',
             TITLE: '/title',
             TOAST: '/toast',
+            TOOLTIP: '/tooltip',
         },
         DATA_FETCHING: {
             REACT_QUERY: '/react-query',

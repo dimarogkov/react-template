@@ -26,6 +26,7 @@ import {
     TextPage,
     TitlePage,
     ToastPage,
+    TooltipPage,
     ReactQueryPage,
     YupPage,
     ZodPage,
@@ -72,6 +73,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TEXTAREA}`} element={<TextareaPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TITLE}`} element={<TitlePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TOAST}`} element={<ToastPage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.TOOLTIP}`} element={<TooltipPage />} />
 
                         <Route
                             path={`${MAIN.DOCUMENTATION}${DATA_FETCHING.REACT_QUERY}`}

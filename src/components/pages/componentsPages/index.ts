@@ -20,6 +20,7 @@ import { TextareaPage } from './TextareaPage';
 import { TextPage } from './TextPage';
 import { TitlePage } from './TitlePage';
 import { ToastPage } from './ToastPage';
+import { TooltipPage } from './TooltipPage';
 
 export {
     AccordionPage,
@@ -44,4 +45,5 @@ export {
     TextPage,
     TitlePage,
     ToastPage,
+    TooltipPage,
 };

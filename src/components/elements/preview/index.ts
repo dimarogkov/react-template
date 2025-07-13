@@ -21,6 +21,7 @@ import { TextareaPreview } from './TextareaPreview';
 import { TextPreview } from './TextPreview';
 import { TitlePreview } from './TitlePreview';
 import { ToastPreview } from './ToastPreview';
+import { TooltipPreview } from './TooltipPreview';
 import { YupPreview } from './YupPreview';
 import { ZodPreview } from './ZodPreview';
 import { ZustandPreview } from './ZustandPreview';
@@ -49,6 +50,7 @@ export {
     TextPreview,
     TitlePreview,
     ToastPreview,
+    TooltipPreview,
     YupPreview,
     ZodPreview,
     ZustandPreview,

@@ -21,6 +21,7 @@ import { Text } from './Text';
 import { Textarea } from './Textarea';
 import { Title } from './Title';
 import { Toast } from './Toast';
+import { Tooltip } from './Tooltip';
 
 export {
     Accordion,
@@ -47,4 +48,5 @@ export {
     Textarea,
     Title,
     Toast,
+    Tooltip,
 };

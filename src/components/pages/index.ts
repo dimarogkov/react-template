@@ -24,6 +24,7 @@ import {
     TextPage,
     TitlePage,
     ToastPage,
+    TooltipPage,
 } from './componentsPages';
 import { ReactQueryPage } from './dataPages';
 import { YupPage, ZodPage } from './formValidationPages';
@@ -55,6 +56,7 @@ export {
     TextPage,
     TitlePage,
     ToastPage,
+    TooltipPage,
     ReactQueryPage,
     YupPage,
     ZodPage,

@@ -6,6 +6,8 @@ import {
     TOOLTIP_TRIGGER_CODE,
     TOOLTIP_CONTENT_CODE,
     TOOLTIP_USAGE_CODE,
+    NPM_FRAMER_MOTION_CODE,
+    NPM_LUCIDE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -22,11 +24,13 @@ import { ArrowUpRight } from 'lucide-react';
 export const TooltipPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
+    const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
     return (
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />
+                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
@@ -42,6 +46,14 @@ export const TooltipPage = () => {
                     <ComponentsPreview>
                         <TooltipPreview />
                     </ComponentsPreview>
+
+                    <ComponentsCode
+                        id='installation'
+                        ref={registerRef('installation')}
+                        codeArr={[NPM_LUCIDE_CODE, NPM_FRAMER_MOTION_CODE]}
+                    >
+                        <Title size='h4'>Installation</Title>
+                    </ComponentsCode>
 
                     <ComponentsCode
                         id='code'

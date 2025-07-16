@@ -1,15 +1,15 @@
 import {
     COMPONENTS_SECTIONS,
-    NPM_AXIOS_CODE,
-    NPM_REACT_QUERY_CODE,
-    REACT_QUERY_CODE,
+    NPM_CLASSNAMES_CODE,
+    NPM_LUCIDE_CODE,
+    NPM_REDUX_TOOLKIT_CODE,
     REACT_QUERY_TYPE_CODE,
     REACT_QUERY_ADD_TODO_CODE,
     REACT_QUERY_TODO_CODE,
-    REACT_QUERY_USAGE_CODE,
-    REACT_QUERY_PROVIDER_USAGE_CODE,
-    NPM_CLASSNAMES_CODE,
-    NPM_LUCIDE_CODE,
+    REDUX_TOOLKIT_PROVIDER_USAGE_CODE,
+    RTK_QUERY_CODE,
+    RTK_QUERY_SLICE_CODE,
+    RTK_QUERY_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -19,10 +19,10 @@ import {
     ComponentsNavigation,
     ComponentsPreview,
 } from '../../blocks';
-import { ReactQueryPreview } from '../../elements/preview';
+import { RtkQueryPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
 
-export const ReactQueryPage = () => {
+export const RtkQueryPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
@@ -35,20 +35,24 @@ export const ReactQueryPage = () => {
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            React Query
+                            RTK Query
                         </Title>
 
-                        <Text size='large'>Powerful asynchronous state management for TS/JS and React.</Text>
+                        <Text size='large'>
+                            Powerful data fetching and caching tool. It is designed to simplify common cases for loading
+                            data in a web application, eliminating the need to hand-write data fetching & caching logic
+                            yourself.
+                        </Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <ReactQueryPreview />
+                        <RtkQueryPreview />
                     </ComponentsPreview>
 
                     <ComponentsCode
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_AXIOS_CODE, NPM_REACT_QUERY_CODE]}
+                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_REDUX_TOOLKIT_CODE]}
                     >
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
@@ -58,7 +62,8 @@ export const ReactQueryPage = () => {
                         ref={registerRef('code')}
                         codeArr={[
                             REACT_QUERY_TYPE_CODE,
-                            REACT_QUERY_CODE,
+                            RTK_QUERY_CODE,
+                            RTK_QUERY_SLICE_CODE,
                             REACT_QUERY_ADD_TODO_CODE,
                             REACT_QUERY_TODO_CODE,
                         ]}
@@ -69,7 +74,7 @@ export const ReactQueryPage = () => {
                     <ComponentsCode
                         id='usage'
                         ref={registerRef('usage')}
-                        codeArr={[REACT_QUERY_PROVIDER_USAGE_CODE, REACT_QUERY_USAGE_CODE]}
+                        codeArr={[REDUX_TOOLKIT_PROVIDER_USAGE_CODE, RTK_QUERY_USAGE_CODE]}
                     >
                         <Title size='h4'>Usage</Title>
                     </ComponentsCode>

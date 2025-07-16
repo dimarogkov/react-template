@@ -28,6 +28,7 @@ import {
     ToastPage,
     TooltipPage,
     ReactQueryPage,
+    RtkQueryPage,
     YupPage,
     ZodPage,
     ReduxToolkitPage,
@@ -79,7 +80,7 @@ export const Root = () => {
                             path={`${MAIN.DOCUMENTATION}${DATA_FETCHING.REACT_QUERY}`}
                             element={<ReactQueryPage />}
                         />
-                        {/* <Route path={`${MAIN.DOCUMENTATION}${DATA_FETCHING.RTK_QUERY}`} element={<RtkQueryPage />} /> */}
+                        <Route path={`${MAIN.DOCUMENTATION}${DATA_FETCHING.RTK_QUERY}`} element={<RtkQueryPage />} />
 
                         <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.YUP}`} element={<YupPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${FORM_VALIDATION.ZOD}`} element={<ZodPage />} />

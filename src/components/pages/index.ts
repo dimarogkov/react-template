@@ -26,7 +26,7 @@ import {
     ToastPage,
     TooltipPage,
 } from './componentsPages';
-import { ReactQueryPage } from './dataPages';
+import { ReactQueryPage, RtkQueryPage } from './dataFetchingPages';
 import { YupPage, ZodPage } from './formValidationPages';
 import { ReduxToolkitPage, ZustandPage } from './storePages';
 
@@ -58,6 +58,7 @@ export {
     ToastPage,
     TooltipPage,
     ReactQueryPage,
+    RtkQueryPage,
     YupPage,
     ZodPage,
     ReduxToolkitPage,

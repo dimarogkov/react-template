@@ -1,4 +1,3 @@
-import { NPM_AXIOS_CODE } from './axios';
 import { NPM_CLASSNAMES_CODE } from './classnames';
 import { NPM_FRAMER_MOTION_CODE } from './framer-motion';
 import { NPM_HOOK_FORM_CODE, NPM_HOOK_FORM_RESOLVERS_CODE } from './hook-form';
@@ -11,7 +10,6 @@ import { NPM_ZOD_CODE } from './zod';
 import { NPM_ZUSTAND_CODE } from './zustand';
 
 export {
-    NPM_AXIOS_CODE,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
     NPM_HOOK_FORM_CODE,

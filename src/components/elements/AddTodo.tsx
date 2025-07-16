@@ -2,15 +2,15 @@ import { FC, useState } from 'react';
 import { Btn, Input } from '../ui';
 
 type Props = {
-    isPending: boolean;
-    addTodo: (title: string) => void;
+    isLoading: boolean;
+    createTodo: (title: string) => void;
 };
 
-export const AddTodo: FC<Props> = ({ isPending, addTodo = () => {} }) => {
+export const AddTodo: FC<Props> = ({ isLoading, createTodo = () => {} }) => {
     const [todoTitle, setTodoTitle] = useState('');
 
     const handleAddTodo = () => {
-        addTodo(todoTitle);
+        createTodo(todoTitle);
         setTodoTitle('');
     };
 
@@ -19,13 +19,13 @@ export const AddTodo: FC<Props> = ({ isPending, addTodo = () => {} }) => {
             <Input
                 name='search'
                 placeholder='Add Todo'
-                disabled={isPending}
+                disabled={isLoading}
                 value={todoTitle}
                 onChange={({ target }) => setTodoTitle(target.value)}
             />
 
-            <Btn disabled={todoTitle.length === 0 || isPending} onClick={handleAddTodo}>
-                {isPending ? 'Loading...' : 'Add todo'}
+            <Btn disabled={todoTitle.length === 0 || isLoading} onClick={handleAddTodo}>
+                {isLoading ? 'Loading...' : 'Add todo'}
             </Btn>
         </div>
     );

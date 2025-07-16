@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, createDispatchHook, createSelectorHook } from 'react-redux';
-
-import countReducer from './countReducer';
+import countSlice from './countSlice';
+import { todosApiSlice } from './todosApiSlice';
 
 export const store = configureStore({
     reducer: {
-        count: countReducer,
+        count: countSlice,
+        [todosApiSlice.reducerPath]: todosApiSlice.reducer,
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(todosApiSlice.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

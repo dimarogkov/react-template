@@ -32,7 +32,7 @@ export const PATHS = {
         },
         DATA_FETCHING: {
             REACT_QUERY: '/react-query',
-            // RTK_QUERY: 'rtk-query',
+            RTK_QUERY: '/RTK-query',
         },
         FORM_VALIDATION: {
             YUP: '/yup',

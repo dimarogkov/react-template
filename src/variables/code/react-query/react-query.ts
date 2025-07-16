@@ -1,7 +1,7 @@
 export const REACT_QUERY_CODE = `import { useMutation, useQuery } from '@tanstack/react-query';
-import { getTodos, createTodo, updateTodo, deleteTodo } from '../services';
+import { getTodos, createTodo, updateTodo, removeTodo } from '../services';
 
-export const useTodo = () => {
+export const useTodoQuery = () => {
     const {
         data: todos,
         refetch,
@@ -12,20 +12,20 @@ export const useTodo = () => {
         queryKey: ['todos'],
     });
 
-    const { mutate: createTodoMutation, isPending: isPendingCreateTodo } = useMutation({
+    const { mutate: createTodoMutation, isPending: isLoadingCreateTodo } = useMutation({
         mutationFn: createTodo,
         mutationKey: ['create todo'],
         onSuccess: () => refetch(),
     });
 
-    const { mutate: updateTodoMutation, isPending: isPendingUpdateTodo } = useMutation({
+    const { mutate: updateTodoMutation, isPending: isLoadingUpdateTodo } = useMutation({
         mutationFn: updateTodo,
         mutationKey: ['update todo'],
         onSuccess: () => refetch(),
     });
 
-    const { mutate: removeTodoMutation, isPending: isPendingRemoveTodo } = useMutation({
-        mutationFn: deleteTodo,
+    const { mutate: removeTodoMutation, isPending: isLoadingRemoveTodo } = useMutation({
+        mutationFn: removeTodo,
         mutationKey: ['remove todo'],
         onSuccess: () => refetch(),
     });
@@ -34,11 +34,11 @@ export const useTodo = () => {
         todos,
         isLoading,
         createTodoMutation,
-        isPendingCreateTodo,
+        isLoadingCreateTodo,
         updateTodoMutation,
-        isPendingUpdateTodo,
+        isLoadingUpdateTodo,
         removeTodoMutation,
-        isPendingRemoveTodo,
+        isLoadingRemoveTodo,
     };
 };`;
 
@@ -53,38 +53,36 @@ export const REACT_QUERY_ADD_TODO_CODE = `import { FC, useState } from 'react';
 import { Btn, Input } from '../ui';
 
 type Props = {
-	isPending: boolean;
-	addTodo: (title: string) => void;
+    isLoading: boolean;
+    createTodo: (title: string) => void;
 };
 
-export const AddTodo: FC<Props> = ({ isPending, addTodo = () => {} }) => {
-	const [todoTitle, setTodoTitle] = useState('');
+export const AddTodo: FC<Props> = ({ isLoading, createTodo = () => {} }) => {
+    const [todoTitle, setTodoTitle] = useState('');
 
-	const handleAddTodo = () => {
-		addTodo(todoTitle);
-		setTodoTitle('');
-	};
+    const handleAddTodo = () => {
+        createTodo(todoTitle);
+        setTodoTitle('');
+    };
 
-	return (
-		<div className='flex flex-wrap w-full gap-2.5'>
-			<Input
-				name='search'
-				placeholder='Add Todo'
-				disabled={isPending}
-				value={todoTitle}
-				onChange={({ target }) => setTodoTitle(target.value)}
-			/>
+    return (
+        <div className='flex flex-wrap w-full gap-2.5'>
+            <Input
+                name='search'
+                placeholder='Add Todo'
+                disabled={isLoading}
+                value={todoTitle}
+                onChange={({ target }) => setTodoTitle(target.value)}
+            />
 
-			<Btn disabled={todoTitle.length === 0 || isPending} onClick={handleAddTodo}>
-				{isPending ? 'Loading...' : 'Add todo'}
-			</Btn>
-		</div>
-	);
+            <Btn disabled={todoTitle.length === 0 || isLoading} onClick={handleAddTodo}>
+                {isLoading ? 'Loading...' : 'Add todo'}
+            </Btn>
+        </div>
+    );
 };`;
 
 export const REACT_QUERY_TODO_CODE = `import { FC } from 'react';
-import { AxiosResponse } from 'axios';
-import { UseMutateFunction } from '@tanstack/react-query';
 import { ITodo } from '../../types/interfaces/Todo';
 import { Btn, Text, Title } from '../ui';
 import { X } from 'lucide-react';
@@ -92,12 +90,12 @@ import cn from 'classnames';
 
 type Props = {
     todo: ITodo;
-    isPending: boolean;
-    updateTodo: UseMutateFunction<AxiosResponse<ITodo, any>, Error, ITodo, unknown>;
-    removeTodo: UseMutateFunction<AxiosResponse<ITodo, any>, Error, number, unknown>;
+    isLoading: boolean;
+    updateTodo: (todo: ITodo) => void;
+    removeTodo: (todoId: number) => void;
 };
 
-export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, removeTodo = () => {} }) => {
+export const Todo: FC<Props> = ({ todo, isLoading, updateTodo = () => {}, removeTodo = () => {} }) => {
     const { id, title, userId, completed } = todo;
 
     return (
@@ -105,7 +103,7 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
             className={cn('relative flex flex-col w-full rounded-md border p-4 transition-opacity duration-300', {
                 'border-border': !completed,
                 'border-green bg-green/10': completed,
-                'opacity-70 pointer-events-none': isPending,
+                'opacity-70 pointer-events-none': isLoading,
             })}
         >
             <button

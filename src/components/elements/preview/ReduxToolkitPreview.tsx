@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../../store/redux-toolkit';
-import { addCount, removeCount, resetCount } from '../../../store/redux-toolkit/countReducer';
+import { addCount, removeCount, resetCount } from '../../../store/redux-toolkit/countSlice';
 import { Btn, Text, Title } from '../../ui';
 import { RotateCcw } from 'lucide-react';
 

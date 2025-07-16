@@ -6,7 +6,7 @@ import { store } from '../../store/redux-toolkit';
 </Provider>`;
 
 export const REDUX_TOOLKIT_USAGE_CODE = `import { useAppDispatch, useAppSelector } from '../../../store/redux-toolkit';
-import { addCount, removeCount, resetCount } from '../../../store/redux-toolkit/countReducer';
+import { addCount, removeCount, resetCount } from '../../../store/redux-toolkit/countSlice';
 import { Btn, Text, Title } from '../../ui';
 
 export const ReduxToolkitPreview = () => {

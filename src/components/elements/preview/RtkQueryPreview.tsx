@@ -1,20 +1,19 @@
-import { useTodoQuery } from '../../../hooks';
+import {
+    useCreateTodoMutation,
+    useGetTodosQuery,
+    useRemoveTodoMutation,
+    useUpdateTodoMutation,
+} from '../../../store/redux-toolkit/todosApiSlice';
 import { ITodo } from '../../../types/interfaces/Todo';
 import { AddTodo } from '../AddTodo';
 import { Todo } from '../Todo';
 import { Loader, Title } from '../../ui';
 
-export const ReactQueryPreview = () => {
-    const {
-        todos,
-        isLoading,
-        createTodoMutation,
-        isLoadingCreateTodo,
-        updateTodoMutation,
-        isLoadingUpdateTodo,
-        removeTodoMutation,
-        isLoadingRemoveTodo,
-    } = useTodoQuery();
+export const RtkQueryPreview = () => {
+    const { data: todos, isLoading } = useGetTodosQuery({});
+    const [createTodoMutation, { isLoading: isLoadingCreateTodo }] = useCreateTodoMutation();
+    const [updateTodoMutation, { isLoading: isLoadingUpdateTodo }] = useUpdateTodoMutation();
+    const [removeTodoMutation, { isLoading: isLoadingRemoveTodo }] = useRemoveTodoMutation();
 
     const createTodo = (title: string) => {
         if (title.trim() === '') {

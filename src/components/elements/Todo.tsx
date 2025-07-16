@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import { AxiosResponse } from 'axios';
-import { UseMutateFunction } from '@tanstack/react-query';
 import { ITodo } from '../../types/interfaces/Todo';
 import { Btn, Text, Title } from '../ui';
 import { X } from 'lucide-react';
@@ -8,12 +6,12 @@ import cn from 'classnames';
 
 type Props = {
     todo: ITodo;
-    isPending: boolean;
-    updateTodo: UseMutateFunction<AxiosResponse<ITodo, any>, Error, ITodo, unknown>;
-    removeTodo: UseMutateFunction<AxiosResponse<ITodo, any>, Error, number, unknown>;
+    isLoading: boolean;
+    updateTodo: (todo: ITodo) => void;
+    removeTodo: (todoId: number) => void;
 };
 
-export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, removeTodo = () => {} }) => {
+export const Todo: FC<Props> = ({ todo, isLoading, updateTodo = () => {}, removeTodo = () => {} }) => {
     const { id, title, userId, completed } = todo;
 
     return (
@@ -21,7 +19,7 @@ export const Todo: FC<Props> = ({ todo, isPending, updateTodo = () => {}, remove
             className={cn('relative flex flex-col w-full rounded-md border p-4 transition-opacity duration-300', {
                 'border-border': !completed,
                 'border-green bg-green/10': completed,
-                'opacity-70 pointer-events-none': isPending,
+                'opacity-70 pointer-events-none': isLoading,
             })}
         >
             <button

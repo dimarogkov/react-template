@@ -16,8 +16,13 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
 -   components
     -   blocks
     -   elements
+        -   preview
     -   other
     -   pages
+        -   componentsPages
+        -   dataFetchingPages
+        -   formValidationPages
+        -   storePages
     -   root
     -   ui
 -   form validation

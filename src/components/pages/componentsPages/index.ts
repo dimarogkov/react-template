@@ -12,6 +12,7 @@ import { LoaderPage } from './LoaderPage';
 import { ModalPage } from './ModalPage';
 import { ProgressPage } from './ProgressPage';
 import { RadioPage } from './RadioPage';
+import { SelectPage } from './SelectPage';
 import { SeparatorPage } from './SeparatorPage';
 import { SimpleLinkPage } from './SimpleLinkPage';
 import { SwitchPage } from './SwitchPage';
@@ -37,6 +38,7 @@ export {
     ModalPage,
     ProgressPage,
     RadioPage,
+    SelectPage,
     SeparatorPage,
     SimpleLinkPage,
     SwitchPage,

@@ -58,5 +58,5 @@ export const {
 	useGetTodosQuery,
 	useCreateTodoMutation,
 	useUpdateTodoMutation,
-	useRemoveTodoMutation
+	useRemoveTodoMutation,
 } = todosApiSlice;`;

@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
-    INPUT_CODE,
-    INPUT_USAGE_CODE,
-    INPUT_CONTROLLING_USAGE_CODE,
+    NPM_CLASSNAMES_CODE,
+    NPM_LUCIDE_CODE,
+    NPM_FRAMER_MOTION_CODE,
+    SELECT_TYPE_CODE,
+    SELECT_CODE,
+    SELECT_WRAPPER_CODE,
+    SELECT_TRIGGER_CODE,
+    SELECT_OPTIONS_CODE,
+    SELECT_OPTION_CODE,
+    SELECT_USAGE_CODE,
+    SELECT_CONTROLLING_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -13,14 +21,18 @@ import {
     ComponentsNavigation,
     ComponentsPreview,
 } from '../../blocks';
-import { InputPreview } from '../../elements/preview';
+import { SelectPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
-export const InputPage = () => {
+export const SelectPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'controlling', text: 'Controlling' }];
+    const sectionsArr = [
+        { id: 'installation', text: 'Installation' },
+        ...COMPONENTS_SECTIONS,
+        { id: 'controlling', text: 'Controlling' },
+    ];
 
     return (
         <section className='relative w-full'>
@@ -30,24 +42,43 @@ export const InputPage = () => {
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Input
+                            Select
                         </Title>
 
                         <Text size='large'>
-                            Displays a form input field or a component that looks like an input field.
+                            Displays a list of options for the user to pick from—triggered by a button.
                         </Text>
                     </ComponentsHead>
 
                     <ComponentsPreview>
-                        <InputPreview />
+                        <SelectPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[INPUT_CODE]}>
+                    <ComponentsCode
+                        id='installation'
+                        ref={registerRef('installation')}
+                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_FRAMER_MOTION_CODE]}
+                    >
+                        <Title size='h4'>Installation</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode
+                        id='code'
+                        ref={registerRef('code')}
+                        codeArr={[
+                            SELECT_TYPE_CODE,
+                            SELECT_CODE,
+                            SELECT_WRAPPER_CODE,
+                            SELECT_TRIGGER_CODE,
+                            SELECT_OPTIONS_CODE,
+                            SELECT_OPTION_CODE,
+                        ]}
+                    >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
                             <Link
-                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Input.tsx'
+                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Select'
                                 target='_blank'
                                 className='transition-colors duration-300 hover:text-text'
                             >
@@ -56,26 +87,27 @@ export const InputPage = () => {
                         </Title>
 
                         <Text>
-                            Include a custom <span className='badge-item'>Input</span> component for consistent and
-                            maintainable usage throughout the project.
+                            Include a custom <span className='badge-item'>ISelectItem</span> and&nbsp;
+                            <span className='badge-item'>Select</span> component for consistent and maintainable usage
+                            throughout the project.
                         </Text>
                     </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[INPUT_USAGE_CODE]}>
+                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[SELECT_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
                     </ComponentsCode>
 
                     <ComponentsCode
                         id='controlling'
                         ref={registerRef('controlling')}
-                        codeArr={[INPUT_CONTROLLING_USAGE_CODE]}
+                        codeArr={[SELECT_CONTROLLING_USAGE_CODE]}
                     >
                         <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                             Controlling
                         </Title>
 
                         <Text>
-                            To control the Input, add <span className='badge-item'>value</span> and&nbsp;
+                            To control the Select, add <span className='badge-item'>value</span> and&nbsp;
                             <span className='badge-item'>onChange</span> props to manage its state manually.
                         </Text>
                     </ComponentsCode>

@@ -85,7 +85,7 @@ export const TABS_TAB_CODE = `import {
 	LiHTMLAttributes,
 	RefAttributes,
 	SetStateAction,
-	useEffect
+	useEffect,
 } from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';

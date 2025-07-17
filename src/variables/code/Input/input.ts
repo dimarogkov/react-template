@@ -21,7 +21,7 @@ export const INPUT_PASSWORD_CODE = `import {
     forwardRef,
     MouseEvent,
     useRef,
-    useState
+    useState,
 } from 'react';
 import { Input } from './Input';
 import { Eye, EyeOff } from 'lucide-react';

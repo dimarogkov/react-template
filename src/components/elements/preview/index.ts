@@ -14,6 +14,7 @@ import { RadioPreview } from './RadioPreview';
 import { ReactQueryPreview } from './ReactQueryPreview';
 import { ReduxToolkitPreview } from './ReduxToolkitPreview';
 import { RtkQueryPreview } from './RtkQueryPreview';
+import { SelectPreview } from './SelectPreview';
 import { SeparatorPreview } from './SeparatorPreview';
 import { SimpleLinkPreview } from './SimpleLinkPreview';
 import { SwitchPreview } from './SwitchPreview';
@@ -44,6 +45,7 @@ export {
     ReactQueryPreview,
     ReduxToolkitPreview,
     RtkQueryPreview,
+    SelectPreview,
     SeparatorPreview,
     SimpleLinkPreview,
     SwitchPreview,

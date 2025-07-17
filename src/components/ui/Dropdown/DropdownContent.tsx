@@ -48,7 +48,7 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         {...props}
                         {...animation}
                         className={cn(
-                            `absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-2 border border-border bg-bg will-change-transform ${className}`,
+                            `absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-1 border border-border bg-bg will-change-transform ${className}`,
                             {
                                 'left-0': align === 'start' && isVerticalPosition,
                                 'top-0': align === 'start' && isHorizontalPosition,

@@ -20,6 +20,7 @@ export const PATHS = {
             MODAL: '/modal',
             PROGRESS: '/progress',
             RADIO: '/radio',
+            SELECT: '/select',
             SEPARATOR: '/separator',
             SIMPLE_LINK: '/simple-link',
             SWITCH: '/switch',

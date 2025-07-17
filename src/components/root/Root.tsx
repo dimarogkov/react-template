@@ -18,6 +18,7 @@ import {
     NotFoundPage,
     ProgressPage,
     RadioPage,
+    SelectPage,
     SeparatorPage,
     SimpleLinkPage,
     SwitchPage,
@@ -65,7 +66,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.MODAL}`} element={<ModalPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.RADIO}`} element={<RadioPage />} />
-                        {/* Select */}
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SELECT}`} element={<SelectPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SEPARATOR}`} element={<SeparatorPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SIMPLE_LINK}`} element={<SimpleLinkPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SWITCH}`} element={<SwitchPage />} />

@@ -72,7 +72,7 @@ export const DROPDOWN_TRIGGER_CODE = `import {
 	forwardRef,
 	HTMLAttributes,
 	RefAttributes,
-	SetStateAction
+	SetStateAction,
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -99,7 +99,7 @@ export const DROPDOWN_CONTENT_CODE = `import {
     FC,
     forwardRef,
     RefAttributes,
-    SetStateAction
+    SetStateAction,
 } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import cn from 'classnames';
@@ -150,7 +150,7 @@ export const DropdownContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         {...props}
                         {...animation}
                         className={cn(
-                            \`absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-2 border border-border bg-bg will-change-transform \${className}\`,
+                            \`absolute z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-1 border border-border bg-bg will-change-transform \${className}\`,
                             {
                                 'left-0': align === 'start' && isVerticalPosition,
                                 'top-0': align === 'start' && isHorizontalPosition,

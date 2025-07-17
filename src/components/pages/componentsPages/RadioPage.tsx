@@ -91,7 +91,7 @@ export const RadioPage = () => {
 
                         <Text>
                             To control the Radio, add <span className='badge-item'>checked</span> and&nbsp;
-                            <span className='badge-item'>onChange</span> onChange props to manage its state manually.
+                            <span className='badge-item'>onChange</span> props to manage its state manually.
                         </Text>
                     </ComponentsCode>
 

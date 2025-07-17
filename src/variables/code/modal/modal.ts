@@ -51,7 +51,7 @@ export const MODAL_TRIGGER_CODE = `import {
 	forwardRef,
 	HTMLAttributes,
 	RefAttributes,
-	SetStateAction
+	SetStateAction,
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -79,7 +79,7 @@ export const MODAL_CONTENT_CODE = `import {
 	forwardRef,
 	ReactNode,
 	RefAttributes,
-	SetStateAction 
+	SetStateAction,
 } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { ModalLayer } from './ModalLayer';
@@ -137,7 +137,7 @@ export const MODAL_LAYER_CODE = `import {
 	forwardRef,
 	HTMLAttributes,
 	RefAttributes,
-	SetStateAction 
+	SetStateAction,
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {

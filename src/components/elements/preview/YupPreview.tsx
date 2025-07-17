@@ -41,12 +41,12 @@ export const YupPreview = () => {
 
             <Label className='flex flex-col gap-2'>
                 <Select {...register('select')}>
-                    <Select.Option value='' disabled hidden>
-                        Select Option
-                    </Select.Option>
-                    <Select.Option value='option_1'>Option 1</Select.Option>
-                    <Select.Option value='option_2'>Option 2</Select.Option>
-                    <Select.Option value='option_3'>Option 3</Select.Option>
+                    <Select.Trigger placeholder='Select Option' />
+                    <Select.Options>
+                        <Select.Option value='option_1'>Option 1</Select.Option>
+                        <Select.Option value='option_2'>Option 2</Select.Option>
+                        <Select.Option value='option_3'>Option 3</Select.Option>
+                    </Select.Options>
                 </Select>
 
                 {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}

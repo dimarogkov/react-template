@@ -4,7 +4,7 @@ export const SWITCH_CODE = `import {
     forwardRef,
     RefAttributes,
     useEffect,
-    useState
+    useState,
 } from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';

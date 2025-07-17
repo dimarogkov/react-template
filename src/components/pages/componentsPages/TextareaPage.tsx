@@ -74,7 +74,7 @@ export const TextareaPage = () => {
 
                         <Text>
                             To control the Textarea, add <span className='badge-item'>value</span> and&nbsp;
-                            <span className='badge-item'>onChange</span> onChange props to manage its state manually.
+                            <span className='badge-item'>onChange</span> props to manage its state manually.
                         </Text>
                     </ComponentsCode>
 

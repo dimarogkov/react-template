@@ -110,7 +110,7 @@ export const ACCORDION_TITLE_CODE = `import {
 	forwardRef,
 	HTMLAttributes,
 	RefAttributes,
-	SetStateAction
+	SetStateAction,
 } from 'react';
 import { ChevronDown, Plus } from 'lucide-react';
 import cn from 'classnames';

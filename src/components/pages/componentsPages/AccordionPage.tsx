@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import {
     ACCORDION_CODE,
-    ACCORDION_CONTENT_CODE,
+    ACCORDION_WRAPPER_CODE,
     ACCORDION_ITEM_CODE,
     ACCORDION_TITLE_CODE,
-    ACCORDION_ACTIVE_USAGE_CODE,
+    ACCORDION_CONTENT_CODE,
     ACCORDION_USAGE_CODE,
-    ACCORDION_WRAPPER_CODE,
+    ACCORDION_ACTIVE_USAGE_CODE,
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
@@ -15,6 +15,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -53,23 +54,27 @@ export const AccordionPage = () => {
                         <AccordionPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                            { label: 'Frame Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            ACCORDION_CODE,
-                            ACCORDION_WRAPPER_CODE,
-                            ACCORDION_ITEM_CODE,
-                            ACCORDION_TITLE_CODE,
-                            ACCORDION_CONTENT_CODE,
+                            { label: 'index.ts', code: ACCORDION_CODE },
+                            { label: 'AccordionWrapper.tsx', code: ACCORDION_WRAPPER_CODE },
+                            { label: 'AccordionItem.tsx', code: ACCORDION_ITEM_CODE },
+                            { label: 'AccordionTitle.tsx', code: ACCORDION_TITLE_CODE },
+                            { label: 'AccordionContent.tsx', code: ACCORDION_CONTENT_CODE },
                         ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -88,7 +93,7 @@ export const AccordionPage = () => {
                             Include a custom <span className='badge-item'>Accordion</span> component for consistent and
                             maintainable usage throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

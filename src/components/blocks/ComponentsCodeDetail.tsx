@@ -5,9 +5,10 @@ import { ClipboardCheck, Clipboard } from 'lucide-react';
 
 type Props = {
     code: string;
+    className?: string;
 };
 
-export const ComponentsCodeDetail: FC<Props> = ({ code }) => {
+export const ComponentsCodeDetail: FC<Props> = ({ code, className = '' }) => {
     const [highlightCode, setHighlightCode] = useState('');
     const [copied, setCopied] = useState(false);
 
@@ -22,7 +23,7 @@ export const ComponentsCodeDetail: FC<Props> = ({ code }) => {
     };
 
     return (
-        <div className='relative w-full rounded-md overflow-hidden border border-border'>
+        <div className={`relative w-full overflow-hidden ${className}`}>
             {highlightCode ? (
                 <>
                     <button

@@ -36,6 +36,7 @@ export const SelectTrigger: FC<Props> = forwardRef<HTMLDivElement, Props>(
                 <Text className={cn({ 'text-white': selectedItem?.value !== '' })}>
                     {selectedItem?.label || placeholder}
                 </Text>
+
                 <ChevronDown className='absolute right-4 size-5' />
             </div>
         );

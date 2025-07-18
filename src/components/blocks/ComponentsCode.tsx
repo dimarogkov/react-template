@@ -12,7 +12,7 @@ export const ComponentsCode: FC<Props> = forwardRef<HTMLDivElement, Props>(({ co
             <div className='w-full'>{children}</div>
 
             {codeArr.map((code) => (
-                <ComponentsCodeDetail key={crypto.randomUUID()} code={code} />
+                <ComponentsCodeDetail key={crypto.randomUUID()} code={code} className='rounded-md border border-bg' />
             ))}
         </div>
     );

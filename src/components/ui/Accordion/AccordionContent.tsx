@@ -6,13 +6,23 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     accordionIndex?: number;
     activeIndex?: number;
     className?: string;
+    classNameBlock?: string;
     children: ReactNode;
     setActiveIndex?: () => void;
 }
 
 export const AccordionContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
     (
-        { iconType, accordionIndex = 0, activeIndex, className = '', children, setActiveIndex = () => {}, ...props },
+        {
+            iconType,
+            accordionIndex = 0,
+            activeIndex,
+            className = '',
+            classNameBlock = '',
+            children,
+            setActiveIndex = () => {},
+            ...props
+        },
         ref
     ) => {
         const animation: HTMLMotionProps<'div'> = {
@@ -31,7 +41,7 @@ export const AccordionContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         {...animation}
                         className={`relative w-full text-base ${className}`}
                     >
-                        <div className='p-2.5 pt-0 sm:p-3 sm:pt-0'>{children}</div>
+                        <div className={`p-2.5 pt-0 sm:p-3 sm:pt-0 ${classNameBlock}`}>{children}</div>
                     </motion.div>
                 )}
             </AnimatePresence>

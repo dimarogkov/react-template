@@ -14,6 +14,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -53,18 +54,26 @@ export const DropdownPage = () => {
                         <DropdownPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[DROPDOWN_CODE, DROPDOWN_WRAPPER_CODE, DROPDOWN_TRIGGER_CODE, DROPDOWN_CONTENT_CODE]}
+                        codeArr={[
+                            { label: 'index.ts', code: DROPDOWN_CODE },
+                            { label: 'DropdownWrapper.tsx', code: DROPDOWN_WRAPPER_CODE },
+                            { label: 'DropdownTrigger.tsx', code: DROPDOWN_TRIGGER_CODE },
+                            { label: 'DropdownContent.tsx', code: DROPDOWN_CONTENT_CODE },
+                        ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
@@ -82,7 +91,7 @@ export const DropdownPage = () => {
                             Include a custom <span className='badge-item'>Dropdown</span> component for consistent and
                             maintainable usage throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[DROPDOWN_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

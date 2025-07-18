@@ -12,6 +12,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -47,18 +48,26 @@ export const ZodPage = () => {
                         <ZodPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_ZOD_CODE, NPM_HOOK_FORM_CODE, NPM_HOOK_FORM_RESOLVERS_CODE]}
+                        codeArr={[
+                            { label: 'Zod', code: NPM_ZOD_CODE },
+                            { label: 'React Hook Form', code: NPM_HOOK_FORM_CODE },
+                            { label: 'Resolvers', code: NPM_HOOK_FORM_RESOLVERS_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[ZOD_CODE, ZOD_SCHEMA_CODE, ZOP_OPTIONS_CODE]}
+                        codeArr={[
+                            { label: 'index.ts', code: ZOD_CODE },
+                            { label: 'formOptions.ts', code: ZOP_OPTIONS_CODE },
+                            { label: 'schema.ts', code: ZOD_SCHEMA_CODE },
+                        ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
@@ -71,7 +80,7 @@ export const ZodPage = () => {
                                 <ArrowUpRight />
                             </Link>
                         </Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZOD_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

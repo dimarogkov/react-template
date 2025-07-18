@@ -9,6 +9,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -45,7 +46,14 @@ export const ZustandPage = () => {
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[ZUSTAND_CODE, ZUSTAND_COUNT_CODE]}>
+                    <ComponentsCodeWithAccordion
+                        id='code'
+                        ref={registerRef('code')}
+                        codeArr={[
+                            { label: 'index.ts', code: ZUSTAND_CODE },
+                            { label: 'count.ts', code: ZUSTAND_COUNT_CODE },
+                        ]}
+                    >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
@@ -57,7 +65,7 @@ export const ZustandPage = () => {
                                 <ArrowUpRight />
                             </Link>
                         </Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZUSTAND_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

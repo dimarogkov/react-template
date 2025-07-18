@@ -15,6 +15,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -53,24 +54,27 @@ export const TabsPage = () => {
                         <TabsPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            TABS_CODE,
-                            TABS_WRAPPER_CODE,
-                            TABS_LIST_CODE,
-                            TABS_TAB_CODE,
-                            TABS_PANELS_CODE,
-                            TABS_PANEL_CODE,
+                            { label: 'index.ts', code: TABS_CODE },
+                            { label: 'TabsWrapper.tsx', code: TABS_WRAPPER_CODE },
+                            { label: 'TabsList.tsx', code: TABS_LIST_CODE },
+                            { label: 'TabsTab.tsx', code: TABS_TAB_CODE },
+                            { label: 'TabsPanels.tsx', code: TABS_PANELS_CODE },
+                            { label: 'TabsPanel.tsx', code: TABS_PANEL_CODE },
                         ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -89,7 +93,7 @@ export const TabsPage = () => {
                             Include a custom <span className='badge-item'>Tabs</span> component for consistent and
                             maintainable usage throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[TABS_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

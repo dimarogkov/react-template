@@ -10,6 +10,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -52,10 +53,13 @@ export const ReduxToolkitPage = () => {
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[REDUX_TOOLKIT_CODE, REDUX_TOOLKIT_COUNT_CODE]}
+                        codeArr={[
+                            { label: 'index.ts', code: REDUX_TOOLKIT_CODE },
+                            { label: 'countSlice.ts', code: REDUX_TOOLKIT_COUNT_CODE },
+                        ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
@@ -68,7 +72,7 @@ export const ReduxToolkitPage = () => {
                                 <ArrowUpRight />
                             </Link>
                         </Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode
                         id='usage'

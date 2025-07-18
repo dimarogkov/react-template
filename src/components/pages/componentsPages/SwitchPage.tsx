@@ -9,6 +9,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -43,13 +44,16 @@ export const SwitchPage = () => {
                         <SwitchPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='code' ref={registerRef('code')} codeArr={[SWITCH_CODE]}>
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

@@ -60,7 +60,7 @@ export const AccordionPage = () => {
                         codeArr={[
                             { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
                             { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                            { label: 'Frame Motion', code: NPM_FRAMER_MOTION_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
                         ]}
                     >
                         <Title size='h4'>Installation</Title>

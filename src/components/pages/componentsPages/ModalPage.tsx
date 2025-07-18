@@ -14,6 +14,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -49,24 +50,27 @@ export const ModalPage = () => {
                         <ModalPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_LUCIDE_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            MODAL_CODE,
-                            MODAL_WRAPPER_CODE,
-                            MODAL_TRIGGER_CODE,
-                            MODAL_CONTENT_CODE,
-                            MODAL_LAYER_CODE,
-                            MODAL_CLOSE_CODE,
+                            { label: 'index.ts', code: MODAL_CODE },
+                            { label: 'ModalWrapper.tsx', code: MODAL_WRAPPER_CODE },
+                            { label: 'ModalTrigger.tsx', code: MODAL_TRIGGER_CODE },
+                            { label: 'ModalContent.tsx', code: MODAL_CONTENT_CODE },
+                            { label: 'ModalLayer.tsx', code: MODAL_LAYER_CODE },
+                            { label: 'ModalClose.tsx', code: MODAL_CLOSE_CODE },
                         ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -85,7 +89,7 @@ export const ModalPage = () => {
                             Include a custom <span className='badge-item'>Modal</span> component for consistent and
                             maintainable usage throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[MODAL_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

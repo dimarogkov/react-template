@@ -12,6 +12,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -44,15 +45,26 @@ export const ToastPage = () => {
                         <ToastPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_HOT_TOAST_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                            { label: 'Hot Toast', code: NPM_HOT_TOAST_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TOAST_TYPE_CODE, TOAST_CODE]}>
+                    <ComponentsCodeWithAccordion
+                        id='code'
+                        ref={registerRef('code')}
+                        codeArr={[
+                            { label: 'ToastData.ts', code: TOAST_TYPE_CODE },
+                            { label: 'Toast.tsx', code: TOAST_CODE },
+                        ]}
+                    >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
 
@@ -70,7 +82,7 @@ export const ToastPage = () => {
                             <span className='badge-item'>Toast</span> component for consistent and maintainable usage
                             throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode
                         id='usage'

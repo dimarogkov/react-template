@@ -15,6 +15,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -52,23 +53,26 @@ export const AvatarPage = () => {
                         <AvatarPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            AVATAR_CODE,
-                            AVATAR_WRAPPER_CODE,
-                            AVATAR_LINK_CODE,
-                            AVATAR_IMG_CODE,
-                            AVATAR_GROUP_CODE,
+                            { label: 'index.ts', code: AVATAR_CODE },
+                            { label: 'AvatarWrapper.tsx', code: AVATAR_WRAPPER_CODE },
+                            { label: 'AvatarLink.tsx', code: AVATAR_LINK_CODE },
+                            { label: 'AvatarImg.tsx', code: AVATAR_IMG_CODE },
+                            { label: 'AvatarGroup.tsx', code: AVATAR_GROUP_CODE },
                         ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -87,7 +91,7 @@ export const AvatarPage = () => {
                             Include a custom <span className='badge-item'>Avatar</span> component for consistent and
                             maintainable usage throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[AVATAR_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

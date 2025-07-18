@@ -12,6 +12,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -47,18 +48,26 @@ export const YupPage = () => {
                         <YupPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_YUP_CODE, NPM_HOOK_FORM_CODE, NPM_HOOK_FORM_RESOLVERS_CODE]}
+                        codeArr={[
+                            { label: 'Yup', code: NPM_YUP_CODE },
+                            { label: 'React Hook Form', code: NPM_HOOK_FORM_CODE },
+                            { label: 'Resolvers', code: NPM_HOOK_FORM_RESOLVERS_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[YUP_CODE, YUP_SCHEMA_CODE, YUP_OPTIONS_CODE]}
+                        codeArr={[
+                            { label: 'index.ts', code: YUP_CODE },
+                            { label: 'formOptions.ts', code: YUP_OPTIONS_CODE },
+                            { label: 'schema.ts', code: YUP_SCHEMA_CODE },
+                        ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
@@ -71,7 +80,7 @@ export const YupPage = () => {
                                 <ArrowUpRight />
                             </Link>
                         </Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[YUP_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

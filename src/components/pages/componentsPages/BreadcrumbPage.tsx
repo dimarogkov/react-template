@@ -9,6 +9,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -45,10 +46,13 @@ export const BreadcrumbPage = () => {
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
-                        codeArr={[BREADCRUMB_HELPERS_CODE, BREADCRUMB_CODE]}
+                        codeArr={[
+                            { label: 'convertUrlToString.ts', code: BREADCRUMB_HELPERS_CODE },
+                            { label: 'Breadcrumb.tsx', code: BREADCRUMB_CODE },
+                        ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
                             <span>Code</span>
@@ -66,7 +70,7 @@ export const BreadcrumbPage = () => {
                             Include a custom <span className='badge-item'>Breadcrumb</span> component for consistent and
                             maintainable usage throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BREADCRUMB_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

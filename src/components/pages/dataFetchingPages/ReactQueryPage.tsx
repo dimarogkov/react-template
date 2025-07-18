@@ -13,6 +13,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -44,26 +45,30 @@ export const ReactQueryPage = () => {
                         <ReactQueryPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_REACT_QUERY_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                            { label: 'React Query', code: NPM_REACT_QUERY_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            REACT_QUERY_TYPE_CODE,
-                            REACT_QUERY_CODE,
-                            REACT_QUERY_ADD_TODO_CODE,
-                            REACT_QUERY_TODO_CODE,
+                            { label: 'Todo.ts', code: REACT_QUERY_TYPE_CODE },
+                            { label: 'useTodoQuery.tsx', code: REACT_QUERY_CODE },
+                            { label: 'AddTodo.tsx', code: REACT_QUERY_ADD_TODO_CODE },
+                            { label: 'Todo.tsx', code: REACT_QUERY_TODO_CODE },
                         ]}
                     >
                         <Title size='h4'>Code</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode
                         id='usage'

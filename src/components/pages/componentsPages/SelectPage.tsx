@@ -16,6 +16,7 @@ import {
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
+    ComponentsCodeWithAccordion,
     ComponentsFooter,
     ComponentsHead,
     ComponentsNavigation,
@@ -54,24 +55,28 @@ export const SelectPage = () => {
                         <SelectPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
-                        codeArr={[NPM_CLASSNAMES_CODE, NPM_LUCIDE_CODE, NPM_FRAMER_MOTION_CODE]}
+                        codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                        ]}
                     >
                         <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
-                    <ComponentsCode
+                    <ComponentsCodeWithAccordion
                         id='code'
                         ref={registerRef('code')}
                         codeArr={[
-                            SELECT_TYPE_CODE,
-                            SELECT_CODE,
-                            SELECT_WRAPPER_CODE,
-                            SELECT_TRIGGER_CODE,
-                            SELECT_OPTIONS_CODE,
-                            SELECT_OPTION_CODE,
+                            { label: 'SelectItem.ts', code: SELECT_TYPE_CODE },
+                            { label: 'index.ts', code: SELECT_CODE },
+                            { label: 'SelectWrapper.tsx', code: SELECT_WRAPPER_CODE },
+                            { label: 'SelectTrigger.tsx', code: SELECT_TRIGGER_CODE },
+                            { label: 'SelectOptions.tsx', code: SELECT_OPTIONS_CODE },
+                            { label: 'SelectOption.tsx', code: SELECT_OPTION_CODE },
                         ]}
                     >
                         <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -91,7 +96,7 @@ export const SelectPage = () => {
                             <span className='badge-item'>Select</span> component for consistent and maintainable usage
                             throughout the project.
                         </Text>
-                    </ComponentsCode>
+                    </ComponentsCodeWithAccordion>
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[SELECT_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>

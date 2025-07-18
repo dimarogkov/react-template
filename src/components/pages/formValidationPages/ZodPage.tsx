@@ -51,6 +51,7 @@ export const ZodPage = () => {
                     <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
+                        type='installation'
                         codeArr={[
                             { label: 'Zod', code: NPM_ZOD_CODE },
                             { label: 'React Hook Form', code: NPM_HOOK_FORM_CODE },

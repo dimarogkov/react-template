@@ -48,6 +48,7 @@ export const ReduxToolkitPage = () => {
                     <ComponentsCode
                         id='installation'
                         ref={registerRef('installation')}
+                        type='installation'
                         codeArr={[NPM_REDUX_TOOLKIT_CODE]}
                     >
                         <Title size='h4'>Installation</Title>

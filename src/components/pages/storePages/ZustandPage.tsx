@@ -42,7 +42,12 @@ export const ZustandPage = () => {
                         <ZustandPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_ZUSTAND_CODE]}>
+                    <ComponentsCode
+                        id='installation'
+                        ref={registerRef('installation')}
+                        type='installation'
+                        codeArr={[NPM_ZUSTAND_CODE]}
+                    >
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 

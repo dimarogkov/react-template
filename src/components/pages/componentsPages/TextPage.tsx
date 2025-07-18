@@ -35,7 +35,12 @@ export const TextPage = () => {
                         <TextPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_CLASSNAMES_CODE]}>
+                    <ComponentsCode
+                        id='installation'
+                        ref={registerRef('installation')}
+                        type='installation'
+                        codeArr={[NPM_CLASSNAMES_CODE]}
+                    >
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 

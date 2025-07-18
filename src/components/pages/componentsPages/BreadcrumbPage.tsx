@@ -42,7 +42,12 @@ export const BreadcrumbPage = () => {
                         <BreadcrumbPreview />
                     </ComponentsPreview>
 
-                    <ComponentsCode id='installation' ref={registerRef('installation')} codeArr={[NPM_LUCIDE_CODE]}>
+                    <ComponentsCode
+                        id='installation'
+                        ref={registerRef('installation')}
+                        type='installation'
+                        codeArr={[NPM_LUCIDE_CODE]}
+                    >
                         <Title size='h4'>Installation</Title>
                     </ComponentsCode>
 

@@ -53,6 +53,7 @@ export const ModalPage = () => {
                     <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
+                        type='installation'
                         codeArr={[
                             { label: 'Lucide', code: NPM_LUCIDE_CODE },
                             { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },

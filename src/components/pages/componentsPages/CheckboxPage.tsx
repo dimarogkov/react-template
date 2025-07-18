@@ -52,6 +52,7 @@ export const CheckboxPage = () => {
                     <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
+                        type='installation'
                         codeArr={[
                             { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
                             { label: 'Lucide', code: NPM_LUCIDE_CODE },

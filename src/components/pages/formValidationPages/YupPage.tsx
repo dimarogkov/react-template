@@ -51,6 +51,7 @@ export const YupPage = () => {
                     <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
+                        type='installation'
                         codeArr={[
                             { label: 'Yup', code: NPM_YUP_CODE },
                             { label: 'React Hook Form', code: NPM_HOOK_FORM_CODE },

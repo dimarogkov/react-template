@@ -56,6 +56,7 @@ export const AvatarPage = () => {
                     <ComponentsCodeWithAccordion
                         id='installation'
                         ref={registerRef('installation')}
+                        type='installation'
                         codeArr={[
                             { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
                             { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },

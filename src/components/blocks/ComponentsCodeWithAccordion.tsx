@@ -7,11 +7,12 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
         label: string;
         code: string;
     }[];
+    type?: 'code' | 'installation';
     children?: ReactNode;
 }
 
 export const ComponentsCodeWithAccordion: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    ({ codeArr, children, ...props }, ref) => {
+    ({ codeArr, type = 'code', children, ...props }, ref) => {
         return (
             <div
                 ref={ref}
@@ -25,7 +26,7 @@ export const ComponentsCodeWithAccordion: FC<Props> = forwardRef<HTMLDivElement,
                         <Accordion.Item key={label} isOpen={index === 0}>
                             <Accordion.Title>{label}</Accordion.Title>
                             <Accordion.Content classNameBlock='!p-0'>
-                                <ComponentsCodeDetail code={code} />
+                                <ComponentsCodeDetail code={code} type={type} />
                             </Accordion.Content>
                         </Accordion.Item>
                     ))}

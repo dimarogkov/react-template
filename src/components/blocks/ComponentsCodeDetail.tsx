@@ -2,13 +2,15 @@ import { FC, useEffect, useState } from 'react';
 import { getHighlightCode } from '../../helpers';
 import { Loader } from '../ui';
 import { ClipboardCheck, Clipboard } from 'lucide-react';
+import cn from 'classnames';
 
 type Props = {
     code: string;
+    type: string;
     className?: string;
 };
 
-export const ComponentsCodeDetail: FC<Props> = ({ code, className = '' }) => {
+export const ComponentsCodeDetail: FC<Props> = ({ code, type, className = '' }) => {
     const [highlightCode, setHighlightCode] = useState('');
     const [copied, setCopied] = useState(false);
 
@@ -41,7 +43,12 @@ export const ComponentsCodeDetail: FC<Props> = ({ code, className = '' }) => {
                     <div className='text-base' dangerouslySetInnerHTML={{ __html: highlightCode }} />
                 </>
             ) : (
-                <div className='flex items-center justify-center w-full h-24'>
+                <div
+                    className={cn('flex items-center justify-center w-full', {
+                        'h-[52px]': type === 'installation',
+                        'h-24': type === 'code',
+                    })}
+                >
                     <Loader />
                 </div>
             )}

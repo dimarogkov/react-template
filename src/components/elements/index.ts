@@ -3,7 +3,8 @@ import { DevIcon } from './DevIcon';
 import { HeaderSwitch } from './HeaderSwitch';
 import { ScrollTopBtn } from './ScrollTopBtn';
 import { SearchTodo } from './SearchTodo';
+import { SidebarBtn } from './SidebarBtn';
 import { SidebarLink } from './SidebarLink';
 import { Todo } from './Todo';
 
-export { AddTodo, DevIcon, HeaderSwitch, ScrollTopBtn, SearchTodo, SidebarLink, Todo };
+export { AddTodo, DevIcon, HeaderSwitch, ScrollTopBtn, SearchTodo, SidebarBtn, SidebarLink, Todo };

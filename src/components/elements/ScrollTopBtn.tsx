@@ -19,7 +19,6 @@ export const ScrollTopBtn = () => {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0, transition: { ease: [0.215, 0.61, 0.355, 1] } },
         exit: { opacity: 0, y: 20 },
-        whileHover: { backgroundColor: '#d4d4d4' },
         whileTap: { scale: 0.95 },
     };
 
@@ -32,9 +31,9 @@ export const ScrollTopBtn = () => {
                     type='button'
                     {...animation}
                     onClick={scrollTop}
-                    className='group fixed z-10 right-6 bottom-6 hidden lg:flex items-center justify-center size-10 rounded-md select-none bg-text will-change-transform'
+                    className='group fixed z-10 right-5 xl:right-6 bottom-5 xl:bottom-6 hidden lg:flex items-center justify-center size-10 rounded-md select-none bg-border will-change-transform'
                 >
-                    <ChevronUp className='size-6 text-bg transition-colors duration-300' />
+                    <ChevronUp className='size-6 text-text transition-colors duration-300 group-hover:text-title' />
                 </motion.button>
             )}
         </AnimatePresence>

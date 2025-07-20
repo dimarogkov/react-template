@@ -44,7 +44,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .container {
-    @apply w-full max-w-4xl px-4 md:px-5 m-auto;
+    @apply w-full max-w-4xl px-[30px] m-auto;
 }
 
 .sidebar {
@@ -70,9 +70,26 @@ input[type='number']::-webkit-outer-spin-button {
     background: linear-gradient(to top, rgba(10, 10, 10, 0.8), transparent);
 }
 
+@media (max-width: 1279px) {
+    .sidebar::before,
+    .sidebar::after {
+        display: none;
+    }
+}
+
 .sidebar.sidebar-top-no-fade::before,
 .sidebar.sidebar-bottom-no-fade::after {
     opacity: 0;
+}
+
+.sidebar-btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: #0a0a0a;
 }
 
 .online::before,

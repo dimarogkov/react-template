@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { PATHS } from './variables';
 import { getLinks } from './helpers';
 import { Breadcrumb, Header, Sidebar } from './components/blocks';
+import { ScrollTopBtn } from './components/elements';
 import cn from 'classnames';
 
 export const App = () => {
@@ -26,6 +27,7 @@ export const App = () => {
             <Header />
             <Breadcrumb />
             {linksArr.includes(pathname) && <Sidebar />}
+            <ScrollTopBtn />
 
             <main className={cn('relative w-full', { 'py-7 md:py-10': pathname !== PATHS.HOME })}>
                 <Outlet />

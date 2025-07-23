@@ -25,7 +25,7 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
         -   storePages
     -   root
     -   ui
--   form validation
+-   form-validation
     -   yup
     -   zod
 -   helpers

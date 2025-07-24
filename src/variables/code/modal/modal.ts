@@ -45,14 +45,7 @@ export const ModalWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(({ clas
 	);
 });`;
 
-export const MODAL_TRIGGER_CODE = `import { 
-	Dispatch,
-	FC,
-	forwardRef,
-	HTMLAttributes,
-	RefAttributes,
-	SetStateAction,
-} from 'react';
+export const MODAL_TRIGGER_CODE = `import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
 	isOpen?: boolean;
@@ -73,14 +66,7 @@ export const ModalTrigger: FC<Props> = forwardRef<HTMLDivElement, Props>(
 	}
 );`;
 
-export const MODAL_CONTENT_CODE = `import {
-	Dispatch,
-	FC,
-	forwardRef,
-	ReactNode,
-	RefAttributes,
-	SetStateAction,
-} from 'react';
+export const MODAL_CONTENT_CODE = `import { Dispatch, FC, forwardRef, ReactNode, RefAttributes, SetStateAction } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { ModalLayer } from './ModalLayer';
 import { ModalClose } from './ModalClose';
@@ -131,14 +117,7 @@ export const ModalContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
     }
 );`;
 
-export const MODAL_LAYER_CODE = `import {
-	Dispatch,
-	FC,
-	forwardRef,
-	HTMLAttributes,
-	RefAttributes,
-	SetStateAction,
-} from 'react';
+export const MODAL_LAYER_CODE = `import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
 	setIsOpen: Dispatch<SetStateAction<boolean>>;

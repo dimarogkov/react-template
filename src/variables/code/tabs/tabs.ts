@@ -78,15 +78,7 @@ export const TabsList: FC<Props> = forwardRef<HTMLUListElement, Props>(
     }
 );`;
 
-export const TABS_TAB_CODE = `import {
-	Dispatch,
-	FC,
-	forwardRef,
-	LiHTMLAttributes,
-	RefAttributes,
-	SetStateAction,
-	useEffect,
-} from 'react';
+export const TABS_TAB_CODE = `import { Dispatch, FC, forwardRef, LiHTMLAttributes, RefAttributes, SetStateAction, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 

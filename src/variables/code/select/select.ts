@@ -100,14 +100,7 @@ export const SelectWrapper: FC<Props> = forwardRef<HTMLSelectElement, Props>(({ 
 	);
 });`;
 
-export const SELECT_TRIGGER_CODE = `import {
-	Dispatch,
-	FC,
-	forwardRef,
-	HTMLAttributes,
-	RefAttributes,
-	SetStateAction,
-} from 'react';
+export const SELECT_TRIGGER_CODE = `import { Dispatch, FC, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import { ISelectItem } from '../../../types/interfaces/SelectItem';
 import { Text } from '../Text';
 import { ChevronDown } from 'lucide-react';

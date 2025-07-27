@@ -46,7 +46,8 @@ export const TabsPage = () => {
                         </Title>
 
                         <Text size='large'>
-                            A set of layered sections of content—known as tab panels—that are displayed one at a time.
+                            A set of layered sections of content — known as tab panels — that are displayed one at a
+                            time.
                         </Text>
                     </ComponentsHead>
 

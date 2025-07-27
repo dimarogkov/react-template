@@ -47,7 +47,7 @@ export const SelectPage = () => {
                         </Title>
 
                         <Text size='large'>
-                            Displays a list of options for the user to pick from—triggered by a button.
+                            Displays a list of options for the user to pick from — triggered by a button.
                         </Text>
                     </ComponentsHead>
 

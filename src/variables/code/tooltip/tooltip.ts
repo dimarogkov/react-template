@@ -18,6 +18,7 @@ export const TOOLTIP_WRAPPER_CODE = `import {
 	RefAttributes,
 	useState,
 } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
 	className?: string;
@@ -32,7 +33,13 @@ export const TooltipWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(({ cl
 			{...props}
 			onMouseEnter={() => setIsOpen(true)}
 			onMouseLeave={() => setIsOpen(false)}
-			className={\`relative w-fit \${className}\`}
+			className={cn(
+				\`relative w-fit before:absolute before:content-[''] before:left-0 before:bottom-full before:w-full before:h-2.5 before:bg-transparent before:transition-all before:duration-200 \${className}\`,
+				{
+					'before:opacity-100 before:visible': isOpen,
+					'before:opacity-0 before:invisible': !isOpen,
+				}
+			)}
 		>
 			{Children.map(props.children, (child) => {
 				if (isValidElement(child)) {
@@ -82,7 +89,7 @@ export const TooltipContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                         ref={ref}
                         {...props}
                         {...animation}
-                        className={\`absolute left-1/2 bottom-[calc(100%+12px)] flex justify-center z-10 w-max text-sm rounded-md px-1.5 py-1 border border-border bg-title text-bg will-change-transform \${className}\`}
+                        className={\`absolute left-1/2 bottom-[calc(100%+10px)] flex justify-center z-10 w-max text-sm rounded-md px-1.5 py-1 border border-border bg-title text-bg will-change-transform \${className}\`}
                     >
                         <>
                             {props.children}

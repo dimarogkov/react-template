@@ -6,8 +6,9 @@ import {
     TOOLTIP_TRIGGER_CODE,
     TOOLTIP_CONTENT_CODE,
     TOOLTIP_USAGE_CODE,
-    NPM_FRAMER_MOTION_CODE,
+    NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
+    NPM_FRAMER_MOTION_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -53,6 +54,7 @@ export const TooltipPage = () => {
                         ref={registerRef('installation')}
                         type='installation'
                         codeArr={[
+                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
                             { label: 'Lucide', code: NPM_LUCIDE_CODE },
                             { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
                         ]}

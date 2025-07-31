@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, BADGE_CODE, BADGE_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, BADGE_CODE, BADGE_USAGE_CODE, BADGE_ICON_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -15,11 +15,13 @@ import { ArrowUpRight } from 'lucide-react';
 export const BadgePage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
+    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'icon', text: 'Icon' }];
+
     return (
         <section className='relative w-full'>
             <div className='container'>
                 <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />
+                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
 
                     <ComponentsHead>
                         <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
@@ -54,6 +56,17 @@ export const BadgePage = () => {
 
                     <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BADGE_USAGE_CODE]}>
                         <Title size='h4'>Usage</Title>
+                    </ComponentsCode>
+
+                    <ComponentsCode id='icon' ref={registerRef('icon')} codeArr={[BADGE_ICON_USAGE_CODE]}>
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                            Icon
+                        </Title>
+
+                        <Text>
+                            Display an icon inside a <span className='badge-item'>Badge</span> component to highlight
+                            statuses or actions in a compact form.
+                        </Text>
                     </ComponentsCode>
 
                     <ComponentsFooter />

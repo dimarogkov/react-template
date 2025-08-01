@@ -3,14 +3,15 @@ import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
-    TABS_ACTIVE_USAGE_CODE,
     TABS_CODE,
-    TABS_LIST_CODE,
-    TABS_PANEL_CODE,
-    TABS_PANELS_CODE,
-    TABS_TAB_CODE,
-    TABS_USAGE_CODE,
     TABS_WRAPPER_CODE,
+    TABS_LIST_CODE,
+    TABS_TAB_CODE,
+    TABS_PANELS_CODE,
+    TABS_PANEL_CODE,
+    TABS_USAGE_CODE,
+    TABS_ACTIVE_USAGE_CODE,
+    TABS_ANIMATION_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -32,6 +33,7 @@ export const TabsPage = () => {
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
         { id: 'active', text: 'Active' },
+        { id: 'animation', text: 'Animation' },
     ];
 
     return (
@@ -109,6 +111,21 @@ export const TabsPage = () => {
                         <Text>
                             To make an <span className='badge-item'>Tabs.Tab</span> initially active, add the&nbsp;
                             <span className='badge-item'>isActive</span> prop to it.
+                        </Text>
+                    </ComponentsCode>
+
+                    <ComponentsCode
+                        id='animations'
+                        ref={registerRef('animation')}
+                        codeArr={[TABS_ANIMATION_USAGE_CODE]}
+                    >
+                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                            Animation
+                        </Title>
+
+                        <Text>
+                            To enable animations for <span className='badge-item'>Tabs</span> — use the&nbsp;
+                            <span className='badge-item'>hasAnimation</span> prop.
                         </Text>
                     </ComponentsCode>
 

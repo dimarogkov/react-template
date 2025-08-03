@@ -51,17 +51,19 @@ export const HeaderSearch = () => {
             </Modal.Trigger>
             <Modal.Content disableCloseBtn>
                 <div className='flex flex-col w-full h-[420px] overflow-auto'>
-                    <Label className='!sticky top-0 !flex items-center p-2 bg-bg'>
-                        <Input
-                            name='search'
-                            placeholder='Search documentation...'
-                            value={searchValue}
-                            onChange={({ target }) => toggleSearch(target.value)}
-                            className='!pl-11'
-                            autoFocus
-                        />
-                        <Search className='absolute left-4 size-5' />
-                    </Label>
+                    <div className='!sticky top-0 p-2 bg-bg'>
+                        <Label className='!flex items-center'>
+                            <Input
+                                name='search'
+                                placeholder='Search documentation...'
+                                value={searchValue}
+                                onChange={({ target }) => toggleSearch(target.value)}
+                                className='!pl-10'
+                                autoFocus
+                            />
+                            <Search className='absolute left-3 size-5' />
+                        </Label>
+                    </div>
 
                     {filteredLinks.length > 0 ? (
                         <div className='w-full p-2 pt-0.5'>

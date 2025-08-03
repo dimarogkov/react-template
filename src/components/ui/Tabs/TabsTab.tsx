@@ -1,4 +1,4 @@
-import { Dispatch, FC, forwardRef, LiHTMLAttributes, RefAttributes, SetStateAction, useEffect } from 'react';
+import { Dispatch, FC, forwardRef, LiHTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 
@@ -6,20 +6,12 @@ interface Props extends LiHTMLAttributes<HTMLLIElement>, RefAttributes<HTMLLIEle
     hasAnimation?: boolean;
     tabIndex?: number;
     activeIndex?: number;
-    isActive?: boolean;
     className?: string;
     setActiveIndex?: Dispatch<SetStateAction<number>>;
 }
 
 export const TabsTab: FC<Props> = forwardRef<HTMLLIElement, Props>(
-    (
-        { hasAnimation, tabIndex = 0, activeIndex, isActive, className = '', setActiveIndex = () => {}, ...props },
-        ref
-    ) => {
-        useEffect(() => {
-            isActive && setActiveIndex(tabIndex);
-        }, [isActive, setActiveIndex, tabIndex]);
-
+    ({ hasAnimation, tabIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         return (
             <li
                 ref={ref}

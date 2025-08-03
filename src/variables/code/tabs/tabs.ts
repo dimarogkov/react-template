@@ -24,13 +24,14 @@ export const TABS_WRAPPER_CODE = `import {
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
+    defaultActiveIndex?: number;
     hasAnimation?: boolean;
     className?: string;
 }
 
 export const TabsWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
-    ({ hasAnimation = false, className = '', ...props }, ref) => {
-        const [activeIndex, setActiveIndex] = useState(0);
+    ({ defaultActiveIndex = 0, hasAnimation = false, className = '', ...props }, ref) => {
+        const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
 
         return (
             <div ref={ref} {...props} className={\`relative w-full rounded-md border border-border \${className}\`}>
@@ -87,7 +88,7 @@ export const TabsList: FC<Props> = forwardRef<HTMLUListElement, Props>(
     }
 );`;
 
-export const TABS_TAB_CODE = `import { Dispatch, FC, forwardRef, LiHTMLAttributes, RefAttributes, SetStateAction, useEffect } from 'react';
+export const TABS_TAB_CODE = `import { Dispatch, FC, forwardRef, LiHTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 
@@ -95,20 +96,12 @@ interface Props extends LiHTMLAttributes<HTMLLIElement>, RefAttributes<HTMLLIEle
     hasAnimation?: boolean;
     tabIndex?: number;
     activeIndex?: number;
-    isActive?: boolean;
     className?: string;
     setActiveIndex?: Dispatch<SetStateAction<number>>;
 }
 
 export const TabsTab: FC<Props> = forwardRef<HTMLLIElement, Props>(
-    (
-        { hasAnimation, tabIndex = 0, activeIndex, isActive, className = '', setActiveIndex = () => {}, ...props },
-        ref
-    ) => {
-        useEffect(() => {
-            isActive && setActiveIndex(tabIndex);
-        }, [isActive, setActiveIndex, tabIndex]);
-
+    ({ hasAnimation, tabIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         return (
             <li
                 ref={ref}

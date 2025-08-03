@@ -21,9 +21,9 @@ export const ComponentsCodeWithAccordion: FC<Props> = forwardRef<HTMLDivElement,
             >
                 <div className='w-full'>{children}</div>
 
-                <Accordion>
-                    {codeArr.map(({ label, code }, index) => (
-                        <Accordion.Item key={label} isOpen={index === 0}>
+                <Accordion defaultActiveIndex={0}>
+                    {codeArr.map(({ label, code }) => (
+                        <Accordion.Item key={label}>
                             <Accordion.Title>{label}</Accordion.Title>
                             <Accordion.Content classNameBlock='!p-0'>
                                 <ComponentsCodeDetail code={code} type={type} />

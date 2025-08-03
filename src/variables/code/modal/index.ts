@@ -6,7 +6,7 @@ import {
     MODAL_TRIGGER_CODE,
     MODAL_WRAPPER_CODE,
 } from './modal';
-import { MODAL_USAGE_CODE } from './usage';
+import { MODAL_USAGE_CODE, MODAL_DISABLE_CLOSE_BTN_USAGE_CODE } from './usage';
 
 export {
     MODAL_CODE,
@@ -16,4 +16,5 @@ export {
     MODAL_LAYER_CODE,
     MODAL_CLOSE_CODE,
     MODAL_USAGE_CODE,
+    MODAL_DISABLE_CLOSE_BTN_USAGE_CODE,
 };

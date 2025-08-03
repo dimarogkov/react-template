@@ -10,6 +10,7 @@ import {
     useEffect,
     useState,
 } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     className?: string;
@@ -17,6 +18,11 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 
 export const ModalWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(({ className = '', ...props }, ref) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        setIsModalOpen(false);
+    }, [pathname]);
 
     useEffect(() => {
         const bodyClassList = document.body.classList;

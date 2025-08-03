@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { PATHS } from '../../variables';
 import { convertUrlToString } from '../../helpers';
-import { HeaderSwitch } from '../elements';
+import { HeaderSearch, HeaderSwitch } from '../elements';
 import { Text } from '../ui';
 import { Github } from 'lucide-react';
 import cn from 'classnames';
@@ -26,7 +26,7 @@ export const Header = () => {
                         </Text>
                     </Link>
 
-                    <div className='flex items-center gap-2.5'>
+                    <div className='flex items-center gap-2'>
                         <ul className='hidden sm:flex w-fit'>
                             <li>
                                 <NavLink
@@ -34,7 +34,7 @@ export const Header = () => {
                                     to={MAIN.DOCUMENTATION}
                                     className={({ isActive }) =>
                                         cn(
-                                            `flex items-center justify-center gap-2 w-full sm:w-fit h-8 font-media px-3 rounded-md transition-colors duration-300`,
+                                            `flex items-center justify-center gap-2 w-full sm:w-fit h-9 font-media px-2.5 rounded-md transition-colors duration-300`,
                                             {
                                                 'text-title pointer-events-none': isActive,
                                                 'hover:bg-border': !isActive,
@@ -47,15 +47,16 @@ export const Header = () => {
                             </li>
                         </ul>
 
+                        <HeaderSearch />
+                        <HeaderSwitch />
+
                         <Link
                             to='https://github.com/dimarogkov/react-template'
                             target='_blank'
-                            className='flex items-center justify-center size-8 rounded-md transition-colors duration-300 hover:bg-border'
+                            className='flex items-center justify-center size-9 rounded-md transition-colors duration-300 hover:bg-border'
                         >
                             <Github className='size-5 text-text' />
                         </Link>
-
-                        <HeaderSwitch />
                     </div>
                 </div>
             </div>

@@ -38,7 +38,7 @@ export const ModalContent: FC<Props> = forwardRef<HTMLDivElement, Props>(
                             ref={ref}
                             {...props}
                             {...animationPopup}
-                            className={`relative md:w-[600px] max-w-[calc(100%-32px)] rounded-md border border-border bg-bg will-change-transform ${className}`}
+                            className={`relative md:w-[600px] max-w-[calc(100%-32px)] rounded-md border border-border bg-bg overflow-hidden will-change-transform ${className}`}
                         >
                             {!disableCloseBtn && <ModalClose onClick={() => setIsOpen(false)} />}
                             {children}

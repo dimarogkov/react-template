@@ -46,12 +46,12 @@ export const HeaderSearch = () => {
         <Modal>
             <Modal.Trigger>
                 <Label className='hidden md:block !w-44 pointer-events-none'>
-                    <Input placeholder='Search...' disabled className='!h-9 !px-2.5 !bg-border' />
+                    <Input placeholder='Search...' disabled className='!h-9 !px-2.5 !border-none !bg-border' />
                 </Label>
             </Modal.Trigger>
             <Modal.Content disableCloseBtn>
-                <div className='flex flex-col w-full h-[420px] overflow-auto'>
-                    <div className='!sticky top-0 p-2 bg-bg'>
+                <div className='flex flex-col w-full h-[420px]'>
+                    <div className='w-full p-2 bg-bg'>
                         <Label className='!flex items-center'>
                             <Input
                                 name='search'
@@ -61,18 +61,19 @@ export const HeaderSearch = () => {
                                 className='!pl-10'
                                 autoFocus
                             />
+
                             <Search className='absolute left-3 size-5' />
                         </Label>
                     </div>
 
                     {filteredLinks.length > 0 ? (
-                        <div className='w-full p-2 pt-0.5'>
+                        <div className='w-full p-2 pt-1 overflow-auto'>
                             {filteredLinks.map((link) => (
                                 <HeaderSearchLink key={link.name} link={link} />
                             ))}
                         </div>
                     ) : (
-                        <div className='flex items-center grow w-full p-2 pt-0.5'>
+                        <div className='flex items-center grow w-full p-2 pt-1'>
                             <Text className='text-center'>No results found.</Text>
                         </div>
                     )}

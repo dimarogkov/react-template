@@ -10,7 +10,7 @@ export const Header = () => {
     const { MAIN } = PATHS.PAGES;
 
     return (
-        <header className='sticky top-0 left-0 z-20 flex items-center w-full h-16 lg:h-20 border-b border-border bg-bg'>
+        <header className='sticky top-0 left-0 z-30 flex items-center w-full h-16 lg:h-20 border-b border-border bg-bg'>
             <div className='container'>
                 <div className='flex items-center justify-between w-full'>
                     <Link

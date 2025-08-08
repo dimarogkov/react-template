@@ -1,6 +1,4 @@
-export const RADIO_USAGE_CODE = `<Label>
-	<Radio name='radio' label='Radio' />
-</Label>`;
+export const RADIO_USAGE_CODE = `<Radio name='radio' label='Radio' />`;
 
 export const RADIO_CONTROLLING_USAGE_CODE = `import { useState } from 'react';
 import { Label, Radio } from '../../ui';

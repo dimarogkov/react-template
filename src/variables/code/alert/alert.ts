@@ -36,18 +36,11 @@ export const AlertWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
             error: 'border-red bg-red/10',
         };
 
-        const titleClasses = {
+        const iconClasses = {
             default: 'text-title',
             success: 'text-green',
             warning: 'text-yellow',
             error: 'text-red',
-        };
-
-        const descriptionClasses = {
-            default: 'text-text/80',
-            success: 'text-green/80',
-            warning: 'text-yellow/80',
-            error: 'text-red/80',
         };
 
         return (
@@ -62,15 +55,12 @@ export const AlertWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     })}
                 >
                     {Icon && (
-                        <Icon className={\`absolute top-0.5 left-0 size-[18px] md:size-5 \${titleClasses[variant]}\`} />
+                        <Icon className={\`absolute top-0.5 left-0 size-[18px] md:size-5 \${iconClasses[variant]}\`} />
                     )}
 
                     {Children.map(props.children, (child) => {
                         if (isValidElement(child)) {
-                            return cloneElement(child as ReactElement, {
-                                titleClasses: titleClasses[variant],
-                                descriptionClasses: descriptionClasses[variant],
-                            });
+                            return cloneElement(child as ReactElement, { variant });
                         }
 
                         return child;
@@ -85,40 +75,52 @@ export const ALERT_TITLE_CODE = `import { FC, forwardRef, HTMLAttributes, RefAtt
 import { Text } from '../Text';
 
 interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTMLParagraphElement> {
-	titleClasses?: string;
-	descriptionClasses?: string;
-	className?: string;
+    variant?: 'default' | 'success' | 'warning' | 'error';
+    className?: string;
 }
 
 export const AlertTitle: FC<Props> = forwardRef<HTMLParagraphElement, Props>(
-	({ titleClasses, className = '', ...props }, ref) => {
-		return (
-			<Text
-				ref={ref}
-				{...props}
-				className={\`relative font-semibold mb-0.5 last:mb-0 \${titleClasses} \${className}\`}
-			>
-				{props.children}
-			</Text>
-		);
-	}
+    ({ variant = 'default', className = '', ...props }, ref) => {
+        const titleClasses = {
+            default: 'text-title',
+            success: 'text-green',
+            warning: 'text-yellow',
+            error: 'text-red',
+        };
+
+        return (
+            <Text
+                ref={ref}
+                {...props}
+                className={\`relative font-semibold mb-0.5 last:mb-0 \${titleClasses[variant]} \${className}\`}
+            >
+                {props.children}
+            </Text>
+        );
+    }
 );`;
 
 export const ALERT_DESCRIPTION_CODE = `import { FC, forwardRef, HTMLAttributes, RefAttributes } from 'react';
 import { Text } from '../Text';
 
 interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTMLParagraphElement> {
-	titleClasses?: string;
-	descriptionClasses?: string;
-	className?: string;
+    variant?: 'default' | 'success' | 'warning' | 'error';
+    className?: string;
 }
 
 export const AlertDescription: FC<Props> = forwardRef<HTMLParagraphElement, Props>(
-	({ descriptionClasses, className = '', ...props }, ref) => {
-		return (
-			<Text ref={ref} {...props} className={\`relative !text-sm \${descriptionClasses} \${className}\`}>
-				{props.children}
-			</Text>
-		);
-	}
+    ({ variant = 'default', className = '', ...props }, ref) => {
+        const descriptionClasses = {
+            default: 'text-text/80',
+            success: 'text-green/80',
+            warning: 'text-yellow/80',
+            error: 'text-red/80',
+        };
+
+        return (
+            <Text ref={ref} {...props} className={\`relative !text-sm \${descriptionClasses[variant]} \${className}\`}>
+                {props.children}
+            </Text>
+        );
+    }
 );`;

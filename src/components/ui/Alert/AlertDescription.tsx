@@ -2,15 +2,21 @@ import { FC, forwardRef, HTMLAttributes, RefAttributes } from 'react';
 import { Text } from '../Text';
 
 interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTMLParagraphElement> {
-    titleClasses?: string;
-    descriptionClasses?: string;
+    variant?: 'default' | 'success' | 'warning' | 'error';
     className?: string;
 }
 
 export const AlertDescription: FC<Props> = forwardRef<HTMLParagraphElement, Props>(
-    ({ descriptionClasses, className = '', ...props }, ref) => {
+    ({ variant = 'default', className = '', ...props }, ref) => {
+        const descriptionClasses = {
+            default: 'text-text/80',
+            success: 'text-green/80',
+            warning: 'text-yellow/80',
+            error: 'text-red/80',
+        };
+
         return (
-            <Text ref={ref} {...props} className={`relative !text-sm ${descriptionClasses} ${className}`}>
+            <Text ref={ref} {...props} className={`relative !text-sm ${descriptionClasses[variant]} ${className}`}>
                 {props.children}
             </Text>
         );

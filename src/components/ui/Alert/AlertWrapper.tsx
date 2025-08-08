@@ -27,18 +27,11 @@ export const AlertWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
             error: 'border-red bg-red/10',
         };
 
-        const titleClasses = {
+        const iconClasses = {
             default: 'text-title',
             success: 'text-green',
             warning: 'text-yellow',
             error: 'text-red',
-        };
-
-        const descriptionClasses = {
-            default: 'text-text/80',
-            success: 'text-green/80',
-            warning: 'text-yellow/80',
-            error: 'text-red/80',
         };
 
         return (
@@ -53,15 +46,12 @@ export const AlertWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
                     })}
                 >
                     {Icon && (
-                        <Icon className={`absolute top-0.5 left-0 size-[18px] md:size-5 ${titleClasses[variant]}`} />
+                        <Icon className={`absolute top-0.5 left-0 size-[18px] md:size-5 ${iconClasses[variant]}`} />
                     )}
 
                     {Children.map(props.children, (child) => {
                         if (isValidElement(child)) {
-                            return cloneElement(child as ReactElement, {
-                                titleClasses: titleClasses[variant],
-                                descriptionClasses: descriptionClasses[variant],
-                            });
+                            return cloneElement(child as ReactElement, { variant });
                         }
 
                         return child;

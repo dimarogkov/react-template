@@ -3,6 +3,7 @@ import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
 import {
     AccordionPage,
+    AlertPage,
     AvatarPage,
     BadgePage,
     BreadcrumbPage,
@@ -36,6 +37,7 @@ export {
     DocumentationPage,
     NotFoundPage,
     AccordionPage,
+    AlertPage,
     AvatarPage,
     BadgePage,
     BreadcrumbPage,

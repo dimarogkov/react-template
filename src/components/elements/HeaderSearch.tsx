@@ -51,7 +51,7 @@ export const HeaderSearch = () => {
             </Modal.Trigger>
             <Modal.Content disableCloseBtn>
                 <div className='flex flex-col w-full h-[420px]'>
-                    <div className='w-full p-2 bg-bg'>
+                    <div className='w-full p-2'>
                         <Label className='!flex items-center'>
                             <Input
                                 name='search'

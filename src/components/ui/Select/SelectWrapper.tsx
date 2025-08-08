@@ -1,4 +1,5 @@
 import {
+    ChangeEvent,
     Children,
     cloneElement,
     FC,
@@ -73,7 +74,7 @@ export const SelectWrapper: FC<Props> = forwardRef<HTMLSelectElement, Props>(({ 
                                     name: props.name,
                                     value: item.value,
                                 },
-                            } as unknown as React.ChangeEvent<HTMLSelectElement>);
+                            } as unknown as ChangeEvent<HTMLSelectElement>);
                         },
                     });
                 }

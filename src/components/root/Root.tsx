@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PATHS } from '../../variables';
 import {
     AccordionPage,
+    AlertPage,
     AvatarPage,
     BadgePage,
     BreadcrumbPage,
@@ -50,6 +51,7 @@ export const Root = () => {
                     <Route path={MAIN.DOCUMENTATION}>
                         <Route index element={<DocumentationPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.ACCORDION}`} element={<AccordionPage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.ALERT}`} element={<AlertPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.AVATAR}`} element={<AvatarPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BADGE}`} element={<BadgePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BREADCRUMB}`} element={<BreadcrumbPage />} />

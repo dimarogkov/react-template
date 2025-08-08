@@ -1,4 +1,5 @@
 import { AccordionPage } from './AccordionPage';
+import { AlertPage } from './AlertPage';
 import { AvatarPage } from './AvatarPage';
 import { BadgePage } from './BadgePage';
 import { BreadcrumbPage } from './BreadcrumbPage';
@@ -25,6 +26,7 @@ import { TooltipPage } from './TooltipPage';
 
 export {
     AccordionPage,
+    AlertPage,
     AvatarPage,
     BadgePage,
     BreadcrumbPage,

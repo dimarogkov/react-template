@@ -6,6 +6,7 @@ import { ComponentsFooter } from './ComponentsFooter';
 import { ComponentsHead } from './ComponentsHead';
 import { ComponentsNavigation } from './ComponentsNavigation';
 import { ComponentsPreview } from './ComponentsPreview';
+import { ComponentsWrapper } from './ComponentsWrapper';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 
@@ -18,6 +19,7 @@ export {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
     Header,
     Sidebar,
 };

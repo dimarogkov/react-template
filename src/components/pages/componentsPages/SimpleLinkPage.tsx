@@ -7,6 +7,7 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
 } from '../../blocks';
 import { SimpleLinkPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -18,49 +19,51 @@ export const SimpleLinkPage = () => {
     return (
         <section className='relative w-full'>
             <div className='container'>
-                <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />}
+                >
+                    <div className='w-full xl:px-[30px]'>
+                        <ComponentsHead>
+                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                                Simple Link
+                            </Title>
 
-                    <ComponentsHead>
-                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Simple Link
-                        </Title>
+                            <Text size='large'>
+                                A simple text link styled for use inside components or previews. Useful for inline
+                                documentation, examples, or interactive UI snippets.
+                            </Text>
+                        </ComponentsHead>
 
-                        <Text size='large'>
-                            A simple text link styled for use inside components or previews. Useful for inline
-                            documentation, examples, or interactive UI snippets.
-                        </Text>
-                    </ComponentsHead>
+                        <ComponentsPreview>
+                            <SimpleLinkPreview />
+                        </ComponentsPreview>
 
-                    <ComponentsPreview>
-                        <SimpleLinkPreview />
-                    </ComponentsPreview>
+                        <ComponentsCode id='code' ref={registerRef('code')} codeArr={[SIMPLE_LINK_CODE]}>
+                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                                <span>Code</span>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[SIMPLE_LINK_CODE]}>
-                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                            <span>Code</span>
+                                <Link
+                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/SimpleLink.tsx'
+                                    target='_blank'
+                                    className='transition-colors duration-300 hover:text-text'
+                                >
+                                    <ArrowUpRight />
+                                </Link>
+                            </Title>
 
-                            <Link
-                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/SimpleLink.tsx'
-                                target='_blank'
-                                className='transition-colors duration-300 hover:text-text'
-                            >
-                                <ArrowUpRight />
-                            </Link>
-                        </Title>
+                            <Text>
+                                Include a custom <span className='badge-item'>SimpleLink</span> component for consistent
+                                and maintainable usage throughout the project.
+                            </Text>
+                        </ComponentsCode>
 
-                        <Text>
-                            Include a custom <span className='badge-item'>SimpleLink</span> component for consistent and
-                            maintainable usage throughout the project.
-                        </Text>
-                    </ComponentsCode>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[SIMPLE_LINK_USAGE_CODE]}>
+                            <Title size='h4'>Usage</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[SIMPLE_LINK_USAGE_CODE]}>
-                        <Title size='h4'>Usage</Title>
-                    </ComponentsCode>
-
-                    <ComponentsFooter />
-                </div>
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
             </div>
         </section>
     );

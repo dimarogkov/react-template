@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import { getLinks } from '../../helpers';
+import { useSectionsRefs } from '../../hooks';
+import { ComponentsFooter, ComponentsHead, ComponentsNavigation, ComponentsWrapper } from '../blocks';
+import { IntroductionContent } from '../elements';
 import { Separator, Text, Title } from '../ui';
 
 export const DocumentationPage = () => {
+    const { sectionsRef, registerRef } = useSectionsRefs();
+
     const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
 
     const documentationItemsArr = [
@@ -28,35 +33,52 @@ export const DocumentationPage = () => {
         },
     ];
 
+    const sectionsArr = documentationItemsArr.map(({ title }) => ({ id: title.toLowerCase(), text: title }));
+
     return (
         <>
             <section className='relative w-full'>
                 <div className='container'>
-                    <div className='flex flex-col gap-12 md:gap-20 w-full'>
-                        {documentationItemsArr.map(({ title, text, links }) => (
-                            <div key={title} className='w-full'>
-                                <Title size='h2' className='mb-2 last:mb-0'>
-                                    {title}
-                                </Title>
+                    <ComponentsWrapper
+                        navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                    >
+                        <div className='w-full xl:px-[30px]'>
+                            <ComponentsHead>
+                                <IntroductionContent />
+                            </ComponentsHead>
 
-                                <Text size='large'>{text}</Text>
+                            {documentationItemsArr.map(({ title, text, links }) => (
+                                <div
+                                    key={title}
+                                    id={title.toLowerCase()}
+                                    ref={registerRef(title.toLowerCase())}
+                                    className='w-full py-6 md:py-12'
+                                >
+                                    <Title size='h3' className='mb-1 md:mb-1.5 last:mb-0'>
+                                        {title}
+                                    </Title>
 
-                                <Separator className='my-5' />
+                                    <Text size='large'>{text}</Text>
 
-                                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full'>
-                                    {links.map(({ name, href }) => (
-                                        <Link
-                                            key={name}
-                                            to={href}
-                                            className='font-medium text-lg text-text hover:underline'
-                                        >
-                                            {name}
-                                        </Link>
-                                    ))}
+                                    <Separator className='my-5' />
+
+                                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full'>
+                                        {links.map(({ name, href }) => (
+                                            <Link
+                                                key={name}
+                                                to={href}
+                                                className='font-medium text-lg text-text hover:underline'
+                                            >
+                                                {name}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+
+                            <ComponentsFooter />
+                        </div>
+                    </ComponentsWrapper>
                 </div>
             </section>
         </>

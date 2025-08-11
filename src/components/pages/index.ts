@@ -1,6 +1,6 @@
-import { DocumentationPage } from './DocumentationPage';
 import { HomePage } from './HomePage';
 import { NotFoundPage } from './NotFoundPage';
+import { DocumentationPage } from './DocumentationPage';
 import {
     AccordionPage,
     AlertPage,
@@ -34,8 +34,8 @@ import { ReduxToolkitPage, ZustandPage } from './storePages';
 
 export {
     HomePage,
-    DocumentationPage,
     NotFoundPage,
+    DocumentationPage,
     AccordionPage,
     AlertPage,
     AvatarPage,

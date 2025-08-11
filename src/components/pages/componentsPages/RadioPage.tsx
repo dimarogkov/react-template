@@ -15,6 +15,7 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
 } from '../../blocks';
 import { RadioPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -32,76 +33,78 @@ export const RadioPage = () => {
     return (
         <section className='relative w-full'>
             <div className='container'>
-                <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                >
+                    <div className='w-full xl:px-[30px]'>
+                        <ComponentsHead>
+                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                                Radio
+                            </Title>
 
-                    <ComponentsHead>
-                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Radio
-                        </Title>
+                            <Text size='large'>
+                                A set of checkable buttons — known as radio buttons — where no more than one of the
+                                buttons can be checked at a time.
+                            </Text>
+                        </ComponentsHead>
 
-                        <Text size='large'>
-                            A set of checkable buttons — known as radio buttons — where no more than one of the buttons
-                            can be checked at a time.
-                        </Text>
-                    </ComponentsHead>
+                        <ComponentsPreview>
+                            <RadioPreview />
+                        </ComponentsPreview>
 
-                    <ComponentsPreview>
-                        <RadioPreview />
-                    </ComponentsPreview>
+                        <ComponentsCodeWithAccordion
+                            id='installation'
+                            ref={registerRef('installation')}
+                            type='installation'
+                            codeArr={[
+                                { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                                { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                            ]}
+                        >
+                            <Title size='h4'>Installation</Title>
+                        </ComponentsCodeWithAccordion>
 
-                    <ComponentsCodeWithAccordion
-                        id='installation'
-                        ref={registerRef('installation')}
-                        type='installation'
-                        codeArr={[
-                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
-                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                        ]}
-                    >
-                        <Title size='h4'>Installation</Title>
-                    </ComponentsCodeWithAccordion>
+                        <ComponentsCode id='code' ref={registerRef('code')} codeArr={[RADIO_CODE]}>
+                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                                <span>Code</span>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[RADIO_CODE]}>
-                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                            <span>Code</span>
+                                <Link
+                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Radio.tsx'
+                                    target='_blank'
+                                    className='transition-colors duration-300 hover:text-text'
+                                >
+                                    <ArrowUpRight />
+                                </Link>
+                            </Title>
 
-                            <Link
-                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Radio.tsx'
-                                target='_blank'
-                                className='transition-colors duration-300 hover:text-text'
-                            >
-                                <ArrowUpRight />
-                            </Link>
-                        </Title>
+                            <Text>
+                                Include a custom <span className='badge-item'>Radio</span> component for consistent and
+                                maintainable usage throughout the project.
+                            </Text>
+                        </ComponentsCode>
 
-                        <Text>
-                            Include a custom <span className='badge-item'>Radio</span> component for consistent and
-                            maintainable usage throughout the project.
-                        </Text>
-                    </ComponentsCode>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[RADIO_USAGE_CODE]}>
+                            <Title size='h4'>Usage</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[RADIO_USAGE_CODE]}>
-                        <Title size='h4'>Usage</Title>
-                    </ComponentsCode>
+                        <ComponentsCode
+                            id='controlling'
+                            ref={registerRef('controlling')}
+                            codeArr={[RADIO_CONTROLLING_USAGE_CODE]}
+                        >
+                            <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                                Controlling
+                            </Title>
 
-                    <ComponentsCode
-                        id='controlling'
-                        ref={registerRef('controlling')}
-                        codeArr={[RADIO_CONTROLLING_USAGE_CODE]}
-                    >
-                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                            Controlling
-                        </Title>
+                            <Text>
+                                To control the Radio, add <span className='badge-item'>checked</span> and&nbsp;
+                                <span className='badge-item'>onChange</span> props to manage its state manually.
+                            </Text>
+                        </ComponentsCode>
 
-                        <Text>
-                            To control the Radio, add <span className='badge-item'>checked</span> and&nbsp;
-                            <span className='badge-item'>onChange</span> props to manage its state manually.
-                        </Text>
-                    </ComponentsCode>
-
-                    <ComponentsFooter />
-                </div>
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
             </div>
         </section>
     );

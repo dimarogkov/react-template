@@ -8,14 +8,14 @@ type Props = {
 };
 
 export const ComponentsHead: FC<Props> = ({ children }) => {
-    const { prevPath, nextPath } = usePrevNextComponentPath();
+    const links = usePrevNextComponentPath();
 
     return (
         <div className='relative w-full pb-4 md:pb-5'>
             <div className='w-full pr-20'>{children}</div>
 
             <div className='absolute top-0 right-0 flex gap-2'>
-                {[prevPath, nextPath].map(({ href }, index) => (
+                {links.map(({ href }, index) => (
                     <Link
                         key={href}
                         to={href}

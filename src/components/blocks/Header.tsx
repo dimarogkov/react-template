@@ -34,7 +34,7 @@ export const Header = () => {
                                     to={MAIN.DOCUMENTATION}
                                     className={({ isActive }) =>
                                         cn(
-                                            `flex items-center justify-center gap-2 w-full sm:w-fit h-9 font-media px-2.5 rounded-md transition-colors duration-300`,
+                                            `flex items-center justify-center gap-2 w-full sm:w-fit h-9 font-media px-3 rounded-md transition-colors duration-300`,
                                             {
                                                 'text-title pointer-events-none': isActive,
                                                 'hover:bg-border': !isActive,

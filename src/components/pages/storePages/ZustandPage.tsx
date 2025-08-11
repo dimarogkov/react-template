@@ -14,6 +14,7 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
 } from '../../blocks';
 import { ZustandPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -27,57 +28,59 @@ export const ZustandPage = () => {
     return (
         <section className='relative w-full'>
             <div className='container'>
-                <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                >
+                    <div className='w-full xl:px-[30px]'>
+                        <ComponentsHead>
+                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                                Zustand
+                            </Title>
 
-                    <ComponentsHead>
-                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Zustand
-                        </Title>
+                            <Text size='large'>A small, fast, and scalable bearbones state management solution.</Text>
+                        </ComponentsHead>
 
-                        <Text size='large'>A small, fast, and scalable bearbones state management solution.</Text>
-                    </ComponentsHead>
+                        <ComponentsPreview>
+                            <ZustandPreview />
+                        </ComponentsPreview>
 
-                    <ComponentsPreview>
-                        <ZustandPreview />
-                    </ComponentsPreview>
+                        <ComponentsCode
+                            id='installation'
+                            ref={registerRef('installation')}
+                            type='installation'
+                            codeArr={[NPM_ZUSTAND_CODE]}
+                        >
+                            <Title size='h4'>Installation</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode
-                        id='installation'
-                        ref={registerRef('installation')}
-                        type='installation'
-                        codeArr={[NPM_ZUSTAND_CODE]}
-                    >
-                        <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                        <ComponentsCodeWithAccordion
+                            id='code'
+                            ref={registerRef('code')}
+                            codeArr={[
+                                { label: 'index.ts', code: ZUSTAND_CODE },
+                                { label: 'count.ts', code: ZUSTAND_COUNT_CODE },
+                            ]}
+                        >
+                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                                <span>Code</span>
 
-                    <ComponentsCodeWithAccordion
-                        id='code'
-                        ref={registerRef('code')}
-                        codeArr={[
-                            { label: 'index.ts', code: ZUSTAND_CODE },
-                            { label: 'count.ts', code: ZUSTAND_COUNT_CODE },
-                        ]}
-                    >
-                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                            <span>Code</span>
+                                <Link
+                                    to='https://github.com/dimarogkov/react-template/tree/master/src/store/zustand'
+                                    target='_blank'
+                                    className='transition-colors duration-300 hover:text-text'
+                                >
+                                    <ArrowUpRight />
+                                </Link>
+                            </Title>
+                        </ComponentsCodeWithAccordion>
 
-                            <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/store/zustand'
-                                target='_blank'
-                                className='transition-colors duration-300 hover:text-text'
-                            >
-                                <ArrowUpRight />
-                            </Link>
-                        </Title>
-                    </ComponentsCodeWithAccordion>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZUSTAND_USAGE_CODE]}>
+                            <Title size='h4'>Usage</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZUSTAND_USAGE_CODE]}>
-                        <Title size='h4'>Usage</Title>
-                    </ComponentsCode>
-
-                    <ComponentsFooter />
-                </div>
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
             </div>
         </section>
     );

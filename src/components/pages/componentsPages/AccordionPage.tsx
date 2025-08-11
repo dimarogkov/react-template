@@ -20,6 +20,7 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
 } from '../../blocks';
 import { AccordionPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -37,82 +38,84 @@ export const AccordionPage = () => {
     return (
         <section className='relative w-full'>
             <div className='container'>
-                <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                >
+                    <div className='w-full xl:px-[30px]'>
+                        <ComponentsHead>
+                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                                Accordion
+                            </Title>
 
-                    <ComponentsHead>
-                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Accordion
-                        </Title>
+                            <Text size='large'>
+                                A vertically stacked set of interactive headings that each reveal a section of content.
+                            </Text>
+                        </ComponentsHead>
 
-                        <Text size='large'>
-                            A vertically stacked set of interactive headings that each reveal a section of content.
-                        </Text>
-                    </ComponentsHead>
+                        <ComponentsPreview>
+                            <AccordionPreview />
+                        </ComponentsPreview>
 
-                    <ComponentsPreview>
-                        <AccordionPreview />
-                    </ComponentsPreview>
+                        <ComponentsCodeWithAccordion
+                            id='installation'
+                            ref={registerRef('installation')}
+                            type='installation'
+                            codeArr={[
+                                { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                                { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+                            ]}
+                        >
+                            <Title size='h4'>Installation</Title>
+                        </ComponentsCodeWithAccordion>
 
-                    <ComponentsCodeWithAccordion
-                        id='installation'
-                        ref={registerRef('installation')}
-                        type='installation'
-                        codeArr={[
-                            { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
-                            { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                            { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
-                        ]}
-                    >
-                        <Title size='h4'>Installation</Title>
-                    </ComponentsCodeWithAccordion>
+                        <ComponentsCodeWithAccordion
+                            id='code'
+                            ref={registerRef('code')}
+                            codeArr={[
+                                { label: 'index.ts', code: ACCORDION_CODE },
+                                { label: 'AccordionWrapper.tsx', code: ACCORDION_WRAPPER_CODE },
+                                { label: 'AccordionItem.tsx', code: ACCORDION_ITEM_CODE },
+                                { label: 'AccordionTitle.tsx', code: ACCORDION_TITLE_CODE },
+                                { label: 'AccordionContent.tsx', code: ACCORDION_CONTENT_CODE },
+                            ]}
+                        >
+                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                                <span>Code</span>
 
-                    <ComponentsCodeWithAccordion
-                        id='code'
-                        ref={registerRef('code')}
-                        codeArr={[
-                            { label: 'index.ts', code: ACCORDION_CODE },
-                            { label: 'AccordionWrapper.tsx', code: ACCORDION_WRAPPER_CODE },
-                            { label: 'AccordionItem.tsx', code: ACCORDION_ITEM_CODE },
-                            { label: 'AccordionTitle.tsx', code: ACCORDION_TITLE_CODE },
-                            { label: 'AccordionContent.tsx', code: ACCORDION_CONTENT_CODE },
-                        ]}
-                    >
-                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                            <span>Code</span>
+                                <Link
+                                    to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Accordion'
+                                    target='_blank'
+                                    className='transition-colors duration-300 hover:text-text'
+                                >
+                                    <ArrowUpRight />
+                                </Link>
+                            </Title>
 
-                            <Link
-                                to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Accordion'
-                                target='_blank'
-                                className='transition-colors duration-300 hover:text-text'
-                            >
-                                <ArrowUpRight />
-                            </Link>
-                        </Title>
+                            <Text>
+                                Include a custom <span className='badge-item'>Accordion</span> component for consistent
+                                and maintainable usage throughout the project.
+                            </Text>
+                        </ComponentsCodeWithAccordion>
 
-                        <Text>
-                            Include a custom <span className='badge-item'>Accordion</span> component for consistent and
-                            maintainable usage throughout the project.
-                        </Text>
-                    </ComponentsCodeWithAccordion>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
+                            <Title size='h4'>Usage</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ACCORDION_USAGE_CODE]}>
-                        <Title size='h4'>Usage</Title>
-                    </ComponentsCode>
+                        <ComponentsCode id='active' ref={registerRef('active')} codeArr={[ACCORDION_ACTIVE_USAGE_CODE]}>
+                            <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                                Active
+                            </Title>
 
-                    <ComponentsCode id='active' ref={registerRef('active')} codeArr={[ACCORDION_ACTIVE_USAGE_CODE]}>
-                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                            Active
-                        </Title>
+                            <Text>
+                                To make an <span className='badge-item'>Accordion</span> initially open, add the&nbsp;
+                                <span className='badge-item'>defaultActiveIndex</span> prop to it.
+                            </Text>
+                        </ComponentsCode>
 
-                        <Text>
-                            To make an <span className='badge-item'>Accordion</span> initially open, add the&nbsp;
-                            <span className='badge-item'>defaultActiveIndex</span> prop to it.
-                        </Text>
-                    </ComponentsCode>
-
-                    <ComponentsFooter />
-                </div>
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
             </div>
         </section>
     );

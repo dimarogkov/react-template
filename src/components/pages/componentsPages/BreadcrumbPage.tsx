@@ -14,6 +14,7 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
 } from '../../blocks';
 import { BreadcrumbPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -27,62 +28,66 @@ export const BreadcrumbPage = () => {
     return (
         <section className='relative w-full'>
             <div className='container'>
-                <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                >
+                    <div className='w-full xl:px-[30px]'>
+                        <ComponentsHead>
+                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                                Breadcrumb
+                            </Title>
 
-                    <ComponentsHead>
-                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Breadcrumb
-                        </Title>
+                            <Text size='large'>
+                                Displays the path to the current resource using a hierarchy of links.
+                            </Text>
+                        </ComponentsHead>
 
-                        <Text size='large'>Displays the path to the current resource using a hierarchy of links.</Text>
-                    </ComponentsHead>
+                        <ComponentsPreview>
+                            <BreadcrumbPreview />
+                        </ComponentsPreview>
 
-                    <ComponentsPreview>
-                        <BreadcrumbPreview />
-                    </ComponentsPreview>
+                        <ComponentsCode
+                            id='installation'
+                            ref={registerRef('installation')}
+                            type='installation'
+                            codeArr={[NPM_LUCIDE_CODE]}
+                        >
+                            <Title size='h4'>Installation</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode
-                        id='installation'
-                        ref={registerRef('installation')}
-                        type='installation'
-                        codeArr={[NPM_LUCIDE_CODE]}
-                    >
-                        <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                        <ComponentsCodeWithAccordion
+                            id='code'
+                            ref={registerRef('code')}
+                            codeArr={[
+                                { label: 'convertUrlToString.ts', code: BREADCRUMB_HELPERS_CODE },
+                                { label: 'Breadcrumb.tsx', code: BREADCRUMB_CODE },
+                            ]}
+                        >
+                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                                <span>Code</span>
 
-                    <ComponentsCodeWithAccordion
-                        id='code'
-                        ref={registerRef('code')}
-                        codeArr={[
-                            { label: 'convertUrlToString.ts', code: BREADCRUMB_HELPERS_CODE },
-                            { label: 'Breadcrumb.tsx', code: BREADCRUMB_CODE },
-                        ]}
-                    >
-                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                            <span>Code</span>
+                                <Link
+                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/blocks/Breadcrumb.tsx'
+                                    target='_blank'
+                                    className='transition-colors duration-300 hover:text-text'
+                                >
+                                    <ArrowUpRight />
+                                </Link>
+                            </Title>
 
-                            <Link
-                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/blocks/Breadcrumb.tsx'
-                                target='_blank'
-                                className='transition-colors duration-300 hover:text-text'
-                            >
-                                <ArrowUpRight />
-                            </Link>
-                        </Title>
+                            <Text>
+                                Include a custom <span className='badge-item'>Breadcrumb</span> component for consistent
+                                and maintainable usage throughout the project.
+                            </Text>
+                        </ComponentsCodeWithAccordion>
 
-                        <Text>
-                            Include a custom <span className='badge-item'>Breadcrumb</span> component for consistent and
-                            maintainable usage throughout the project.
-                        </Text>
-                    </ComponentsCodeWithAccordion>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BREADCRUMB_USAGE_CODE]}>
+                            <Title size='h4'>Usage</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BREADCRUMB_USAGE_CODE]}>
-                        <Title size='h4'>Usage</Title>
-                    </ComponentsCode>
-
-                    <ComponentsFooter />
-                </div>
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
             </div>
         </section>
     );

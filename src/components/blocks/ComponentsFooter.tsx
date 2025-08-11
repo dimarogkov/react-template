@@ -3,11 +3,11 @@ import { usePrevNextComponentPath } from '../../hooks';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const ComponentsFooter = () => {
-    const { prevPath, nextPath } = usePrevNextComponentPath();
+    const links = usePrevNextComponentPath();
 
     return (
         <div className='relative flex flex-wrap justify-between gap-2.5 w-full pt-4 md:pt-5'>
-            {[prevPath, nextPath].map(({ href, name }, index) => (
+            {links.map(({ href, name }, index) => (
                 <Link
                     key={href}
                     to={href}

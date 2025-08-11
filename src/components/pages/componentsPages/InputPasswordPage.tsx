@@ -13,6 +13,7 @@ import {
     ComponentsHead,
     ComponentsNavigation,
     ComponentsPreview,
+    ComponentsWrapper,
 } from '../../blocks';
 import { InputPasswordPreview } from '../../elements/preview';
 import { Text, Title } from '../../ui';
@@ -30,72 +31,74 @@ export const InputPasswordPage = () => {
     return (
         <section className='relative w-full'>
             <div className='container'>
-                <div className='w-full'>
-                    <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                >
+                    <div className='w-full xl:px-[30px]'>
+                        <ComponentsHead>
+                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                                Input Password
+                            </Title>
 
-                    <ComponentsHead>
-                        <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                            Input Password
-                        </Title>
+                            <Text size='large'>
+                                Displays a form input field or a component that looks like an input field.
+                            </Text>
+                        </ComponentsHead>
 
-                        <Text size='large'>
-                            Displays a form input field or a component that looks like an input field.
-                        </Text>
-                    </ComponentsHead>
+                        <ComponentsPreview>
+                            <InputPasswordPreview />
+                        </ComponentsPreview>
 
-                    <ComponentsPreview>
-                        <InputPasswordPreview />
-                    </ComponentsPreview>
+                        <ComponentsCode
+                            id='installation'
+                            ref={registerRef('installation')}
+                            type='installation'
+                            codeArr={[NPM_LUCIDE_CODE]}
+                        >
+                            <Title size='h4'>Installation</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode
-                        id='installation'
-                        ref={registerRef('installation')}
-                        type='installation'
-                        codeArr={[NPM_LUCIDE_CODE]}
-                    >
-                        <Title size='h4'>Installation</Title>
-                    </ComponentsCode>
+                        <ComponentsCode id='code' ref={registerRef('code')} codeArr={[INPUT_PASSWORD_CODE]}>
+                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
+                                <span>Code</span>
 
-                    <ComponentsCode id='code' ref={registerRef('code')} codeArr={[INPUT_PASSWORD_CODE]}>
-                        <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                            <span>Code</span>
+                                <Link
+                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/InputPassword.tsx'
+                                    target='_blank'
+                                    className='transition-colors duration-300 hover:text-text'
+                                >
+                                    <ArrowUpRight />
+                                </Link>
+                            </Title>
 
-                            <Link
-                                to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/InputPassword.tsx'
-                                target='_blank'
-                                className='transition-colors duration-300 hover:text-text'
-                            >
-                                <ArrowUpRight />
-                            </Link>
-                        </Title>
+                            <Text>
+                                Include a custom <span className='badge-item'>InputPassword</span> component for
+                                consistent and maintainable usage throughout the project.
+                            </Text>
+                        </ComponentsCode>
 
-                        <Text>
-                            Include a custom <span className='badge-item'>InputPassword</span> component for consistent
-                            and maintainable usage throughout the project.
-                        </Text>
-                    </ComponentsCode>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[INPUT_PASSWORD_USAGE_CODE]}>
+                            <Title size='h4'>Usage</Title>
+                        </ComponentsCode>
 
-                    <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[INPUT_PASSWORD_USAGE_CODE]}>
-                        <Title size='h4'>Usage</Title>
-                    </ComponentsCode>
+                        <ComponentsCode
+                            id='controlling'
+                            ref={registerRef('controlling')}
+                            codeArr={[INPUT_PASSWORD_CONTROLLING_USAGE_CODE]}
+                        >
+                            <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
+                                Controlling
+                            </Title>
 
-                    <ComponentsCode
-                        id='controlling'
-                        ref={registerRef('controlling')}
-                        codeArr={[INPUT_PASSWORD_CONTROLLING_USAGE_CODE]}
-                    >
-                        <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                            Controlling
-                        </Title>
+                            <Text>
+                                To control the Input, add <span className='badge-item'>value</span> and&nbsp;
+                                <span className='badge-item'>onChange</span> props to manage its state manually.
+                            </Text>
+                        </ComponentsCode>
 
-                        <Text>
-                            To control the Input, add <span className='badge-item'>value</span> and&nbsp;
-                            <span className='badge-item'>onChange</span> props to manage its state manually.
-                        </Text>
-                    </ComponentsCode>
-
-                    <ComponentsFooter />
-                </div>
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
             </div>
         </section>
     );

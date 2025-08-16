@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { PATHS } from './variables';
 import { Breadcrumb, Header, Sidebar } from './components/blocks';
-import { ScrollTopBtn } from './components/elements';
 import cn from 'classnames';
 
 export const App = () => {
@@ -17,7 +16,6 @@ export const App = () => {
         <>
             <Header />
             <Breadcrumb />
-            <ScrollTopBtn />
 
             <main className={cn('relative w-full', { 'py-7 md:py-10': pathname !== PATHS.HOME })}>
                 <Outlet context={{ Sidebar: <Sidebar /> }} />

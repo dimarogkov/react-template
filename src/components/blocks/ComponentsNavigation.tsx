@@ -1,7 +1,8 @@
 import { FC, MutableRefObject, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
-import { Text } from '../ui';
+import { ScrollTopBtn } from '../elements';
+import { Separator, Text } from '../ui';
 import cn from 'classnames';
 
 type Props = {
@@ -60,6 +61,9 @@ export const ComponentsNavigation: FC<Props> = ({ sectionsRef, sectionsArr }) =>
                         </li>
                     ))}
                 </ul>
+
+                <Separator className='my-1.5' />
+                <ScrollTopBtn />
             </div>
         </motion.section>
     );

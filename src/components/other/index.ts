@@ -1,3 +1,4 @@
 import Aurora from './Aurora';
+import DarkVeil from './DarkVeil';
 
-export { Aurora };
+export { Aurora, DarkVeil };

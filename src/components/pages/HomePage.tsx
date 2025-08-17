@@ -7,27 +7,36 @@ export const HomePage = () => {
     const { MAIN } = PATHS.PAGES;
 
     return (
-        <section className='relative w-full sm:h-[calc(100svh-64px)] min-h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)] py-7 md:py-10'>
+        <section className='relative flex items-center justify-center w-full sm:h-[calc(100svh-64px)] min-h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)] pb-16 lg:pb-20'>
             <HomeBg />
 
-            <div className='container relative'>
-                <div className='flex flex-col gap-5 w-full mb-8 last:mb-0'>
-                    <Title size='h2' className='mb-1.5 last:mb-0'>
-                        Build Faster with React Template
-                    </Title>
+            <div className='relative container md:w-[800px]'>
+                <div className='flex flex-col items-center w-full text-center'>
+                    <Title className='mb-3 last:mb-0'>Build Faster with React Template</Title>
 
-                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-2 w-full'>
-                        {DEV_ICONS.map((icon, text) => (
-                            <DevIcon key={text} devIcon={icon} />
-                        ))}
+                    <div className='group flex space-x-2 w-full overflow-hidden mb-3 last:mb-0'>
+                        <div className='flex space-x-2 animate-loop-scroll will-change-transform group-hover:paused'>
+                            {DEV_ICONS.map((icon, text) => (
+                                <DevIcon key={text} devIcon={icon} />
+                            ))}
+                        </div>
+
+                        <div
+                            className='flex space-x-2 animate-loop-scroll will-change-transform group-hover:paused'
+                            aria-hidden={true}
+                        >
+                            {DEV_ICONS.map((icon, text) => (
+                                <DevIcon key={text} devIcon={icon} />
+                            ))}
+                        </div>
                     </div>
 
-                    <Text size='large' className='text-title'>
+                    <Text size='large' className='mb-7 last:mb-0'>
                         A curated set of accessible, ready-to-use components for modern web apps. Designed to save you
                         time and help you create stunning UIs effortlessly.
                     </Text>
 
-                    <div className='flex flex-wrap gap-2 w-full'>
+                    <div className='flex flex-wrap justify-center gap-2 w-full'>
                         <Btn isLink>
                             <Btn.Link href={MAIN.DOCUMENTATION}>Get Started</Btn.Link>
                         </Btn>

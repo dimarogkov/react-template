@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { PATHS } from '../../variables';
 import { convertUrlToString } from '../../helpers';
 import { HeaderSearch, HeaderSwitch } from '../elements';
@@ -7,10 +7,16 @@ import { Github } from 'lucide-react';
 import cn from 'classnames';
 
 export const Header = () => {
+    const { pathname } = useLocation();
     const { MAIN } = PATHS.PAGES;
 
     return (
-        <header className='sticky top-0 left-0 z-30 flex items-center w-full h-16 lg:h-20 border-b border-border bg-bg'>
+        <header
+            className={cn('sticky top-0 left-0 z-30 flex items-center w-full h-16 lg:h-20 border-b border-border', {
+                'backdrop-blur-lg': pathname === PATHS.HOME,
+                'bg-bg': pathname !== PATHS.HOME,
+            })}
+        >
             <div className='container'>
                 <div className='flex items-center justify-between w-full'>
                     <Link
@@ -38,6 +44,7 @@ export const Header = () => {
                                             {
                                                 'text-title pointer-events-none': isActive,
                                                 'hover:bg-border': !isActive,
+                                                'text-title': pathname === PATHS.HOME,
                                             }
                                         )
                                     }

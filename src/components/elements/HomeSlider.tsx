@@ -8,7 +8,9 @@ type Props = {
 
 export const HomeSlider: FC<Props> = ({ className = '' }) => {
     return (
-        <div className={`flex space-x-2 w-full overflow-hidden ${className}`}>
+        <div
+            className={`relative left-0 md:left-auto flex space-x-2 w-[calc(100%+60px)] md:w-full overflow-hidden ${className}`}
+        >
             <div className='flex space-x-2 animate-loop-scroll will-change-transform'>
                 {DEV_ICONS.map((icon, text) => (
                     <DevIcon key={text} devIcon={icon} />

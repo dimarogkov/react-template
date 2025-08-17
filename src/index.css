@@ -5,12 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-    .paused {
-        animation-play-state: paused;
-    }
-}
-
 html {
     --fallback-b1: #0a0a0a;
     scrollbar-color: #a1a1a1 transparent;

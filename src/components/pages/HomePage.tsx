@@ -1,5 +1,5 @@
-import { DEV_ICONS, PATHS } from '../../variables';
-import { DevIcon, HomeBg } from '../elements';
+import { PATHS } from '../../variables';
+import { HomeBg, HomeSlider } from '../elements';
 import { Btn, Text, Title } from '../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -14,22 +14,7 @@ export const HomePage = () => {
                 <div className='flex flex-col items-center w-full text-center'>
                     <Title className='mb-3 last:mb-0'>Build Faster with React Template</Title>
 
-                    <div className='group flex space-x-2 w-full overflow-hidden mb-3 last:mb-0'>
-                        <div className='flex space-x-2 animate-loop-scroll will-change-transform group-hover:paused'>
-                            {DEV_ICONS.map((icon, text) => (
-                                <DevIcon key={text} devIcon={icon} />
-                            ))}
-                        </div>
-
-                        <div
-                            className='flex space-x-2 animate-loop-scroll will-change-transform group-hover:paused'
-                            aria-hidden={true}
-                        >
-                            {DEV_ICONS.map((icon, text) => (
-                                <DevIcon key={text} devIcon={icon} />
-                            ))}
-                        </div>
-                    </div>
+                    <HomeSlider className='mb-3 last:mb-0' />
 
                     <Text size='large' className='mb-7 last:mb-0'>
                         A curated set of accessible, ready-to-use components for modern web apps. Designed to save you

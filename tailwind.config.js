@@ -15,7 +15,7 @@ module.exports = {
             animation: {
                 enter: 'enter 0.2s forwards',
                 leave: 'leave 0.2s forwards',
-                'loop-scroll': 'loop-scroll 20s linear infinite',
+                'loop-scroll': 'loop-scroll 24s linear infinite',
             },
             keyframes: {
                 enter: {

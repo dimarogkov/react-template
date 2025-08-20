@@ -27,6 +27,6 @@ export const DEV_ICONS: IDevIcon[] = [
     },
     {
         icon: 'devicon-framermotion-original',
-        text: 'Frame Motion',
+        text: 'Framer Motion',
     },
 ];

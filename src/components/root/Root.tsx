@@ -35,6 +35,7 @@ import {
     ZodPage,
     ReduxToolkitPage,
     ZustandPage,
+    CardPage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -56,6 +57,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BADGE}`} element={<BadgePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BREADCRUMB}`} element={<BreadcrumbPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BTN}`} element={<BtnPage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.CARD}`} element={<CardPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.CHECKBOX}`} element={<CheckboxPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.DROPDOWN}`} element={<DropdownPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.INPUT}`} element={<InputPage />} />

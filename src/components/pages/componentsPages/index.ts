@@ -4,6 +4,7 @@ import { AvatarPage } from './AvatarPage';
 import { BadgePage } from './BadgePage';
 import { BreadcrumbPage } from './BreadcrumbPage';
 import { BtnPage } from './BtnPage';
+import { CardPage } from './CardPage';
 import { CheckboxPage } from './CheckboxPage';
 import { DropdownPage } from './DropdownPage';
 import { InputPage } from './InputPage';
@@ -31,6 +32,7 @@ export {
     BadgePage,
     BreadcrumbPage,
     BtnPage,
+    CardPage,
     CheckboxPage,
     DropdownPage,
     InputPage,

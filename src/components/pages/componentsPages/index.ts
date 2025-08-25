@@ -12,6 +12,7 @@ import { InputPasswordPage } from './InputPasswordPage';
 import { LabelPage } from './LabelPage';
 import { LoaderPage } from './LoaderPage';
 import { ModalPage } from './ModalPage';
+import { PaginationPage } from './PaginationPage';
 import { ProgressPage } from './ProgressPage';
 import { RadioPage } from './RadioPage';
 import { SelectPage } from './SelectPage';
@@ -40,6 +41,7 @@ export {
     LabelPage,
     LoaderPage,
     ModalPage,
+    PaginationPage,
     ProgressPage,
     RadioPage,
     SelectPage,

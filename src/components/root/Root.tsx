@@ -7,6 +7,7 @@ import {
     BadgePage,
     BreadcrumbPage,
     BtnPage,
+    CardPage,
     CheckboxPage,
     DropdownPage,
     DocumentationPage,
@@ -17,6 +18,7 @@ import {
     LoaderPage,
     ModalPage,
     NotFoundPage,
+    PaginationPage,
     ProgressPage,
     RadioPage,
     SelectPage,
@@ -35,7 +37,6 @@ import {
     ZodPage,
     ReduxToolkitPage,
     ZustandPage,
-    CardPage,
 } from '../pages';
 import { App } from '../../App';
 
@@ -68,6 +69,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.LABEL}`} element={<LabelPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.LOADER}`} element={<LoaderPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.MODAL}`} element={<ModalPage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PAGINATION}`} element={<PaginationPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.RADIO}`} element={<RadioPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SELECT}`} element={<SelectPage />} />

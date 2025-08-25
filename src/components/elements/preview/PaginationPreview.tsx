@@ -1,0 +1,24 @@
+import { usePagination } from '../../../hooks';
+import { Pagination } from '../../ui';
+
+const items = Array.from({ length: 100 }, (_, index) => index + 1);
+
+export const PaginationPreview = () => {
+    const { pagesArr, options } = usePagination<number[]>(items);
+
+    return (
+        <Pagination options={options} className='py-5'>
+            <Pagination.Previous />
+
+            {pagesArr.map((page, index) =>
+                page === 'ellipsis' ? (
+                    <Pagination.Ellipsis key={`ellipsis-${index}`} />
+                ) : (
+                    <Pagination.Item key={`page-${index}`} page={page} />
+                )
+            )}
+
+            <Pagination.Next />
+        </Pagination>
+    );
+};

@@ -1,0 +1,42 @@
+import {
+    Children,
+    cloneElement,
+    Dispatch,
+    FC,
+    forwardRef,
+    HTMLAttributes,
+    isValidElement,
+    ReactElement,
+    RefAttributes,
+    SetStateAction,
+} from 'react';
+
+interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
+    options: {
+        currentPage: number;
+        endPage: number;
+        setPage: Dispatch<SetStateAction<number>>;
+    };
+    disabled?: boolean;
+    className?: string;
+}
+
+export const PaginationWrapper: FC<Props> = forwardRef<HTMLDivElement, Props>(
+    ({ options, disabled = false, className = '', ...props }, ref) => {
+        return (
+            <>
+                {!disabled && (
+                    <div ref={ref} {...props} className={`relative flex justify-center gap-1 w-full ${className}`}>
+                        {Children.map(props.children, (child) => {
+                            if (isValidElement(child)) {
+                                return cloneElement(child as ReactElement, { options });
+                            }
+
+                            return child;
+                        })}
+                    </div>
+                )}
+            </>
+        );
+    }
+);

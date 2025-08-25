@@ -4,7 +4,7 @@ import { Pagination } from '../../ui';
 const items = Array.from({ length: 100 }, (_, index) => index + 1);
 
 export const PaginationPreview = () => {
-    const { pagesArr, options } = usePagination<number[]>(items);
+    const { pagesArr, options } = usePagination(items);
 
     return (
         <Pagination options={options} className='py-5'>

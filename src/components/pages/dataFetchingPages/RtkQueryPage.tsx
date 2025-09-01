@@ -7,9 +7,9 @@ import {
     REACT_QUERY_ADD_TODO_CODE,
     REACT_QUERY_TODO_CODE,
     REDUX_TOOLKIT_PROVIDER_USAGE_CODE,
-    RTK_QUERY_DEMO_CODE,
     RTK_QUERY_CODE,
     RTK_QUERY_SLICE_CODE,
+    RTK_QUERY_DEMO_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {

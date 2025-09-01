@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
-    PROGRESS_DEMO_CODE,
     PROGRESS_CODE,
+    PROGRESS_DEMO_CODE,
     PROGRESS_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';

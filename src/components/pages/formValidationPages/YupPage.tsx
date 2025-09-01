@@ -4,10 +4,10 @@ import {
     NPM_HOOK_FORM_CODE,
     NPM_HOOK_FORM_RESOLVERS_CODE,
     NPM_YUP_CODE,
-    YUP_DEMO_CODE,
     YUP_CODE,
     YUP_SCHEMA_CODE,
     YUP_OPTIONS_CODE,
+    YUP_DEMO_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {

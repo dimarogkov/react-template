@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
-    TEXT_DEMO_CODE,
     TEXT_CODE,
+    TEXT_DEMO_CODE,
     TEXT_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';

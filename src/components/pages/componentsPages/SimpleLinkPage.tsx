@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
-    SIMPLE_LINK_DEMO_CODE,
     SIMPLE_LINK_CODE,
+    SIMPLE_LINK_DEMO_CODE,
     SIMPLE_LINK_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';

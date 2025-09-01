@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, LOADER_DEMO_CODE, LOADER_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, LOADER_CODE, LOADER_DEMO_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,

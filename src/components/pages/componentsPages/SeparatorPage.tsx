@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
-    SEPARATOR_DEMO_CODE,
     SEPARATOR_CODE,
+    SEPARATOR_DEMO_CODE,
     SEPARATOR_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';

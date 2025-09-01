@@ -3,8 +3,8 @@ import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
-    SWITCH_DEMO_CODE,
     SWITCH_CODE,
+    SWITCH_DEMO_CODE,
     SWITCH_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';

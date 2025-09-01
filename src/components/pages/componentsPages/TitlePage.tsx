@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, TITLE_DEMO_CODE, TITLE_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, TITLE_CODE, TITLE_DEMO_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,

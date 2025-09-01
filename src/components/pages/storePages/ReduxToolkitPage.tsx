@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
     NPM_REDUX_TOOLKIT_CODE,
-    REDUX_TOOLKIT_DEMO_CODE,
     REDUX_TOOLKIT_CODE,
     REDUX_TOOLKIT_COUNT_CODE,
+    REDUX_TOOLKIT_DEMO_CODE,
     REDUX_TOOLKIT_PROVIDER_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';

@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
     NPM_ZUSTAND_CODE,
-    ZUSTAND_DEMO_CODE,
     ZUSTAND_CODE,
     ZUSTAND_COUNT_CODE,
+    ZUSTAND_DEMO_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {

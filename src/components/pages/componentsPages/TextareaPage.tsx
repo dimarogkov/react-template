@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
-    TEXTAREA_DEMO_CODE,
     TEXTAREA_CODE,
+    TEXTAREA_DEMO_CODE,
     TEXTAREA_USAGE_CODE,
     TEXTAREA_CONTROLLED_USAGE_CODE,
 } from '../../../variables/code';

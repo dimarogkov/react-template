@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
-    INPUT_DEMO_CODE,
     INPUT_CODE,
+    INPUT_DEMO_CODE,
     INPUT_USAGE_CODE,
     INPUT_CONTROLLED_USAGE_CODE,
 } from '../../../variables/code';

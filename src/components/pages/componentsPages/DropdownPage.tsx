@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
-    DROPDOWN_ALIGN_USAGE_CODE,
+    DROPDOWN_DEMO_CODE,
     DROPDOWN_CODE,
-    DROPDOWN_CONTENT_CODE,
-    DROPDOWN_POSITION_USAGE_CODE,
-    DROPDOWN_TRIGGER_CODE,
-    DROPDOWN_USAGE_CODE,
     DROPDOWN_WRAPPER_CODE,
+    DROPDOWN_TRIGGER_CODE,
+    DROPDOWN_CONTENT_CODE,
+    DROPDOWN_USAGE_CODE,
+    DROPDOWN_POSITION_USAGE_CODE,
+    DROPDOWN_ALIGN_USAGE_CODE,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
 } from '../../../variables/code';
@@ -21,7 +22,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { DropdownPreview } from '../../elements/preview';
+import { DropdownDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -34,6 +35,8 @@ export const DropdownPage = () => {
         { id: 'position', text: 'Position' },
         { id: 'align', text: 'Align' },
     ];
+
+    const preview = { code: DROPDOWN_DEMO_CODE, demo: <DropdownDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -53,9 +56,7 @@ export const DropdownPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <DropdownPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

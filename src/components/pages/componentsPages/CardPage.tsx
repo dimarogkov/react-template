@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import {
+    COMPONENTS_SECTIONS,
     CARD_CODE,
     CARD_WRAPPER_CODE,
     CARD_HEAD_CODE,
     CARD_BODY_CODE,
     CARD_FOOTER_CODE,
+    CARD_DEMO_CODE,
     CARD_USAGE_CODE,
-    COMPONENTS_SECTIONS,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -18,12 +19,14 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { CardPreview } from '../../elements/preview';
+import { CardDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const CardPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
+
+    const preview = { code: CARD_DEMO_CODE, demo: <CardDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -40,9 +43,7 @@ export const CardPage = () => {
                             <Text size='large'>Displays a card with header, content, and footer.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <CardPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='code'

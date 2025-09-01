@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
     NPM_ZUSTAND_CODE,
+    ZUSTAND_DEMO_CODE,
     ZUSTAND_CODE,
     ZUSTAND_COUNT_CODE,
-    ZUSTAND_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -16,7 +16,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ZustandPreview } from '../../elements/preview';
+import { ZustandDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -24,6 +24,8 @@ export const ZustandPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: ZUSTAND_DEMO_CODE, demo: <ZustandDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -40,9 +42,7 @@ export const ZustandPage = () => {
                             <Text size='large'>A small, fast, and scalable bearbones state management solution.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ZustandPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'
@@ -74,7 +74,7 @@ export const ZustandPage = () => {
                             </Title>
                         </ComponentsCodeWithAccordion>
 
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZUSTAND_USAGE_CODE]}>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZUSTAND_DEMO_CODE]}>
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>
 

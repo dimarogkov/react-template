@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 import {
-    NPM_CLASSNAMES_CODE,
-    NPM_FRAMER_MOTION_CODE,
     COMPONENTS_SECTIONS,
     AVATAR_CODE,
     AVATAR_WRAPPER_CODE,
     AVATAR_LINK_CODE,
     AVATAR_IMG_CODE,
     AVATAR_GROUP_CODE,
+    AVATAR_DEMO_CODE,
     AVATAR_USAGE_CODE,
     AVATAR_LINK_USAGE_CODE,
     AVATAR_GROUP_USAGE_CODE,
+    NPM_CLASSNAMES_CODE,
+    NPM_FRAMER_MOTION_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -22,9 +23,9 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
+import { AvatarDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
-import { AvatarPreview } from '../../elements/preview';
 
 export const AvatarPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
@@ -35,6 +36,8 @@ export const AvatarPage = () => {
         { id: 'link', text: 'Link' },
         { id: 'group', text: 'Group' },
     ];
+
+    const preview = { code: AVATAR_DEMO_CODE, demo: <AvatarDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -51,9 +54,7 @@ export const AvatarPage = () => {
                             <Text size='large'>An image element with a fallback for representing the user.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <AvatarPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

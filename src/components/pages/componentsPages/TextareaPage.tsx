@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    TEXTAREA_DEMO_CODE,
     TEXTAREA_CODE,
     TEXTAREA_USAGE_CODE,
-    TEXTAREA_CONTROLLING_USAGE_CODE,
+    TEXTAREA_CONTROLLED_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -14,14 +15,16 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { TextareaPreview } from '../../elements/preview';
+import { TextareaDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const TextareaPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'controlling', text: 'Controlling' }];
+    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'controlled', text: 'Controlled' }];
+
+    const preview = { code: TEXTAREA_DEMO_CODE, demo: <TextareaDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -40,9 +43,7 @@ export const TextareaPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <TextareaPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TEXTAREA_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -68,12 +69,12 @@ export const TextareaPage = () => {
                         </ComponentsCode>
 
                         <ComponentsCode
-                            id='controlling'
-                            ref={registerRef('controlling')}
-                            codeArr={[TEXTAREA_CONTROLLING_USAGE_CODE]}
+                            id='controlled'
+                            ref={registerRef('controlled')}
+                            codeArr={[TEXTAREA_CONTROLLED_USAGE_CODE]}
                         >
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Controlling
+                                Controlled
                             </Title>
 
                             <Text>

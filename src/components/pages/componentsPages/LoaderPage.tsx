@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, LOADER_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, LOADER_DEMO_CODE, LOADER_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,12 +9,14 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { LoaderPreview } from '../../elements/preview';
+import { LoaderDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const LoaderPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
+
+    const preview = { code: LOADER_DEMO_CODE, demo: <LoaderDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -31,9 +33,7 @@ export const LoaderPage = () => {
                             <Text size='large'>A reusable component for indicating loading or processing states.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <LoaderPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[LOADER_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

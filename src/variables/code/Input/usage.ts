@@ -1,9 +1,9 @@
 export const INPUT_USAGE_CODE = `<Input name='name' placeholder='Username' />`;
 
-export const INPUT_CONTROLLING_USAGE_CODE = `import { useState } from 'react';
+export const INPUT_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
 import { Input, Label } from '../../ui';
 
-export const InputPreview = () => {
+export const InputControlled = () => {
 	const [value, setValue] = useState('');
 
 	return (
@@ -20,10 +20,10 @@ export const InputPreview = () => {
 
 export const INPUT_PASSWORD_USAGE_CODE = `<InputPassword name='password' placeholder='Password' />`;
 
-export const INPUT_PASSWORD_CONTROLLING_USAGE_CODE = `import { useState } from 'react';
+export const INPUT_PASSWORD_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
 import { InputPassword, Label } from '../../ui';
 
-export const InputPasswordPreview = () => {
+export const InputPasswordControlled = () => {
 	const [value, setValue] = useState('');
 
 	return (

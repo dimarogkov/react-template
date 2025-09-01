@@ -4,10 +4,11 @@ import {
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
     NPM_HOT_TOAST_CODE,
+    TOAST_DEMO_CODE,
     TOAST_TYPE_CODE,
     TOAST_CODE,
-    TOAST_MAIN_USAGE_CODE,
     TOAST_USAGE_CODE,
+    TOAST_MAIN_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -19,7 +20,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ToastPreview } from '../../elements/preview';
+import { ToastDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -27,6 +28,8 @@ export const ToastPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: TOAST_DEMO_CODE, demo: <ToastDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -43,9 +46,7 @@ export const ToastPage = () => {
                             <Text size='large'>A succinct message that is displayed temporarily.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ToastPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

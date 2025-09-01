@@ -1,7 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { usePrevNextComponentPath } from '../../hooks';
-import { Separator } from '../ui';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Props = {
@@ -13,9 +12,7 @@ export const ComponentsHead: FC<Props> = ({ children }) => {
 
     return (
         <div className='relative w-full pb-2'>
-            <div className='w-full md:pr-16 mb-5 sm:mb-7 last:mb-0'>{children}</div>
-
-            <Separator />
+            <div className='w-full md:pr-16'>{children}</div>
 
             <div className='absolute top-0 right-0 hidden md:flex gap-2'>
                 {links.map(({ href }, index) => (

@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import {
+    COMPONENTS_SECTIONS,
     ACCORDION_CODE,
     ACCORDION_WRAPPER_CODE,
     ACCORDION_ITEM_CODE,
     ACCORDION_TITLE_CODE,
     ACCORDION_CONTENT_CODE,
+    ACCORDION_DEMO_CODE,
     ACCORDION_USAGE_CODE,
     ACCORDION_ACTIVE_USAGE_CODE,
-    COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
     NPM_LUCIDE_CODE,
@@ -22,7 +23,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { AccordionPreview } from '../../elements/preview';
+import { AccordionDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -34,6 +35,8 @@ export const AccordionPage = () => {
         ...COMPONENTS_SECTIONS,
         { id: 'active', text: 'Active' },
     ];
+
+    const preview = { code: ACCORDION_DEMO_CODE, demo: <AccordionDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -52,9 +55,7 @@ export const AccordionPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <AccordionPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

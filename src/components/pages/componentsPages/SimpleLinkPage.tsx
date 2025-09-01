@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, SIMPLE_LINK_CODE, SIMPLE_LINK_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    SIMPLE_LINK_DEMO_CODE,
+    SIMPLE_LINK_CODE,
+    SIMPLE_LINK_USAGE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,12 +14,14 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { SimpleLinkPreview } from '../../elements/preview';
+import { SimpleLinkDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const SimpleLinkPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
+
+    const preview = { code: SIMPLE_LINK_DEMO_CODE, demo: <SimpleLinkDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -34,9 +41,7 @@ export const SimpleLinkPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <SimpleLinkPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[SIMPLE_LINK_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

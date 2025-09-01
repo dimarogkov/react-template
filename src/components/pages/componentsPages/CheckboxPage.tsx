@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    CHECKBOX_CODE,
+    CHECKBOX_DEMO_CODE,
+    CHECKBOX_USAGE_CODE,
+    CHECKBOX_CONTROLLED_USAGE_CODE,
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
-    CHECKBOX_CODE,
-    CHECKBOX_USAGE_CODE,
-    CHECKBOX_CONTROLLING_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -17,7 +18,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { CheckboxPreview } from '../../elements/preview';
+import { CheckboxDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -27,8 +28,10 @@ export const CheckboxPage = () => {
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
-        { id: 'controlling', text: 'Controlling' },
+        { id: 'controlled', text: 'Controlled' },
     ];
+
+    const preview = { code: CHECKBOX_DEMO_CODE, demo: <CheckboxDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -47,9 +50,7 @@ export const CheckboxPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <CheckboxPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -87,12 +88,12 @@ export const CheckboxPage = () => {
                         </ComponentsCode>
 
                         <ComponentsCode
-                            id='controlling'
-                            ref={registerRef('controlling')}
-                            codeArr={[CHECKBOX_CONTROLLING_USAGE_CODE]}
+                            id='controlled'
+                            ref={registerRef('controlled')}
+                            codeArr={[CHECKBOX_CONTROLLED_USAGE_CODE]}
                         >
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Controlling
+                                Controlled
                             </Title>
 
                             <Text>

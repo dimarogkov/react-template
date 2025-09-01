@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    MODAL_DEMO_CODE,
     MODAL_CODE,
     MODAL_WRAPPER_CODE,
     MODAL_TRIGGER_CODE,
@@ -22,7 +23,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ModalPreview } from '../../elements/preview';
+import { ModalDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -34,6 +35,8 @@ export const ModalPage = () => {
         ...COMPONENTS_SECTIONS,
         { id: 'disableCloseBtn', text: 'Disable Close' },
     ];
+
+    const preview = { code: MODAL_DEMO_CODE, demo: <ModalDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -53,9 +56,7 @@ export const ModalPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ModalPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

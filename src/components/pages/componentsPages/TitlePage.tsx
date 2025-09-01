@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, TITLE_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, TITLE_DEMO_CODE, TITLE_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,12 +9,14 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { TitlePreview } from '../../elements/preview';
+import { TitleDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const TitlePage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
+
+    const preview = { code: TITLE_DEMO_CODE, demo: <TitleDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -31,9 +33,7 @@ export const TitlePage = () => {
                             <Text size='large'>Styles for headings.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <TitlePreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TITLE_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

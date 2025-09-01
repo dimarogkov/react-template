@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, NPM_CLASSNAMES_CODE, TEXT_CODE, TEXT_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    NPM_CLASSNAMES_CODE,
+    TEXT_DEMO_CODE,
+    TEXT_CODE,
+    TEXT_USAGE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,7 +15,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { TextPreview } from '../../elements/preview';
+import { TextDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -17,6 +23,8 @@ export const TextPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: TEXT_DEMO_CODE, demo: <TextDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -33,9 +41,7 @@ export const TextPage = () => {
                             <Text size='large'>Styles for text.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <TextPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'

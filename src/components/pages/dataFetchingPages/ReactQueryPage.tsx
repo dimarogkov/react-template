@@ -1,14 +1,14 @@
 import {
     COMPONENTS_SECTIONS,
+    NPM_CLASSNAMES_CODE,
+    NPM_LUCIDE_CODE,
     NPM_REACT_QUERY_CODE,
+    REACT_QUERY_DEMO_CODE,
     REACT_QUERY_CODE,
     REACT_QUERY_TYPE_CODE,
     REACT_QUERY_ADD_TODO_CODE,
     REACT_QUERY_TODO_CODE,
-    REACT_QUERY_USAGE_CODE,
     REACT_QUERY_PROVIDER_USAGE_CODE,
-    NPM_CLASSNAMES_CODE,
-    NPM_LUCIDE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -20,13 +20,15 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ReactQueryPreview } from '../../elements/preview';
+import { ReactQueryDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 
 export const ReactQueryPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: REACT_QUERY_DEMO_CODE, demo: <ReactQueryDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -43,9 +45,7 @@ export const ReactQueryPage = () => {
                             <Text size='large'>Powerful asynchronous state management for TS/JS and React.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ReactQueryPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -76,7 +76,7 @@ export const ReactQueryPage = () => {
                         <ComponentsCode
                             id='usage'
                             ref={registerRef('usage')}
-                            codeArr={[REACT_QUERY_PROVIDER_USAGE_CODE, REACT_QUERY_USAGE_CODE]}
+                            codeArr={[REACT_QUERY_PROVIDER_USAGE_CODE, REACT_QUERY_DEMO_CODE]}
                         >
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>

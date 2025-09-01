@@ -1,9 +1,9 @@
 export const CHECKBOX_USAGE_CODE = `<Checkbox label='Accept terms and conditions' />`;
 
-export const CHECKBOX_CONTROLLING_USAGE_CODE = `import { useState } from 'react';
+export const CHECKBOX_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
 import { Checkbox, Label } from '../../ui';
 
-export const CheckboxPreview = () => {
+export const CheckboxControlled = () => {
 	const [isChecked, setIsChecked] = useState(false);
 
 	return (

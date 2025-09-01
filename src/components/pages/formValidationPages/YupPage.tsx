@@ -4,10 +4,10 @@ import {
     NPM_HOOK_FORM_CODE,
     NPM_HOOK_FORM_RESOLVERS_CODE,
     NPM_YUP_CODE,
+    YUP_DEMO_CODE,
     YUP_CODE,
-    YUP_OPTIONS_CODE,
     YUP_SCHEMA_CODE,
-    YUP_USAGE_CODE,
+    YUP_OPTIONS_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -19,7 +19,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { YupPreview } from '../../elements/preview';
+import { YupDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -27,6 +27,8 @@ export const YupPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: YUP_DEMO_CODE, demo: <YupDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -46,9 +48,7 @@ export const YupPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <YupPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -85,7 +85,7 @@ export const YupPage = () => {
                             </Title>
                         </ComponentsCodeWithAccordion>
 
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[YUP_USAGE_CODE]}>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[YUP_DEMO_CODE]}>
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>
 

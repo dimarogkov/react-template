@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import {
+    COMPONENTS_SECTIONS,
     ALERT_CODE,
     ALERT_WRAPPER_CODE,
     ALERT_TITLE_CODE,
     ALERT_DESCRIPTION_CODE,
+    ALERT_DEMO_CODE,
     ALERT_USAGE_CODE,
-    COMPONENTS_SECTIONS,
+    ALERT_ICON_USAGE_CODE,
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
 } from '../../../variables/code';
@@ -19,7 +21,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { AlertPreview } from '../../elements/preview';
+import { AlertDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -27,6 +29,8 @@ export const AlertPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: ALERT_DEMO_CODE, demo: <AlertDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -43,9 +47,7 @@ export const AlertPage = () => {
                             <Text size='large'>Displays a callout for user attention.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <AlertPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -87,7 +89,11 @@ export const AlertPage = () => {
                             </Text>
                         </ComponentsCodeWithAccordion>
 
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ALERT_USAGE_CODE]}>
+                        <ComponentsCode
+                            id='usage'
+                            ref={registerRef('usage')}
+                            codeArr={[ALERT_ICON_USAGE_CODE, ALERT_USAGE_CODE]}
+                        >
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>
 

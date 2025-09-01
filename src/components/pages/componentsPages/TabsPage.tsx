@@ -3,6 +3,7 @@ import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
+    TABS_DEMO_CODE,
     TABS_CODE,
     TABS_WRAPPER_CODE,
     TABS_LIST_CODE,
@@ -23,7 +24,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { TabsPreview } from '../../elements/preview';
+import { TabsDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -36,6 +37,8 @@ export const TabsPage = () => {
         { id: 'active', text: 'Active' },
         { id: 'animation', text: 'Animation' },
     ];
+
+    const preview = { code: TABS_DEMO_CODE, demo: <TabsDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -55,9 +58,7 @@ export const TabsPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <TabsPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

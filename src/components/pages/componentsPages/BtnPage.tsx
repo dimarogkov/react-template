@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import {
-    BTN_LINK_CODE,
-    BTN_CODE,
-    BTN_USAGE_CODE,
-    NPM_CLASSNAMES_CODE,
-    BTN_LINK_USAGE_CODE,
-    BTN_WRAPPER_CODE,
     COMPONENTS_SECTIONS,
+    BTN_CODE,
+    BTN_WRAPPER_CODE,
+    BTN_LINK_CODE,
+    BTN_DEMO_CODE,
+    BTN_USAGE_CODE,
+    BTN_LINK_USAGE_CODE,
+    NPM_CLASSNAMES_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -18,7 +19,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { BtnPreview } from '../../elements/preview';
+import { BtnDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -30,6 +31,8 @@ export const BtnPage = () => {
         ...COMPONENTS_SECTIONS,
         { id: 'link', text: 'Link' },
     ];
+
+    const preview = { code: BTN_DEMO_CODE, demo: <BtnDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -46,9 +49,7 @@ export const BtnPage = () => {
                             <Text size='large'>Displays a button or a component that looks like a button.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <BtnPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'

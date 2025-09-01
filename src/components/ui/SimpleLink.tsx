@@ -15,7 +15,7 @@ export const SimpleLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                 {...props}
                 to={href}
                 target={target}
-                className={`relative w-auto font-medium text-title underline ${className}`}
+                className={`relative w-auto font-medium text-title underline transition-opacity duration-300 hover:opacity-75 ${className}`}
             />
         );
     }

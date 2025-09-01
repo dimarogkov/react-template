@@ -16,7 +16,7 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
 -   components
     -   blocks
     -   elements
-        -   preview
+        -   demo
     -   other
     -   pages
         -   componentsPages

@@ -4,6 +4,7 @@ import {
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
     NPM_FRAMER_MOTION_CODE,
+    SELECT_DEMO_CODE,
     SELECT_TYPE_CODE,
     SELECT_CODE,
     SELECT_WRAPPER_CODE,
@@ -11,7 +12,7 @@ import {
     SELECT_OPTIONS_CODE,
     SELECT_OPTION_CODE,
     SELECT_USAGE_CODE,
-    SELECT_CONTROLLING_USAGE_CODE,
+    SELECT_CONTROLLED_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -23,7 +24,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { SelectPreview } from '../../elements/preview';
+import { SelectDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -33,8 +34,10 @@ export const SelectPage = () => {
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
-        { id: 'controlling', text: 'Controlling' },
+        { id: 'controlled', text: 'Controlled' },
     ];
+
+    const preview = { code: SELECT_DEMO_CODE, demo: <SelectDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -53,9 +56,7 @@ export const SelectPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <SelectPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -106,12 +107,12 @@ export const SelectPage = () => {
                         </ComponentsCode>
 
                         <ComponentsCode
-                            id='controlling'
-                            ref={registerRef('controlling')}
-                            codeArr={[SELECT_CONTROLLING_USAGE_CODE]}
+                            id='controlled'
+                            ref={registerRef('controlled')}
+                            codeArr={[SELECT_CONTROLLED_USAGE_CODE]}
                         >
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Controlling
+                                Controlled
                             </Title>
 
                             <Text>

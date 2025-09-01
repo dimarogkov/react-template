@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
+    COMPONENTS_SECTIONS,
     BREADCRUMB_CODE,
     BREADCRUMB_HELPERS_CODE,
+    BREADCRUMB_DEMO_CODE,
     BREADCRUMB_USAGE_CODE,
-    COMPONENTS_SECTIONS,
     NPM_LUCIDE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
@@ -16,7 +17,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { BreadcrumbPreview } from '../../elements/preview';
+import { BreadcrumbDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -24,6 +25,8 @@ export const BreadcrumbPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: BREADCRUMB_DEMO_CODE, demo: <BreadcrumbDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -42,9 +45,7 @@ export const BreadcrumbPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <BreadcrumbPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'

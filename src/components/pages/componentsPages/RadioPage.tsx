@@ -3,9 +3,10 @@ import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
+    RADIO_DEMO_CODE,
     RADIO_CODE,
     RADIO_USAGE_CODE,
-    RADIO_CONTROLLING_USAGE_CODE,
+    RADIO_CONTROLLED_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -17,7 +18,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { RadioPreview } from '../../elements/preview';
+import { RadioDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -27,8 +28,10 @@ export const RadioPage = () => {
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
-        { id: 'controlling', text: 'Controlling' },
+        { id: 'controlled', text: 'Controlled' },
     ];
+
+    const preview = { code: RADIO_DEMO_CODE, demo: <RadioDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -48,9 +51,7 @@ export const RadioPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <RadioPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -88,12 +89,12 @@ export const RadioPage = () => {
                         </ComponentsCode>
 
                         <ComponentsCode
-                            id='controlling'
-                            ref={registerRef('controlling')}
-                            codeArr={[RADIO_CONTROLLING_USAGE_CODE]}
+                            id='controlled'
+                            ref={registerRef('controlled')}
+                            codeArr={[RADIO_CONTROLLED_USAGE_CODE]}
                         >
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Controlling
+                                Controlled
                             </Title>
 
                             <Text>

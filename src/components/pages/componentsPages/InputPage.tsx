@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    INPUT_DEMO_CODE,
     INPUT_CODE,
     INPUT_USAGE_CODE,
-    INPUT_CONTROLLING_USAGE_CODE,
+    INPUT_CONTROLLED_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -14,14 +15,16 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { InputPreview } from '../../elements/preview';
+import { InputDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const InputPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'controlling', text: 'Controlling' }];
+    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'controlled', text: 'Controlled' }];
+
+    const preview = { code: INPUT_DEMO_CODE, demo: <InputDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -40,9 +43,7 @@ export const InputPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <InputPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[INPUT_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -68,12 +69,12 @@ export const InputPage = () => {
                         </ComponentsCode>
 
                         <ComponentsCode
-                            id='controlling'
-                            ref={registerRef('controlling')}
-                            codeArr={[INPUT_CONTROLLING_USAGE_CODE]}
+                            id='controlled'
+                            ref={registerRef('controlled')}
+                            codeArr={[INPUT_CONTROLLED_USAGE_CODE]}
                         >
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Controlling
+                                Controlled
                             </Title>
 
                             <Text>

@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
     NPM_REDUX_TOOLKIT_CODE,
+    REDUX_TOOLKIT_DEMO_CODE,
     REDUX_TOOLKIT_CODE,
     REDUX_TOOLKIT_COUNT_CODE,
     REDUX_TOOLKIT_PROVIDER_USAGE_CODE,
-    REDUX_TOOLKIT_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -17,7 +17,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ReduxToolkitPreview } from '../../elements/preview';
+import { ReduxToolkitDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -25,6 +25,8 @@ export const ReduxToolkitPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: REDUX_TOOLKIT_DEMO_CODE, demo: <ReduxToolkitDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -43,9 +45,7 @@ export const ReduxToolkitPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ReduxToolkitPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'
@@ -80,7 +80,7 @@ export const ReduxToolkitPage = () => {
                         <ComponentsCode
                             id='usage'
                             ref={registerRef('usage')}
-                            codeArr={[REDUX_TOOLKIT_PROVIDER_USAGE_CODE, REDUX_TOOLKIT_USAGE_CODE]}
+                            codeArr={[REDUX_TOOLKIT_PROVIDER_USAGE_CODE, REDUX_TOOLKIT_DEMO_CODE]}
                         >
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>

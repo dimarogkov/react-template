@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    NPM_LUCIDE_CODE,
+    NPM_CLASSNAMES_CODE,
+    PAGINATION_DEMO_CODE,
     PAGINATION_CODE,
     PAGINATION_WRAPPER_CODE,
     PAGINATION_PREVIOUS_CODE,
@@ -11,8 +14,6 @@ import {
     PAGINATION_HELPER_CODE,
     PAGINATION_USAGE_CODE,
     PAGINATION_DATA_USAGE_CODE,
-    NPM_LUCIDE_CODE,
-    NPM_CLASSNAMES_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -24,7 +25,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { PaginationPreview } from '../../elements/preview';
+import { PaginationDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -36,6 +37,8 @@ export const PaginationPage = () => {
         ...COMPONENTS_SECTIONS,
         { id: 'data', text: 'Data' },
     ];
+
+    const preview = { code: PAGINATION_DEMO_CODE, demo: <PaginationDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -52,9 +55,7 @@ export const PaginationPage = () => {
                             <Text size='large'>Pagination with page navigation, next and previous links.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <PaginationPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -73,11 +74,13 @@ export const PaginationPage = () => {
                             ref={registerRef('code')}
                             codeArr={[
                                 { label: 'index.ts', code: PAGINATION_CODE },
-                                { label: 'ModalWrapper.tsx', code: PAGINATION_WRAPPER_CODE },
-                                { label: 'ModalTrigger.tsx', code: PAGINATION_PREVIOUS_CODE },
-                                { label: 'ModalContent.tsx', code: PAGINATION_ITEM_CODE },
-                                { label: 'ModalLayer.tsx', code: PAGINATION_NEXT_CODE },
-                                { label: 'ModalClose.tsx', code: PAGINATION_ELLIPSIS_CODE },
+                                { label: 'PaginationWrapper.tsx', code: PAGINATION_WRAPPER_CODE },
+                                { label: 'PaginationPrevious.tsx', code: PAGINATION_PREVIOUS_CODE },
+                                { label: 'PaginationItem.tsx', code: PAGINATION_ITEM_CODE },
+                                { label: 'PaginationNext.tsx', code: PAGINATION_NEXT_CODE },
+                                { label: 'PaginationEllipsis.tsx', code: PAGINATION_ELLIPSIS_CODE },
+                                { label: 'usePagination.tsx', code: PAGINATION_HOOK_CODE },
+                                { label: 'getPaginationRange.ts', code: PAGINATION_HELPER_CODE },
                             ]}
                         >
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -102,15 +105,7 @@ export const PaginationPage = () => {
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>
 
-                        <ComponentsCodeWithAccordion
-                            id='data'
-                            ref={registerRef('data')}
-                            codeArr={[
-                                { label: 'PaginationPreview.tsx', code: PAGINATION_DATA_USAGE_CODE },
-                                { label: 'usePagination.tsx', code: PAGINATION_HOOK_CODE },
-                                { label: 'getPaginationRange.ts', code: PAGINATION_HELPER_CODE },
-                            ]}
-                        >
+                        <ComponentsCode id='data' ref={registerRef('data')} codeArr={[PAGINATION_DATA_USAGE_CODE]}>
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
                                 Data
                             </Title>
@@ -119,7 +114,7 @@ export const PaginationPage = () => {
                                 Here's an example of controlling the pagination state and using the state to chunk the
                                 data.
                             </Text>
-                        </ComponentsCodeWithAccordion>
+                        </ComponentsCode>
 
                         <ComponentsFooter />
                     </div>

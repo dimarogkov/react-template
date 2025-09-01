@@ -4,9 +4,9 @@ import {
     NPM_HOOK_FORM_CODE,
     NPM_HOOK_FORM_RESOLVERS_CODE,
     NPM_ZOD_CODE,
+    ZOD_DEMO_CODE,
     ZOD_CODE,
     ZOD_SCHEMA_CODE,
-    ZOD_USAGE_CODE,
     ZOP_OPTIONS_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
@@ -19,7 +19,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ZodPreview } from '../../elements/preview';
+import { ZodDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -27,6 +27,8 @@ export const ZodPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: ZOD_DEMO_CODE, demo: <ZodDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -46,9 +48,7 @@ export const ZodPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ZodPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -85,7 +85,7 @@ export const ZodPage = () => {
                             </Title>
                         </ComponentsCodeWithAccordion>
 
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZOD_USAGE_CODE]}>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[ZOD_DEMO_CODE]}>
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>
 

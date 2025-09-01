@@ -7,9 +7,9 @@ import {
     REACT_QUERY_ADD_TODO_CODE,
     REACT_QUERY_TODO_CODE,
     REDUX_TOOLKIT_PROVIDER_USAGE_CODE,
+    RTK_QUERY_DEMO_CODE,
     RTK_QUERY_CODE,
     RTK_QUERY_SLICE_CODE,
-    RTK_QUERY_USAGE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -21,13 +21,15 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { RtkQueryPreview } from '../../elements/preview';
+import { RtkQueryDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 
 export const RtkQueryPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: RTK_QUERY_DEMO_CODE, demo: <RtkQueryDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -48,9 +50,7 @@ export const RtkQueryPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <RtkQueryPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'
@@ -82,7 +82,7 @@ export const RtkQueryPage = () => {
                         <ComponentsCode
                             id='usage'
                             ref={registerRef('usage')}
-                            codeArr={[REDUX_TOOLKIT_PROVIDER_USAGE_CODE, RTK_QUERY_USAGE_CODE]}
+                            codeArr={[REDUX_TOOLKIT_PROVIDER_USAGE_CODE, RTK_QUERY_DEMO_CODE]}
                         >
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>

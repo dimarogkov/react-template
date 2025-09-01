@@ -1,9 +1,9 @@
 export const RADIO_USAGE_CODE = `<Radio name='radio' label='Radio' />`;
 
-export const RADIO_CONTROLLING_USAGE_CODE = `import { useState } from 'react';
+export const RADIO_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
 import { Label, Radio } from '../../ui';
 
-export const RadioPreview = () => {
+export const RadioControlled = () => {
 	const [selectedValue, setSelectedValue] = useState('');
 
 	return (

@@ -8,10 +8,10 @@ export const SELECT_USAGE_CODE = `<Select>
 	</Select.Options>
 </Select>`;
 
-export const SELECT_CONTROLLING_USAGE_CODE = `import { useState } from 'react';
+export const SELECT_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
 import { Label, Select } from '../../ui';
 
-export const SelectPreview = () => {
+export const SelectControlled = () => {
 	const [value, setValue] = useState('');
 
 	return (

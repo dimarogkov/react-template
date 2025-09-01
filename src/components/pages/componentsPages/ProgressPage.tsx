@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, NPM_CLASSNAMES_CODE, PROGRESS_CODE, PROGRESS_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    NPM_CLASSNAMES_CODE,
+    PROGRESS_DEMO_CODE,
+    PROGRESS_CODE,
+    PROGRESS_USAGE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,7 +15,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { ProgressPreview } from '../../elements/preview';
+import { ProgressDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -17,6 +23,8 @@ export const ProgressPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: PROGRESS_DEMO_CODE, demo: <ProgressDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -36,9 +44,7 @@ export const ProgressPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <ProgressPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'

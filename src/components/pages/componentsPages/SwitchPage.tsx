@@ -3,6 +3,7 @@ import {
     COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
+    SWITCH_DEMO_CODE,
     SWITCH_CODE,
     SWITCH_USAGE_CODE,
 } from '../../../variables/code';
@@ -16,7 +17,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { SwitchPreview } from '../../elements/preview';
+import { SwitchDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -24,6 +25,8 @@ export const SwitchPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: SWITCH_DEMO_CODE, demo: <SwitchDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -42,9 +45,7 @@ export const SwitchPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <SwitchPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

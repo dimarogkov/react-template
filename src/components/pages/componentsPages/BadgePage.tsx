@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, BADGE_CODE, BADGE_USAGE_CODE, BADGE_ICON_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    BADGE_CODE,
+    BADGE_DEMO_CODE,
+    BADGE_USAGE_CODE,
+    BADGE_ICON_USAGE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,7 +15,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { BadgePreview } from '../../elements/preview';
+import { BadgeDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -17,6 +23,8 @@ export const BadgePage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'icon', text: 'Icon' }];
+
+    const preview = { code: BADGE_DEMO_CODE, demo: <BadgeDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -33,9 +41,7 @@ export const BadgePage = () => {
                             <Text size='large'>Displays a badge or a component that looks like a badge.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <BadgePreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[BADGE_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

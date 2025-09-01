@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    NPM_CLASSNAMES_CODE,
+    NPM_LUCIDE_CODE,
+    NPM_FRAMER_MOTION_CODE,
+    TOOLTIP_DEMO_CODE,
     TOOLTIP_CODE,
     TOOLTIP_WRAPPER_CODE,
     TOOLTIP_TRIGGER_CODE,
     TOOLTIP_CONTENT_CODE,
     TOOLTIP_USAGE_CODE,
-    NPM_CLASSNAMES_CODE,
-    NPM_LUCIDE_CODE,
-    NPM_FRAMER_MOTION_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
@@ -20,7 +21,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { TooltipPreview } from '../../elements/preview';
+import { TooltipDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -28,6 +29,8 @@ export const TooltipPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+
+    const preview = { code: TOOLTIP_DEMO_CODE, demo: <TooltipDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -47,9 +50,7 @@ export const TooltipPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <TooltipPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCodeWithAccordion
                             id='installation'

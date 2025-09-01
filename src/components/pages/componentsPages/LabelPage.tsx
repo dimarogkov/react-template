@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, INPUT_USAGE_CODE, LABEL_CODE } from '../../../variables/code';
+import { COMPONENTS_SECTIONS, INPUT_DEMO_CODE, LABEL_CODE, LABEL_USAGE_CODE } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,12 +9,14 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { InputPreview } from '../../elements/preview';
+import { InputDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const LabelPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
+
+    const preview = { code: INPUT_DEMO_CODE, demo: <InputDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -31,9 +33,7 @@ export const LabelPage = () => {
                             <Text size='large'>A reusable component for wrapping Form elements.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <InputPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[LABEL_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
@@ -54,7 +54,7 @@ export const LabelPage = () => {
                             </Text>
                         </ComponentsCode>
 
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[INPUT_USAGE_CODE]}>
+                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[LABEL_USAGE_CODE]}>
                             <Title size='h4'>Usage</Title>
                         </ComponentsCode>
 

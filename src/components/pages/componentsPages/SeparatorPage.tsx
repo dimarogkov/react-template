@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, SEPARATOR_CODE, SEPARATOR_USAGE_CODE } from '../../../variables/code';
+import {
+    COMPONENTS_SECTIONS,
+    SEPARATOR_DEMO_CODE,
+    SEPARATOR_CODE,
+    SEPARATOR_USAGE_CODE,
+} from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
 import {
     ComponentsCode,
@@ -9,12 +14,14 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { SeparatorPreview } from '../../elements/preview';
+import { SeparatorDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
 export const SeparatorPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
+
+    const preview = { code: SEPARATOR_DEMO_CODE, demo: <SeparatorDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -31,9 +38,7 @@ export const SeparatorPage = () => {
                             <Text size='large'>Visually or semantically separates content.</Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <SeparatorPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode id='code' ref={registerRef('code')} codeArr={[SEPARATOR_CODE]}>
                             <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>

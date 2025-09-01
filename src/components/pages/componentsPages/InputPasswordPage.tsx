@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
     COMPONENTS_SECTIONS,
+    INPUT_PASSWORD_DEMO_CODE,
     INPUT_PASSWORD_CODE,
     INPUT_PASSWORD_USAGE_CODE,
-    INPUT_PASSWORD_CONTROLLING_USAGE_CODE,
+    INPUT_PASSWORD_CONTROLLED_USAGE_CODE,
     NPM_LUCIDE_CODE,
 } from '../../../variables/code';
 import { useSectionsRefs } from '../../../hooks';
@@ -15,7 +16,7 @@ import {
     ComponentsPreview,
     ComponentsWrapper,
 } from '../../blocks';
-import { InputPasswordPreview } from '../../elements/preview';
+import { InputPasswordDemo } from '../../elements/demo';
 import { Text, Title } from '../../ui';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -25,8 +26,10 @@ export const InputPasswordPage = () => {
     const sectionsArr = [
         { id: 'installation', text: 'Installation' },
         ...COMPONENTS_SECTIONS,
-        { id: 'controlling', text: 'Controlling' },
+        { id: 'controlled', text: 'Controlled' },
     ];
+
+    const preview = { code: INPUT_PASSWORD_DEMO_CODE, demo: <InputPasswordDemo /> };
 
     return (
         <section className='relative w-full'>
@@ -45,9 +48,7 @@ export const InputPasswordPage = () => {
                             </Text>
                         </ComponentsHead>
 
-                        <ComponentsPreview>
-                            <InputPasswordPreview />
-                        </ComponentsPreview>
+                        <ComponentsPreview preview={preview} />
 
                         <ComponentsCode
                             id='installation'
@@ -82,12 +83,12 @@ export const InputPasswordPage = () => {
                         </ComponentsCode>
 
                         <ComponentsCode
-                            id='controlling'
-                            ref={registerRef('controlling')}
-                            codeArr={[INPUT_PASSWORD_CONTROLLING_USAGE_CODE]}
+                            id='controlled'
+                            ref={registerRef('controlled')}
+                            codeArr={[INPUT_PASSWORD_CONTROLLED_USAGE_CODE]}
                         >
                             <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Controlling
+                                Controlled
                             </Title>
 
                             <Text>

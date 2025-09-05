@@ -1,67 +1,49 @@
-import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, TITLE_CODE, TITLE_DEMO_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
-import { useSectionsRefs } from '../../../hooks';
+import { TITLE_CODE, TITLE_DEMO_CODE, TITLE_USAGE_CODE } from '../../../variables/code';
 import {
-    ComponentsCode,
-    ComponentsFooter,
-    ComponentsHead,
-    ComponentsNavigation,
-    ComponentsPreview,
-    ComponentsWrapper,
-} from '../../blocks';
+    IDocumentationCodeSection,
+    IDocumentationData,
+    IDocumentationPreview,
+} from '../../../types/interfaces/Documentation';
+import { DocumentationDetail } from '../../blocks';
 import { TitleDemo } from '../../elements/demo';
-import { Text, Title } from '../../ui';
-import { ArrowUpRight } from 'lucide-react';
+import { Text } from '../../ui';
 
 export const TitlePage = () => {
-    const { sectionsRef, registerRef } = useSectionsRefs();
+    const preview: IDocumentationPreview = {
+        demo: <TitleDemo />,
+        code: TITLE_DEMO_CODE,
+    };
 
-    const preview = { code: TITLE_DEMO_CODE, demo: <TitleDemo /> };
+    const codeSections: IDocumentationCodeSection[] = [
+        {
+            id: 'code',
+            title: 'Code',
+            link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Title.tsx',
+            description: (
+                <Text>
+                    Include a custom <span className='badge-item'>Title</span> component for consistent and maintainable
+                    usage throughout the project.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [TITLE_CODE],
+        },
+        {
+            id: 'usage',
+            title: 'Usage',
+            link: '',
+            description: null,
+            withAccordion: false,
+            codeArr: [TITLE_USAGE_CODE],
+        },
+    ];
 
-    return (
-        <section className='relative w-full'>
-            <div className='container'>
-                <ComponentsWrapper
-                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />}
-                >
-                    <div className='w-full xl:px-[30px]'>
-                        <ComponentsHead>
-                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                                Title
-                            </Title>
+    const data: IDocumentationData = {
+        title: 'Title',
+        description: 'Styles for headings.',
+        preview,
+        codeSections,
+    };
 
-                            <Text size='large'>Styles for headings.</Text>
-                        </ComponentsHead>
-
-                        <ComponentsPreview preview={preview} />
-
-                        <ComponentsCode id='code' ref={registerRef('code')} codeArr={[TITLE_CODE]}>
-                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                                <span>Code</span>
-
-                                <Link
-                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Title.tsx'
-                                    target='_blank'
-                                    className='transition-colors duration-300 hover:text-text'
-                                >
-                                    <ArrowUpRight />
-                                </Link>
-                            </Title>
-
-                            <Text>
-                                Include a custom <span className='badge-item'>Title</span> component for consistent and
-                                maintainable usage throughout the project.
-                            </Text>
-                        </ComponentsCode>
-
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[TITLE_USAGE_CODE]}>
-                            <Title size='h4'>Usage</Title>
-                        </ComponentsCode>
-
-                        <ComponentsFooter />
-                    </div>
-                </ComponentsWrapper>
-            </div>
-        </section>
-    );
+    return <DocumentationDetail data={data} />;
 };

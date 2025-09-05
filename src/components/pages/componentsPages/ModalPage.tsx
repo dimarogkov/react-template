@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
 import {
-    COMPONENTS_SECTIONS,
     MODAL_CODE,
     MODAL_WRAPPER_CODE,
     MODAL_TRIGGER_CODE,
@@ -13,117 +11,84 @@ import {
     NPM_FRAMER_MOTION_CODE,
     NPM_LUCIDE_CODE,
 } from '../../../variables/code';
-import { useSectionsRefs } from '../../../hooks';
 import {
-    ComponentsCode,
-    ComponentsCodeWithAccordion,
-    ComponentsFooter,
-    ComponentsHead,
-    ComponentsNavigation,
-    ComponentsPreview,
-    ComponentsWrapper,
-} from '../../blocks';
+    IDocumentationCodeSection,
+    IDocumentationData,
+    IDocumentationPreview,
+} from '../../../types/interfaces/Documentation';
+import { DocumentationDetail } from '../../blocks';
 import { ModalDemo } from '../../elements/demo';
-import { Text, Title } from '../../ui';
-import { ArrowUpRight } from 'lucide-react';
+import { Text } from '../../ui';
 
 export const ModalPage = () => {
-    const { sectionsRef, registerRef } = useSectionsRefs();
+    const preview: IDocumentationPreview = {
+        demo: <ModalDemo />,
+        code: MODAL_DEMO_CODE,
+    };
 
-    const sectionsArr = [
-        { id: 'installation', text: 'Installation' },
-        ...COMPONENTS_SECTIONS,
-        { id: 'disableCloseBtn', text: 'Disable Close' },
+    const codeSections: IDocumentationCodeSection[] = [
+        {
+            id: 'installation',
+            title: 'Installation',
+            link: '',
+            description: null,
+            withAccordion: true,
+            codeArr: [
+                { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
+            ],
+        },
+        {
+            id: 'code',
+            title: 'Code',
+            link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Modal',
+            description: (
+                <Text>
+                    Include a custom <span className='badge-item'>Modal</span> component for consistent and maintainable
+                    usage throughout the project.
+                </Text>
+            ),
+            withAccordion: true,
+            codeArr: [
+                { label: 'index.ts', code: MODAL_CODE },
+                { label: 'ModalWrapper.tsx', code: MODAL_WRAPPER_CODE },
+                { label: 'ModalTrigger.tsx', code: MODAL_TRIGGER_CODE },
+                { label: 'ModalContent.tsx', code: MODAL_CONTENT_CODE },
+                { label: 'ModalLayer.tsx', code: MODAL_LAYER_CODE },
+                { label: 'ModalClose.tsx', code: MODAL_CLOSE_CODE },
+            ],
+        },
+        {
+            id: 'usage',
+            title: 'Usage',
+            link: '',
+            description: null,
+            withAccordion: false,
+            codeArr: [MODAL_USAGE_CODE],
+        },
+        {
+            id: 'disableCloseBtn',
+            title: 'Disable Close',
+            link: '',
+            description: (
+                <Text>
+                    Disable the modal&apos;s close button by adding the&nbsp;
+                    <span className='badge-item'>disableCloseBtn</span> prop to&nbsp;
+                    <span className='badge-item'>Modal.Content</span>.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [MODAL_DISABLE_CLOSE_BTN_USAGE_CODE],
+        },
     ];
 
-    const preview = { code: MODAL_DEMO_CODE, demo: <ModalDemo /> };
+    const data: IDocumentationData = {
+        title: 'Modal',
+        description:
+            'A window overlaid on either the primary window or another modal window, rendering the content underneath inert.',
+        preview,
+        codeSections,
+    };
 
-    return (
-        <section className='relative w-full'>
-            <div className='container'>
-                <ComponentsWrapper
-                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
-                >
-                    <div className='w-full xl:px-[30px]'>
-                        <ComponentsHead>
-                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                                Modal
-                            </Title>
-
-                            <Text size='large'>
-                                A window overlaid on either the primary window or another modal window, rendering the
-                                content underneath inert.
-                            </Text>
-                        </ComponentsHead>
-
-                        <ComponentsPreview preview={preview} />
-
-                        <ComponentsCodeWithAccordion
-                            id='installation'
-                            ref={registerRef('installation')}
-                            type='installation'
-                            codeArr={[
-                                { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
-                            ]}
-                        >
-                            <Title size='h4'>Installation</Title>
-                        </ComponentsCodeWithAccordion>
-
-                        <ComponentsCodeWithAccordion
-                            id='code'
-                            ref={registerRef('code')}
-                            codeArr={[
-                                { label: 'index.ts', code: MODAL_CODE },
-                                { label: 'ModalWrapper.tsx', code: MODAL_WRAPPER_CODE },
-                                { label: 'ModalTrigger.tsx', code: MODAL_TRIGGER_CODE },
-                                { label: 'ModalContent.tsx', code: MODAL_CONTENT_CODE },
-                                { label: 'ModalLayer.tsx', code: MODAL_LAYER_CODE },
-                                { label: 'ModalClose.tsx', code: MODAL_CLOSE_CODE },
-                            ]}
-                        >
-                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                                <span>Code</span>
-
-                                <Link
-                                    to='https://github.com/dimarogkov/react-template/tree/master/src/components/ui/Modal'
-                                    target='_blank'
-                                    className='transition-colors duration-300 hover:text-text'
-                                >
-                                    <ArrowUpRight />
-                                </Link>
-                            </Title>
-
-                            <Text>
-                                Include a custom <span className='badge-item'>Modal</span> component for consistent and
-                                maintainable usage throughout the project.
-                            </Text>
-                        </ComponentsCodeWithAccordion>
-
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[MODAL_USAGE_CODE]}>
-                            <Title size='h4'>Usage</Title>
-                        </ComponentsCode>
-
-                        <ComponentsCode
-                            id='disableCloseBtn'
-                            ref={registerRef('disableCloseBtn')}
-                            codeArr={[MODAL_DISABLE_CLOSE_BTN_USAGE_CODE]}
-                        >
-                            <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Disable Close
-                            </Title>
-
-                            <Text>
-                                Disable the modal's close button by adding the&nbsp;
-                                <span className='badge-item'>disableCloseBtn</span> prop to&nbsp;
-                                <span className='badge-item'>Modal.Content</span>.
-                            </Text>
-                        </ComponentsCode>
-
-                        <ComponentsFooter />
-                    </div>
-                </ComponentsWrapper>
-            </div>
-        </section>
-    );
+    return <DocumentationDetail data={data} />;
 };

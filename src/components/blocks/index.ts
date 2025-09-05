@@ -7,6 +7,7 @@ import { ComponentsHead } from './ComponentsHead';
 import { ComponentsNavigation } from './ComponentsNavigation';
 import { ComponentsPreview } from './ComponentsPreview';
 import { ComponentsWrapper } from './ComponentsWrapper';
+import { DocumentationDetail } from './DocumentationDetail';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 
@@ -20,6 +21,7 @@ export {
     ComponentsNavigation,
     ComponentsPreview,
     ComponentsWrapper,
+    DocumentationDetail,
     Header,
     Sidebar,
 };

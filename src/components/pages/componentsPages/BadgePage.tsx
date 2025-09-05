@@ -1,86 +1,62 @@
-import { Link } from 'react-router-dom';
+import { BADGE_CODE, BADGE_DEMO_CODE, BADGE_USAGE_CODE, BADGE_ICON_USAGE_CODE } from '../../../variables/code';
 import {
-    COMPONENTS_SECTIONS,
-    BADGE_CODE,
-    BADGE_DEMO_CODE,
-    BADGE_USAGE_CODE,
-    BADGE_ICON_USAGE_CODE,
-} from '../../../variables/code';
-import { useSectionsRefs } from '../../../hooks';
-import {
-    ComponentsCode,
-    ComponentsFooter,
-    ComponentsHead,
-    ComponentsNavigation,
-    ComponentsPreview,
-    ComponentsWrapper,
-} from '../../blocks';
+    IDocumentationCodeSection,
+    IDocumentationData,
+    IDocumentationPreview,
+} from '../../../types/interfaces/Documentation';
+import { DocumentationDetail } from '../../blocks';
 import { BadgeDemo } from '../../elements/demo';
-import { Text, Title } from '../../ui';
-import { ArrowUpRight } from 'lucide-react';
+import { Text } from '../../ui';
 
 export const BadgePage = () => {
-    const { sectionsRef, registerRef } = useSectionsRefs();
+    const preview: IDocumentationPreview = {
+        demo: <BadgeDemo />,
+        code: BADGE_DEMO_CODE,
+    };
 
-    const sectionsArr = [...COMPONENTS_SECTIONS, { id: 'icon', text: 'Icon' }];
+    const codeSections: IDocumentationCodeSection[] = [
+        {
+            id: 'code',
+            title: 'Code',
+            link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Badge.tsx',
+            description: (
+                <Text>
+                    Include a custom <span className='badge-item'>Badge</span> component for consistent and maintainable
+                    usage throughout the project.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [BADGE_CODE],
+        },
+        {
+            id: 'usage',
+            title: 'Usage',
+            link: '',
+            description: null,
+            withAccordion: false,
+            codeArr: [BADGE_USAGE_CODE],
+        },
+        {
+            id: 'icon',
+            title: 'Icon',
+            link: '',
+            description: (
+                <Text>
+                    Display an icon inside a <span className='badge-item'>Badge</span> component to highlight statuses
+                    or actions in a compact form.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [BADGE_ICON_USAGE_CODE],
+        },
+    ];
 
-    const preview = { code: BADGE_DEMO_CODE, demo: <BadgeDemo /> };
+    const data: IDocumentationData = {
+        title: 'Badge',
+        description: 'Displays a badge or a component that looks like a badge.',
+        preview,
+        codeSections,
+    };
 
-    return (
-        <section className='relative w-full'>
-            <div className='container'>
-                <ComponentsWrapper
-                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
-                >
-                    <div className='w-full xl:px-[30px]'>
-                        <ComponentsHead>
-                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                                Badge
-                            </Title>
-
-                            <Text size='large'>Displays a badge or a component that looks like a badge.</Text>
-                        </ComponentsHead>
-
-                        <ComponentsPreview preview={preview} />
-
-                        <ComponentsCode id='code' ref={registerRef('code')} codeArr={[BADGE_CODE]}>
-                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                                <span>Code</span>
-
-                                <Link
-                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Badge.tsx'
-                                    target='_blank'
-                                    className='transition-colors duration-300 hover:text-text'
-                                >
-                                    <ArrowUpRight />
-                                </Link>
-                            </Title>
-
-                            <Text>
-                                Include a custom <span className='badge-item'>Badge</span> component for consistent and
-                                maintainable usage throughout the project.
-                            </Text>
-                        </ComponentsCode>
-
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[BADGE_USAGE_CODE]}>
-                            <Title size='h4'>Usage</Title>
-                        </ComponentsCode>
-
-                        <ComponentsCode id='icon' ref={registerRef('icon')} codeArr={[BADGE_ICON_USAGE_CODE]}>
-                            <Title size='h4' className='mb-1 md:mb-1.5 last:mb-0'>
-                                Icon
-                            </Title>
-
-                            <Text>
-                                Display an icon inside a <span className='badge-item'>Badge</span> component to
-                                highlight statuses or actions in a compact form.
-                            </Text>
-                        </ComponentsCode>
-
-                        <ComponentsFooter />
-                    </div>
-                </ComponentsWrapper>
-            </div>
-        </section>
-    );
+    return <DocumentationDetail data={data} />;
 };

@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
 import {
-    COMPONENTS_SECTIONS,
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
     NPM_HOT_TOAST_CODE,
@@ -10,96 +8,67 @@ import {
     TOAST_USAGE_CODE,
     TOAST_MAIN_USAGE_CODE,
 } from '../../../variables/code';
-import { useSectionsRefs } from '../../../hooks';
 import {
-    ComponentsCode,
-    ComponentsCodeWithAccordion,
-    ComponentsFooter,
-    ComponentsHead,
-    ComponentsNavigation,
-    ComponentsPreview,
-    ComponentsWrapper,
-} from '../../blocks';
+    IDocumentationCodeSection,
+    IDocumentationData,
+    IDocumentationPreview,
+} from '../../../types/interfaces/Documentation';
+import { DocumentationDetail } from '../../blocks';
 import { ToastDemo } from '../../elements/demo';
-import { Text, Title } from '../../ui';
-import { ArrowUpRight } from 'lucide-react';
+import { Text } from '../../ui';
 
 export const ToastPage = () => {
-    const { sectionsRef, registerRef } = useSectionsRefs();
+    const preview: IDocumentationPreview = {
+        demo: <ToastDemo />,
+        code: TOAST_DEMO_CODE,
+    };
 
-    const sectionsArr = [{ id: 'installation', text: 'Installation' }, ...COMPONENTS_SECTIONS];
+    const codeSections: IDocumentationCodeSection[] = [
+        {
+            id: 'installation',
+            title: 'Installation',
+            link: '',
+            description: null,
+            withAccordion: true,
+            codeArr: [
+                { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
+                { label: 'Lucide', code: NPM_LUCIDE_CODE },
+                { label: 'Hot Toast', code: NPM_HOT_TOAST_CODE },
+            ],
+        },
+        {
+            id: 'code',
+            title: 'Code',
+            link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Toast.tsx',
+            description: (
+                <Text>
+                    Include a custom <span className='badge-item'>IToastData</span> and&nbsp;
+                    <span className='badge-item'>Toast</span> component for consistent and maintainable usage throughout
+                    the project.
+                </Text>
+            ),
+            withAccordion: true,
+            codeArr: [
+                { label: 'ToastData.ts', code: TOAST_TYPE_CODE },
+                { label: 'Toast.tsx', code: TOAST_CODE },
+            ],
+        },
+        {
+            id: 'usage',
+            title: 'Usage',
+            link: '',
+            description: null,
+            withAccordion: false,
+            codeArr: [TOAST_MAIN_USAGE_CODE, TOAST_USAGE_CODE],
+        },
+    ];
 
-    const preview = { code: TOAST_DEMO_CODE, demo: <ToastDemo /> };
+    const data: IDocumentationData = {
+        title: 'Toast',
+        description: 'A succinct message that is displayed temporarily.',
+        preview,
+        codeSections,
+    };
 
-    return (
-        <section className='relative w-full'>
-            <div className='container'>
-                <ComponentsWrapper
-                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
-                >
-                    <div className='w-full xl:px-[30px]'>
-                        <ComponentsHead>
-                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                                Toast
-                            </Title>
-
-                            <Text size='large'>A succinct message that is displayed temporarily.</Text>
-                        </ComponentsHead>
-
-                        <ComponentsPreview preview={preview} />
-
-                        <ComponentsCodeWithAccordion
-                            id='installation'
-                            ref={registerRef('installation')}
-                            type='installation'
-                            codeArr={[
-                                { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
-                                { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                                { label: 'Hot Toast', code: NPM_HOT_TOAST_CODE },
-                            ]}
-                        >
-                            <Title size='h4'>Installation</Title>
-                        </ComponentsCodeWithAccordion>
-
-                        <ComponentsCodeWithAccordion
-                            id='code'
-                            ref={registerRef('code')}
-                            codeArr={[
-                                { label: 'ToastData.ts', code: TOAST_TYPE_CODE },
-                                { label: 'Toast.tsx', code: TOAST_CODE },
-                            ]}
-                        >
-                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                                <span>Code</span>
-
-                                <Link
-                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Toast.tsx'
-                                    target='_blank'
-                                    className='transition-colors duration-300 hover:text-text'
-                                >
-                                    <ArrowUpRight />
-                                </Link>
-                            </Title>
-
-                            <Text>
-                                Include a custom <span className='badge-item'>IToastData</span> and&nbsp;
-                                <span className='badge-item'>Toast</span> component for consistent and maintainable
-                                usage throughout the project.
-                            </Text>
-                        </ComponentsCodeWithAccordion>
-
-                        <ComponentsCode
-                            id='usage'
-                            ref={registerRef('usage')}
-                            codeArr={[TOAST_MAIN_USAGE_CODE, TOAST_USAGE_CODE]}
-                        >
-                            <Title size='h4'>Usage</Title>
-                        </ComponentsCode>
-
-                        <ComponentsFooter />
-                    </div>
-                </ComponentsWrapper>
-            </div>
-        </section>
-    );
+    return <DocumentationDetail data={data} />;
 };

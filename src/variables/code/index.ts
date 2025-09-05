@@ -1,4 +1,3 @@
-import { IComponentsSection } from '../../types/interfaces/ComponentsSection';
 import {
     ACCORDION_CODE,
     ACCORDION_WRAPPER_CODE,
@@ -159,11 +158,6 @@ import {
 import { YUP_CODE, YUP_SCHEMA_CODE, YUP_OPTIONS_CODE, YUP_DEMO_CODE } from './yup';
 import { ZOD_CODE, ZOD_SCHEMA_CODE, ZOP_OPTIONS_CODE, ZOD_DEMO_CODE } from './zod';
 import { ZUSTAND_CODE, ZUSTAND_COUNT_CODE, ZUSTAND_DEMO_CODE } from './zustand';
-
-export const COMPONENTS_SECTIONS: IComponentsSection[] = [
-    { id: 'code', text: 'Code' },
-    { id: 'usage', text: 'Usage' },
-];
 
 export {
     ACCORDION_CODE,

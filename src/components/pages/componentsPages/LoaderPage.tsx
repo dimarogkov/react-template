@@ -1,67 +1,49 @@
-import { Link } from 'react-router-dom';
-import { COMPONENTS_SECTIONS, LOADER_CODE, LOADER_DEMO_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
-import { useSectionsRefs } from '../../../hooks';
+import { LOADER_CODE, LOADER_DEMO_CODE, LOADER_USAGE_CODE } from '../../../variables/code';
 import {
-    ComponentsCode,
-    ComponentsFooter,
-    ComponentsHead,
-    ComponentsNavigation,
-    ComponentsPreview,
-    ComponentsWrapper,
-} from '../../blocks';
+    IDocumentationCodeSection,
+    IDocumentationData,
+    IDocumentationPreview,
+} from '../../../types/interfaces/Documentation';
+import { DocumentationDetail } from '../../blocks';
 import { LoaderDemo } from '../../elements/demo';
-import { Text, Title } from '../../ui';
-import { ArrowUpRight } from 'lucide-react';
+import { Text } from '../../ui';
 
 export const LoaderPage = () => {
-    const { sectionsRef, registerRef } = useSectionsRefs();
+    const preview: IDocumentationPreview = {
+        demo: <LoaderDemo />,
+        code: LOADER_DEMO_CODE,
+    };
 
-    const preview = { code: LOADER_DEMO_CODE, demo: <LoaderDemo /> };
+    const codeSections: IDocumentationCodeSection[] = [
+        {
+            id: 'code',
+            title: 'Code',
+            link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Loader.tsx',
+            description: (
+                <Text>
+                    Include a custom <span className='badge-item'>Loader</span> component for consistent and
+                    maintainable usage throughout the project.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [LOADER_CODE],
+        },
+        {
+            id: 'usage',
+            title: 'Usage',
+            link: '',
+            description: null,
+            withAccordion: false,
+            codeArr: [LOADER_USAGE_CODE],
+        },
+    ];
 
-    return (
-        <section className='relative w-full'>
-            <div className='container'>
-                <ComponentsWrapper
-                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={COMPONENTS_SECTIONS} />}
-                >
-                    <div className='w-full xl:px-[30px]'>
-                        <ComponentsHead>
-                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
-                                Loader
-                            </Title>
+    const data: IDocumentationData = {
+        title: 'Loader',
+        description: 'A reusable component for indicating loading or processing states.',
+        preview,
+        codeSections,
+    };
 
-                            <Text size='large'>A reusable component for indicating loading or processing states.</Text>
-                        </ComponentsHead>
-
-                        <ComponentsPreview preview={preview} />
-
-                        <ComponentsCode id='code' ref={registerRef('code')} codeArr={[LOADER_CODE]}>
-                            <Title size='h4' className='flex items-center gap-1 mb-1 md:mb-1.5 last:mb-0'>
-                                <span>Code</span>
-
-                                <Link
-                                    to='https://github.com/dimarogkov/react-template/blob/master/src/components/ui/Loader.tsx'
-                                    target='_blank'
-                                    className='transition-colors duration-300 hover:text-text'
-                                >
-                                    <ArrowUpRight />
-                                </Link>
-                            </Title>
-
-                            <Text>
-                                Include a custom <span className='badge-item'>Loader</span> component for consistent and
-                                maintainable usage throughout the project.
-                            </Text>
-                        </ComponentsCode>
-
-                        <ComponentsCode id='usage' ref={registerRef('usage')} codeArr={[LOADER_USAGE_CODE]}>
-                            <Title size='h4'>Usage</Title>
-                        </ComponentsCode>
-
-                        <ComponentsFooter />
-                    </div>
-                </ComponentsWrapper>
-            </div>
-        </section>
-    );
+    return <DocumentationDetail data={data} />;
 };

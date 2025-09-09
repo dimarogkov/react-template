@@ -5,6 +5,7 @@ import {
     AlertPage,
     AvatarPage,
     BadgePage,
+    BlockquotePage,
     BreadcrumbPage,
     BtnPage,
     CardPage,
@@ -56,6 +57,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.ALERT}`} element={<AlertPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.AVATAR}`} element={<AvatarPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BADGE}`} element={<BadgePage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BLOCKQUOTE}`} element={<BlockquotePage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BREADCRUMB}`} element={<BreadcrumbPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.BTN}`} element={<BtnPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.CARD}`} element={<CardPage />} />

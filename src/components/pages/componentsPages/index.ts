@@ -2,6 +2,7 @@ import { AccordionPage } from './AccordionPage';
 import { AlertPage } from './AlertPage';
 import { AvatarPage } from './AvatarPage';
 import { BadgePage } from './BadgePage';
+import { BlockquotePage } from './BlockquotePage';
 import { BreadcrumbPage } from './BreadcrumbPage';
 import { BtnPage } from './BtnPage';
 import { CardPage } from './CardPage';
@@ -31,6 +32,7 @@ export {
     AlertPage,
     AvatarPage,
     BadgePage,
+    BlockquotePage,
     BreadcrumbPage,
     BtnPage,
     CardPage,

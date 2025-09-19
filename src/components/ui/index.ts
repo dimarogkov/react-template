@@ -13,8 +13,8 @@ import { InputPassword } from './InputPassword';
 import { Label } from './Label';
 import { Loader } from './Loader';
 import { Modal } from './Modal';
-import { PinInput } from './PinInput';
 import { Pagination } from './Pagination';
+import { PinInput } from './PinInput';
 import { Progress } from './Progress';
 import { Radio } from './Radio';
 import { Select } from './Select';
@@ -45,8 +45,8 @@ export {
     Label,
     Loader,
     Modal,
-    PinInput,
     Pagination,
+    PinInput,
     Progress,
     Radio,
     Select,

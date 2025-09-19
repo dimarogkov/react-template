@@ -1,4 +1,4 @@
-import { FC, forwardRef, HTMLAttributes, RefAttributes, KeyboardEvent, useRef, useState } from 'react';
+import { FC, forwardRef, HTMLAttributes, RefAttributes, KeyboardEvent, useRef, useState, useEffect } from 'react';
 
 const PIN_LENGTH = 4;
 
@@ -12,6 +12,12 @@ export const PinInput: FC<Props> = forwardRef<HTMLDivElement, Props>(
         const [values, setValues] = useState<string[]>(Array(PIN_LENGTH).fill(''));
         const inputsRef = useRef<HTMLInputElement[]>([]);
 
+        useEffect(() => {
+            if (values.every((v) => v !== '')) {
+                onComplete(values.join(''));
+            }
+        }, [values, onComplete]);
+
         const setInputRef = (el: HTMLInputElement | null, index: number) => {
             if (el) {
                 inputsRef.current[index] = el;
@@ -19,17 +25,19 @@ export const PinInput: FC<Props> = forwardRef<HTMLDivElement, Props>(
         };
 
         const handleChange = (value: string, index: number) => {
-            if (!/^\d?$/.test(value)) return;
+            if (!/^\d?$/.test(value)) {
+                return;
+            }
 
             setValues((prevState) => {
-                const prevStateArr = [...prevState];
-                prevStateArr[index] = value;
+                const state = [...prevState];
+                state[index] = value;
 
-                if (value && index < PIN_LENGTH - 1) inputsRef.current[index + 1]?.focus();
+                if (value && index < PIN_LENGTH - 1) {
+                    inputsRef.current[index + 1]?.focus();
+                }
 
-                if (prevStateArr.every((v) => v !== '')) onComplete(prevStateArr.join(''));
-
-                return prevStateArr;
+                return state;
             });
         };
 

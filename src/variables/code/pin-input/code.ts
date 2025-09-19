@@ -1,36 +1,36 @@
-export const PIN_INPUT_CODE = `import { FC, forwardRef, HTMLAttributes, RefAttributes, KeyboardEvent, useCallback, useRef, useState } from 'react';
+export const PIN_INPUT_CODE = `import { FC, forwardRef, HTMLAttributes, RefAttributes, KeyboardEvent, useRef, useState } from 'react';
+
+const PIN_LENGTH = 4;
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-	length?: number;
 	className?: string;
 	onComplete?: (pin: string) => void;
 }
 
 export const PinInput: FC<Props> = forwardRef<HTMLDivElement, Props>(
-	({ length = 4, className = '', onComplete = () => {}, ...props }, ref) => {
-		const [values, setValues] = useState<string[]>(Array(length).fill(''));
+	({ className = '', onComplete = () => {}, ...props }, ref) => {
+		const [values, setValues] = useState<string[]>(Array(PIN_LENGTH).fill(''));
 		const inputsRef = useRef<HTMLInputElement[]>([]);
 
-		const setInputRef = useCallback((el: HTMLInputElement | null, index: number) => {
+		const setInputRef = (el: HTMLInputElement | null, index: number) => {
 			if (el) {
 				inputsRef.current[index] = el;
 			}
-		}, []);
+		};
 
 		const handleChange = (value: string, index: number) => {
-			if (/^\d?$/.test(value)) {
-				const newValues = [...values];
-				newValues[index] = value;
-				setValues(newValues);
+			if (!/^\d?$/.test(value)) return;
 
-				if (value && index < 3) {
-					inputsRef.current[index + 1]?.focus();
-				}
+			setValues((prevState) => {
+				const prevStateArr = [...prevState];
+				prevStateArr[index] = value;
 
-				if (newValues.every((v) => v !== '')) {
-					onComplete(newValues.join(''));
-				}
-			}
+				if (value && index < PIN_LENGTH - 1) inputsRef.current[index + 1]?.focus();
+
+				if (prevStateArr.every((v) => v !== '')) onComplete(prevStateArr.join(''));
+
+				return prevStateArr;
+			});
 		};
 
 		const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, index: number) => {

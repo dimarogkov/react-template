@@ -14,6 +14,7 @@ import { LabelPage } from './LabelPage';
 import { LoaderPage } from './LoaderPage';
 import { ModalPage } from './ModalPage';
 import { PaginationPage } from './PaginationPage';
+import { PinInputPage } from './PinInputPage';
 import { ProgressPage } from './ProgressPage';
 import { RadioPage } from './RadioPage';
 import { SelectPage } from './SelectPage';
@@ -44,6 +45,7 @@ export {
     LoaderPage,
     ModalPage,
     PaginationPage,
+    PinInputPage,
     ProgressPage,
     RadioPage,
     SelectPage,

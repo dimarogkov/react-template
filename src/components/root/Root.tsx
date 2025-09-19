@@ -20,6 +20,7 @@ import {
     ModalPage,
     NotFoundPage,
     PaginationPage,
+    PinInputPage,
     ProgressPage,
     RadioPage,
     SelectPage,
@@ -72,6 +73,7 @@ export const Root = () => {
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.LOADER}`} element={<LoaderPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.MODAL}`} element={<ModalPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PAGINATION}`} element={<PaginationPage />} />
+                        <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PIN_INPUT}`} element={<PinInputPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.PROGRESS}`} element={<ProgressPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.RADIO}`} element={<RadioPage />} />
                         <Route path={`${MAIN.DOCUMENTATION}${COMPONENTS.SELECT}`} element={<SelectPage />} />

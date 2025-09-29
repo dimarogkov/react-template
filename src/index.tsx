@@ -1,14 +1,18 @@
-import React from 'react';
+import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Root, RootProviders } from './components/root';
+import { RouterProvider } from 'react-router-dom';
+import { RootProviders } from '@app/providers';
+import { router } from '@app/routes';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-    <React.StrictMode>
+    <StrictMode>
         <RootProviders>
-            <Root />
+            <Suspense fallback={null}>
+                <RouterProvider router={router} />
+            </Suspense>
         </RootProviders>
-    </React.StrictMode>
+    </StrictMode>
 );

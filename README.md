@@ -13,22 +13,24 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
 
 ## File Structure
 
+-   app
+    -   providers
+    -   routes
 -   components
-    -   blocks
-    -   elements
-        -   demo
-    -   other
+    -   atoms
+    -   molecules
+    -   organisms
     -   pages
-        -   componentsPages
-        -   dataFetchingPages
-        -   formValidationPages
-        -   storePages
-    -   root
-    -   ui
+        -   components-pages
+        -   data-fetching-pages
+        -   form-validation-pages
+        -   main-pages
+        -   store-pages
+-   constants
+    -   code
 -   form-validation
     -   yup
     -   zod
--   helpers
 -   hooks
 -   services
 -   store
@@ -36,5 +38,4 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
     -   zustand
 -   types
     -   interfaces
--   variables
-    -   code
+-   utils

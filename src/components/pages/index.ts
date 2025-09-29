@@ -1,6 +1,4 @@
-import { HomePage } from './HomePage';
-import { NotFoundPage } from './NotFoundPage';
-import { DocumentationPage } from './DocumentationPage';
+import { DocumentationPage, HomePage, NotFoundPage } from './main-pages';
 import {
     AccordionPage,
     AlertPage,
@@ -31,15 +29,15 @@ import {
     TitlePage,
     ToastPage,
     TooltipPage,
-} from './componentsPages';
-import { ReactQueryPage, RtkQueryPage } from './dataFetchingPages';
-import { YupPage, ZodPage } from './formValidationPages';
-import { ReduxToolkitPage, ZustandPage } from './storePages';
+} from './components-pages';
+import { ReactQueryPage, RtkQueryPage } from './data-fetching-pages';
+import { YupPage, ZodPage } from './form-validation-pages';
+import { ReduxToolkitPage, ZustandPage } from './store-pages';
 
 export {
+    DocumentationPage,
     HomePage,
     NotFoundPage,
-    DocumentationPage,
     AccordionPage,
     AlertPage,
     AvatarPage,

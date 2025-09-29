@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getPaginationRange } from '../helpers';
+import { getPaginationRange } from '@utils';
 
 export const usePagination = <T extends any[]>(arr: T, perPage: number = 10) => {
     const [page, setPage] = useState(1);

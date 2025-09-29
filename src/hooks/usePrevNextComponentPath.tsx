@@ -1,13 +1,12 @@
 import { useLocation } from 'react-router-dom';
-import { PATHS } from '../variables';
-import { getLinks } from '../helpers';
+import { PATHS } from '@app/routes';
+import { getLinks } from '@utils';
 
 export const usePrevNextComponentPath = () => {
     const { pathname } = useLocation();
-    const { MAIN } = PATHS.PAGES;
     const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
 
-    const introductionLink = { href: MAIN.DOCUMENTATION, name: 'Introduction' };
+    const introductionLink = { href: PATHS.DOCUMENTATION, name: 'Introduction' };
 
     const linksArr = [
         introductionLink,

@@ -28,7 +28,7 @@ export default function BreadcrumbPage() {
         {
             id: 'code',
             title: 'Code',
-            link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/blocks/Breadcrumb',
+            link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Breadcrumb',
             description: (
                 <Text>
                     Include a custom <span className='badge-item'>Breadcrumb</span> component for consistent and

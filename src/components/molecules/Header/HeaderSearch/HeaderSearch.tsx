@@ -27,7 +27,7 @@ export default function HeaderSearch() {
         ...dataFetchingLinks.map((link) => ({ ...link, label: 'Data Fetching' })),
         ...formValidationLinks.map((link) => ({ ...link, label: 'Form Validation' })),
         ...storeLinks.map((link) => ({ ...link, label: 'Store' })),
-    ];
+    ].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
     const filteredLinks = useMemo(() => {
         const value = appliedSearchValue.trim().toLowerCase();

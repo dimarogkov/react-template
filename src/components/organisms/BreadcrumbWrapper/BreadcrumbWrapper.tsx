@@ -9,16 +9,9 @@ type Props = {
 
 export default function BreadcrumbWrapper({ className = '' }: Props) {
     const { pathname } = useLocation();
-    const { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks } = getLinks();
+    const { links } = getLinks();
 
-    const pathsArr = [
-        PATHS.DOCUMENTATION,
-        ...componentsLinks.map(({ href }) => href),
-        ...dataFetchingLinks.map(({ href }) => href),
-        ...formValidationLinks.map(({ href }) => href),
-        ...storeLinks.map(({ href }) => href),
-    ];
-
+    const pathsArr = [PATHS.DOCUMENTATION, ...links.map(({ href }) => href)];
     const isBreadcrumbVisible = pathsArr.includes(pathname);
 
     return (

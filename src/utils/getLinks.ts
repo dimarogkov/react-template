@@ -16,5 +16,7 @@ export const getLinks = () => {
     const formValidationLinks = generateLinks(Object.values(FORM_VALIDATION));
     const storeLinks = generateLinks(Object.values(STORE));
 
-    return { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks };
+    const links = [...componentsLinks, ...dataFetchingLinks, ...formValidationLinks, ...storeLinks];
+
+    return { componentsLinks, dataFetchingLinks, formValidationLinks, storeLinks, links };
 };

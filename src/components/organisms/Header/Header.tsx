@@ -1,13 +1,11 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { PATHS } from '@app/routes';
-import { convertUrlToString } from '@utils';
-import { HeaderLogo, HeaderSearch, HeaderSwitch } from '@components/molecules';
+import { HeaderLink, HeaderLogo, HeaderSearch, HeaderSwitch } from '@components/molecules';
 import { Github } from 'lucide-react';
 import cn from 'classnames';
 
 export default function Header() {
     const { pathname } = useLocation();
-
     const isHomePage = pathname === PATHS.HOME;
 
     return (
@@ -24,22 +22,7 @@ export default function Header() {
                     <div className='flex items-center gap-2'>
                         <ul className='hidden sm:flex w-fit'>
                             <li>
-                                <NavLink
-                                    end
-                                    to={PATHS.DOCUMENTATION}
-                                    className={({ isActive }) =>
-                                        cn(
-                                            `flex items-center justify-center gap-2 w-full sm:w-fit h-9 font-media px-3 rounded-md transition-colors duration-300`,
-                                            {
-                                                'text-title pointer-events-none': isActive,
-                                                'hover:bg-border': !isActive,
-                                                'text-title': isHomePage,
-                                            }
-                                        )
-                                    }
-                                >
-                                    {convertUrlToString(PATHS.DOCUMENTATION)}
-                                </NavLink>
+                                <HeaderLink href={PATHS.DOCUMENTATION} />
                             </li>
                         </ul>
 

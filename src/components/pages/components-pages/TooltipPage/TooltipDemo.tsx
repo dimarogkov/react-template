@@ -9,7 +9,6 @@ export default function TooltipDemo() {
                         Hover
                     </Btn>
                 </Tooltip.Trigger>
-
                 <Tooltip.Content>
                     <p>Tooltip example text</p>
                 </Tooltip.Content>

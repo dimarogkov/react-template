@@ -71,7 +71,6 @@ export const router = createBrowserRouter([
                 path: PATHS.DOCUMENTATION,
                 children: [
                     { index: true, element: <DocumentationPage /> },
-
                     { path: COMPONENTS.ACCORDION, element: <AccordionPage /> },
                     { path: COMPONENTS.ALERT, element: <AlertPage /> },
                     { path: COMPONENTS.AVATAR, element: <AvatarPage /> },

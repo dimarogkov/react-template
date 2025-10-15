@@ -6,7 +6,6 @@ export default function ModalDemo() {
             <Modal.Trigger>
                 <Btn variant='outline'>Modal</Btn>
             </Modal.Trigger>
-
             <Modal.Content>
                 <div className='w-full'>
                     <Title size='h3' className='p-2.5 md:p-4'>
@@ -21,7 +20,6 @@ export default function ModalDemo() {
                             sint optio cum ducimus vitae placeat veritatis vero deleniti, voluptatibus fugit. Laudantium
                             error cum earum rem hic!
                         </Text>
-
                         <Text>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eum dolor nulla delectus
                             sint optio cum ducimus vitae placeat veritatis vero deleniti, voluptatibus fugit. Laudantium

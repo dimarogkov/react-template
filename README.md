@@ -13,29 +13,26 @@ This is **React Template** for development. Technolgies used: **React, TypeScrip
 
 ## File Structure
 
--   app
-    -   providers
-    -   routes
--   components
-    -   atoms
-    -   molecules
-    -   organisms
-    -   pages
-        -   components-pages
-        -   data-fetching-pages
-        -   form-validation-pages
-        -   main-pages
-        -   store-pages
--   constants
-    -   code
--   form-validation
-    -   yup
-    -   zod
--   hooks
--   services
--   store
-    -   redux-toolkit
-    -   zustand
--   types
-    -   interfaces
--   utils
+```bash
+src
+├── app
+│   ├── providers
+│   └── routes
+├── components
+│   ├── atoms
+│   ├── molecules
+│   └── pages
+├── constants
+│   └── code
+├── form-validation
+│   ├── yup
+│   └── zod
+├── hooks
+├── services
+├── store
+│   ├── redux-toolkit
+│   └── zustand
+├── types
+│   └── interfaces
+└── utils
+```

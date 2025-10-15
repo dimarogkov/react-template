@@ -11,7 +11,6 @@ export default function DropdownDemo() {
             <Dropdown.Trigger>
                 <Btn variant='outline'>Dropdown</Btn>
             </Dropdown.Trigger>
-
             <Dropdown.Content className='sm:w-[200px]'>
                 <ul className='flex flex-col gap-1 w-full'>
                     {LINKS.map((link) => (

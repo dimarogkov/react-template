@@ -17,6 +17,7 @@ import { PaginationPage } from './PaginationPage';
 import { PinInputPage } from './PinInputPage';
 import { ProgressPage } from './ProgressPage';
 import { RadioPage } from './RadioPage';
+import { ReorderPage } from './ReorderPage';
 import { SelectPage } from './SelectPage';
 import { SeparatorPage } from './SeparatorPage';
 import { SimpleLinkPage } from './SimpleLinkPage';
@@ -48,6 +49,7 @@ export {
     PinInputPage,
     ProgressPage,
     RadioPage,
+    ReorderPage,
     SelectPage,
     SeparatorPage,
     SimpleLinkPage,

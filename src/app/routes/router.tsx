@@ -37,6 +37,7 @@ const PaginationPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/P
 const PinInputPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/PinInputPage/PinInputPage`));
 const ProgressPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/ProgressPage/ProgressPage`));
 const RadioPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/RadioPage/RadioPage`));
+const ReorderPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/ReorderPage/ReorderPage`));
 const SelectPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/SelectPage/SelectPage`));
 const SeparatorPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/SeparatorPage/SeparatorPage`));
 const SimpleLinkPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/SimpleLinkPage/SimpleLinkPage`));
@@ -90,6 +91,7 @@ export const router = createBrowserRouter([
                     { path: COMPONENTS.PIN_INPUT, element: <PinInputPage /> },
                     { path: COMPONENTS.PROGRESS, element: <ProgressPage /> },
                     { path: COMPONENTS.RADIO, element: <RadioPage /> },
+                    { path: COMPONENTS.REORDER, element: <ReorderPage /> },
                     { path: COMPONENTS.SELECT, element: <SelectPage /> },
                     { path: COMPONENTS.SEPARATOR, element: <SeparatorPage /> },
                     { path: COMPONENTS.SIMPLE_LINK, element: <SimpleLinkPage /> },

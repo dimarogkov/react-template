@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { PATHS } from '@app/routes';
 import { getLinks } from '@utils';
 
-export const usePrevNextComponentPath = () => {
+export default function usePrevNextComponentPath() {
     const { pathname } = useLocation();
     const { links } = getLinks();
 
@@ -14,4 +14,4 @@ export const usePrevNextComponentPath = () => {
     const nextPath = linksArr[pathIndex + 1] || linksArr[0];
 
     return [prevPath, nextPath];
-};
+}

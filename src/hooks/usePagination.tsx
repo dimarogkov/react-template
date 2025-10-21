@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getPaginationRange } from '@utils';
 
-export const usePagination = <T extends any[]>(arr: T, perPage: number = 10) => {
+export default function usePagination<T extends any[]>(arr: T, perPage: number = 10) {
     const [page, setPage] = useState(1);
 
     const start = (page - 1) * perPage;
@@ -18,4 +18,4 @@ export const usePagination = <T extends any[]>(arr: T, perPage: number = 10) => 
         pagesArr,
         options,
     };
-};
+}

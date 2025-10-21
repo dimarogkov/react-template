@@ -1,7 +1,7 @@
 import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import { RootProviders } from '@app/providers';
+import { RootProvider } from '@app/providers';
 import { router } from '@app/routes';
 import './index.css';
 
@@ -9,10 +9,10 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <StrictMode>
-        <RootProviders>
+        <RootProvider>
             <Suspense fallback={null}>
                 <RouterProvider router={router} />
             </Suspense>
-        </RootProviders>
+        </RootProvider>
     </StrictMode>
 );

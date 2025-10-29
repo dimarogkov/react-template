@@ -1,30 +1,53 @@
 export const SELECT_USAGE_CODE = `<Select>
-	<Select.Trigger placeholder='Select a fruit' />
+	<Select.Trigger placeholder='Select framework...' />
 	<Select.Options>
-		<Select.Option value='apple'>Apple</Select.Option>
-		<Select.Option value='banana'>Banana</Select.Option>
-		<Select.Option value='blueberry'>Blueberry</Select.Option>
-		<Select.Option value='pineapple'>Pineapple</Select.Option>
+		<Select.Option value='react'>React.js</Select.Option>
+		<Select.Option value='vue'>Vue.js</Select.Option>
+		<Select.Option value='angular'>Angular</Select.Option>
+		<Select.Option value='svelte'>Svelte</Select.Option>
 	</Select.Options>
 </Select>`;
 
 export const SELECT_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
-import { Label, Select } from '@components/atoms';
+import { Select } from '@components/atoms';
 
-export default function SelectControlled() {
-	const [value, setValue] = useState('');
-
+export default function SelectDemo() {
+    const [value, setValue] = useState('');
+	
 	return (
-		<Label>
-			<Select value={value} onChange={({ target }) => setValue(target.value)}>
-				<Select.Trigger placeholder='Select a fruit' />
-				<Select.Options>
-					<Select.Option value='apple'>Apple</Select.Option>
-					<Select.Option value='banana'>Banana</Select.Option>
-					<Select.Option value='blueberry'>Blueberry</Select.Option>
-					<Select.Option value='pineapple'>Pineapple</Select.Option>
-				</Select.Options>
-			</Select>
-		</Label>
-	);
-};`;
+		<Select value={value} onChange={({ target }) => setValue(target.value)}>
+			<Select.Trigger placeholder='Select framework...' />
+			<Select.Options>
+				<Select.Option value='react'>React.js</Select.Option>
+				<Select.Option value='vue'>Vue.js</Select.Option>
+				<Select.Option value='angular'>Angular</Select.Option>
+				<Select.Option value='svelte'>Svelte</Select.Option>
+			</Select.Options>
+		</Select>
+    );
+}`;
+
+export const SELECT_ICON_USAGE_CODE = `import { Select } from '@components/atoms';
+import { ChevronDown } from 'lucide-react';
+
+<Select>
+	<Select.Trigger placeholder='Select framework...' icon={ChevronDown} />
+	<Select.Options>
+		<Select.Option value='react'>React.js</Select.Option>
+		<Select.Option value='vue'>Vue.js</Select.Option>
+		<Select.Option value='angular'>Angular</Select.Option>
+		<Select.Option value='svelte'>Svelte</Select.Option>
+	</Select.Options>
+</Select>`;
+
+export const SELECT_MULTIPLE_USAGE_CODE = `import { Select } from '@components/atoms';
+
+<Select multiple>
+	<Select.Trigger placeholder='Select framework...' />
+	<Select.Options>
+		<Select.Option value='react'>React.js</Select.Option>
+		<Select.Option value='vue'>Vue.js</Select.Option>
+		<Select.Option value='angular'>Angular</Select.Option>
+		<Select.Option value='svelte'>Svelte</Select.Option>
+	</Select.Options>
+</Select>`;

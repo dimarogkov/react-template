@@ -31,8 +31,9 @@ export default function BreadcrumbPage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Breadcrumb',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Breadcrumb</span> component for consistent and
-                    maintainable usage throughout the project.
+                    Include a and custom <span className='badge-item'>convertUrlToString</span> and&nbsp;
+                    <span className='badge-item'>Breadcrumb</span> component for consistent and maintainable usage
+                    throughout the project.
                 </Text>
             ),
             withAccordion: true,

@@ -1,4 +1,6 @@
-export const SELECT_USAGE_CODE = `<Select>
+export const SELECT_USAGE_CODE = `import { Select } from '@components/atoms';
+
+<Select>
 	<Select.Trigger placeholder='Select framework...' />
 	<Select.Options>
 		<Select.Option value='react'>React.js</Select.Option>

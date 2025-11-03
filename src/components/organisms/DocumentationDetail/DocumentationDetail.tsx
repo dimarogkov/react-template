@@ -55,7 +55,7 @@ export default function DocumentationDetail({ data }: Props) {
                                             size='h4'
                                             className={cn({
                                                 'flex items-center gap-1': link,
-                                                'mb-1 md:mb-1.5 last:mb-0': description,
+                                                'mb-1 md:mb-2 last:mb-0': description,
                                             })}
                                         >
                                             {link ? <span>{title}</span> : title}
@@ -84,7 +84,7 @@ export default function DocumentationDetail({ data }: Props) {
                                             size='h4'
                                             className={cn({
                                                 'flex items-center gap-1': link,
-                                                'mb-1 md:mb-1.5 last:mb-0': description,
+                                                'mb-1 md:mb-2 last:mb-0': description,
                                             })}
                                         >
                                             {link ? <span>{title}</span> : title}

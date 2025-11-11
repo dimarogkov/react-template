@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const PIN_INPUT_CODE = `import { forwardRef, HTMLAttributes, RefAttributes, KeyboardEvent, useRef, useState, useEffect } from 'react';
 
 const PIN_LENGTH = 4;

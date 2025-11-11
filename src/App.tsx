@@ -17,7 +17,7 @@ export default function App() {
             <Header />
             <BreadcrumbWrapper />
 
-            <main className={cn('relative w-full', { 'pt-5 md:py-10': pathname !== PATHS.HOME })}>
+            <main className={cn('relative w-full', { 'py-5 md:py-10': pathname !== PATHS.HOME })}>
                 <Outlet context={{ Sidebar: <Sidebar /> }} />
             </main>
 

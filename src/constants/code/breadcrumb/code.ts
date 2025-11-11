@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export const BREADCRUMB_UTILS_CODE = `export const convertUrlToString = (url: string) => {
     const decoded = decodeURIComponent(url);
     const normalized = decoded.replace(/[_/]/g, ' ');

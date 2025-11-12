@@ -65,7 +65,7 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
 		const avatarStyle = {
 			...(currentIndex && {
 				left: \`\${currentIndex * Math.round(currentWidth / 4) * -1}px\`,
-				outline: '3px solid #0a0a0a',
+				outline: '3px solid var(--fallback-b1)',
 			}),
 		};
 
@@ -82,11 +82,7 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
 				style={avatarStyle}
 			>
 				{Children.map(props.children, (child) => {
-					if (isValidElement(child)) {
-						return cloneElement(child as ReactElement, { type });
-					}
-
-					return child;
+					return isValidElement(child) ? cloneElement(child as ReactElement, { type }) : child;
 				})}
 			</div>
 		);
@@ -131,11 +127,7 @@ const AvatarLink = forwardRef<HTMLAnchorElement, Props>(
 				})}
 			>
 				{Children.map(children, (child) => {
-					if (isValidElement(child)) {
-						return cloneElement(child as ReactElement, { type });
-					}
-
-					return child;
+					return isValidElement(child) ? cloneElement(child as ReactElement, { type }) : child;
 				})}
 			</Link>
 		);
@@ -215,18 +207,14 @@ const AvatarGroup = forwardRef<HTMLDivElement, Props>(({ visibleCount, className
 	const groupStyle = {
 		...(visibleCount && {
 			left: \`\${visibleCount * Math.round(currentWidth / 4) * -1}px\`,
-			outline: '3px solid #0a0a0a',
+			outline: '3px solid var(--fallback-b1)',
 		}),
 	};
 
 	return (
 		<div ref={ref || groupRef} {...props} className={\`relative flex items-center \${className}\`}>
 			{childArray.slice(0, visibleCount).map((child, index) => {
-				if (isValidElement(child)) {
-					return cloneElement(child as ReactElement, { currentIndex: index });
-				}
-
-				return child;
+				return isValidElement(child) ? cloneElement(child as ReactElement, { currentIndex: index }) : child;
 			})}
 
 			{visibleCount && childArray.length > visibleCount && (

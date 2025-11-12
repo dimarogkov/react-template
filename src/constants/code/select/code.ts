@@ -59,7 +59,7 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement>, RefAttributes<H
 const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ...props }, ref) => {
     const [selectedItems, setSelectedItems] = useState<ISelectItem[]>([]);
     const [isSelectOpen, setIsSelectOpen] = useState(false);
-    
+
     const wrapperRef = useRef<HTMLDivElement>(null);
     const selectRef = useRef<HTMLSelectElement>(null);
 
@@ -132,17 +132,15 @@ const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ..
             </select>
 
             {Children.map(props.children, (child) => {
-                if (isValidElement(child)) {
-                    return cloneElement(child as ReactElement, {
-                        isOpen: isSelectOpen,
-                        isMultiple,
-                        selectedItems,
-                        setIsOpen: setIsSelectOpen,
-                        setSelectedItems: handleSelectedItems,
-                    });
-                }
-
-                return child;
+                return isValidElement(child)
+                    ? cloneElement(child as ReactElement, {
+                          isOpen: isSelectOpen,
+                          isMultiple,
+                          selectedItems,
+                          setIsOpen: setIsSelectOpen,
+                          setSelectedItems: handleSelectedItems,
+                      })
+                    : child;
             })}
         </div>
     );
@@ -256,17 +254,15 @@ const SelectOptions = forwardRef<HTMLDivElement, Props>(
                         className={\`absolute top-[calc(100%+4px)] z-10 flex flex-col gap-1 min-w-full max-w-[calc(100vw-32px)] w-max max-h-[292px] overflow-auto rounded-md p-1 border border-border bg-bg will-change-transform \${className}\`}
                     >
                         {Children.map(children, (child) => {
-                            if (isValidElement(child)) {
-                                return cloneElement(child as ReactElement, {
-                                    isOpen,
-                                    isMultiple,
-                                    selectedItems,
-                                    setIsOpen,
-                                    setSelectedItems,
-                                });
-                            }
-
-                            return child;
+                            return isValidElement(child)
+                                ? cloneElement(child as ReactElement, {
+                                      isOpen,
+                                      isMultiple,
+                                      selectedItems,
+                                      setIsOpen,
+                                      setSelectedItems,
+                                  })
+                                : child;
                         })}
                     </motion.div>
                 )}
@@ -318,17 +314,15 @@ const SelectGroup = forwardRef<HTMLDivElement, Props>(
         return (
             <div ref={ref} {...props} className={\`relative flex flex-col gap-1 \${className}\`}>
                 {Children.map(children, (child) => {
-                    if (isValidElement(child)) {
-                        return cloneElement(child as ReactElement, {
-                            isOpen,
-                            isMultiple,
-                            selectedItems,
-                            setIsOpen,
-                            setSelectedItems,
-                        });
-                    }
-
-                    return child;
+                    return isValidElement(child)
+                        ? cloneElement(child as ReactElement, {
+                              isOpen,
+                              isMultiple,
+                              selectedItems,
+                              setIsOpen,
+                              setSelectedItems,
+                          })
+                        : child;
                 })}
             </div>
         );
@@ -337,18 +331,7 @@ const SelectGroup = forwardRef<HTMLDivElement, Props>(
 
 export default SelectGroup;`;
 
-export const SELECT_LABEL_CODE = `import {
-    Children,
-    cloneElement,
-    Dispatch,
-    forwardRef,
-    HTMLAttributes,
-    isValidElement,
-    ReactElement,
-    ReactNode,
-    RefAttributes,
-    SetStateAction,
-} from 'react';
+export const SELECT_LABEL_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -356,7 +339,6 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     isMultiple?: boolean;
     selectedItems?: ISelectItem[];
     className?: string;
-    children?: ReactNode;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
     setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -370,28 +352,11 @@ const SelectLabel = forwardRef<HTMLDivElement, Props>(
             setIsOpen = () => {},
             setSelectedItems = () => {},
             className = '',
-            children,
             ...props
         },
         ref
     ) => {
-        return (
-            <div ref={ref} {...props} className={\`relative text-sm px-2 py-1 \${className}\`}>
-                {Children.map(children, (child) => {
-                    if (isValidElement(child)) {
-                        return cloneElement(child as ReactElement, {
-                            isOpen,
-                            isMultiple,
-                            selectedItems,
-                            setIsOpen,
-                            setSelectedItems,
-                        });
-                    }
-
-                    return child;
-                })}
-            </div>
-        );
+        return <div ref={ref} {...props} className={\`relative text-sm px-2 py-1 \${className}\`} />;
     }
 );
 

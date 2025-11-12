@@ -60,14 +60,12 @@ const DropdownWrapper = forwardRef<HTMLDivElement, Props>(({ isOpen = false, cla
     return (
         <div ref={ref || dropdownRef} {...props} className={\`relative \${className}\`}>
             {Children.map(props.children, (child) => {
-                if (isValidElement(child)) {
-                    return cloneElement(child as ReactElement, {
-                        isOpen: isDropdownOpen,
-                        setIsOpen: setIsDropdownOpen,
-                    });
-                }
-
-                return child;
+                return isValidElement(child)
+                    ? cloneElement(child as ReactElement, {
+                          isOpen: isDropdownOpen,
+                          setIsOpen: setIsDropdownOpen,
+                      })
+                    : child;
             })}
         </div>
     );
@@ -173,11 +171,9 @@ const DropdownContent = forwardRef<HTMLDivElement, Props>(
                         style={dropdownContentStyle}
                     >
                         {Children.map(children, (child) => {
-                            if (isValidElement(child)) {
-                                return cloneElement(child as ReactElement, { isOpen, setIsOpen });
-                            }
-
-                            return child;
+                            return isValidElement(child)
+                                ? cloneElement(child as ReactElement, { isOpen, setIsOpen })
+                                : child;
                         })}
                     </motion.div>
                 )}
@@ -211,11 +207,7 @@ const DropdownMenu = forwardRef<HTMLDivElement, Props>(
         return (
             <div ref={ref} {...props} className={\`relative flex flex-col gap-1 w-full \${className}\`}>
                 {Children.map(props.children, (child) => {
-                    if (isValidElement(child)) {
-                        return cloneElement(child as ReactElement, { isOpen, setIsOpen });
-                    }
-
-                    return child;
+                    return isValidElement(child) ? cloneElement(child as ReactElement, { isOpen, setIsOpen }) : child;
                 })}
             </div>
         );
@@ -321,15 +313,13 @@ const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
                 className={\`relative \${className}\`}
             >
                 {Children.map(props.children, (child) => {
-                    if (isValidElement(child)) {
-                        return cloneElement(child as ReactElement, {
-                            isOpen,
-                            isSubOpen: isSubDropdownOpen,
-                            setIsOpen,
-                        });
-                    }
-
-                    return child;
+                    return isValidElement(child)
+                        ? cloneElement(child as ReactElement, {
+                              isOpen,
+                              isSubOpen: isSubDropdownOpen,
+                              setIsOpen,
+                          })
+                        : child;
                 })}
             </div>
         );
@@ -411,11 +401,9 @@ const DropdownSubContent = forwardRef<HTMLDivElement, Props>(
                         className={\`absolute top-[calc(100%+4px)] sm:-top-[1px] sm:left-[calc(100%+4px)] z-10 min-w-full max-w-[calc(100vw-32px)] w-max rounded-md p-1 border border-border bg-bg origin-top-left will-change-transform \${className}\`}
                     >
                         {Children.map(children, (child) => {
-                            if (isValidElement(child)) {
-                                return cloneElement(child as ReactElement, { isOpen, setIsOpen });
-                            }
-
-                            return child;
+                            return isValidElement(child)
+                                ? cloneElement(child as ReactElement, { isOpen, setIsOpen })
+                                : child;
                         })}
                     </motion.div>
                 )}

@@ -10,90 +10,86 @@ export const Accordion = Object.assign(AccordionWrapper, {
 });`;
 
 export const ACCORDION_WRAPPER_CODE = `import {
-	Children,
-	cloneElement,
-	forwardRef,
-	HTMLAttributes,
-	isValidElement,
-	ReactElement,
-	RefAttributes,
-	useState,
+    Children,
+    cloneElement,
+    forwardRef,
+    HTMLAttributes,
+    isValidElement,
+    ReactElement,
+    RefAttributes,
+    useState,
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-	iconType?: 'arrow' | 'plus';
-	defaultActiveIndex?: number | null;
-	className?: string;
+    iconType?: 'arrow' | 'plus';
+    defaultActiveIndex?: number | null;
+    className?: string;
 }
 
 const AccordionWrapper = forwardRef<HTMLDivElement, Props>(
-	({ iconType = 'arrow', defaultActiveIndex = null, className = '', ...props }, ref) => {
-		const [activeIndex, setActiveIndex] = useState<number | null>(defaultActiveIndex);
+    ({ iconType = 'arrow', defaultActiveIndex = null, className = '', ...props }, ref) => {
+        const [activeIndex, setActiveIndex] = useState<number | null>(defaultActiveIndex);
 
-		return (
-			<div ref={ref} {...props} className={\`relative w-full rounded-md border border-border \${className}\`}>
-				{Children.map(props.children, (child, index) => {
-					if (isValidElement(child)) {
-						return cloneElement(child as ReactElement, {
-							iconType,
-							accordionIndex: index,
-							activeIndex,
-							setActiveIndex,
-						});
-					}
-
-					return child;
-				})}
-			</div>
-		);
-	}
+        return (
+            <div ref={ref} {...props} className={\`relative w-full rounded-md border border-border \${className}\`}>
+                {Children.map(props.children, (child, index) => {
+                    return isValidElement(child)
+                        ? cloneElement(child as ReactElement, {
+                              iconType,
+                              accordionIndex: index,
+                              activeIndex,
+                              setActiveIndex,
+                          })
+                        : child;
+                })}
+            </div>
+        );
+    }
 );
 
 export default AccordionWrapper;`;
 
 export const ACCORDION_ITEM_CODE = `import {
-	Children,
-	cloneElement,
-	Dispatch,
-	forwardRef,
-	HTMLAttributes,
-	isValidElement,
-	ReactElement,
-	RefAttributes,
-	SetStateAction,
+    Children,
+    cloneElement,
+    Dispatch,
+    forwardRef,
+    HTMLAttributes,
+    isValidElement,
+    ReactElement,
+    RefAttributes,
+    SetStateAction,
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-	iconType?: 'arrow' | 'plus';
-	accordionIndex?: number;
-	activeIndex?: number;
-	className?: string;
-	setActiveIndex?: Dispatch<SetStateAction<number | null>>;
+    iconType?: 'arrow' | 'plus';
+    accordionIndex?: number;
+    activeIndex?: number;
+    className?: string;
+    setActiveIndex?: Dispatch<SetStateAction<number | null>>;
 }
 
 const AccordionItem = forwardRef<HTMLDivElement, Props>(
-	({ iconType, accordionIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
-		return (
-			<div
-				ref={ref}
-				{...props}
-				className={\`relative w-full border-b border-border last:border-b-0 overflow-hidden \${className}\`}
-			>
-				{Children.map(props.children, (child) => {
-					if (isValidElement(child)) {
-						return cloneElement(child as ReactElement, {
-							iconType,
-							accordionIndex,
-							activeIndex,
-							setActiveIndex,
-						});
-					}
-
-					return child;
-				})}
-			</div>
-		);
-	}
+    ({ iconType, accordionIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
+        return (
+            <div
+                ref={ref}
+                {...props}
+                className={\`relative w-full border-b border-border last:border-b-0 overflow-hidden \${className}\`}
+            >
+                {Children.map(props.children, (child) => {
+                    return isValidElement(child)
+                        ? cloneElement(child as ReactElement, {
+                              iconType,
+                              accordionIndex,
+                              activeIndex,
+                              setActiveIndex,
+                          })
+                        : child;
+                })}
+            </div>
+        );
+    }
 );
 
 export default AccordionItem;`;

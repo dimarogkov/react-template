@@ -24,6 +24,7 @@ const BlockquotePage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/B
 const BreadcrumbPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/BreadcrumbPage/BreadcrumbPage`));
 const BtnPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/BtnPage/BtnPage`));
 const CardPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/CardPage/CardPage`));
+const CarouselPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/CarouselPage/CarouselPage`));
 const CheckboxPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/CheckboxPage/CheckboxPage`));
 const DropdownPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/DropdownPage/DropdownPage`));
 const InputPage = lazy(() => import(`@components/${COMPONENTS_PAGES_PATH}/InputPage/InputPage`));
@@ -80,6 +81,7 @@ export const router = createBrowserRouter([
                     { path: COMPONENTS.BREADCRUMB, element: <BreadcrumbPage /> },
                     { path: COMPONENTS.BTN, element: <BtnPage /> },
                     { path: COMPONENTS.CARD, element: <CardPage /> },
+                    { path: COMPONENTS.CAROUSEL, element: <CarouselPage /> },
                     { path: COMPONENTS.CHECKBOX, element: <CheckboxPage /> },
                     { path: COMPONENTS.DROPDOWN, element: <DropdownPage /> },
                     { path: COMPONENTS.INPUT, element: <InputPage /> },

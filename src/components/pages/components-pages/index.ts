@@ -6,6 +6,7 @@ import { BlockquotePage } from './BlockquotePage';
 import { BreadcrumbPage } from './BreadcrumbPage';
 import { BtnPage } from './BtnPage';
 import { CardPage } from './CardPage';
+import { CarouselPage } from './CarouselPage';
 import { CheckboxPage } from './CheckboxPage';
 import { DropdownPage } from './DropdownPage';
 import { InputPage } from './InputPage';
@@ -38,6 +39,7 @@ export {
     BreadcrumbPage,
     BtnPage,
     CardPage,
+    CarouselPage,
     CheckboxPage,
     DropdownPage,
     InputPage,

@@ -8,8 +8,8 @@ type Props = {
 };
 
 export default function DevIcon({ devIcon, className = '' }: Props) {
-    const { icon, text } = devIcon;
     const [isMount, setIsMount] = useState(false);
+    const { icon, text } = devIcon;
 
     useEffect(() => {
         setIsMount(true);
@@ -19,7 +19,7 @@ export default function DevIcon({ devIcon, className = '' }: Props) {
         <div
             className={`relative flex items-center gap-2 px-3.5 py-1 rounded-full border border-border whitespace-nowrap ${className}`}
         >
-            {!isMount ? <span className='size-5 rounded-full bg-text'></span> : <i className={`text-xl ${icon}`} />}
+            {!isMount ? <span className='size-5 rounded-full bg-text' /> : <i className={`text-xl ${icon}`} />}
             <Text className='select-none !w-fit'>{text}</Text>
         </div>
     );

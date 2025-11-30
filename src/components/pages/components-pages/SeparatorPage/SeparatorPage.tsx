@@ -37,6 +37,7 @@ export default function SeparatorPage() {
     const data: IDocumentationData = {
         title: 'Separator',
         description: 'Visually or semantically separates content.',
+        links: [],
         preview,
         codeSections,
     };

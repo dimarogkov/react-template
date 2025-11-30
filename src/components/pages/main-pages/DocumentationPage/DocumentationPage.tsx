@@ -38,13 +38,14 @@ export default function DocumentationPage() {
                                     <Separator className='my-5' />
 
                                     <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full'>
-                                        {links.map(({ name, href }) => (
+                                        {links.map(({ name, href, isNew }) => (
                                             <Link
                                                 key={name}
                                                 to={href}
-                                                className='font-medium text-lg text-text hover:underline'
+                                                className='flex items-center gap-2.5 font-medium text-lg text-text hover:underline'
                                             >
-                                                {name}
+                                                <span>{name}</span>
+                                                {isNew && <span className='flex size-2 rounded-full bg-blue' />}
                                             </Link>
                                         ))}
                                     </div>

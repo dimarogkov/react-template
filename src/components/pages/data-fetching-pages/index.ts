@@ -1,4 +1,4 @@
-import { ReactQueryPage } from './ReactQueryPage';
 import { RtkQueryPage } from './RtkQueryPage';
+import { TanStackQueryPage } from './TanStackQueryPage';
 
-export { ReactQueryPage, RtkQueryPage };
+export { RtkQueryPage, TanStackQueryPage };

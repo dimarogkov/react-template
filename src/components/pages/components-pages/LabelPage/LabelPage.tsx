@@ -37,6 +37,7 @@ export default function LabelPage() {
     const data: IDocumentationData = {
         title: 'Label',
         description: 'A reusable component for wrapping Form elements.',
+        links: [],
         preview,
         codeSections,
     };

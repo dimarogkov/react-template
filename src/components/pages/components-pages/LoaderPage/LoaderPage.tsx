@@ -37,6 +37,7 @@ export default function LoaderPage() {
     const data: IDocumentationData = {
         title: 'Loader',
         description: 'A reusable component for indicating loading or processing states.',
+        links: [],
         preview,
         codeSections,
     };

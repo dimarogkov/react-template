@@ -51,6 +51,7 @@ export default function CardPage() {
     const data: IDocumentationData = {
         title: 'Card',
         description: 'Displays a card with header, body and footer.',
+        links: [],
         preview,
         codeSections,
     };

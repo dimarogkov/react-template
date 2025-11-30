@@ -1,6 +1,12 @@
+import { ILink } from './Link';
+
 export interface IDocumentationPreview {
     demo: JSX.Element;
     code: string;
+}
+
+export interface IDocumentationLink extends ILink {
+    isNew: boolean;
 }
 
 export interface IDocumentationCodeArr {
@@ -20,6 +26,7 @@ export interface IDocumentationCodeSection {
 export interface IDocumentationData {
     title: string;
     description: string;
+    links: ILink[];
     preview: IDocumentationPreview;
     codeSections: IDocumentationCodeSection[];
 }

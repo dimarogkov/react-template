@@ -1,9 +1,9 @@
-export const REACT_QUERY_DEMO_CODE = `import { useTodoQuery } from '@hooks';
+import { useTodoQuery } from '@hooks';
 import { ITodo } from '@interfaces/Todo';
 import { AddTodo, Todo } from '@components/molecules';
 import { Loader } from '@components/atoms';
 
-export default function ReactQueryDemo() {
+export default function TanStackQueryDemo() {
     const {
         todos,
         isLoading,
@@ -59,4 +59,4 @@ export default function ReactQueryDemo() {
             )}
         </div>
     );
-}`;
+}

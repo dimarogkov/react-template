@@ -1,4 +1,4 @@
-import { useTodoQuery } from '@hooks';
+export const TANSTACK_QUERY_DEMO_CODE = `import { useTodoQuery } from '@hooks';
 import { ITodo } from '@interfaces/Todo';
 import { AddTodo, Todo } from '@components/molecules';
 import { Loader } from '@components/atoms';
@@ -59,4 +59,4 @@ export default function ReactQueryDemo() {
             )}
         </div>
     );
-}
+}`;

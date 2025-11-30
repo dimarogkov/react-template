@@ -10,6 +10,7 @@ module.exports = {
                 yellow: '#facc15',
                 green: '#52881a',
                 red: '#ff6467',
+                blue: '#2b7fff',
                 bg: '#0a0a0a',
             },
             animation: {

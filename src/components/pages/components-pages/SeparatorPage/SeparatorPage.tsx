@@ -7,7 +7,7 @@ import SeparatorDemo from './SeparatorDemo';
 export default function SeparatorPage() {
     const preview: IDocumentationPreview = {
         demo: <SeparatorDemo />,
-        code: SEPARATOR_DEMO_CODE,
+        code: SEPARATOR_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function SeparatorPage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Separator',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Separator</span> component for consistent and
+                    Include a custom <span className="badge-item">Separator</span> component for consistent and
                     maintainable usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [SEPARATOR_CODE],
+            codeArr: [SEPARATOR_CODE]
         },
         {
             id: 'usage',
@@ -30,8 +30,8 @@ export default function SeparatorPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [SEPARATOR_USAGE_CODE],
-        },
+            codeArr: [SEPARATOR_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -39,7 +39,7 @@ export default function SeparatorPage() {
         description: 'Visually or semantically separates content.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

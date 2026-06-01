@@ -20,7 +20,7 @@ export default function HeaderLink({ href }: Props) {
                     {
                         'text-title pointer-events-none': isActive,
                         'hover:bg-border': !isActive,
-                        'text-title': pathname === PATHS.HOME,
+                        'text-title': pathname === PATHS.HOME
                     }
                 )
             }

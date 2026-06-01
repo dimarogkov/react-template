@@ -7,7 +7,7 @@ import ProgressDemo from './ProgressDemo';
 export default function ProgressPage() {
     const preview: IDocumentationPreview = {
         demo: <ProgressDemo />,
-        code: PROGRESS_DEMO_CODE,
+        code: PROGRESS_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,7 +17,7 @@ export default function ProgressPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [NPM_CLASSNAMES_CODE],
+            codeArr: [NPM_CLASSNAMES_CODE]
         },
         {
             id: 'code',
@@ -25,12 +25,12 @@ export default function ProgressPage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Progress',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Progress</span> component for consistent and
+                    Include a custom <span className="badge-item">Progress</span> component for consistent and
                     maintainable usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [PROGRESS_CODE],
+            codeArr: [PROGRESS_CODE]
         },
         {
             id: 'usage',
@@ -38,8 +38,8 @@ export default function ProgressPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [PROGRESS_USAGE_CODE],
-        },
+            codeArr: [PROGRESS_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -48,7 +48,7 @@ export default function ProgressPage() {
             'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

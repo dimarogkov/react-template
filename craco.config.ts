@@ -12,9 +12,9 @@ const config = {
             '@services': path.resolve(__dirname, 'src/services'),
             '@store': path.resolve(__dirname, 'src/store'),
             '@interfaces': path.resolve(__dirname, 'src/types/interfaces'),
-            '@utils': path.resolve(__dirname, 'src/utils'),
-        },
-    },
+            '@utils': path.resolve(__dirname, 'src/utils')
+        }
+    }
 };
 
 export default config;

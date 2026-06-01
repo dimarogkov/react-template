@@ -7,7 +7,7 @@ import PinInputDemo from './PinInputDemo';
 export default function PinInputPage() {
     const preview: IDocumentationPreview = {
         demo: <PinInputDemo />,
-        code: PIN_INPUT_DEMO_CODE,
+        code: PIN_INPUT_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function PinInputPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/PinInput',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>PinInput</span> component for consistent and
+                    Include a custom <span className="badge-item">PinInput</span> component for consistent and
                     maintainable usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [PIN_INPUT_CODE],
+            codeArr: [PIN_INPUT_CODE]
         },
         {
             id: 'usage',
@@ -30,8 +30,8 @@ export default function PinInputPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [PIN_INPUT_USAGE_CODE],
-        },
+            codeArr: [PIN_INPUT_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -39,7 +39,7 @@ export default function PinInputPage() {
         description: 'Used to capture a pin code or otp from the user.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

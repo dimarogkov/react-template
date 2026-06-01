@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "ESNext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
@@ -10,24 +10,24 @@
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
+        "types": ["node"],
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
-        "baseUrl": "src",
         "paths": {
-            "@app/*": ["app/*"],
-            "@components/*": ["components/*"],
-            "@constants": ["constants"],
-            "@code": ["constants/code"],
-            "@form-validation/*": ["form-validation/*"],
-            "@hooks": ["hooks"],
-            "@services/*": ["services/*"],
-            "@store/*": ["store/*"],
-            "@interfaces/*": ["types/interfaces/*"],
-            "@utils": ["utils"]
+            "@app/*": ["./src/app/*"],
+            "@components/*": ["./src/components/*"],
+            "@constants": ["./src/constants"],
+            "@code": ["./src/constants/code"],
+            "@form-validation/*": ["./src/form-validation/*"],
+            "@hooks": ["./src/hooks"],
+            "@services/*": ["./src/services/*"],
+            "@store/*": ["./src/store/*"],
+            "@interfaces/*": ["./src/types/interfaces/*"],
+            "@utils": ["./src/utils"]
         }
     },
-    "include": ["src"]
+    "include": ["src", "craco.config.ts"]
 }

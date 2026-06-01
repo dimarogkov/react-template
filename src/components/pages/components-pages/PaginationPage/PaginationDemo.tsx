@@ -7,7 +7,7 @@ export default function PaginationDemo() {
     const { pagesArr, options } = usePagination(ITEMS);
 
     return (
-        <Pagination options={options} className='py-5'>
+        <Pagination options={options} className="py-5">
             <Pagination.Previous />
 
             {pagesArr.map((page, index) =>

@@ -29,7 +29,7 @@ import {
     TextPage,
     TitlePage,
     ToastPage,
-    TooltipPage,
+    TooltipPage
 } from './components-pages';
 import { RtkQueryPage, TanStackQueryPage } from './data-fetching-pages';
 import { YupPage, ZodPage } from './form-validation-pages';
@@ -74,5 +74,5 @@ export {
     YupPage,
     ZodPage,
     ReduxToolkitPage,
-    ZustandPage,
+    ZustandPage
 };

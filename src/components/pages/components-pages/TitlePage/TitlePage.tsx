@@ -7,7 +7,7 @@ import TitleDemo from './TitleDemo';
 export default function TitlePage() {
     const preview: IDocumentationPreview = {
         demo: <TitleDemo />,
-        code: TITLE_DEMO_CODE,
+        code: TITLE_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function TitlePage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Title',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Title</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Title</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [TITLE_CODE],
+            codeArr: [TITLE_CODE]
         },
         {
             id: 'usage',
@@ -30,8 +30,8 @@ export default function TitlePage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [TITLE_USAGE_CODE],
-        },
+            codeArr: [TITLE_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -39,7 +39,7 @@ export default function TitlePage() {
         description: 'Styles for headings.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

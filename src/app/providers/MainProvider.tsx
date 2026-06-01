@@ -17,7 +17,7 @@ export default function MainProvider({ children }: { children: ReactNode }) {
     const value = useMemo(
         () => ({
             isSidebarOpen,
-            setIsSidebarOpen,
+            setIsSidebarOpen
         }),
         [isSidebarOpen]
     );

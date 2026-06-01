@@ -7,7 +7,7 @@ import {
     TANSTACK_QUERY_ADD_TODO_CODE,
     TANSTACK_QUERY_TODO_CODE,
     TANSTACK_QUERY_DEMO_CODE,
-    TANSTACK_QUERY_PROVIDER_USAGE_CODE,
+    TANSTACK_QUERY_PROVIDER_USAGE_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -16,7 +16,7 @@ import TanStackQueryDemo from './TanStackQueryDemo';
 export default function ReactQueryPage() {
     const preview: IDocumentationPreview = {
         demo: <TanStackQueryDemo />,
-        code: TANSTACK_QUERY_DEMO_CODE,
+        code: TANSTACK_QUERY_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -29,8 +29,8 @@ export default function ReactQueryPage() {
             codeArr: [
                 { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
                 { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                { label: 'TanStack Query', code: NPM_TANSTACK_QUERY_CODE },
-            ],
+                { label: 'TanStack Query', code: NPM_TANSTACK_QUERY_CODE }
+            ]
         },
         {
             id: 'code',
@@ -42,8 +42,8 @@ export default function ReactQueryPage() {
                 { label: 'Todo.ts', code: TANSTACK_QUERY_TYPE_CODE },
                 { label: 'useTodoQuery.tsx', code: TANSTACK_QUERY_CODE },
                 { label: 'AddTodo.tsx', code: TANSTACK_QUERY_ADD_TODO_CODE },
-                { label: 'Todo.tsx', code: TANSTACK_QUERY_TODO_CODE },
-            ],
+                { label: 'Todo.tsx', code: TANSTACK_QUERY_TODO_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -51,8 +51,8 @@ export default function ReactQueryPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [TANSTACK_QUERY_PROVIDER_USAGE_CODE, TANSTACK_QUERY_DEMO_CODE],
-        },
+            codeArr: [TANSTACK_QUERY_PROVIDER_USAGE_CODE, TANSTACK_QUERY_DEMO_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -60,7 +60,7 @@ export default function ReactQueryPage() {
         description: 'Powerful asynchronous state management for TS/JS and React.',
         links: [{ href: 'https://tanstack.com/query/latest/docs/framework/react/overview', name: 'Docs' }],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

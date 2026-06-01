@@ -7,7 +7,7 @@ import {
     isValidElement,
     ReactElement,
     RefAttributes,
-    SetStateAction,
+    SetStateAction
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -32,7 +32,7 @@ const AccordionItem = forwardRef<HTMLDivElement, Props>(
                               iconType,
                               accordionIndex,
                               activeIndex,
-                              setActiveIndex,
+                              setActiveIndex
                           })
                         : child;
                 })}

@@ -7,7 +7,7 @@ import BadgeDemo from './BadgeDemo';
 export default function BadgePage() {
     const preview: IDocumentationPreview = {
         demo: <BadgeDemo />,
-        code: BADGE_DEMO_CODE,
+        code: BADGE_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function BadgePage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Badge',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Badge</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Badge</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [BADGE_CODE],
+            codeArr: [BADGE_CODE]
         },
         {
             id: 'usage',
@@ -30,7 +30,7 @@ export default function BadgePage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [BADGE_USAGE_CODE],
+            codeArr: [BADGE_USAGE_CODE]
         },
         {
             id: 'icon',
@@ -38,13 +38,13 @@ export default function BadgePage() {
             link: '',
             description: (
                 <Text>
-                    Display an icon inside a <span className='badge-item'>Badge</span> component to highlight statuses
+                    Display an icon inside a <span className="badge-item">Badge</span> component to highlight statuses
                     or actions in a compact form.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [BADGE_ICON_USAGE_CODE],
-        },
+            codeArr: [BADGE_ICON_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -52,7 +52,7 @@ export default function BadgePage() {
         description: 'Displays a badge or a component that looks like a badge.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

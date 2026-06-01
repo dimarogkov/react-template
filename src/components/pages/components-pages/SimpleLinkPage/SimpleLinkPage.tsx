@@ -7,7 +7,7 @@ import SimpleLinkDemo from './SimpleLinkDemo';
 export default function SimpleLinkPage() {
     const preview: IDocumentationPreview = {
         demo: <SimpleLinkDemo />,
-        code: SIMPLE_LINK_DEMO_CODE,
+        code: SIMPLE_LINK_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function SimpleLinkPage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/SimpleLink',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>SimpleLink</span> component for consistent and
+                    Include a custom <span className="badge-item">SimpleLink</span> component for consistent and
                     maintainable usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [SIMPLE_LINK_CODE],
+            codeArr: [SIMPLE_LINK_CODE]
         },
         {
             id: 'usage',
@@ -30,8 +30,8 @@ export default function SimpleLinkPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [SIMPLE_LINK_USAGE_CODE],
-        },
+            codeArr: [SIMPLE_LINK_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -40,7 +40,7 @@ export default function SimpleLinkPage() {
             'A simple text link styled for use inside components or previews. Useful for inline documentation, examples, or interactive UI snippets.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

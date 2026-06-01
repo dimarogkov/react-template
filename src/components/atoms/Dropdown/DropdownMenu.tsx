@@ -7,7 +7,7 @@ import {
     isValidElement,
     ReactElement,
     RefAttributes,
-    SetStateAction,
+    SetStateAction
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {

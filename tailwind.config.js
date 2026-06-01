@@ -11,23 +11,23 @@ module.exports = {
                 green: '#52881a',
                 red: '#ff6467',
                 blue: '#2b7fff',
-                bg: '#0a0a0a',
+                bg: '#0a0a0a'
             },
             animation: {
                 enter: 'enter 0.2s forwards',
-                leave: 'leave 0.2s forwards',
+                leave: 'leave 0.2s forwards'
             },
             keyframes: {
                 enter: {
                     '0%': { opacity: '0', visibility: 'hidden', transform: 'translateY(20px)' },
-                    '100%': { opacity: '1', visibility: 'visible', transform: 'translateY(0)' },
+                    '100%': { opacity: '1', visibility: 'visible', transform: 'translateY(0)' }
                 },
                 leave: {
                     '0%': { opacity: '1', visibility: 'visible', transform: 'translateY(0)' },
-                    '100%': { opacity: '0', visibility: 'hidden', transform: 'translateY(20px)' },
-                },
-            },
-        },
+                    '100%': { opacity: '0', visibility: 'hidden', transform: 'translateY(20px)' }
+                }
+            }
+        }
     },
-    plugins: [require('daisyui')],
+    plugins: [require('daisyui')]
 };

@@ -7,7 +7,7 @@ import InputDemo from './InputDemo';
 export default function InputPage() {
     const preview: IDocumentationPreview = {
         demo: <InputDemo />,
-        code: INPUT_DEMO_CODE,
+        code: INPUT_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function InputPage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Input',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Input</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Input</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [INPUT_CODE],
+            codeArr: [INPUT_CODE]
         },
         {
             id: 'usage',
@@ -30,7 +30,7 @@ export default function InputPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [INPUT_USAGE_CODE],
+            codeArr: [INPUT_USAGE_CODE]
         },
         {
             id: 'controlled',
@@ -38,13 +38,13 @@ export default function InputPage() {
             link: '',
             description: (
                 <Text>
-                    To control the Input, add <span className='badge-item'>value</span> and&nbsp;
-                    <span className='badge-item'>onChange</span> props to manage its state manually.
+                    To control the Input, add <span className="badge-item">value</span> and&nbsp;
+                    <span className="badge-item">onChange</span> props to manage its state manually.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [INPUT_CONTROLLED_USAGE_CODE],
-        },
+            codeArr: [INPUT_CONTROLLED_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -52,7 +52,7 @@ export default function InputPage() {
         description: 'Displays a form input field or a component that looks like an input field.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

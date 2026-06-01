@@ -7,7 +7,7 @@ import LabelDemo from './LabelDemo';
 export default function LabelPage() {
     const preview: IDocumentationPreview = {
         demo: <LabelDemo />,
-        code: INPUT_DEMO_CODE,
+        code: INPUT_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -17,12 +17,12 @@ export default function LabelPage() {
             link: 'https://github.com/dimarogkov/react-template/blob/master/src/components/atoms/Label',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Label</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Label</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [LABEL_CODE],
+            codeArr: [LABEL_CODE]
         },
         {
             id: 'usage',
@@ -30,8 +30,8 @@ export default function LabelPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [LABEL_USAGE_CODE],
-        },
+            codeArr: [LABEL_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -39,7 +39,7 @@ export default function LabelPage() {
         description: 'A reusable component for wrapping Form elements.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

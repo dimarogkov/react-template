@@ -10,7 +10,7 @@ import {
     TABS_DEMO_CODE,
     TABS_USAGE_CODE,
     TABS_ACTIVE_USAGE_CODE,
-    TABS_ANIMATION_USAGE_CODE,
+    TABS_ANIMATION_USAGE_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -20,7 +20,7 @@ import TabsDemo from './TabsDemo';
 export default function TabsPage() {
     const preview: IDocumentationPreview = {
         demo: <TabsDemo />,
-        code: TABS_DEMO_CODE,
+        code: TABS_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -32,8 +32,8 @@ export default function TabsPage() {
             withAccordion: true,
             codeArr: [
                 { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
-                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
-            ],
+                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE }
+            ]
         },
         {
             id: 'code',
@@ -41,7 +41,7 @@ export default function TabsPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/Tabs',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Tabs</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Tabs</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
@@ -52,8 +52,8 @@ export default function TabsPage() {
                 { label: 'TabsList.tsx', code: TABS_LIST_CODE },
                 { label: 'TabsTab.tsx', code: TABS_TAB_CODE },
                 { label: 'TabsPanels.tsx', code: TABS_PANELS_CODE },
-                { label: 'TabsPanel.tsx', code: TABS_PANEL_CODE },
-            ],
+                { label: 'TabsPanel.tsx', code: TABS_PANEL_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -61,7 +61,7 @@ export default function TabsPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [TABS_USAGE_CODE],
+            codeArr: [TABS_USAGE_CODE]
         },
         {
             id: 'active',
@@ -69,12 +69,12 @@ export default function TabsPage() {
             link: '',
             description: (
                 <Text>
-                    To make an <span className='badge-item'>Tabs</span> initially active, add the&nbsp;
-                    <span className='badge-item'>defaultActiveIndex</span> prop to it.
+                    To make an <span className="badge-item">Tabs</span> initially active, add the&nbsp;
+                    <span className="badge-item">defaultActiveIndex</span> prop to it.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [TABS_ACTIVE_USAGE_CODE],
+            codeArr: [TABS_ACTIVE_USAGE_CODE]
         },
         {
             id: 'animation',
@@ -82,13 +82,13 @@ export default function TabsPage() {
             link: '',
             description: (
                 <Text>
-                    To enable animations for <span className='badge-item'>Tabs</span> — use the&nbsp;
-                    <span className='badge-item'>hasAnimation</span> prop.
+                    To enable animations for <span className="badge-item">Tabs</span> — use the&nbsp;
+                    <span className="badge-item">hasAnimation</span> prop.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [TABS_ANIMATION_USAGE_CODE],
-        },
+            codeArr: [TABS_ANIMATION_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -97,7 +97,7 @@ export default function TabsPage() {
             'A set of layered sections of content known as tab panels that are displayed one at a time using Framer Motion.',
         links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

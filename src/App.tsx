@@ -21,7 +21,7 @@ export default function App() {
                 <Outlet context={{ Sidebar: <Sidebar /> }} />
             </main>
 
-            <Toaster position='bottom-right' reverseOrder={false} toastOptions={{ duration: 2000 }} />
+            <Toaster position="bottom-right" reverseOrder={false} toastOptions={{ duration: 2000 }} />
         </>
     );
 }

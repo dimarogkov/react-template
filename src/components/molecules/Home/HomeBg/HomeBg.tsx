@@ -13,7 +13,7 @@ export default function HomeBg() {
         <div
             className={cn('fixed top-0 left-0 w-full h-full transition-all duration-700', {
                 'opacity-100 visible': isMount,
-                'opacity-0 invisible': !isMount,
+                'opacity-0 invisible': !isMount
             })}
         >
             <HomeDarkVeil hueShift={1} speed={1} />

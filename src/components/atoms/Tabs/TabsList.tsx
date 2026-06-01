@@ -7,7 +7,7 @@ import {
     isValidElement,
     ReactElement,
     RefAttributes,
-    SetStateAction,
+    SetStateAction
 } from 'react';
 
 interface Props extends HTMLAttributes<HTMLUListElement>, RefAttributes<HTMLUListElement> {
@@ -27,7 +27,7 @@ const TabsList = forwardRef<HTMLUListElement, Props>(
                               hasAnimation,
                               tabIndex: index,
                               activeIndex,
-                              setActiveIndex,
+                              setActiveIndex
                           })
                         : child;
                 })}

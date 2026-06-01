@@ -10,7 +10,7 @@ import {
     AVATAR_LINK_USAGE_CODE,
     AVATAR_GROUP_USAGE_CODE,
     NPM_CLASSNAMES_CODE,
-    NPM_FRAMER_MOTION_CODE,
+    NPM_FRAMER_MOTION_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -20,7 +20,7 @@ import AvatarDemo from './AvatarDemo';
 export default function AvatarPage() {
     const preview: IDocumentationPreview = {
         demo: <AvatarDemo />,
-        code: AVATAR_DEMO_CODE,
+        code: AVATAR_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -32,8 +32,8 @@ export default function AvatarPage() {
             withAccordion: true,
             codeArr: [
                 { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
-                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
-            ],
+                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE }
+            ]
         },
         {
             id: 'code',
@@ -41,7 +41,7 @@ export default function AvatarPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/Avatar',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Avatar</span> component for consistent and
+                    Include a custom <span className="badge-item">Avatar</span> component for consistent and
                     maintainable usage throughout the project.
                 </Text>
             ),
@@ -52,8 +52,8 @@ export default function AvatarPage() {
                 { label: 'AvatarWrapper.tsx', code: AVATAR_WRAPPER_CODE },
                 { label: 'AvatarLink.tsx', code: AVATAR_LINK_CODE },
                 { label: 'AvatarImg.tsx', code: AVATAR_IMG_CODE },
-                { label: 'AvatarGroup.tsx', code: AVATAR_GROUP_CODE },
-            ],
+                { label: 'AvatarGroup.tsx', code: AVATAR_GROUP_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -61,7 +61,7 @@ export default function AvatarPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [AVATAR_USAGE_CODE],
+            codeArr: [AVATAR_USAGE_CODE]
         },
         {
             id: 'link',
@@ -70,12 +70,12 @@ export default function AvatarPage() {
             description: (
                 <Text>
                     To make the avatar clickable, wrap it with the&nbsp;
-                    <span className='badge-item'>Avatar.Link</span> child component and provide an&nbsp;
-                    <span className='badge-item'>href</span> prop.
+                    <span className="badge-item">Avatar.Link</span> child component and provide an&nbsp;
+                    <span className="badge-item">href</span> prop.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [AVATAR_LINK_USAGE_CODE],
+            codeArr: [AVATAR_LINK_USAGE_CODE]
         },
         {
             id: 'group',
@@ -84,13 +84,13 @@ export default function AvatarPage() {
             description: (
                 <Text>
                     To group multiple avatars together, wrap them with the&nbsp;
-                    <span className='badge-item'>AvatarGroup</span> component. You can also use the&nbsp;
-                    <span className='badge-item'>visibleCount</span> prop to limit the number of avatars displayed.
+                    <span className="badge-item">AvatarGroup</span> component. You can also use the&nbsp;
+                    <span className="badge-item">visibleCount</span> prop to limit the number of avatars displayed.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [AVATAR_GROUP_USAGE_CODE],
-        },
+            codeArr: [AVATAR_GROUP_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -98,7 +98,7 @@ export default function AvatarPage() {
         description: 'An image element with a fallback for representing the user using Framer Motion.',
         links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

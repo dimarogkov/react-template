@@ -8,7 +8,7 @@ import {
     RefAttributes,
     useEffect,
     useRef,
-    useState,
+    useState
 } from 'react';
 import cn from 'classnames';
 
@@ -32,8 +32,8 @@ const AvatarGroup = forwardRef<HTMLDivElement, Props>(({ visibleCount, className
     const groupStyle = {
         ...(visibleCount && {
             left: `${visibleCount * Math.round(currentWidth / 4) * -1}px`,
-            outline: '3px solid var(--fallback-b1)',
-        }),
+            outline: '3px solid var(--fallback-b1)'
+        })
     };
 
     return (
@@ -50,7 +50,7 @@ const AvatarGroup = forwardRef<HTMLDivElement, Props>(({ visibleCount, className
                         }`,
                         {
                             'rounded-full': childType === 'circle',
-                            'rounded-md': childType === 'square',
+                            'rounded-md': childType === 'square'
                         }
                     )}
                     style={groupStyle}

@@ -8,7 +8,7 @@ import {
     RefAttributes,
     useEffect,
     useRef,
-    useState,
+    useState
 } from 'react';
 import cn from 'classnames';
 
@@ -34,8 +34,8 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
         const avatarStyle = {
             ...(currentIndex && {
                 left: `${currentIndex * Math.round(currentWidth / 4) * -1}px`,
-                outline: '3px solid var(--fallback-b1)',
-            }),
+                outline: '3px solid var(--fallback-b1)'
+            })
         };
 
         return (
@@ -46,7 +46,7 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
                     'rounded-full': isTypeCircle,
                     'rounded-md': isTypeSquare,
                     'online-square': isOnline && isTypeSquare,
-                    online: isOnline && isTypeCircle,
+                    online: isOnline && isTypeCircle
                 })}
                 style={avatarStyle}
             >

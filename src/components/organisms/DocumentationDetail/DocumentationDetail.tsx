@@ -10,7 +10,7 @@ import {
     ComponentsLinks,
     ComponentsNavigation,
     ComponentsPreview,
-    ComponentsWrapper,
+    ComponentsWrapper
 } from '@components/organisms';
 import { Text, Title } from '@components/atoms';
 import { ArrowUpRight } from 'lucide-react';
@@ -27,18 +27,18 @@ export default function DocumentationDetail({ data }: Props) {
     const sectionsArr = codeSections.map(({ id, title }) => ({ id, text: title }));
 
     return (
-        <section className='relative w-full'>
-            <div className='container'>
+        <section className="relative w-full">
+            <div className="container">
                 <ComponentsWrapper
                     navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
                 >
-                    <div className='w-full xl:px-[30px]'>
+                    <div className="w-full xl:px-[30px]">
                         <ComponentsHead>
-                            <Title size='h2' className='mb-1 md:mb-2 last:mb-0'>
+                            <Title size="h2" className="mb-1 md:mb-2 last:mb-0">
                                 {title}
                             </Title>
 
-                            <Text size='large'>{description}</Text>
+                            <Text size="large">{description}</Text>
                         </ComponentsHead>
 
                         <ComponentsLinks links={links} />
@@ -54,10 +54,10 @@ export default function DocumentationDetail({ data }: Props) {
                                         codeArr={codeArr as IDocumentationCodeArr[]}
                                     >
                                         <Title
-                                            size='h4'
+                                            size="h4"
                                             className={cn({
                                                 'flex items-center gap-1': link,
-                                                'mb-1 md:mb-2 last:mb-0': description,
+                                                'mb-1 md:mb-2 last:mb-0': description
                                             })}
                                         >
                                             {link ? <span>{title}</span> : title}
@@ -65,8 +65,8 @@ export default function DocumentationDetail({ data }: Props) {
                                             {link && (
                                                 <Link
                                                     to={link}
-                                                    target='_blank'
-                                                    className='transition-colors duration-300 hover:text-text'
+                                                    target="_blank"
+                                                    className="transition-colors duration-300 hover:text-text"
                                                 >
                                                     <ArrowUpRight />
                                                 </Link>
@@ -83,10 +83,10 @@ export default function DocumentationDetail({ data }: Props) {
                                         codeArr={codeArr as string[]}
                                     >
                                         <Title
-                                            size='h4'
+                                            size="h4"
                                             className={cn({
                                                 'flex items-center gap-1': link,
-                                                'mb-1 md:mb-2 last:mb-0': description,
+                                                'mb-1 md:mb-2 last:mb-0': description
                                             })}
                                         >
                                             {link ? <span>{title}</span> : title}
@@ -94,8 +94,8 @@ export default function DocumentationDetail({ data }: Props) {
                                             {link && (
                                                 <Link
                                                     to={link}
-                                                    target='_blank'
-                                                    className='transition-colors duration-300 hover:text-text'
+                                                    target="_blank"
+                                                    className="transition-colors duration-300 hover:text-text"
                                                 >
                                                     <ArrowUpRight />
                                                 </Link>

@@ -3,30 +3,30 @@ import { IDevIcon } from '@interfaces/DevIcon';
 export const DEV_ICONS: IDevIcon[] = [
     {
         icon: 'devicon-react-original',
-        text: 'React',
+        text: 'React'
     },
     {
         icon: 'devicon-typescript-plain',
-        text: 'TypeScript',
+        text: 'TypeScript'
     },
     {
         icon: 'devicon-tailwindcss-original',
-        text: 'Tailwind CSS',
+        text: 'Tailwind CSS'
     },
     {
         icon: 'devicon-redux-original',
-        text: 'Redux Toolkit',
+        text: 'Redux Toolkit'
     },
     {
         icon: 'devicon-reactrouter-plain',
-        text: 'React Router',
+        text: 'React Router'
     },
     {
         icon: 'devicon-axios-plain',
-        text: 'Axios',
+        text: 'Axios'
     },
     {
         icon: 'devicon-framermotion-original',
-        text: 'Framer Motion',
-    },
+        text: 'Framer Motion'
+    }
 ];

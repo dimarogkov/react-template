@@ -6,7 +6,7 @@ import {
     DATA_FETCHING_PAGES_PATH,
     FORM_VALIDATION_PAGES_PATH,
     STORE_PAGES_PATH,
-    PATHS,
+    PATHS
 } from './paths';
 
 // main pages
@@ -111,10 +111,10 @@ export const router = createBrowserRouter([
                     { path: FORM_VALIDATION.YUP.path, element: <YupPage /> },
                     { path: FORM_VALIDATION.ZOD.path, element: <ZodPage /> },
                     { path: STORE.REDUX_TOOLKIT.path, element: <ReduxToolkitPage /> },
-                    { path: STORE.ZUSTAND.path, element: <ZustandPage /> },
-                ],
+                    { path: STORE.ZUSTAND.path, element: <ZustandPage /> }
+                ]
             },
-            { path: '*', element: <NotFoundPage /> },
-        ],
-    },
+            { path: '*', element: <NotFoundPage /> }
+        ]
+    }
 ]);

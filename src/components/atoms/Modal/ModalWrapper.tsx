@@ -7,7 +7,7 @@ import {
     ReactElement,
     RefAttributes,
     useEffect,
-    useState,
+    useState
 } from 'react';
 import { useLocation } from 'react-router-dom';
 

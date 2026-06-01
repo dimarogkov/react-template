@@ -5,7 +5,7 @@ import {
     CARD_BODY_CODE,
     CARD_FOOTER_CODE,
     CARD_DEMO_CODE,
-    CARD_USAGE_CODE,
+    CARD_USAGE_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -15,7 +15,7 @@ import CardDemo from './CardDemo';
 export default function CardPage() {
     const preview: IDocumentationPreview = {
         demo: <CardDemo />,
-        code: CARD_DEMO_CODE,
+        code: CARD_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -25,7 +25,7 @@ export default function CardPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/Card',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Card</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Card</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
@@ -35,8 +35,8 @@ export default function CardPage() {
                 { label: 'CardWrapper.tsx', code: CARD_WRAPPER_CODE },
                 { label: 'CardHead.tsx', code: CARD_HEAD_CODE },
                 { label: 'CardBody.tsx', code: CARD_BODY_CODE },
-                { label: 'CardFooter.tsx', code: CARD_FOOTER_CODE },
-            ],
+                { label: 'CardFooter.tsx', code: CARD_FOOTER_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -44,8 +44,8 @@ export default function CardPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [CARD_USAGE_CODE],
-        },
+            codeArr: [CARD_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -53,7 +53,7 @@ export default function CardPage() {
         description: 'Displays a card with header, body and footer.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

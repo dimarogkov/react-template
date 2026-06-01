@@ -11,7 +11,7 @@ import {
     PAGINATION_UTILS_CODE,
     PAGINATION_DEMO_CODE,
     PAGINATION_USAGE_CODE,
-    PAGINATION_DATA_USAGE_CODE,
+    PAGINATION_DATA_USAGE_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -21,7 +21,7 @@ import PaginationDemo from './PaginationDemo';
 export default function PaginationPage() {
     const preview: IDocumentationPreview = {
         demo: <PaginationDemo />,
-        code: PAGINATION_DEMO_CODE,
+        code: PAGINATION_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -33,8 +33,8 @@ export default function PaginationPage() {
             withAccordion: true,
             codeArr: [
                 { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
-                { label: 'Lucide', code: NPM_LUCIDE_CODE },
-            ],
+                { label: 'Lucide', code: NPM_LUCIDE_CODE }
+            ]
         },
         {
             id: 'code',
@@ -42,9 +42,9 @@ export default function PaginationPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/Pagination',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>usePagination</span>,&nbsp;
-                    <span className='badge-item'>getPaginationRange</span> and&nbsp;
-                    <span className='badge-item'>Pagination</span> component for consistent and maintainable usage
+                    Include a custom <span className="badge-item">usePagination</span>,&nbsp;
+                    <span className="badge-item">getPaginationRange</span> and&nbsp;
+                    <span className="badge-item">Pagination</span> component for consistent and maintainable usage
                     throughout the project.
                 </Text>
             ),
@@ -57,8 +57,8 @@ export default function PaginationPage() {
                 { label: 'PaginationPrevious.tsx', code: PAGINATION_PREVIOUS_CODE },
                 { label: 'PaginationItem.tsx', code: PAGINATION_ITEM_CODE },
                 { label: 'PaginationNext.tsx', code: PAGINATION_NEXT_CODE },
-                { label: 'PaginationEllipsis.tsx', code: PAGINATION_ELLIPSIS_CODE },
-            ],
+                { label: 'PaginationEllipsis.tsx', code: PAGINATION_ELLIPSIS_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -66,7 +66,7 @@ export default function PaginationPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [PAGINATION_USAGE_CODE],
+            codeArr: [PAGINATION_USAGE_CODE]
         },
         {
             id: 'data',
@@ -78,8 +78,8 @@ export default function PaginationPage() {
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [PAGINATION_DATA_USAGE_CODE],
-        },
+            codeArr: [PAGINATION_DATA_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -87,7 +87,7 @@ export default function PaginationPage() {
         description: 'Pagination with page navigation, next and previous links.',
         links: [],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

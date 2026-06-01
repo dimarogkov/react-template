@@ -61,5 +61,5 @@ export {
     TextPage,
     TitlePage,
     ToastPage,
-    TooltipPage,
+    TooltipPage
 };

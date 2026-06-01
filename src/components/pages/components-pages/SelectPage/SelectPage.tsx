@@ -15,7 +15,7 @@ import {
     SELECT_USAGE_CODE,
     SELECT_CONTROLLED_USAGE_CODE,
     SELECT_ICON_USAGE_CODE,
-    SELECT_MULTIPLE_USAGE_CODE,
+    SELECT_MULTIPLE_USAGE_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -25,7 +25,7 @@ import SelectDemo from './SelectDemo';
 export default function SelectPage() {
     const preview: IDocumentationPreview = {
         demo: <SelectDemo />,
-        code: SELECT_DEMO_CODE,
+        code: SELECT_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -38,8 +38,8 @@ export default function SelectPage() {
             codeArr: [
                 { label: 'Classnames', code: NPM_CLASSNAMES_CODE },
                 { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
-            ],
+                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE }
+            ]
         },
         {
             id: 'code',
@@ -47,8 +47,8 @@ export default function SelectPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/Select',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>ISelectItem</span>,&nbsp;
-                    <span className='badge-item'>assignRefs</span> and <span className='badge-item'>Select</span>&nbsp;
+                    Include a custom <span className="badge-item">ISelectItem</span>,&nbsp;
+                    <span className="badge-item">assignRefs</span> and <span className="badge-item">Select</span>&nbsp;
                     component for consistent and maintainable usage throughout the project.
                 </Text>
             ),
@@ -62,8 +62,8 @@ export default function SelectPage() {
                 { label: 'SelectOptions.tsx', code: SELECT_OPTIONS_CODE },
                 { label: 'SelectGroup.tsx', code: SELECT_GROUP_CODE },
                 { label: 'SelectLabel.tsx', code: SELECT_LABEL_CODE },
-                { label: 'SelectOption.tsx', code: SELECT_OPTION_CODE },
-            ],
+                { label: 'SelectOption.tsx', code: SELECT_OPTION_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -71,7 +71,7 @@ export default function SelectPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [SELECT_USAGE_CODE],
+            codeArr: [SELECT_USAGE_CODE]
         },
         {
             id: 'controlled',
@@ -79,12 +79,12 @@ export default function SelectPage() {
             link: '',
             description: (
                 <Text>
-                    To control the Select, add <span className='badge-item'>value</span> and&nbsp;
-                    <span className='badge-item'>onChange</span> props to manage its state manually.
+                    To control the Select, add <span className="badge-item">value</span> and&nbsp;
+                    <span className="badge-item">onChange</span> props to manage its state manually.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [SELECT_CONTROLLED_USAGE_CODE],
+            codeArr: [SELECT_CONTROLLED_USAGE_CODE]
         },
         {
             id: 'icon',
@@ -92,12 +92,12 @@ export default function SelectPage() {
             link: '',
             description: (
                 <Text>
-                    To change the default icon in the trigger, pass a custom <span className='badge-item'>icon</span>
-                    &nbsp;component to <span className='badge-item'>Select.Trigger</span>.
+                    To change the default icon in the trigger, pass a custom <span className="badge-item">icon</span>
+                    &nbsp;component to <span className="badge-item">Select.Trigger</span>.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [SELECT_ICON_USAGE_CODE],
+            codeArr: [SELECT_ICON_USAGE_CODE]
         },
         {
             id: 'multiple',
@@ -105,13 +105,13 @@ export default function SelectPage() {
             link: '',
             description: (
                 <Text>
-                    To enable multiple selection, add the <span className='badge-item'>multiple</span> attribute to
-                    the&nbsp;<span className='badge-item'>Select</span> component.
+                    To enable multiple selection, add the <span className="badge-item">multiple</span> attribute to
+                    the&nbsp;<span className="badge-item">Select</span> component.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [SELECT_MULTIPLE_USAGE_CODE],
-        },
+            codeArr: [SELECT_MULTIPLE_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -119,7 +119,7 @@ export default function SelectPage() {
         description: 'Displays a list of options for the user to pick from triggered by a button using Framer Motion.',
         links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

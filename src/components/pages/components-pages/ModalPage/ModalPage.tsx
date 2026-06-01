@@ -9,7 +9,7 @@ import {
     MODAL_USAGE_CODE,
     MODAL_DISABLE_CLOSE_BTN_USAGE_CODE,
     NPM_FRAMER_MOTION_CODE,
-    NPM_LUCIDE_CODE,
+    NPM_LUCIDE_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
@@ -19,7 +19,7 @@ import ModalDemo from './ModalDemo';
 export default function ModalPage() {
     const preview: IDocumentationPreview = {
         demo: <ModalDemo />,
-        code: MODAL_DEMO_CODE,
+        code: MODAL_DEMO_CODE
     };
 
     const codeSections: IDocumentationCodeSection[] = [
@@ -31,8 +31,8 @@ export default function ModalPage() {
             withAccordion: true,
             codeArr: [
                 { label: 'Lucide', code: NPM_LUCIDE_CODE },
-                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE },
-            ],
+                { label: 'Framer Motion', code: NPM_FRAMER_MOTION_CODE }
+            ]
         },
         {
             id: 'code',
@@ -40,7 +40,7 @@ export default function ModalPage() {
             link: 'https://github.com/dimarogkov/react-template/tree/master/src/components/atoms/Modal',
             description: (
                 <Text>
-                    Include a custom <span className='badge-item'>Modal</span> component for consistent and maintainable
+                    Include a custom <span className="badge-item">Modal</span> component for consistent and maintainable
                     usage throughout the project.
                 </Text>
             ),
@@ -51,8 +51,8 @@ export default function ModalPage() {
                 { label: 'ModalTrigger.tsx', code: MODAL_TRIGGER_CODE },
                 { label: 'ModalContent.tsx', code: MODAL_CONTENT_CODE },
                 { label: 'ModalLayer.tsx', code: MODAL_LAYER_CODE },
-                { label: 'ModalClose.tsx', code: MODAL_CLOSE_CODE },
-            ],
+                { label: 'ModalClose.tsx', code: MODAL_CLOSE_CODE }
+            ]
         },
         {
             id: 'usage',
@@ -60,7 +60,7 @@ export default function ModalPage() {
             link: '',
             description: null,
             withAccordion: false,
-            codeArr: [MODAL_USAGE_CODE],
+            codeArr: [MODAL_USAGE_CODE]
         },
         {
             id: 'disableCloseBtn',
@@ -69,13 +69,13 @@ export default function ModalPage() {
             description: (
                 <Text>
                     Disable the modal&apos;s close button by adding the&nbsp;
-                    <span className='badge-item'>disableCloseBtn</span> prop to&nbsp;
-                    <span className='badge-item'>Modal.Content</span>.
+                    <span className="badge-item">disableCloseBtn</span> prop to&nbsp;
+                    <span className="badge-item">Modal.Content</span>.
                 </Text>
             ),
             withAccordion: false,
-            codeArr: [MODAL_DISABLE_CLOSE_BTN_USAGE_CODE],
-        },
+            codeArr: [MODAL_DISABLE_CLOSE_BTN_USAGE_CODE]
+        }
     ];
 
     const data: IDocumentationData = {
@@ -84,7 +84,7 @@ export default function ModalPage() {
             'A window overlaid on either the primary window or another modal window, rendering the content underneath inert using Framer Motion.',
         links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
         preview,
-        codeSections,
+        codeSections
     };
 
     return <DocumentationDetail data={data} />;

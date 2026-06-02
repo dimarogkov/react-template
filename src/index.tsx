@@ -1,4 +1,4 @@
-import { StrictMode, Suspense } from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { RootProvider } from '@app/providers';
@@ -10,9 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <StrictMode>
         <RootProvider>
-            <Suspense fallback={null}>
-                <RouterProvider router={router} />
-            </Suspense>
+            <RouterProvider router={router} future={{ v7_startTransition: true }} />
         </RootProvider>
     </StrictMode>
 );

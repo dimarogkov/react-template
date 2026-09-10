@@ -6,10 +6,6 @@ interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTML
     className?: string;
 }
 
-const Text = forwardRef<HTMLParagraphElement, Props>(({ size = 'default', className = '', ...props }, ref) => {
-    return (
-        <p ref={ref} {...props} className={cn(`w-full text-base ${className}`, { 'md:text-lg': size === 'large' })} />
-    );
+export const Text = forwardRef<HTMLParagraphElement, Props>(({ size = 'default', className = '', ...props }, ref) => {
+    return <p ref={ref} {...props} className={cn(`w-full text-base`, { 'md:text-lg': size === 'large' }, className)} />;
 });
-
-export default Text;

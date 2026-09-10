@@ -8,9 +8,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import ReorderDemo from './ReorderDemo';
+import { ReorderDemo } from './ReorderDemo';
 
-export default function ReorderPage() {
+export const ReorderPage = () => {
     const preview: IDocumentationPreview = {
         demo: <ReorderDemo />,
         code: REORDER_DEMO_CODE
@@ -29,7 +29,12 @@ export default function ReorderPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Reorder</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [REORDER_USAGE_CODE]
         },
@@ -73,4 +78,4 @@ export default function ReorderPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

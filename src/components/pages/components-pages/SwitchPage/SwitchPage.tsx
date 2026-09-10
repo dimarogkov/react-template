@@ -1,10 +1,18 @@
-import { NPM_CLASSNAMES_CODE, NPM_FRAMER_MOTION_CODE, SWITCH_CODE, SWITCH_DEMO_CODE, SWITCH_USAGE_CODE } from '@code';
+import {
+    NPM_CLASSNAMES_CODE,
+    NPM_FRAMER_MOTION_CODE,
+    SWITCH_CODE,
+    SWITCH_DEMO_CODE,
+    SWITCH_USAGE_CODE,
+    SWITCH_ACTIVE_USAGE_CODE,
+    SWITCH_DISABLED_USAGE_CODE
+} from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import SwitchDemo from './SwitchDemo';
+import { SwitchDemo } from './SwitchDemo';
 
-export default function SwitchPage() {
+export const SwitchPage = () => {
     const preview: IDocumentationPreview = {
         demo: <SwitchDemo />,
         code: SWITCH_DEMO_CODE
@@ -39,9 +47,39 @@ export default function SwitchPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Switch</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [SWITCH_USAGE_CODE]
+        },
+        {
+            id: 'active',
+            title: 'Active',
+            link: '',
+            description: (
+                <Text>
+                    Use the <span className="badge-item">isActive</span> prop to display the switch in its active (on)
+                    state.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [SWITCH_ACTIVE_USAGE_CODE]
+        },
+        {
+            id: 'disabled',
+            title: 'Disabled',
+            link: '',
+            description: (
+                <Text>
+                    Use the <span className="badge-item">disabled</span> prop to prevent user interaction with the
+                    switch.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [SWITCH_DISABLED_USAGE_CODE]
         }
     ];
 
@@ -54,4 +92,4 @@ export default function SwitchPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

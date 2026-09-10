@@ -10,6 +10,7 @@ import {
     SetStateAction,
     useState
 } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;
@@ -17,7 +18,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
-const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
+export const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
     ({ isOpen, className = '', setIsOpen = () => {}, ...props }, ref) => {
         const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
 
@@ -28,11 +29,11 @@ const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
                 onClick={(e) => e.stopPropagation()}
                 onMouseEnter={() => setIsSubDropdownOpen(true)}
                 onMouseLeave={() => setIsSubDropdownOpen(false)}
-                className={`relative ${className}`}
+                className={cn('relative', className)}
             >
                 {Children.map(props.children, (child) => {
                     return isValidElement(child)
-                        ? cloneElement(child as ReactElement, {
+                        ? cloneElement(child as ReactElement<any>, {
                               isOpen,
                               isSubOpen: isSubDropdownOpen,
                               setIsOpen
@@ -43,5 +44,3 @@ const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
         );
     }
 );
-
-export default DropdownSubMenu;

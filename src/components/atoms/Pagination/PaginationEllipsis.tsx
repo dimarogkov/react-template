@@ -1,4 +1,5 @@
 import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     currentPage?: number;
@@ -6,18 +7,19 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setCurrentPage?: (page: number) => void;
 }
 
-const PaginationEllipsis = forwardRef<HTMLDivElement, Props>(
-    ({ currentPage, className = '', setCurrentPage = () => {}, ...props }, ref) => {
+export const PaginationEllipsis = forwardRef<HTMLDivElement, Props>(
+    ({ currentPage, className = '', setCurrentPage, ...props }, ref) => {
         return (
             <div
                 ref={ref}
                 {...props}
-                className={`relative flex items-center justify-center size-9 text-title text-base select-none pointer-events-none ${className}`}
+                className={cn(
+                    'text-title pointer-events-none relative flex size-9 items-center justify-center text-base select-none',
+                    className
+                )}
             >
                 ...
             </div>
         );
     }
 );
-
-export default PaginationEllipsis;

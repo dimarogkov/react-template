@@ -1,3 +1,3 @@
-import AccordionPage from './AccordionPage';
+import { AccordionPage } from './AccordionPage';
 
 export { AccordionPage };

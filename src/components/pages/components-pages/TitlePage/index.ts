@@ -1,3 +1,3 @@
-import TitlePage from './TitlePage';
+import { TitlePage } from './TitlePage';
 
 export { TitlePage };

@@ -9,9 +9,9 @@ import {
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
-import ZodDemo from './ZodDemo';
+import { ZodDemo } from './ZodDemo';
 
-export default function ZodPage() {
+export const ZodPage = () => {
     const preview: IDocumentationPreview = {
         demo: <ZodDemo />,
         code: ZOD_DEMO_CODE
@@ -67,4 +67,4 @@ export default function ZodPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

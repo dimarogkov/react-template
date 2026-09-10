@@ -1,3 +1,3 @@
-import SwitchPage from './SwitchPage';
+import { SwitchPage } from './SwitchPage';
 
 export { SwitchPage };

@@ -2,9 +2,9 @@ import { NPM_CLASSNAMES_CODE, PROGRESS_CODE, PROGRESS_DEMO_CODE, PROGRESS_USAGE_
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import ProgressDemo from './ProgressDemo';
+import { ProgressDemo } from './ProgressDemo';
 
-export default function ProgressPage() {
+export const ProgressPage = () => {
     const preview: IDocumentationPreview = {
         demo: <ProgressDemo />,
         code: PROGRESS_DEMO_CODE
@@ -36,7 +36,11 @@ export default function ProgressPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Progress</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [PROGRESS_USAGE_CODE]
         }
@@ -52,4 +56,4 @@ export default function ProgressPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

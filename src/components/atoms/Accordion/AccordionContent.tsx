@@ -1,5 +1,6 @@
 import { forwardRef, ReactNode, RefAttributes } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
+import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
@@ -11,7 +12,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     setActiveIndex?: () => void;
 }
 
-const AccordionContent = forwardRef<HTMLDivElement, Props>(
+export const AccordionContent = forwardRef<HTMLDivElement, Props>(
     (
         {
             iconType,
@@ -20,7 +21,7 @@ const AccordionContent = forwardRef<HTMLDivElement, Props>(
             className = '',
             classNameBlock = '',
             children,
-            setActiveIndex = () => {},
+            setActiveIndex,
             ...props
         },
         ref
@@ -39,14 +40,12 @@ const AccordionContent = forwardRef<HTMLDivElement, Props>(
                         ref={ref}
                         {...props}
                         {...animation}
-                        className={`relative w-full text-base ${className}`}
+                        className={cn('relative w-full text-base', className)}
                     >
-                        <div className={`p-2.5 pt-0 sm:p-3 sm:pt-0 ${classNameBlock}`}>{children}</div>
+                        <div className={cn('p-2.5 pt-0 sm:p-3 sm:pt-0', classNameBlock)}>{children}</div>
                     </motion.div>
                 )}
             </AnimatePresence>
         );
     }
 );
-
-export default AccordionContent;

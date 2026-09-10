@@ -1,3 +1,3 @@
-import InputPage from './InputPage';
+import { InputPage } from './InputPage';
 
 export { InputPage };

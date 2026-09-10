@@ -18,7 +18,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement>, RefAttributes<H
     children?: ReactNode;
 }
 
-const AvatarLink = forwardRef<HTMLAnchorElement, Props>(
+export const AvatarLink = forwardRef<HTMLAnchorElement, Props>(
     ({ href, type = 'circle', children, className = '', ...props }, ref) => {
         const isTypeCircle = type === 'circle';
         const isTypeSquare = type === 'square';
@@ -28,17 +28,15 @@ const AvatarLink = forwardRef<HTMLAnchorElement, Props>(
                 ref={ref}
                 {...props}
                 to={href}
-                className={cn(`relative block w-full h-full overflow-hidden ${className}`, {
+                className={cn('relative block h-full w-full overflow-hidden', className, {
                     'rounded-full': isTypeCircle,
                     'rounded-md': isTypeSquare
                 })}
             >
                 {Children.map(children, (child) => {
-                    return isValidElement(child) ? cloneElement(child as ReactElement, { type }) : child;
+                    return isValidElement(child) ? cloneElement(child as ReactElement<any>, { type }) : child;
                 })}
             </Link>
         );
     }
 );
-
-export default AvatarLink;

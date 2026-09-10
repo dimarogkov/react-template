@@ -8,6 +8,7 @@ import {
     RefAttributes,
     useState
 } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     defaultActiveIndex?: number;
@@ -15,20 +16,18 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     className?: string;
 }
 
-const TabsWrapper = forwardRef<HTMLDivElement, Props>(
+export const TabsWrapper = forwardRef<HTMLDivElement, Props>(
     ({ defaultActiveIndex = 0, hasAnimation = false, className = '', ...props }, ref) => {
         const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
 
         return (
-            <div ref={ref} {...props} className={`relative w-full rounded-md border border-border ${className}`}>
+            <div ref={ref} {...props} className={cn('border-border relative w-full rounded-md border', className)}>
                 {Children.map(props.children, (child) => {
                     return isValidElement(child)
-                        ? cloneElement(child as ReactElement, { hasAnimation, activeIndex, setActiveIndex })
+                        ? cloneElement(child as ReactElement<any>, { hasAnimation, activeIndex, setActiveIndex })
                         : child;
                 })}
             </div>
         );
     }
 );
-
-export default TabsWrapper;

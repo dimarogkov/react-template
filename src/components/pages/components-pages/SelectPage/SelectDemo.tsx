@@ -7,7 +7,7 @@ const FRAMEWORKS = [
     { value: 'svelte', label: 'Svelte' }
 ];
 
-export default function SelectDemo() {
+export const SelectDemo = () => {
     return (
         <div className="relative flex flex-col gap-2.5">
             <Label>
@@ -45,4 +45,4 @@ export default function SelectDemo() {
             </Label>
         </div>
     );
-}
+};

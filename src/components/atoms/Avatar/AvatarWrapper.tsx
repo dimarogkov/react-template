@@ -19,7 +19,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     className?: string;
 }
 
-const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
+export const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
     ({ currentIndex, type = 'circle', isOnline = false, className = '', ...props }, ref) => {
         const [currentWidth, setCurrentWidth] = useState(0);
         const avatarRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
         const avatarStyle = {
             ...(currentIndex && {
                 left: `${currentIndex * Math.round(currentWidth / 4) * -1}px`,
-                outline: '3px solid var(--fallback-b1)'
+                outline: '3px solid var(--color-bg)'
             })
         };
 
@@ -42,7 +42,7 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
             <div
                 ref={ref || avatarRef}
                 {...props}
-                className={cn(`relative skeleton ${className || 'size-12'}`, {
+                className={cn('skeleton relative', className || 'size-12', {
                     'rounded-full': isTypeCircle,
                     'rounded-md': isTypeSquare,
                     'online-square': isOnline && isTypeSquare,
@@ -51,11 +51,9 @@ const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
                 style={avatarStyle}
             >
                 {Children.map(props.children, (child) => {
-                    return isValidElement(child) ? cloneElement(child as ReactElement, { type }) : child;
+                    return isValidElement(child) ? cloneElement(child as ReactElement<any>, { type }) : child;
                 })}
             </div>
         );
     }
 );
-
-export default AvatarWrapper;

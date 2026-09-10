@@ -10,7 +10,7 @@ type Props = {
     className?: string;
 };
 
-export default function ComponentsCodeDetail({ code, type, className = '' }: Props) {
+export const ComponentsCodeDetail = ({ code, type, className = '' }: Props) => {
     const [highlightCode, setHighlightCode] = useState('');
     const [copied, setCopied] = useState(false);
 
@@ -25,18 +25,18 @@ export default function ComponentsCodeDetail({ code, type, className = '' }: Pro
     };
 
     return (
-        <div className={`relative w-full overflow-hidden ${className}`}>
+        <div className={cn('relative w-full overflow-hidden', className)}>
             {highlightCode ? (
                 <>
                     <button
                         type="button"
                         onClick={handleCopy}
-                        className="absolute top-2 right-2 flex items-center justify-center size-8 rounded-md transition-colors duration-300 hover:bg-border"
+                        className="hover:bg-border absolute top-2 right-2 flex size-8 items-center justify-center rounded-md transition-colors duration-300"
                     >
                         {copied ? (
-                            <ClipboardCheck className="size-5 text-text" />
+                            <ClipboardCheck className="text-text size-5" />
                         ) : (
-                            <Clipboard className="size-5 text-text" />
+                            <Clipboard className="text-text size-5" />
                         )}
                     </button>
 
@@ -44,8 +44,8 @@ export default function ComponentsCodeDetail({ code, type, className = '' }: Pro
                 </>
             ) : (
                 <div
-                    className={cn('flex items-center justify-center w-full', {
-                        'h-[52px]': type === 'installation',
+                    className={cn('flex w-full items-center justify-center', {
+                        'h-13': type === 'installation',
                         'h-24': type === 'code'
                     })}
                 >
@@ -54,4 +54,4 @@ export default function ComponentsCodeDetail({ code, type, className = '' }: Pro
             )}
         </div>
     );
-}
+};

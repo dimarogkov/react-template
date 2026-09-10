@@ -2,9 +2,9 @@ import { LOADER_CODE, LOADER_DEMO_CODE, LOADER_USAGE_CODE } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import LoaderDemo from './LoaderDemo';
+import { LoaderDemo } from './LoaderDemo';
 
-export default function LoaderPage() {
+export const LoaderPage = () => {
     const preview: IDocumentationPreview = {
         demo: <LoaderDemo />,
         code: LOADER_DEMO_CODE
@@ -28,7 +28,11 @@ export default function LoaderPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Loader</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [LOADER_USAGE_CODE]
         }
@@ -43,4 +47,4 @@ export default function LoaderPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

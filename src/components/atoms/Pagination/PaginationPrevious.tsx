@@ -11,7 +11,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<H
     className?: string;
 }
 
-const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ options, className = '', ...props }, ref) => {
+export const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ options, className = '', ...props }, ref) => {
     const { currentPage = 1, setPage = () => {} } = options ?? {};
 
     const togglePrevious = () => setPage(currentPage - 1);
@@ -24,9 +24,10 @@ const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ options, clas
             disabled={currentPage === 1}
             onClick={togglePrevious}
             className={cn(
-                `relative flex items-center justify-center size-9 text-title rounded-md transition-colors duration-300 hover:bg-border ${className}`,
+                'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
+                className,
                 {
-                    'opacity-60 pointer-events-none select-none': currentPage === 1
+                    'pointer-events-none opacity-60 select-none': currentPage === 1
                 }
             )}
         >
@@ -34,5 +35,3 @@ const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ options, clas
         </button>
     );
 });
-
-export default PaginationPrevious;

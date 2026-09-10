@@ -1,3 +1,3 @@
-import ZustandPage from './ZustandPage';
+import { ZustandPage } from './ZustandPage';
 
 export { ZustandPage };

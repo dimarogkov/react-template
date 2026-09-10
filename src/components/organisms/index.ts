@@ -11,6 +11,7 @@ import {
     ComponentsWrapper
 } from './Components';
 import { DocumentationDetail } from './DocumentationDetail';
+import { Footer } from './Footer';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 
@@ -26,6 +27,7 @@ export {
     ComponentsPreview,
     ComponentsWrapper,
     DocumentationDetail,
+    Footer,
     Header,
     Sidebar
 };

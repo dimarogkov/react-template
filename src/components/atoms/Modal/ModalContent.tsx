@@ -1,7 +1,8 @@
 import { Dispatch, forwardRef, ReactNode, RefAttributes, SetStateAction } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
-import ModalLayer from './ModalLayer';
-import ModalClose from './ModalClose';
+import { ModalLayer } from './ModalLayer';
+import { ModalClose } from './ModalClose';
+import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;
@@ -11,7 +12,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
-const ModalContent = forwardRef<HTMLDivElement, Props>(
+export const ModalContent = forwardRef<HTMLDivElement, Props>(
     ({ isOpen, disableCloseBtn = false, children, className = '', setIsOpen = () => {}, ...props }, ref) => {
         const animation: HTMLMotionProps<'div'> = {
             initial: { opacity: 0 },
@@ -30,7 +31,7 @@ const ModalContent = forwardRef<HTMLDivElement, Props>(
                 {isOpen && (
                     <motion.div
                         {...animation}
-                        className="fixed z-20 top-0 left-0 flex items-center justify-center w-full h-svh"
+                        className="fixed top-0 left-0 z-20 flex h-svh w-full items-center justify-center"
                     >
                         <ModalLayer setIsOpen={setIsOpen} />
 
@@ -38,7 +39,10 @@ const ModalContent = forwardRef<HTMLDivElement, Props>(
                             ref={ref}
                             {...props}
                             {...animationPopup}
-                            className={`relative md:w-[600px] max-w-[calc(100%-32px)] rounded-md border border-border bg-bg overflow-hidden will-change-transform ${className}`}
+                            className={cn(
+                                'border-border bg-bg relative max-w-[calc(100%-32px)] overflow-hidden rounded-md border will-change-transform md:w-150',
+                                className
+                            )}
                         >
                             {!disableCloseBtn && <ModalClose onClick={() => setIsOpen(false)} />}
                             {children}
@@ -49,5 +53,3 @@ const ModalContent = forwardRef<HTMLDivElement, Props>(
         );
     }
 );
-
-export default ModalContent;

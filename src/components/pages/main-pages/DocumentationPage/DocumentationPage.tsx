@@ -5,7 +5,7 @@ import { ComponentsFooter, ComponentsHead, ComponentsNavigation, ComponentsWrapp
 import { IntroductionContent } from '@components/molecules';
 import { Separator, Text, Title } from '@components/atoms';
 
-export default function DocumentationPage() {
+export const DocumentationPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
     const sectionsArr = DATA.map(({ title }) => ({ id: title.toLowerCase(), text: title }));
@@ -13,11 +13,11 @@ export default function DocumentationPage() {
     return (
         <>
             <section className="relative w-full">
-                <div className="container">
+                <div className="page-container">
                     <ComponentsWrapper
                         navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
                     >
-                        <div className="w-full xl:px-[30px]">
+                        <div className="w-full xl:px-7.5">
                             <ComponentsHead>
                                 <IntroductionContent />
                             </ComponentsHead>
@@ -27,9 +27,9 @@ export default function DocumentationPage() {
                                     key={title}
                                     id={title.toLowerCase()}
                                     ref={registerRef(title.toLowerCase())}
-                                    className="w-full py-6 md:py-12 scroll-mt-[116px]"
+                                    className="w-full scroll-mt-29 py-6 md:py-12"
                                 >
-                                    <Title size="h3" className="mb-1 md:mb-2 last:mb-0">
+                                    <Title size="h3" className="mb-1 last:mb-0 md:mb-2">
                                         {title}
                                     </Title>
 
@@ -37,15 +37,15 @@ export default function DocumentationPage() {
 
                                     <Separator className="my-5" />
 
-                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
+                                    <div className="grid w-full grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                                         {links.map(({ name, href, isNew }) => (
                                             <Link
                                                 key={name}
                                                 to={href}
-                                                className="flex items-center gap-2.5 font-medium text-lg text-text hover:underline"
+                                                className="text-text flex items-center gap-2.5 text-lg font-medium hover:underline"
                                             >
                                                 <span>{name}</span>
-                                                {isNew && <span className="flex size-2 rounded-full bg-blue" />}
+                                                {isNew && <span className="bg-blue flex size-2 rounded-full" />}
                                             </Link>
                                         ))}
                                     </div>
@@ -59,4 +59,4 @@ export default function DocumentationPage() {
             </section>
         </>
     );
-}
+};

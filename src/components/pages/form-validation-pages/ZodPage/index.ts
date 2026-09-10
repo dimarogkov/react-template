@@ -1,3 +1,3 @@
-import ZodPage from './ZodPage';
+import { ZodPage } from './ZodPage';
 
 export { ZodPage };

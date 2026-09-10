@@ -1,13 +1,13 @@
 import { Text, Title } from '@components/atoms';
 
-export default function IntroductionContent() {
+export const IntroductionContent = () => {
     return (
         <>
-            <Title size="h2" className="mb-1 md:mb-2 last:mb-0">
+            <Title size="h2" className="mb-1 last:mb-0 md:mb-2">
                 Introduction
             </Title>
 
-            <div className="flex flex-col gap-4 w-full">
+            <div className="flex w-full flex-col gap-4">
                 <Text size="large">
                     React Template is a modern, production-ready starter kit for building web applications with React
                     and TypeScript.
@@ -32,7 +32,7 @@ export default function IntroductionContent() {
                 <div>
                     <Text size="large">Core Principles:</Text>
 
-                    <ul className="list-disc pl-5 mt-2 space-y-1.5">
+                    <ul className="mt-2 list-disc space-y-1.5 pl-5">
                         <li>
                             <Text size="large">
                                 <span className="text-title font-medium">Open Code</span> – Every component is fully
@@ -75,4 +75,4 @@ export default function IntroductionContent() {
             </div>
         </>
     );
-}
+};

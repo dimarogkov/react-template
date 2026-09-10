@@ -1,3 +1,3 @@
-import SeparatorPage from './SeparatorPage';
+import { SeparatorPage } from './SeparatorPage';
 
 export { SeparatorPage };

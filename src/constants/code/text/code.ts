@@ -2,14 +2,10 @@ export const TEXT_CODE = `import { HTMLAttributes, RefAttributes, forwardRef } f
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTMLParagraphElement> {
-	size?: 'default' | 'large';
-	className?: string;
+    size?: 'default' | 'large';
+    className?: string;
 }
 
-const Text = forwardRef<HTMLParagraphElement, Props>(({ size = 'default', className = '', ...props }, ref) => {
-	return (
-		<p ref={ref} {...props} className={cn(\`w-full text-base \${className}\`, { 'md:text-lg': size === 'large' })} />
-	);
-});
-
-export default Text;`;
+export const Text = forwardRef<HTMLParagraphElement, Props>(({ size = 'default', className = '', ...props }, ref) => {
+    return <p ref={ref} {...props} className={cn(\`w-full text-base\`, { 'md:text-lg': size === 'large' }, className)} />;
+});`;

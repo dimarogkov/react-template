@@ -14,6 +14,11 @@ const config = {
             '@interfaces': path.resolve(__dirname, 'src/types/interfaces'),
             '@utils': path.resolve(__dirname, 'src/utils')
         }
+    },
+    style: {
+        postcss: {
+            mode: 'file'
+        }
     }
 };
 

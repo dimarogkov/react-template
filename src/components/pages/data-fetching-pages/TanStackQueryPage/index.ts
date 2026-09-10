@@ -1,3 +1,3 @@
-import TanStackQueryPage from './TanStackQueryPage';
+import { TanStackQueryPage } from './TanStackQueryPage';
 
 export { TanStackQueryPage };

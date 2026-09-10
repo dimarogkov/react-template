@@ -1,3 +1,3 @@
-import SelectPage from './SelectPage';
+import { SelectPage } from './SelectPage';
 
 export { SelectPage };

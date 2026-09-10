@@ -1,7 +1,8 @@
+import type { ReactElement } from 'react';
 import { ILink } from './Link';
 
 export interface IDocumentationPreview {
-    demo: JSX.Element;
+    demo: ReactElement;
     code: string;
 }
 
@@ -18,7 +19,7 @@ export interface IDocumentationCodeSection {
     id: string;
     title: string;
     link: string;
-    description: JSX.Element | null;
+    description: ReactElement | null;
     withAccordion: boolean;
     codeArr: IDocumentationCodeArr[] | string[];
 }

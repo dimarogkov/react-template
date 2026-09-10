@@ -14,9 +14,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import ModalDemo from './ModalDemo';
+import { ModalDemo } from './ModalDemo';
 
-export default function ModalPage() {
+export const ModalPage = () => {
     const preview: IDocumentationPreview = {
         demo: <ModalDemo />,
         code: MODAL_DEMO_CODE
@@ -58,7 +58,12 @@ export default function ModalPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Modal</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [MODAL_USAGE_CODE]
         },
@@ -88,4 +93,4 @@ export default function ModalPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

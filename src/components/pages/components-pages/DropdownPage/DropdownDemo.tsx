@@ -1,12 +1,12 @@
 import { Btn, Dropdown } from '@components/atoms';
 
-export default function DropdownDemo() {
+export const DropdownDemo = () => {
     return (
         <Dropdown className="w-full sm:w-fit">
             <Dropdown.Trigger>
                 <Btn variant="outline">Dropdown</Btn>
             </Dropdown.Trigger>
-            <Dropdown.Content className="sm:w-[200px]">
+            <Dropdown.Content className="sm:w-50">
                 <Dropdown.Menu>
                     <Dropdown.Label>My Account</Dropdown.Label>
                     <Dropdown.Separator />
@@ -30,4 +30,4 @@ export default function DropdownDemo() {
             </Dropdown.Content>
         </Dropdown>
     );
-}
+};

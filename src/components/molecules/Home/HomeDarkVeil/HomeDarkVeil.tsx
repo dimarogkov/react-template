@@ -12,7 +12,7 @@ type Props = {
     resolutionScale?: number;
 };
 
-export default function HomeDarkVeil({
+export const HomeDarkVeil = ({
     hueShift = 0,
     noiseIntensity = 0,
     scanlineIntensity = 0,
@@ -20,7 +20,7 @@ export default function HomeDarkVeil({
     scanlineFrequency = 0,
     warpAmount = 0,
     resolutionScale = 1
-}: Props) {
+}: Props) => {
     const ref = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -84,5 +84,5 @@ export default function HomeDarkVeil({
         };
     }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
 
-    return <canvas ref={ref} className="block w-full h-full" />;
-}
+    return <canvas ref={ref} className="block h-full w-full" />;
+};

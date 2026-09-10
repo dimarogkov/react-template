@@ -15,9 +15,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import AvatarDemo from './AvatarDemo';
+import { AvatarDemo } from './AvatarDemo';
 
-export default function AvatarPage() {
+export const AvatarPage = () => {
     const preview: IDocumentationPreview = {
         demo: <AvatarDemo />,
         code: AVATAR_DEMO_CODE
@@ -59,7 +59,12 @@ export default function AvatarPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Avatar</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [AVATAR_USAGE_CODE]
         },
@@ -102,4 +107,4 @@ export default function AvatarPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

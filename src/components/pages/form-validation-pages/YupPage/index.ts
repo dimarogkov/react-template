@@ -1,3 +1,3 @@
-import YupPage from './YupPage';
+import { YupPage } from './YupPage';
 
 export { YupPage };

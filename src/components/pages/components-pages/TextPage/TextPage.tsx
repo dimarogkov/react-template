@@ -2,9 +2,9 @@ import { NPM_CLASSNAMES_CODE, TEXT_CODE, TEXT_DEMO_CODE, TEXT_USAGE_CODE } from 
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import TextDemo from './TextDemo';
+import { TextDemo } from './TextDemo';
 
-export default function TextPage() {
+export const TextPage = () => {
     const preview: IDocumentationPreview = {
         demo: <TextDemo />,
         code: TEXT_DEMO_CODE
@@ -36,7 +36,11 @@ export default function TextPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Text</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [TEXT_USAGE_CODE]
         }
@@ -51,4 +55,4 @@ export default function TextPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

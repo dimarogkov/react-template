@@ -1,3 +1,3 @@
-import PaginationPage from './PaginationPage';
+import { PaginationPage } from './PaginationPage';
 
 export { PaginationPage };

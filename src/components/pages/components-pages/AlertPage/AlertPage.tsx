@@ -11,9 +11,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import AlertDemo from './AlertDemo';
+import { AlertDemo } from './AlertDemo';
 
-export default function AlertPage() {
+export const AlertPage = () => {
     const preview: IDocumentationPreview = {
         demo: <AlertDemo />,
         code: ALERT_DEMO_CODE
@@ -53,7 +53,12 @@ export default function AlertPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Alert</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [ALERT_USAGE_CODE]
         }
@@ -68,4 +73,4 @@ export default function AlertPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

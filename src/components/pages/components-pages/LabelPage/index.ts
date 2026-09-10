@@ -1,3 +1,3 @@
-import LabelPage from './LabelPage';
+import { LabelPage } from './LabelPage';
 
 export { LabelPage };

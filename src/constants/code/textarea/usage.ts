@@ -5,16 +5,16 @@ export const TEXTAREA_USAGE_CODE = `import { Textarea } from '@components/atoms'
 export const TEXTAREA_CONTROLLED_USAGE_CODE = `import { useState } from 'react';
 import { Label, Textarea } from '@components/atoms';
 
-export default function TextareaControlled() {
-	const [value, setValue] = useState('');
+export const TextareaControlled = () => {
+  const [value, setValue] = useState('');
 
-	return (
-		<Label>
-			<Textarea
-				placeholder='Type your message here.'
-				value={value}
-				onChange={({ target }) => setValue(target.value)}
-			/>
-		</Label>
-	);
+  return (
+    <Label>
+      <Textarea
+        placeholder='Type your message here.'
+        value={value}
+        onChange={({ target }) => setValue(target.value)}
+      />
+    </Label>
+  );
 };`;

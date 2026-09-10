@@ -1,9 +1,9 @@
 import { NPM_ZUSTAND_CODE, ZUSTAND_CODE, ZUSTAND_COUNT_CODE, ZUSTAND_DEMO_CODE } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
-import ZustandDemo from './ZustandDemo';
+import { ZustandDemo } from './ZustandDemo';
 
-export default function ZustandPage() {
+export const ZustandPage = () => {
     const preview: IDocumentationPreview = {
         demo: <ZustandDemo />,
         code: ZUSTAND_DEMO_CODE
@@ -51,4 +51,4 @@ export default function ZustandPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

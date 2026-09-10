@@ -1,3 +1,3 @@
-import TooltipPage from './TooltipPage';
+import { TooltipPage } from './TooltipPage';
 
 export { TooltipPage };

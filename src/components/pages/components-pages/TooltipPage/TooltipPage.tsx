@@ -12,9 +12,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import TooltipDemo from './TooltipDemo';
+import { TooltipDemo } from './TooltipDemo';
 
-export default function TooltipPage() {
+export const TooltipPage = () => {
     const preview: IDocumentationPreview = {
         demo: <TooltipDemo />,
         code: TOOLTIP_DEMO_CODE
@@ -55,7 +55,12 @@ export default function TooltipPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Tooltip</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [TOOLTIP_USAGE_CODE]
         }
@@ -71,4 +76,4 @@ export default function TooltipPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

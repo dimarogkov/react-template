@@ -2,9 +2,9 @@ import { BADGE_CODE, BADGE_DEMO_CODE, BADGE_USAGE_CODE, BADGE_ICON_USAGE_CODE } 
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import BadgeDemo from './BadgeDemo';
+import { BadgeDemo } from './BadgeDemo';
 
-export default function BadgePage() {
+export const BadgePage = () => {
     const preview: IDocumentationPreview = {
         demo: <BadgeDemo />,
         code: BADGE_DEMO_CODE
@@ -28,7 +28,11 @@ export default function BadgePage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Badge</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [BADGE_USAGE_CODE]
         },
@@ -56,4 +60,4 @@ export default function BadgePage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

@@ -1,3 +1,3 @@
-import DocumentationPage from './DocumentationPage';
+import { DocumentationPage } from './DocumentationPage';
 
 export { DocumentationPage };

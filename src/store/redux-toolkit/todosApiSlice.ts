@@ -9,7 +9,7 @@ export const todosApiSlice = createApi({
     tagTypes: ['todos'],
     baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
     endpoints: (build) => ({
-        getTodos: build.query<ITodo[], {}>({
+        getTodos: build.query<ITodo[], void>({
             query: () => `/todos?limit=${LIMIT_COUNT}`,
             providesTags: ['todos']
         }),

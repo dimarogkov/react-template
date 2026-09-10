@@ -2,9 +2,9 @@ import { PIN_INPUT_CODE, PIN_INPUT_DEMO_CODE, PIN_INPUT_USAGE_CODE } from '@code
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import PinInputDemo from './PinInputDemo';
+import { PinInputDemo } from './PinInputDemo';
 
-export default function PinInputPage() {
+export const PinInputPage = () => {
     const preview: IDocumentationPreview = {
         demo: <PinInputDemo />,
         code: PIN_INPUT_DEMO_CODE
@@ -28,7 +28,11 @@ export default function PinInputPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">PinInput</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [PIN_INPUT_USAGE_CODE]
         }
@@ -43,4 +47,4 @@ export default function PinInputPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

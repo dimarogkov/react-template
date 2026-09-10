@@ -1,3 +1,3 @@
-import PinInputPage from './PinInputPage';
+import { PinInputPage } from './PinInputPage';
 
 export { PinInputPage };

@@ -11,9 +11,9 @@ import {
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
-import TanStackQueryDemo from './TanStackQueryDemo';
+import { TanStackQueryDemo } from './TanStackQueryDemo';
 
-export default function ReactQueryPage() {
+export const TanStackQueryPage = () => {
     const preview: IDocumentationPreview = {
         demo: <TanStackQueryDemo />,
         code: TANSTACK_QUERY_DEMO_CODE
@@ -64,4 +64,4 @@ export default function ReactQueryPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

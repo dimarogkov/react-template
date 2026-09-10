@@ -1,3 +1,3 @@
-import TabsPage from './TabsPage';
+import { TabsPage } from './TabsPage';
 
 export { TabsPage };

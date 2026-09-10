@@ -1,3 +1,3 @@
-import AlertPage from './AlertPage';
+import { AlertPage } from './AlertPage';
 
 export { AlertPage };

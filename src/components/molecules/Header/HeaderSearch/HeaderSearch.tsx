@@ -8,7 +8,7 @@ import { Input, Label, Modal, Text } from '@components/atoms';
 import { Search } from 'lucide-react';
 import cn from 'classnames';
 
-export default function HeaderSearch() {
+export const HeaderSearch = () => {
     const [appliedSearchValue, setAppliedSearchValue] = useState('');
     const [searchValue, setSearchValue] = useState('');
     const { pathname } = useLocation();
@@ -47,11 +47,11 @@ export default function HeaderSearch() {
     return (
         <Modal>
             <Modal.Trigger>
-                <Label className="hidden md:block !w-44 pointer-events-none">
+                <Label className="pointer-events-none hidden w-44! md:block">
                     <Input
                         placeholder="Search..."
                         disabled
-                        className={cn('!h-9 !px-3 !border-none !bg-border', {
+                        className={cn('bg-border! h-9! border-none! px-3!', {
                             'placeholder:text-title': pathname === PATHS.HOME
                         })}
                     />
@@ -59,15 +59,15 @@ export default function HeaderSearch() {
             </Modal.Trigger>
 
             <Modal.Content disableCloseBtn>
-                <div className="flex flex-col w-full h-[420px]">
+                <div className="flex h-105 w-full flex-col">
                     <div className="w-full p-2">
-                        <Label className="!flex items-center">
+                        <Label className="flex! items-center">
                             <Input
                                 name="search"
                                 placeholder="Search documentation..."
                                 value={searchValue}
                                 onChange={({ target }) => toggleSearch(target.value)}
-                                className="!pl-10 !border-border !bg-border"
+                                className="border-border! bg-border! pl-10!"
                                 autoFocus
                             />
 
@@ -76,13 +76,13 @@ export default function HeaderSearch() {
                     </div>
 
                     {filteredLinks.length > 0 ? (
-                        <div className="w-full p-2 pt-1 overflow-auto">
+                        <div className="w-full overflow-auto p-2 pt-1">
                             {filteredLinks.map((link) => (
                                 <HeaderSearchLink key={link.name} link={link} />
                             ))}
                         </div>
                     ) : (
-                        <div className="flex items-center grow w-full p-2 pt-1">
+                        <div className="flex w-full grow items-center p-2 pt-1">
                             <Text className="text-center">No results found.</Text>
                         </div>
                     )}
@@ -90,4 +90,4 @@ export default function HeaderSearch() {
             </Modal.Content>
         </Modal>
     );
-}
+};

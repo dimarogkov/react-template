@@ -1,3 +1,3 @@
-import RtkQueryPage from './RtkQueryPage';
+import { RtkQueryPage } from './RtkQueryPage';
 
 export { RtkQueryPage };

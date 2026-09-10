@@ -1,3 +1,3 @@
-import ToastPage from './ToastPage';
+import { ToastPage } from './ToastPage';
 
 export { ToastPage };

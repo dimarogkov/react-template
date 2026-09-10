@@ -9,9 +9,9 @@ import {
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
-import YupDemo from './YupDemo';
+import { YupDemo } from './YupDemo';
 
-export default function YupPage() {
+export const YupPage = () => {
     const preview: IDocumentationPreview = {
         demo: <YupDemo />,
         code: YUP_DEMO_CODE
@@ -66,4 +66,4 @@ export default function YupPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

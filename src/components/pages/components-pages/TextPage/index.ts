@@ -1,3 +1,3 @@
-import TextPage from './TextPage';
+import { TextPage } from './TextPage';
 
 export { TextPage };

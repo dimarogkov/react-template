@@ -1,3 +1,3 @@
-import BlockquotePage from './BlockquotePage';
+import { BlockquotePage } from './BlockquotePage';
 
 export { BlockquotePage };

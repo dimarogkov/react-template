@@ -1,4 +1,12 @@
-import { Dispatch, forwardRef, ForwardRefExoticComponent, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
+import {
+    Dispatch,
+    forwardRef,
+    ForwardRefExoticComponent,
+    HTMLAttributes,
+    KeyboardEvent,
+    RefAttributes,
+    SetStateAction
+} from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import { Text } from '@components/atoms';
 import { ChevronDown, LucideProps } from 'lucide-react';
@@ -15,7 +23,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectTrigger = forwardRef<HTMLDivElement, Props>(
+export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
     (
         {
             placeholder = 'Select',
@@ -24,7 +32,7 @@ const SelectTrigger = forwardRef<HTMLDivElement, Props>(
             selectedItems,
             icon,
             setIsOpen = () => {},
-            setSelectedItems = () => {},
+            setSelectedItems,
             className = '',
             ...props
         },
@@ -34,12 +42,29 @@ const SelectTrigger = forwardRef<HTMLDivElement, Props>(
         const hasValue = !!selectedItems?.length;
         const Icon = icon || ChevronDown;
 
+        const toggleOpen = () => setIsOpen((prevState) => !prevState);
+
+        const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleOpen();
+            }
+        };
+
         return (
             <div
                 ref={ref}
                 {...props}
-                onClick={() => setIsOpen((prevState) => !prevState)}
-                className={`relative flex items-center w-full h-10 px-4 pr-12 rounded-md cursor-pointer select-none border border-border ${className}`}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isOpen}
+                aria-haspopup="listbox"
+                onClick={toggleOpen}
+                onKeyDown={onKeyDown}
+                className={cn(
+                    'border-border relative flex h-10 w-full cursor-pointer items-center rounded-md border px-4 pr-12 select-none',
+                    className
+                )}
             >
                 <Text className={cn({ 'text-title': hasValue })}>{hasValue ? selectedText : placeholder}</Text>
                 <Icon className="absolute right-4 size-5" />
@@ -47,5 +72,3 @@ const SelectTrigger = forwardRef<HTMLDivElement, Props>(
         );
     }
 );
-
-export default SelectTrigger;

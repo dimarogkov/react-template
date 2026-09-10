@@ -1,3 +1,3 @@
-import AvatarPage from './AvatarPage';
+import { AvatarPage } from './AvatarPage';
 
 export { AvatarPage };

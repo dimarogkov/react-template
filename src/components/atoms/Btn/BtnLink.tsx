@@ -1,5 +1,6 @@
 import { ReactNode, RefAttributes, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
 interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnchorElement> {
     href: string;
@@ -8,18 +9,18 @@ interface Props extends RefAttributes<HTMLAnchorElement>, RefAttributes<HTMLAnch
     className?: string;
 }
 
-const BtnLink = forwardRef<HTMLAnchorElement, Props>(({ href, target, children, className = '', ...props }, ref) => {
-    return (
-        <Link
-            ref={ref}
-            to={href}
-            target={target}
-            {...props}
-            className={`flex items-center justify-center gap-1.5 w-full h-full px-4 ${className}`}
-        >
-            {children}
-        </Link>
-    );
-});
-
-export default BtnLink;
+export const BtnLink = forwardRef<HTMLAnchorElement, Props>(
+    ({ href, target, children, className = '', ...props }, ref) => {
+        return (
+            <Link
+                ref={ref}
+                to={href}
+                target={target}
+                {...props}
+                className={cn('flex h-full w-full items-center justify-center gap-1.5 px-4', className)}
+            >
+                {children}
+            </Link>
+        );
+    }
+);

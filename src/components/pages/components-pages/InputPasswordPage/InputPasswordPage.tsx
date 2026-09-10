@@ -8,9 +8,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import InputPasswordDemo from './InputPasswordDemo';
+import { InputPasswordDemo } from './InputPasswordDemo';
 
-export default function InputPasswordPage() {
+export const InputPasswordPage = () => {
     const preview: IDocumentationPreview = {
         demo: <InputPasswordDemo />,
         code: INPUT_PASSWORD_DEMO_CODE
@@ -42,7 +42,11 @@ export default function InputPasswordPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">InputPassword</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [INPUT_PASSWORD_USAGE_CODE]
         },
@@ -70,4 +74,4 @@ export default function InputPasswordPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

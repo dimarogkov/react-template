@@ -1,6 +1,6 @@
 export const TOAST_TYPE_CODE = `export interface IToastData {
-    title: string;
-    text: string;
+  title: string;
+  text: string;
 }`;
 
 export const TOAST_CODE = `import toast, { type Toast as TostType } from 'react-hot-toast';
@@ -17,7 +17,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     className?: string;
 }
 
-const Toast = forwardRef<HTMLDivElement, Props>(
+export const Toast = forwardRef<HTMLDivElement, Props>(
     ({ toast: t, type = 'default', data, className = '', ...props }, ref) => {
         const { title, text } = data;
 
@@ -26,21 +26,21 @@ const Toast = forwardRef<HTMLDivElement, Props>(
                 default: 'border-l-title',
                 success: 'border-l-green',
                 warning: 'border-l-yellow',
-                error: 'border-l-red',
+                error: 'border-l-red'
             },
             text: {
                 default: 'text-title',
                 success: 'text-green',
                 warning: 'text-yellow',
-                error: 'text-red',
-            },
+                error: 'text-red'
+            }
         };
 
         const icon = {
-            default: <Info className='hidden sm:block size-9 min-w-9 text-title stroke-1' />,
-            success: <CircleCheck className='hidden sm:block size-9 min-w-9 text-green stroke-1' />,
-            warning: <CircleAlert className='hidden sm:block size-9 min-w-9 text-yellow stroke-1' />,
-            error: <CircleX className='hidden sm:block size-9 min-w-9 text-red stroke-1' />,
+            default: <Info className="text-title hidden size-9 min-w-9 stroke-1 sm:block" />,
+            success: <CircleCheck className="text-green hidden size-9 min-w-9 stroke-1 sm:block" />,
+            warning: <CircleAlert className="text-yellow hidden size-9 min-w-9 stroke-1 sm:block" />,
+            error: <CircleX className="text-red hidden size-9 min-w-9 stroke-1 sm:block" />
         };
 
         return (
@@ -48,18 +48,19 @@ const Toast = forwardRef<HTMLDivElement, Props>(
                 ref={ref}
                 {...props}
                 className={cn(
-                    \`relative flex items-center gap-3 w-full sm:w-[440px] rounded-md p-2.5 sm:p-3 pr-10 border border-l-4 border-border bg-bg \${className}\`,
+                    'border-border bg-bg relative flex w-full items-center gap-3 rounded-md border border-l-4 p-2.5 pr-10 sm:w-110 sm:p-3',
                     toastClasses.border[type],
+                    className,
                     {
                         'animate-leave': !t.visible,
-                        'animate-enter': t.visible,
+                        'animate-enter': t.visible
                     }
                 )}
             >
                 {icon[type]}
 
-                <div className='flex flex-col gap-1 w-full'>
-                    <Text size='large' className={toastClasses.text[type]}>
+                <div className="flex w-full flex-col gap-1">
+                    <Text size="large" className={toastClasses.text[type]}>
                         {title}
                     </Text>
 
@@ -67,15 +68,13 @@ const Toast = forwardRef<HTMLDivElement, Props>(
                 </div>
 
                 <button
-                    type='button'
+                    type="button"
                     onClick={() => toast.dismiss(t.id)}
-                    className='absolute top-1.5 right-1.5 outline-none transition-opacity duration-300 hover:opacity-65'
+                    className="absolute top-1.5 right-1.5 cursor-pointer outline-hidden transition-opacity duration-300 hover:opacity-65"
                 >
-                    <X className='size-5' />
+                    <X className="size-5" />
                 </button>
             </div>
         );
     }
-);
-
-export default Toast;`;
+);`;

@@ -1,3 +1,3 @@
-import BtnPage from './BtnPage';
+import { BtnPage } from './BtnPage';
 
 export { BtnPage };

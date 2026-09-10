@@ -1,3 +1,3 @@
-import ReorderPage from './ReorderPage';
+import { ReorderPage } from './ReorderPage';
 
 export { ReorderPage };

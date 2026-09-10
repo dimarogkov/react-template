@@ -1,13 +1,11 @@
-import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { MainContext } from './MainContext';
 
-type MainContextType = {
-    isSidebarOpen: boolean;
-    setIsSidebarOpen: (value: boolean) => void;
+type Props = {
+    children: ReactNode;
 };
 
-export const MainContext = createContext<MainContextType>({ isSidebarOpen: false, setIsSidebarOpen: () => {} });
-
-export default function MainProvider({ children }: { children: ReactNode }) {
+export const MainProvider = ({ children }: Props) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
@@ -23,4 +21,4 @@ export default function MainProvider({ children }: { children: ReactNode }) {
     );
 
     return <MainContext.Provider value={value}>{children}</MainContext.Provider>;
-}
+};

@@ -12,9 +12,9 @@ import {
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
-import RtkQueryDemo from './RtkQueryDemo';
+import { RtkQueryDemo } from './RtkQueryDemo';
 
-export default function RtkQueryPage() {
+export const RtkQueryPage = () => {
     const preview: IDocumentationPreview = {
         demo: <RtkQueryDemo />,
         code: RTK_QUERY_DEMO_CODE
@@ -67,4 +67,4 @@ export default function RtkQueryPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

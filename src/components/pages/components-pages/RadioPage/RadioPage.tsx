@@ -9,9 +9,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import RadioDemo from './RadioDemo';
+import { RadioDemo } from './RadioDemo';
 
-export default function RadioPage() {
+export const RadioPage = () => {
     const preview: IDocumentationPreview = {
         demo: <RadioDemo />,
         code: RADIO_DEMO_CODE
@@ -46,7 +46,11 @@ export default function RadioPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Radio</span> component to build your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [RADIO_USAGE_CODE]
         },
@@ -75,4 +79,4 @@ export default function RadioPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

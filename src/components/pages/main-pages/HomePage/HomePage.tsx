@@ -3,13 +3,13 @@ import { HomeBg, HomeSlider } from '@components/molecules';
 import { Btn, Text, Title } from '@components/atoms';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function HomePage() {
+export const HomePage = () => {
     return (
-        <section className="relative flex items-center justify-center w-full sm:h-[calc(100svh-64px)] min-h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)] pb-16 lg:pb-20">
+        <section className="relative flex min-h-[calc(100svh-64px)] w-full items-center justify-center pb-16 sm:h-[calc(100svh-64px)] lg:h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)] lg:pb-20">
             <HomeBg />
 
-            <div className="relative container md:w-[800px]">
-                <div className="flex flex-col items-center w-full text-center">
+            <div className="page-container relative md:w-200">
+                <div className="flex w-full flex-col items-center text-center">
                     <Title className="mb-3 last:mb-0">Build Faster with React Template</Title>
 
                     <HomeSlider className="mb-3 last:mb-0" />
@@ -19,7 +19,7 @@ export default function HomePage() {
                         time and help you create stunning UIs effortlessly.
                     </Text>
 
-                    <div className="flex flex-wrap justify-center gap-2 w-full">
+                    <div className="flex w-full flex-wrap justify-center gap-2">
                         <Btn isLink>
                             <Btn.Link href={PATHS.DOCUMENTATION}>Get Started</Btn.Link>
                         </Btn>
@@ -35,4 +35,4 @@ export default function HomePage() {
             </div>
         </section>
     );
-}
+};

@@ -1,3 +1,3 @@
-import ProgressPage from './ProgressPage';
+import { ProgressPage } from './ProgressPage';
 
 export { ProgressPage };

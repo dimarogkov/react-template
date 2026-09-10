@@ -1,12 +1,12 @@
-export const ACCORDION_CODE = `import AccordionWrapper from './AccordionWrapper';
-import AccordionItem from './AccordionItem';
-import AccordionTitle from './AccordionTitle';
-import AccordionContent from './AccordionContent';
+export const ACCORDION_CODE = `import { AccordionWrapper } from './AccordionWrapper';
+import { AccordionItem } from './AccordionItem';
+import { AccordionTitle } from './AccordionTitle';
+import { AccordionContent } from './AccordionContent';
 
 export const Accordion = Object.assign(AccordionWrapper, {
     Item: AccordionItem,
     Title: AccordionTitle,
-    Content: AccordionContent,
+    Content: AccordionContent
 });`;
 
 export const ACCORDION_WRAPPER_CODE = `import {
@@ -17,8 +17,9 @@ export const ACCORDION_WRAPPER_CODE = `import {
     isValidElement,
     ReactElement,
     RefAttributes,
-    useState,
+    useState
 } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
@@ -26,28 +27,26 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     className?: string;
 }
 
-const AccordionWrapper = forwardRef<HTMLDivElement, Props>(
+export const AccordionWrapper = forwardRef<HTMLDivElement, Props>(
     ({ iconType = 'arrow', defaultActiveIndex = null, className = '', ...props }, ref) => {
         const [activeIndex, setActiveIndex] = useState<number | null>(defaultActiveIndex);
 
         return (
-            <div ref={ref} {...props} className={\`relative w-full rounded-md border border-border \${className}\`}>
+            <div ref={ref} {...props} className={cn('border-border relative w-full rounded-md border', className)}>
                 {Children.map(props.children, (child, index) => {
                     return isValidElement(child)
-                        ? cloneElement(child as ReactElement, {
+                        ? cloneElement(child as ReactElement<any>, {
                               iconType,
                               accordionIndex: index,
                               activeIndex,
-                              setActiveIndex,
+                              setActiveIndex
                           })
                         : child;
                 })}
             </div>
         );
     }
-);
-
-export default AccordionWrapper;`;
+);`;
 
 export const ACCORDION_ITEM_CODE = `import {
     Children,
@@ -58,8 +57,9 @@ export const ACCORDION_ITEM_CODE = `import {
     isValidElement,
     ReactElement,
     RefAttributes,
-    SetStateAction,
+    SetStateAction
 } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
@@ -69,32 +69,30 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setActiveIndex?: Dispatch<SetStateAction<number | null>>;
 }
 
-const AccordionItem = forwardRef<HTMLDivElement, Props>(
+export const AccordionItem = forwardRef<HTMLDivElement, Props>(
     ({ iconType, accordionIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         return (
             <div
                 ref={ref}
                 {...props}
-                className={\`relative w-full border-b border-border last:border-b-0 overflow-hidden \${className}\`}
+                className={cn('border-border relative w-full overflow-hidden border-b last:border-b-0', className)}
             >
                 {Children.map(props.children, (child) => {
                     return isValidElement(child)
-                        ? cloneElement(child as ReactElement, {
+                        ? cloneElement(child as ReactElement<any>, {
                               iconType,
                               accordionIndex,
                               activeIndex,
-                              setActiveIndex,
+                              setActiveIndex
                           })
                         : child;
                 })}
             </div>
         );
     }
-);
+);`;
 
-export default AccordionItem;`;
-
-export const ACCORDION_TITLE_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
+export const ACCORDION_TITLE_CODE = `import { Dispatch, forwardRef, HTMLAttributes, KeyboardEvent, RefAttributes, SetStateAction } from 'react';
 import { ChevronDown, Plus } from 'lucide-react';
 import cn from 'classnames';
 
@@ -106,47 +104,59 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setActiveIndex?: Dispatch<SetStateAction<number | null>>;
 }
 
-const AccordionTitle = forwardRef<HTMLDivElement, Props>(
+export const AccordionTitle = forwardRef<HTMLDivElement, Props>(
     ({ iconType, accordionIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
         const icon = {
             arrow: (
                 <ChevronDown
                     className={cn('size-5 transition-transform duration-300 will-change-transform', {
-                        'rotate-180': accordionIndex === activeIndex,
+                        'rotate-180': accordionIndex === activeIndex
                     })}
                 />
             ),
             plus: (
                 <Plus
                     className={cn('size-5 transition-transform duration-300 will-change-transform', {
-                        'rotate-45': accordionIndex === activeIndex,
+                        'rotate-45': accordionIndex === activeIndex
                     })}
                 />
-            ),
+            )
         };
 
         const toggleAccordion = () => {
             setActiveIndex((prevState) => (prevState !== accordionIndex ? accordionIndex : null));
         };
 
+        const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleAccordion();
+            }
+        };
+
         return (
             <div
                 ref={ref}
                 {...props}
+                role="button"
+                tabIndex={0}
                 onClick={toggleAccordion}
-                className={\`relative flex items-center justify-between w-full text-base p-2.5 sm:p-3 cursor-pointer transition-all duration-300 select-none \${className}\`}
+                onKeyDown={onKeyDown}
+                className={cn(
+                    'relative flex w-full cursor-pointer items-center justify-between p-2.5 text-base transition-all duration-300 select-none sm:p-3',
+                    className
+                )}
             >
                 {props.children}
                 {iconType && icon[iconType]}
             </div>
         );
     }
-);
-
-export default AccordionTitle;`;
+);`;
 
 export const ACCORDION_CONTENT_CODE = `import { forwardRef, ReactNode, RefAttributes } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
+import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
@@ -158,7 +168,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     setActiveIndex?: () => void;
 }
 
-const AccordionContent = forwardRef<HTMLDivElement, Props>(
+export const AccordionContent = forwardRef<HTMLDivElement, Props>(
     (
         {
             iconType,
@@ -167,7 +177,7 @@ const AccordionContent = forwardRef<HTMLDivElement, Props>(
             className = '',
             classNameBlock = '',
             children,
-            setActiveIndex = () => {},
+            setActiveIndex,
             ...props
         },
         ref
@@ -176,7 +186,7 @@ const AccordionContent = forwardRef<HTMLDivElement, Props>(
             initial: { height: 0 },
             animate: { height: 'auto' },
             exit: { height: 0 },
-            transition: { type: 'spring', duration: 0.4, bounce: 0 },
+            transition: { type: 'spring', duration: 0.4, bounce: 0 }
         };
 
         return (
@@ -186,14 +196,12 @@ const AccordionContent = forwardRef<HTMLDivElement, Props>(
                         ref={ref}
                         {...props}
                         {...animation}
-                        className={\`relative w-full text-base \${className}\`}
+                        className={cn('relative w-full text-base', className)}
                     >
-                        <div className={\`p-2.5 pt-0 sm:p-3 sm:pt-0 \${classNameBlock}\`}>{children}</div>
+                        <div className={cn('p-2.5 pt-0 sm:p-3 sm:pt-0', classNameBlock)}>{children}</div>
                     </motion.div>
                 )}
             </AnimatePresence>
         );
     }
-);
-
-export default AccordionContent;`;
+);`;

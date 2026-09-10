@@ -1,4 +1,4 @@
-import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
+import { Dispatch, forwardRef, HTMLAttributes, KeyboardEvent, RefAttributes, SetStateAction } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import { Check } from 'lucide-react';
 import cn from 'classnames';
@@ -13,7 +13,7 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectOption = forwardRef<HTMLSpanElement, Props>(
+export const SelectOption = forwardRef<HTMLSpanElement, Props>(
     (
         {
             value,
@@ -34,15 +34,27 @@ const SelectOption = forwardRef<HTMLSpanElement, Props>(
             !isMultiple && setIsOpen(false);
         };
 
+        const onKeyDown = (e: KeyboardEvent<HTMLSpanElement>) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                selectItem();
+            }
+        };
+
         return (
             <span
                 ref={ref}
                 {...props}
+                role="option"
+                tabIndex={0}
+                aria-selected={isActive}
                 onClick={selectItem}
+                onKeyDown={onKeyDown}
                 className={cn(
-                    `relative flex items-center w-full rounded-md pr-8 px-2 py-1 text-title cursor-pointer ${className}`,
+                    'text-title relative flex w-full cursor-pointer items-center rounded-md px-2 py-1 pr-8',
+                    className,
                     {
-                        'transition-colors duration-300 hover:bg-border': !isActive || (isActive && isMultiple),
+                        'hover:bg-border transition-colors duration-300': !isActive || (isActive && isMultiple),
                         'bg-border pointer-events-none': isActive && !isMultiple
                     }
                 )}
@@ -50,9 +62,9 @@ const SelectOption = forwardRef<HTMLSpanElement, Props>(
                 {props.children}
 
                 <Check
-                    className={cn('absolute right-2 size-4 text-text transition-all duration-300', {
-                        'opacity-0 invisible': !isActive,
-                        'opacity-100 visible': isActive
+                    className={cn('text-text absolute right-2 size-4 transition-all duration-300', {
+                        'invisible opacity-0': !isActive,
+                        'visible opacity-100': isActive
                     })}
                 />
             </span>
@@ -60,4 +72,4 @@ const SelectOption = forwardRef<HTMLSpanElement, Props>(
     }
 );
 
-export default SelectOption;
+SelectOption.displayName = 'SelectOption';

@@ -20,9 +20,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import SelectDemo from './SelectDemo';
+import { SelectDemo } from './SelectDemo';
 
-export default function SelectPage() {
+export const SelectPage = () => {
     const preview: IDocumentationPreview = {
         demo: <SelectDemo />,
         code: SELECT_DEMO_CODE
@@ -69,7 +69,12 @@ export default function SelectPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Select</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [SELECT_USAGE_CODE]
         },
@@ -123,4 +128,4 @@ export default function SelectPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

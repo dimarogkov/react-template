@@ -21,9 +21,9 @@ import {
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
-import CarouselDemo from './CarouselDemo';
+import { CarouselDemo } from './CarouselDemo';
 
-export default function CarouselPage() {
+export const CarouselPage = () => {
     const preview: IDocumentationPreview = {
         demo: <CarouselDemo />,
         code: CAROUSEL_DEMO_CODE
@@ -70,7 +70,12 @@ export default function CarouselPage() {
             id: 'usage',
             title: 'Usage',
             link: '',
-            description: null,
+            description: (
+                <Text>
+                    Import the <span className="badge-item">Carousel</span> component and use its subcomponents to build
+                    your UI.
+                </Text>
+            ),
             withAccordion: false,
             codeArr: [CAROUSEL_USAGE_CODE]
         },
@@ -142,4 +147,4 @@ export default function CarouselPage() {
     };
 
     return <DocumentationDetail data={data} />;
-}
+};

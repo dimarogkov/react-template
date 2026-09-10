@@ -1,3 +1,3 @@
-import ReduxToolkitPage from './ReduxToolkitPage';
+import { ReduxToolkitPage } from './ReduxToolkitPage';
 
 export { ReduxToolkitPage };

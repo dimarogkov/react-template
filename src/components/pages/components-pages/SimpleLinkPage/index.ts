@@ -1,3 +1,3 @@
-import SimpleLinkPage from './SimpleLinkPage';
+import { SimpleLinkPage } from './SimpleLinkPage';
 
 export { SimpleLinkPage };

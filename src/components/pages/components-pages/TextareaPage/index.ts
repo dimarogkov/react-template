@@ -1,3 +1,3 @@
-import TextareaPage from './TextareaPage';
+import { TextareaPage } from './TextareaPage';
 
 export { TextareaPage };

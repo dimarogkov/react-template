@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { PATHS } from './paths';
 
-import AppLayout from '../../App';
+import { App as AppLayout } from '../../App';
 import { DocumentationPage, HomePage, NotFoundPage } from '@components/pages/main-pages';
 
 import {

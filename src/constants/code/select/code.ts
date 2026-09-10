@@ -1,39 +1,39 @@
 export const SELECT_TYPE_CODE = `export interface ISelectItem {
-    value: string;
-    label: string;
+  value: string;
+  label: string;
 }`;
 
 export const SELECT_UTILS_CODE = `import { MutableRefObject, Ref } from 'react';
 
 export const assignRefs =
-    (...refs: (Ref<HTMLSelectElement> | undefined)[]) =>
-    (node: HTMLSelectElement) => {
-        refs.forEach((r) => {
-            if (!r) {
-                return;
-            }
+  (...refs: (Ref<HTMLSelectElement> | undefined)[]) =>
+  (node: HTMLSelectElement) => {
+    refs.forEach((r) => {
+      if (!r) {
+        return;
+      }
 
-            if (typeof r === 'function') {
-                r(node);
-            } else {
-                (r as MutableRefObject<HTMLSelectElement | null>).current = node;
-            }
-        });
-    };`;
+      if (typeof r === 'function') {
+        r(node);
+      } else {
+        (r as MutableRefObject<HTMLSelectElement | null>).current = node;
+      }
+    });
+  };`;
 
-export const SELECT_CODE = `import SelectWrapper from './SelectWrapper';
-import SelectTrigger from './SelectTrigger';
-import SelectOptions from './SelectOptions';
-import SelectGroup from './SelectGroup';
-import SelectLabel from './SelectLabel';
-import SelectOption from './SelectOption';
+export const SELECT_CODE = `import { SelectWrapper } from './SelectWrapper';
+import { SelectTrigger } from './SelectTrigger';
+import { SelectOptions } from './SelectOptions';
+import { SelectGroup } from './SelectGroup';
+import { SelectLabel } from './SelectLabel';
+import { SelectOption } from './SelectOption';
 
 export const Select = Object.assign(SelectWrapper, {
     Trigger: SelectTrigger,
     Options: SelectOptions,
     Group: SelectGroup,
     Label: SelectLabel,
-    Option: SelectOption,
+    Option: SelectOption
 });`;
 
 export const SELECT_WRAPPER_CODE = `import {
@@ -47,16 +47,17 @@ export const SELECT_WRAPPER_CODE = `import {
     useEffect,
     useMemo,
     useRef,
-    useState,
+    useState
 } from 'react';
 import { assignRefs } from '@utils';
 import { ISelectItem } from '@interfaces/SelectItem';
+import cn from 'classnames';
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement>, RefAttributes<HTMLSelectElement> {
     className?: string;
 }
 
-const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ...props }, ref) => {
+export const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ...props }, ref) => {
     const [selectedItems, setSelectedItems] = useState<ISelectItem[]>([]);
     const [isSelectOpen, setIsSelectOpen] = useState(false);
 
@@ -67,12 +68,12 @@ const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ..
     const isMultiple = !!props.multiple;
 
     const optionsArr = useMemo(() => {
-        const getOptions = (node: React.ReactNode): ReactElement[] =>
+        const getOptions = (node: React.ReactNode): ReactElement<any>[] =>
             Children.toArray(node).flatMap((child) =>
                 isValidElement(child)
                     ? (child.type as any)?.displayName === 'SelectOption'
                         ? [child]
-                        : getOptions(child.props?.children)
+                        : getOptions((child.props as any)?.children)
                     : []
             );
 
@@ -115,12 +116,12 @@ const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ..
     };
 
     return (
-        <div ref={wrapperRef} className={\`relative w-full \${className}\`}>
+        <div ref={wrapperRef} className={cn('relative w-full', className)}>
             <select
                 ref={mergedRef}
                 {...props}
                 name={props.name || 'select'}
-                className='hidden'
+                className="hidden"
                 tabIndex={-1}
                 aria-hidden
             >
@@ -133,22 +134,28 @@ const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ..
 
             {Children.map(props.children, (child) => {
                 return isValidElement(child)
-                    ? cloneElement(child as ReactElement, {
+                    ? cloneElement(child as ReactElement<any>, {
                           isOpen: isSelectOpen,
                           isMultiple,
                           selectedItems,
                           setIsOpen: setIsSelectOpen,
-                          setSelectedItems: handleSelectedItems,
+                          setSelectedItems: handleSelectedItems
                       })
                     : child;
             })}
         </div>
     );
-});
+});`;
 
-export default SelectWrapper;`;
-
-export const SELECT_TRIGGER_CODE = `import { Dispatch, forwardRef, ForwardRefExoticComponent, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
+export const SELECT_TRIGGER_CODE = `import {
+    Dispatch,
+    forwardRef,
+    ForwardRefExoticComponent,
+    HTMLAttributes,
+    KeyboardEvent,
+    RefAttributes,
+    SetStateAction
+} from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import { Text } from '@components/atoms';
 import { ChevronDown, LucideProps } from 'lucide-react';
@@ -165,7 +172,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectTrigger = forwardRef<HTMLDivElement, Props>(
+export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
     (
         {
             placeholder = 'Select',
@@ -174,7 +181,7 @@ const SelectTrigger = forwardRef<HTMLDivElement, Props>(
             selectedItems,
             icon,
             setIsOpen = () => {},
-            setSelectedItems = () => {},
+            setSelectedItems,
             className = '',
             ...props
         },
@@ -184,21 +191,36 @@ const SelectTrigger = forwardRef<HTMLDivElement, Props>(
         const hasValue = !!selectedItems?.length;
         const Icon = icon || ChevronDown;
 
+        const toggleOpen = () => setIsOpen((prevState) => !prevState);
+
+        const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleOpen();
+            }
+        };
+
         return (
             <div
                 ref={ref}
                 {...props}
-                onClick={() => setIsOpen((prevState) => !prevState)}
-                className={\`relative flex items-center w-full h-10 px-4 pr-12 rounded-md cursor-pointer select-none border border-border \${className}\`}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isOpen}
+                aria-haspopup="listbox"
+                onClick={toggleOpen}
+                onKeyDown={onKeyDown}
+                className={cn(
+                    'border-border relative flex h-10 w-full cursor-pointer items-center rounded-md border px-4 pr-12 select-none',
+                    className
+                )}
             >
                 <Text className={cn({ 'text-title': hasValue })}>{hasValue ? selectedText : placeholder}</Text>
-                <Icon className='absolute right-4 size-5' />
+                <Icon className="absolute right-4 size-5" />
             </div>
         );
     }
-);
-
-export default SelectTrigger;`;
+);`;
 
 export const SELECT_OPTIONS_CODE = `import {
     Children,
@@ -209,10 +231,11 @@ export const SELECT_OPTIONS_CODE = `import {
     ReactElement,
     ReactNode,
     RefAttributes,
-    SetStateAction,
+    SetStateAction
 } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { ISelectItem } from '@interfaces/SelectItem';
+import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;
@@ -224,7 +247,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectOptions = forwardRef<HTMLDivElement, Props>(
+export const SelectOptions = forwardRef<HTMLDivElement, Props>(
     (
         {
             isOpen,
@@ -241,26 +264,29 @@ const SelectOptions = forwardRef<HTMLDivElement, Props>(
         const animation: HTMLMotionProps<'div'> = {
             initial: { scale: 0.95, opacity: 0 },
             animate: { scale: 1, opacity: 1, transition: { ease: [0.215, 0.61, 0.355, 1] } },
-            exit: { scale: 0.95, opacity: 0 },
+            exit: { scale: 0.95, opacity: 0 }
         };
 
         return (
-            <AnimatePresence mode='wait'>
+            <AnimatePresence mode="wait">
                 {isOpen && (
                     <motion.div
                         ref={ref}
                         {...props}
                         {...animation}
-                        className={\`absolute top-[calc(100%+4px)] z-10 flex flex-col gap-1 min-w-full max-w-[calc(100vw-32px)] w-max max-h-[292px] overflow-auto rounded-md p-1 border border-border bg-bg will-change-transform \${className}\`}
+                        className={cn(
+                            'border-border bg-bg absolute top-[calc(100%+4px)] z-10 flex max-h-73 w-max max-w-[calc(100vw-32px)] min-w-full flex-col gap-1 overflow-auto rounded-md border p-1 will-change-transform',
+                            className
+                        )}
                     >
                         {Children.map(children, (child) => {
                             return isValidElement(child)
-                                ? cloneElement(child as ReactElement, {
+                                ? cloneElement(child as ReactElement<any>, {
                                       isOpen,
                                       isMultiple,
                                       selectedItems,
                                       setIsOpen,
-                                      setSelectedItems,
+                                      setSelectedItems
                                   })
                                 : child;
                         })}
@@ -269,9 +295,7 @@ const SelectOptions = forwardRef<HTMLDivElement, Props>(
             </AnimatePresence>
         );
     }
-);
-
-export default SelectOptions;`;
+);`;
 
 export const SELECT_GROUP_CODE = `import {
     Children,
@@ -283,9 +307,10 @@ export const SELECT_GROUP_CODE = `import {
     ReactElement,
     ReactNode,
     RefAttributes,
-    SetStateAction,
+    SetStateAction
 } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;
@@ -297,7 +322,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectGroup = forwardRef<HTMLDivElement, Props>(
+export const SelectGroup = forwardRef<HTMLDivElement, Props>(
     (
         {
             isOpen,
@@ -312,27 +337,26 @@ const SelectGroup = forwardRef<HTMLDivElement, Props>(
         ref
     ) => {
         return (
-            <div ref={ref} {...props} className={\`relative flex flex-col gap-1 \${className}\`}>
+            <div ref={ref} {...props} className={cn('relative flex flex-col gap-1', className)}>
                 {Children.map(children, (child) => {
                     return isValidElement(child)
-                        ? cloneElement(child as ReactElement, {
+                        ? cloneElement(child as ReactElement<any>, {
                               isOpen,
                               isMultiple,
                               selectedItems,
                               setIsOpen,
-                              setSelectedItems,
+                              setSelectedItems
                           })
                         : child;
                 })}
             </div>
         );
     }
-);
-
-export default SelectGroup;`;
+);`;
 
 export const SELECT_LABEL_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;
@@ -343,26 +367,13 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectLabel = forwardRef<HTMLDivElement, Props>(
-    (
-        {
-            isOpen,
-            isMultiple,
-            selectedItems,
-            setIsOpen = () => {},
-            setSelectedItems = () => {},
-            className = '',
-            ...props
-        },
-        ref
-    ) => {
-        return <div ref={ref} {...props} className={\`relative text-sm px-2 py-1 \${className}\`} />;
+export const SelectLabel = forwardRef<HTMLDivElement, Props>(
+    ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', ...props }, ref) => {
+        return <div ref={ref} {...props} className={cn('relative px-2 py-1 text-sm', className)} />;
     }
-);
+);`;
 
-export default SelectLabel;`;
-
-export const SELECT_OPTION_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
+export const SELECT_OPTION_CODE = `import { Dispatch, forwardRef, HTMLAttributes, KeyboardEvent, RefAttributes, SetStateAction } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import { Check } from 'lucide-react';
 import cn from 'classnames';
@@ -377,7 +388,7 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
-const SelectOption = forwardRef<HTMLSpanElement, Props>(
+export const SelectOption = forwardRef<HTMLSpanElement, Props>(
     (
         {
             value,
@@ -398,25 +409,37 @@ const SelectOption = forwardRef<HTMLSpanElement, Props>(
             !isMultiple && setIsOpen(false);
         };
 
+        const onKeyDown = (e: KeyboardEvent<HTMLSpanElement>) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                selectItem();
+            }
+        };
+
         return (
             <span
                 ref={ref}
                 {...props}
+                role="option"
+                tabIndex={0}
+                aria-selected={isActive}
                 onClick={selectItem}
+                onKeyDown={onKeyDown}
                 className={cn(
-                    \`relative flex items-center w-full rounded-md pr-8 px-2 py-1 text-title cursor-pointer \${className}\`,
+                    'text-title relative flex w-full cursor-pointer items-center rounded-md px-2 py-1 pr-8',
+                    className,
                     {
-                        'transition-colors duration-300 hover:bg-border': !isActive || (isActive && isMultiple),
-                        'bg-border pointer-events-none': isActive && !isMultiple,
+                        'hover:bg-border transition-colors duration-300': !isActive || (isActive && isMultiple),
+                        'bg-border pointer-events-none': isActive && !isMultiple
                     }
                 )}
             >
                 {props.children}
 
                 <Check
-                    className={cn('absolute right-2 size-4 text-text transition-all duration-300', {
-                        'opacity-0 invisible': !isActive,
-                        'opacity-100 visible': isActive,
+                    className={cn('text-text absolute right-2 size-4 transition-all duration-300', {
+                        'invisible opacity-0': !isActive,
+                        'visible opacity-100': isActive
                     })}
                 />
             </span>
@@ -424,4 +447,4 @@ const SelectOption = forwardRef<HTMLSpanElement, Props>(
     }
 );
 
-export default SelectOption;`;
+SelectOption.displayName = 'SelectOption';`;

@@ -1,3 +1,3 @@
-import BadgePage from './BadgePage';
+import { BadgePage } from './BadgePage';
 
 export { BadgePage };

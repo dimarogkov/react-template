@@ -1,11 +1,10 @@
 import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     className?: string;
 }
 
-const CarouselViewport = forwardRef<HTMLDivElement, Props>(({ className = '', ...props }, ref) => {
-    return <div ref={ref} {...props} className={`relative w-full overflow-hidden ${className}`} />;
+export const CarouselViewport = forwardRef<HTMLDivElement, Props>(({ className = '', ...props }, ref) => {
+    return <div ref={ref} {...props} className={cn('relative w-full overflow-hidden', className)} />;
 });
-
-export default CarouselViewport;

@@ -1,3 +1,3 @@
-import LoaderPage from './LoaderPage';
+import { LoaderPage } from './LoaderPage';
 
 export { LoaderPage };

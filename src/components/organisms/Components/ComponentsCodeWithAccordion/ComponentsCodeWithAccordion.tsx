@@ -11,14 +11,10 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     children?: ReactNode;
 }
 
-const ComponentsCodeWithAccordion = forwardRef<HTMLDivElement, Props>(
+export const ComponentsCodeWithAccordion = forwardRef<HTMLDivElement, Props>(
     ({ codeArr, type = 'code', children, ...props }, ref) => {
         return (
-            <div
-                ref={ref}
-                {...props}
-                className="relative flex flex-col gap-4 md:gap-5 w-full py-4 md:py-5 scroll-mt-36"
-            >
+            <div ref={ref} {...props} className="relative flex w-full scroll-mt-36 flex-col gap-4 py-4 md:py-5">
                 <div className="w-full">{children}</div>
 
                 <Accordion defaultActiveIndex={0}>
@@ -36,5 +32,3 @@ const ComponentsCodeWithAccordion = forwardRef<HTMLDivElement, Props>(
         );
     }
 );
-
-export default ComponentsCodeWithAccordion;

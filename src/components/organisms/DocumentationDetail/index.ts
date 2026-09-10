@@ -1,3 +1,3 @@
-import DocumentationDetail from './DocumentationDetail';
+import { DocumentationDetail } from './DocumentationDetail';
 
 export { DocumentationDetail };

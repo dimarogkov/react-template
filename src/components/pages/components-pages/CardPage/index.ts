@@ -1,3 +1,3 @@
-import CardPage from './CardPage';
+import { CardPage } from './CardPage';
 
 export { CardPage };

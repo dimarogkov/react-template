@@ -1,3 +1,3 @@
-import InputPasswordPage from './InputPasswordPage';
+import { InputPasswordPage } from './InputPasswordPage';
 
 export { InputPasswordPage };

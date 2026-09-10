@@ -1,3 +1,3 @@
-import CheckboxPage from './CheckboxPage';
+import { CheckboxPage } from './CheckboxPage';
 
 export { CheckboxPage };

@@ -1,3 +1,3 @@
-import RadioPage from './RadioPage';
+import { RadioPage } from './RadioPage';
 
 export { RadioPage };

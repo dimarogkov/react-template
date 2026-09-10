@@ -1,3 +1,3 @@
-import CarouselPage from './CarouselPage';
+import { CarouselPage } from './CarouselPage';
 
 export { CarouselPage };

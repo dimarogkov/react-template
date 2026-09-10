@@ -1,3 +1,3 @@
-import BreadcrumbPage from './BreadcrumbPage';
+import { BreadcrumbPage } from './BreadcrumbPage';
 
 export { BreadcrumbPage };

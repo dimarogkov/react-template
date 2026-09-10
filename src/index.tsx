@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <StrictMode>
         <RootProvider>
-            <RouterProvider router={router} future={{ v7_startTransition: true }} />
+            <RouterProvider router={router} />
         </RootProvider>
     </StrictMode>
 );

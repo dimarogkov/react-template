@@ -1,3 +1,3 @@
-import DropdownPage from './DropdownPage';
+import { DropdownPage } from './DropdownPage';
 
 export { DropdownPage };

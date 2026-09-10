@@ -98,9 +98,9 @@ export const CarouselPage = () => {
             link: '',
             description: (
                 <Text>
-                    To set the spacing between the items, we use a <span className="badge-item">pl-[VALUE]</span>&nbsp;
-                    utility on the <span className="badge-item">Carousel.Item</span> and a negative&nbsp;
-                    <span className="badge-item">-ml-[VALUE]</span> on the&nbsp;
+                    To set the spacing between the items, we use a <span className="badge-item">pl-{'{value}'}</span>
+                    &nbsp; utility on the <span className="badge-item">Carousel.Item</span> and a negative&nbsp;
+                    <span className="badge-item">-ml-{'{value}'}</span> on the&nbsp;
                     <span className="badge-item">Carousel.Container</span>.
                 </Text>
             ),

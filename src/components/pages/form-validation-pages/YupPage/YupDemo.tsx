@@ -22,9 +22,11 @@ export const YupDemo = () => {
     const {
         register,
         watch,
+        trigger,
+        getValues,
         handleSubmit,
         reset,
-        formState: { errors, isSubmitted }
+        formState: { errors, isDirty }
     } = useForm(formOptions);
 
     const onSubmit = (data: FormData) => {
@@ -56,7 +58,7 @@ export const YupDemo = () => {
             </Label>
 
             <Label className="flex flex-col gap-2">
-                <Select {...register('select')}>
+                <Select {...register('select')} value={watch('select')}>
                     <Select.Trigger placeholder="Select Option" />
                     <Select.Options>
                         <Select.Option value="option_1">Option 1</Select.Option>
@@ -69,7 +71,17 @@ export const YupDemo = () => {
             </Label>
 
             <Label className="flex flex-col gap-2">
-                <InputPassword {...register('password')} autoComplete="new-password" placeholder="Password" />
+                <InputPassword
+                    {...register('password', {
+                        onChange: () => {
+                            if (getValues('confirmPassword')) {
+                                trigger('confirmPassword');
+                            }
+                        }
+                    })}
+                    autoComplete="new-password"
+                    placeholder="Password"
+                />
                 {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
             </Label>
 
@@ -121,7 +133,7 @@ export const YupDemo = () => {
                     <SendHorizontal className="size-5" />
                 </Btn>
 
-                <Btn type="button" variant="ghost" disabled={!isSubmitted} onClick={() => reset()}>
+                <Btn type="button" variant="ghost" disabled={!isDirty} onClick={() => reset()}>
                     <RotateCcw className="size-5" />
                     <span>Reset</span>
                 </Btn>

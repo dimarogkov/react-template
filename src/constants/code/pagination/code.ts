@@ -5,51 +5,51 @@ import { PaginationNext } from './PaginationNext';
 import { PaginationEllipsis } from './PaginationEllipsis';
 
 export const Pagination = Object.assign(PaginationWrapper, {
-    Previous: PaginationPrevious,
-    Item: PaginationItem,
-    Next: PaginationNext,
-    Ellipsis: PaginationEllipsis
+  Previous: PaginationPrevious,
+  Item: PaginationItem,
+  Next: PaginationNext,
+  Ellipsis: PaginationEllipsis
 });`;
 
 export const PAGINATION_WRAPPER_CODE = `import {
-    Children,
-    cloneElement,
-    Dispatch,
-    forwardRef,
-    HTMLAttributes,
-    isValidElement,
-    ReactElement,
-    RefAttributes,
-    SetStateAction
+  Children,
+  cloneElement,
+  Dispatch,
+  forwardRef,
+  HTMLAttributes,
+  isValidElement,
+  ReactElement,
+  RefAttributes,
+  SetStateAction
 } from 'react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    options: {
-        currentPage: number;
-        endPage: number;
-        setPage: Dispatch<SetStateAction<number>>;
-    };
-    disabled?: boolean;
-    className?: string;
+  options: {
+    currentPage: number;
+    endPage: number;
+    setPage: Dispatch<SetStateAction<number>>;
+  };
+  disabled?: boolean;
+  className?: string;
 }
 
 export const PaginationWrapper = forwardRef<HTMLDivElement, Props>(
-    ({ options, disabled = false, className = '', ...props }, ref) => {
-        return (
-            <>
-                {!disabled && (
-                    <div ref={ref} {...props} className={cn('relative flex w-full justify-center gap-1', className)}>
-                        {Children.map(props.children, (child) => {
-                            return isValidElement(child)
-                                ? cloneElement(child as ReactElement<any>, { options })
-                                : child;
-                        })}
-                    </div>
-                )}
-            </>
-        );
-    }
+  ({ options, disabled = false, className = '', ...props }, ref) => {
+    return (
+      <>
+        {!disabled && (
+          <div ref={ref} {...props} className={cn('relative flex w-full justify-center gap-1', className)}>
+            {Children.map(props.children, (child) => {
+              return isValidElement(child)
+                ? cloneElement(child as ReactElement<any>, { options })
+                : child;
+            })}
+          </div>
+        )}
+      </>
+    );
+  }
 );`;
 
 export const PAGINATION_PREVIOUS_CODE = `import { ButtonHTMLAttributes, Dispatch, forwardRef, RefAttributes, SetStateAction } from 'react';
@@ -57,77 +57,77 @@ import { ChevronLeft } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {
-    options?: {
-        currentPage: number;
-        endPage: number;
-        setPage: Dispatch<SetStateAction<number>>;
-    };
-    className?: string;
+  options?: {
+    currentPage: number;
+    endPage: number;
+    setPage: Dispatch<SetStateAction<number>>;
+  };
+  className?: string;
 }
 
 export const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ options, className = '', ...props }, ref) => {
-    const { currentPage = 1, setPage = () => {} } = options ?? {};
+  const { currentPage = 1, setPage = () => {} } = options ?? {};
 
-    const togglePrevious = () => setPage(currentPage - 1);
+  const togglePrevious = () => setPage(currentPage - 1);
 
-    return (
-        <button
-            ref={ref}
-            {...props}
-            type="button"
-            disabled={currentPage === 1}
-            onClick={togglePrevious}
-            className={cn(
-                'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
-                className,
-                {
-                    'pointer-events-none opacity-60 select-none': currentPage === 1
-                }
-            )}
-        >
-            <ChevronLeft className="size-5" />
-        </button>
-    );
+  return (
+    <button
+      ref={ref}
+      {...props}
+      type="button"
+      disabled={currentPage === 1}
+      onClick={togglePrevious}
+      className={cn(
+        'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
+        className,
+        {
+          'pointer-events-none opacity-60 select-none': currentPage === 1
+        }
+      )}
+    >
+      <ChevronLeft className="size-5" />
+    </button>
+  );
 });`;
 
 export const PAGINATION_ITEM_CODE = `import { ButtonHTMLAttributes, Dispatch, forwardRef, RefAttributes, SetStateAction } from 'react';
 import cn from 'classnames';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {
-    options?: {
-        currentPage: number;
-        endPage: number;
-        setPage: Dispatch<SetStateAction<number>>;
-    };
-    page: string | number;
-    className?: string;
+  options?: {
+    currentPage: number;
+    endPage: number;
+    setPage: Dispatch<SetStateAction<number>>;
+  };
+  page: string | number;
+  className?: string;
 }
 
 export const PaginationItem = forwardRef<HTMLButtonElement, Props>(
-    ({ options, page, className = '', ...props }, ref) => {
-        const { currentPage = 1, setPage = () => {} } = options ?? {};
+  ({ options, page, className = '', ...props }, ref) => {
+    const { currentPage = 1, setPage = () => {} } = options ?? {};
 
-        const toggleItem = () => setPage(+page);
+    const toggleItem = () => setPage(+page);
 
-        return (
-            <button
-                ref={ref}
-                {...props}
-                type="button"
-                onClick={toggleItem}
-                className={cn(
-                    'text-title relative flex size-9 cursor-pointer items-center justify-center rounded-md border',
-                    className,
-                    {
-                        'hover:bg-border border-transparent transition-colors duration-300': currentPage !== page,
-                        'border-border bg-border pointer-events-none': currentPage === page
-                    }
-                )}
-            >
-                {page}
-            </button>
-        );
-    }
+    return (
+      <button
+        ref={ref}
+        {...props}
+        type="button"
+        onClick={toggleItem}
+        className={cn(
+          'text-title relative flex size-9 cursor-pointer items-center justify-center rounded-md border',
+          className,
+          {
+            'hover:bg-border border-transparent transition-colors duration-300': currentPage !== page,
+            'border-border bg-border pointer-events-none': currentPage === page
+          }
+        )}
+      >
+        {page}
+      </button>
+    );
+  }
 );`;
 
 export const PAGINATION_NEXT_CODE = `import { ButtonHTMLAttributes, Dispatch, forwardRef, RefAttributes, SetStateAction } from 'react';
@@ -135,63 +135,63 @@ import { ChevronRight } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {
-    options?: {
-        currentPage: number;
-        endPage: number;
-        setPage: Dispatch<SetStateAction<number>>;
-    };
-    className?: string;
+  options?: {
+    currentPage: number;
+    endPage: number;
+    setPage: Dispatch<SetStateAction<number>>;
+  };
+  className?: string;
 }
 
 export const PaginationNext = forwardRef<HTMLButtonElement, Props>(({ options, className = '', ...props }, ref) => {
-    const { currentPage = 1, endPage, setPage = () => {} } = options ?? {};
+  const { currentPage = 1, endPage, setPage = () => {} } = options ?? {};
 
-    const toggleNext = () => setPage(currentPage + 1);
+  const toggleNext = () => setPage(currentPage + 1);
 
-    return (
-        <button
-            ref={ref}
-            {...props}
-            type="button"
-            disabled={currentPage === endPage}
-            onClick={toggleNext}
-            className={cn(
-                'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
-                className,
-                {
-                    'pointer-events-none opacity-60 select-none': currentPage === endPage
-                }
-            )}
-        >
-            <ChevronRight className="size-5" />
-        </button>
-    );
+  return (
+    <button
+      ref={ref}
+      {...props}
+      type="button"
+      disabled={currentPage === endPage}
+      onClick={toggleNext}
+      className={cn(
+        'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
+        className,
+        {
+          'pointer-events-none opacity-60 select-none': currentPage === endPage
+        }
+      )}
+    >
+      <ChevronRight className="size-5" />
+    </button>
+  );
 });`;
 
 export const PAGINATION_ELLIPSIS_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    currentPage?: number;
-    className?: string;
-    setCurrentPage?: (page: number) => void;
+  currentPage?: number;
+  className?: string;
+  setCurrentPage?: (page: number) => void;
 }
 
 export const PaginationEllipsis = forwardRef<HTMLDivElement, Props>(
-    ({ currentPage, className = '', setCurrentPage, ...props }, ref) => {
-        return (
-            <div
-                ref={ref}
-                {...props}
-                className={cn(
-                    'text-title pointer-events-none relative flex size-9 items-center justify-center text-base select-none',
-                    className
-                )}
-            >
-                ...
-            </div>
-        );
-    }
+  ({ currentPage, className = '', setCurrentPage, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        {...props}
+        className={cn(
+          'text-title pointer-events-none relative flex size-9 items-center justify-center text-base select-none',
+          className
+        )}
+      >
+        ...
+      </div>
+    );
+  }
 );`;
 
 export const PAGINATION_HOOK_CODE = `import { useState } from 'react';

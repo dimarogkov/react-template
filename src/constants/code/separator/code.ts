@@ -2,9 +2,9 @@ export const SEPARATOR_CODE = `import { forwardRef, HTMLAttributes, RefAttribute
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-    className?: string;
+  className?: string;
 }
 
 export const Separator = forwardRef<HTMLDivElement, Props>(({ className = '', ...props }, ref) => {
-    return <div ref={ref} {...props} className={cn('border-border relative w-full border-t', className)} />;
+  return <div ref={ref} {...props} className={cn('border-border relative w-full border-t', className)} />;
 });`;

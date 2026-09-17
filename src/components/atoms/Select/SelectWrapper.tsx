@@ -43,11 +43,13 @@ export const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className =
     }, [props.children]);
 
     useEffect(() => {
+        if (props.value === undefined) {
+            return;
+        }
+
         const currentOption = optionsArr.find((option) => option.value === props.value);
 
-        if (currentOption) {
-            setSelectedItems([{ value: currentOption.value, label: currentOption.children }]);
-        }
+        setSelectedItems(currentOption ? [{ value: currentOption.value, label: currentOption.children }] : []);
     }, [props.value, optionsArr]);
 
     useEffect(() => {

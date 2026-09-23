@@ -82,7 +82,9 @@ export const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
         style={avatarStyle}
       >
         {Children.map(props.children, (child) => {
-          return isValidElement(child) ? cloneElement(child as ReactElement<any>, { type }) : child;
+          return isValidElement(child)
+            ? cloneElement(child as ReactElement<Record<string, unknown>>, { type })
+            : child;
         })}
       </div>
     );
@@ -125,7 +127,9 @@ export const AvatarLink = forwardRef<HTMLAnchorElement, Props>(
         })}
       >
         {Children.map(children, (child) => {
-          return isValidElement(child) ? cloneElement(child as ReactElement<any>, { type }) : child;
+          return isValidElement(child)
+            ? cloneElement(child as ReactElement<Record<string, unknown>>, { type })
+            : child;
         })}
       </Link>
     );
@@ -190,7 +194,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, Props>(({ visibleCount, cl
   const [currentWidth, setCurrentWidth] = useState(0);
   const groupRef = useRef<HTMLDivElement>(null);
 
-  const childArray = Children.toArray(props.children) as ReactElement<any>[];
+  const childArray = Children.toArray(props.children) as ReactElement<Record<string, unknown>>[];
   const childType = childArray[0].props.type || 'circle';
   const widthClasses = childArray[0].props.className;
 
@@ -209,7 +213,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, Props>(({ visibleCount, cl
     <div ref={ref || groupRef} {...props} className={cn('relative flex items-center', className)}>
       {childArray.slice(0, visibleCount).map((child, index) => {
         return isValidElement(child)
-          ? cloneElement(child as ReactElement<any>, { currentIndex: index })
+          ? cloneElement(child as ReactElement<Record<string, unknown>>, { currentIndex: index })
           : child;
       })}
 

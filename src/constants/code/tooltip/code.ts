@@ -42,7 +42,9 @@ export const TooltipWrapper = forwardRef<HTMLDivElement, Props>(({ className = '
       )}
     >
       {Children.map(props.children, (child) => {
-        return isValidElement(child) ? cloneElement(child as ReactElement<any>, { isOpen }) : child;
+        return isValidElement(child)
+          ? cloneElement(child as ReactElement<Record<string, unknown>>, { isOpen })
+          : child;
       })}
     </div>
   );

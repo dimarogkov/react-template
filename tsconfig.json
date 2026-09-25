@@ -29,5 +29,5 @@
             "@utils": ["./src/utils"]
         }
     },
-    "include": ["src", "craco.config.ts"]
+    "include": ["src", "craco.config.ts", "eslint.config.js"]
 }

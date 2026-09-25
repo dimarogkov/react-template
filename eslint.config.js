@@ -38,19 +38,20 @@ module.exports = tseslint.config(
         }
     },
     {
-        files: ['craco.config.ts'],
+        files: ['craco.config.ts', 'eslint.config.js'],
         languageOptions: {
             globals: globals.node
         }
     },
     {
-        // generic wrapper: children are opaque (`...props`), so this rule can never see a nested
-        // control from this file alone — every real call site does nest one (Input, Checkbox, Radio, ...)
+        files: ['eslint.config.js'],
+        rules: { '@typescript-eslint/no-require-imports': 'off' }
+    },
+    {
         files: ['src/components/atoms/Label/Label.tsx'],
         rules: { 'jsx-a11y/label-has-associated-control': 'off' }
     },
     {
-        // stops click propagation only; the actual interactive controls are the children
         files: ['src/components/atoms/Dropdown/DropdownSubMenu.tsx'],
         rules: {
             'jsx-a11y/click-events-have-key-events': 'off',
@@ -58,7 +59,10 @@ module.exports = tseslint.config(
         }
     },
     {
-        // focus moves into the search dialog on open, not on page load; matches the WAI-ARIA dialog pattern
+        files: ['src/components/atoms/Tooltip/TooltipWrapper.tsx'],
+        rules: { 'jsx-a11y/no-static-element-interactions': 'off' }
+    },
+    {
         files: ['src/components/molecules/Header/HeaderSearch/HeaderSearch.tsx'],
         rules: { 'jsx-a11y/no-autofocus': 'off' }
     }

@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSectionsRefs } from '@hooks';
 import { IDocumentationCodeArr, IDocumentationData } from '@interfaces/Documentation';
 import {
@@ -12,19 +12,23 @@ import {
     ComponentsPreview,
     ComponentsWrapper
 } from '@components/organisms';
-import { Text, Title } from '@components/atoms';
+import { PulseDot, Text, Title } from '@components/atoms';
 import { ArrowUpRight } from 'lucide-react';
 import cn from 'classnames';
+import { getLinks } from '@utils';
 
 type Props = {
     data: IDocumentationData;
 };
 
 export const DocumentationDetail = ({ data }: Props) => {
+    const { pathname } = useLocation();
     const { sectionsRef, registerRef } = useSectionsRefs();
+    const { links: pagesLinks } = getLinks();
     const { title, description, links, preview, codeSections } = data;
 
     const sectionsArr = codeSections.map(({ id, title }) => ({ id, text: title }));
+    const isNew = pagesLinks.find(({ href }) => href === pathname)?.isNew ?? false;
 
     return (
         <section className="relative w-full">
@@ -34,9 +38,10 @@ export const DocumentationDetail = ({ data }: Props) => {
                 >
                     <div className="w-full xl:px-7.5">
                         <ComponentsHead>
-                            <Title size="h2" className="mb-1 last:mb-0 md:mb-2">
-                                {title}
-                            </Title>
+                            <div className="mb-1 flex items-center gap-3 last:mb-0 md:mb-2">
+                                <Title size="h2">{title}</Title>
+                                {isNew && <PulseDot className="size-3" />}
+                            </div>
 
                             <Text size="large">{description}</Text>
                         </ComponentsHead>

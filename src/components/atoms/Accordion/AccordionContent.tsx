@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
+    headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
     accordionId?: string;
     accordionIndex?: number;
     activeIndexArr?: number[] | null;
@@ -17,6 +18,7 @@ export const AccordionContent = forwardRef<HTMLDivElement, Props>(
     (
         {
             iconType,
+            headingLevel,
             accordionId,
             accordionIndex = 0,
             activeIndexArr,

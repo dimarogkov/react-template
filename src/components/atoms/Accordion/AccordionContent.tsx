@@ -4,28 +4,34 @@ import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
+    accordionId?: string;
     accordionIndex?: number;
-    activeIndex?: number;
+    activeIndexArr?: number[] | null;
     className?: string;
     classNameBlock?: string;
     children: ReactNode;
-    setActiveIndex?: () => void;
+    toggleIndex?: (index: number) => void;
 }
 
 export const AccordionContent = forwardRef<HTMLDivElement, Props>(
     (
         {
             iconType,
+            accordionId,
             accordionIndex = 0,
-            activeIndex,
+            activeIndexArr,
             className = '',
             classNameBlock = '',
             children,
-            setActiveIndex,
+            toggleIndex,
             ...props
         },
         ref
     ) => {
+        const id = `${accordionId}-panel-${accordionIndex}`;
+        const labelledby = `${accordionId}-trigger-${accordionIndex}`;
+        const isIndexExist = activeIndexArr?.includes(accordionIndex);
+
         const animation: HTMLMotionProps<'div'> = {
             initial: { height: 0 },
             animate: { height: 'auto' },
@@ -35,11 +41,14 @@ export const AccordionContent = forwardRef<HTMLDivElement, Props>(
 
         return (
             <AnimatePresence initial={false}>
-                {accordionIndex === activeIndex && (
+                {isIndexExist && (
                     <motion.div
+                        id={id}
                         ref={ref}
                         {...props}
                         {...animation}
+                        role="region"
+                        aria-labelledby={labelledby}
                         className={cn('relative w-full text-base', className)}
                     >
                         <div className={cn('p-2.5 pt-0 sm:p-3 sm:pt-0', classNameBlock)}>{children}</div>

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     iconType?: 'arrow' | 'plus';
-    headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+    headingSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     accordionId?: string;
     accordionIndex?: number;
     activeIndexArr?: number[] | null;
@@ -15,7 +15,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
     (
         {
             iconType,
-            headingLevel,
+            headingSize,
             accordionId,
             accordionIndex = 0,
             activeIndexArr,
@@ -35,7 +35,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
                     return isValidElement(child)
                         ? cloneElement(child as ReactElement<Record<string, unknown>>, {
                               iconType,
-                              headingLevel,
+                              headingSize,
                               accordionId,
                               accordionIndex,
                               activeIndexArr,

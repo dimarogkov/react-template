@@ -25,14 +25,14 @@ import cn from 'classnames';
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
   type?: 'single' | 'multiple';
   iconType?: 'arrow' | 'plus';
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  headingSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   defaultActiveIndex?: number[];
   className?: string;
 }
 
 export const AccordionWrapper = forwardRef<HTMLDivElement, Props>(
   (
-    { type = 'single', iconType = 'arrow', headingLevel = 3, defaultActiveIndex = [], className = '', ...props },
+    { type = 'single', iconType = 'arrow', headingSize = 'h6', defaultActiveIndex = [], className = '', ...props },
     ref
   ) => {
     const [activeIndexArr, setActiveIndexArr] = useState(defaultActiveIndex);
@@ -55,13 +55,13 @@ export const AccordionWrapper = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child, index) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               iconType,
-               headingLevel,
-               accordionId,
-               accordionIndex: index,
-               activeIndexArr,
-               toggleIndex
-             })
+                iconType,
+                headingSize,
+                accordionId,
+                accordionIndex: index,
+                activeIndexArr,
+                toggleIndex
+              })
             : child;
         })}
       </div>
@@ -74,7 +74,7 @@ import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
   iconType?: 'arrow' | 'plus';
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  headingSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   accordionId?: string;
   accordionIndex?: number;
   activeIndexArr?: number[] | null;
@@ -86,7 +86,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
   (
     {
       iconType,
-      headingLevel,
+      headingSize,
       accordionId,
       accordionIndex = 0,
       activeIndexArr,
@@ -105,13 +105,13 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               iconType,
-               headingLevel,
-               accordionId,
-               accordionIndex,
-               activeIndexArr,
-               toggleIndex
-             })
+                iconType,
+                headingSize,
+                accordionId,
+                accordionIndex,
+                activeIndexArr,
+                toggleIndex
+              })
             : child;
         })}
       </div>
@@ -119,13 +119,14 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
   }
 );`;
 
-export const ACCORDION_TITLE_CODE = `import { ElementType, forwardRef, HTMLAttributes, RefAttributes } from 'react';
+export const ACCORDION_TITLE_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
 import { ChevronDown, Plus } from 'lucide-react';
+import { Title } from '@components/atoms';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {
   iconType?: 'arrow' | 'plus';
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  headingSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   accordionId?: string;
   accordionIndex?: number;
   activeIndexArr?: number[] | null;
@@ -137,7 +138,7 @@ export const AccordionTitle = forwardRef<HTMLButtonElement, Props>(
   (
     {
       iconType,
-      headingLevel = 3,
+      headingSize,
       accordionId,
       accordionIndex = 0,
       activeIndexArr,
@@ -150,7 +151,6 @@ export const AccordionTitle = forwardRef<HTMLButtonElement, Props>(
     const id = \`\${accordionId}-trigger-\${accordionIndex}\`;
     const controls = \`\${accordionId}-panel-\${accordionIndex}\`;
     const isOpen = activeIndexArr?.includes(accordionIndex);
-    const Heading = \`h\${headingLevel}\` as ElementType;
 
     const icon = {
       arrow: (
@@ -170,7 +170,7 @@ export const AccordionTitle = forwardRef<HTMLButtonElement, Props>(
     };
 
     return (
-      <Heading>
+      <Title size={headingSize} className="font-medium!">
         <button
           id={id}
           ref={ref}
@@ -187,7 +187,7 @@ export const AccordionTitle = forwardRef<HTMLButtonElement, Props>(
           {props.children}
           {iconType && icon[iconType]}
         </button>
-      </Heading>
+      </Title>
     );
   }
 );`;
@@ -198,7 +198,7 @@ import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
   iconType?: 'arrow' | 'plus';
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+  headingSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   accordionId?: string;
   accordionIndex?: number;
   activeIndexArr?: number[] | null;
@@ -212,7 +212,7 @@ export const AccordionContent = forwardRef<HTMLDivElement, Props>(
   (
     {
       iconType,
-      headingLevel,
+      headingSize,
       accordionId,
       accordionIndex = 0,
       activeIndexArr,

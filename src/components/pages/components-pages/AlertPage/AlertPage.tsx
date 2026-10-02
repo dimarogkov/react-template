@@ -5,6 +5,7 @@ import {
     ALERT_DESCRIPTION_CODE,
     ALERT_DEMO_CODE,
     ALERT_USAGE_CODE,
+    ALERT_HEADING_SIZE_USAGE_CODE,
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE
 } from '@code';
@@ -61,6 +62,20 @@ export const AlertPage = () => {
             ),
             withAccordion: false,
             codeArr: [ALERT_USAGE_CODE]
+        },
+        {
+            id: 'heading-size',
+            title: 'Heading Size',
+            link: '',
+            description: (
+                <Text>
+                    To change the heading size, add the <span className="badge-item">headingSize</span> prop to
+                    the&nbsp;
+                    <span className="badge-item">Alert.Title</span> component.
+                </Text>
+            ),
+            withAccordion: false,
+            codeArr: [ALERT_HEADING_SIZE_USAGE_CODE]
         }
     ];
 

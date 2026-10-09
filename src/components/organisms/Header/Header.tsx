@@ -9,7 +9,7 @@ export const Header = () => {
 
     return (
         <header
-            className={cn('border-border sticky top-0 left-0 z-30 flex h-16 w-full items-center border-b lg:h-20', {
+            className={cn('border-border sticky top-0 left-0 z-40 flex h-16 w-full items-center border-b lg:h-20', {
                 'backdrop-blur-[20px]': isHomePage,
                 'bg-bg': !isHomePage
             })}
@@ -31,6 +31,8 @@ export const Header = () => {
                         <Link
                             to="https://github.com/dimarogkov/react-template"
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View source on GitHub"
                             className="hover:bg-border flex size-9 items-center justify-center rounded-md transition-colors duration-300"
                         >
                             <svg

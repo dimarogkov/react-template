@@ -197,7 +197,7 @@ export const PaginationEllipsis = forwardRef<HTMLDivElement, Props>(
 export const PAGINATION_HOOK_CODE = `import { useState } from 'react';
 import { getPaginationRange } from '@utils';
 
-export const usePagination = <T extends any[]>(arr: T, perPage: number = 10) => {
+export const usePagination = <T extends unknown[]>(arr: T, perPage: number = 10) => {
   const [page, setPage] = useState(1);
 
   const start = (page - 1) * perPage;
@@ -212,7 +212,7 @@ export const usePagination = <T extends any[]>(arr: T, perPage: number = 10) => 
   return {
     data,
     pagesArr,
-    options,
+    options
   };
 };`;
 

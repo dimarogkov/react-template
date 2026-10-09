@@ -1,5 +1,5 @@
-import { User } from 'lucide-react';
 import { Badge } from '@components/atoms';
+import { User } from 'lucide-react';
 
 export const BadgeDemo = () => {
     return (

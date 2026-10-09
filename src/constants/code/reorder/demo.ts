@@ -11,18 +11,18 @@ export const ReorderDemo = () => {
 
   return (
     <>
-      <Reorder.Group values={itemsY} onReorder={setItemsY} axis='y' className='grid grid-cols-1 gap-2.5 mb-2.5'>
+      <Reorder.Group values={itemsY} onReorder={setItemsY} axis="y" className="mb-2.5 grid grid-cols-1 gap-2.5">
         {itemsY.map((item) => (
           <Reorder.Item
             key={item}
             value={item}
             onDragStart={setGrabbingCursor}
             onDragEnd={resetCursor}
-            className='relative cursor-grab active:cursor-grabbing'
+            className="relative cursor-grab active:cursor-grabbing"
           >
-            <Card className='p-2.5 bg-bg!'>
+            <Card className="bg-bg! p-2.5">
               <Card.Body>
-                <Title size='h4' className='mb-0.5 last:mb-0'>
+                <Title size="h4" className="mb-0.5 last:mb-0">
                   Item {item}
                 </Title>
 
@@ -33,7 +33,7 @@ export const ReorderDemo = () => {
         ))}
       </Reorder.Group>
 
-      <Reorder.Group values={itemsX} onReorder={setItemsX} axis='x' className='grid grid-cols-3 gap-2.5'>
+      <Reorder.Group values={itemsX} onReorder={setItemsX} axis="x" className="grid grid-cols-3 gap-2.5">
         {itemsX.map((item) => (
           <Reorder.Item
             key={item}
@@ -41,11 +41,11 @@ export const ReorderDemo = () => {
             drag
             onDragStart={setGrabbingCursor}
             onDragEnd={resetCursor}
-            className='relative cursor-grab active:cursor-grabbing'
+            className="relative cursor-grab active:cursor-grabbing"
           >
-            <Card className='p-2.5 bg-bg!'>
+            <Card className="bg-bg! p-2.5">
               <Card.Body>
-                <Title size='h4' className='mb-0.5 last:mb-0'>
+                <Title size="h4" className="mb-0.5 last:mb-0">
                   Item {item}
                 </Title>
 

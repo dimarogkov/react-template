@@ -6,10 +6,10 @@ export const CheckboxDemo = () => {
   const [secondCheckbox, setSecondCheckbox] = useState(true);
 
   return (
-    <div className='relative flex flex-col gap-2.5 w-full'>
+    <div className="relative flex w-full flex-col gap-2.5">
       <Label>
         <Checkbox
-          label='Accept terms and conditions'
+          label="Accept terms and conditions"
           checked={firstCheckbox}
           onChange={() => setFirstCheckbox(!firstCheckbox)}
         />
@@ -17,14 +17,14 @@ export const CheckboxDemo = () => {
 
       <Label>
         <Checkbox
-          label='Accept terms and conditions'
+          label="Accept terms and conditions"
           checked={secondCheckbox}
           onChange={() => setSecondCheckbox(!secondCheckbox)}
         />
       </Label>
 
       <Label>
-        <Checkbox label='Accept terms and conditions' disabled />
+        <Checkbox label="Accept terms and conditions" disabled />
       </Label>
     </div>
   );

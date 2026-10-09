@@ -186,6 +186,6 @@ export const useCarousel = (api?: EmblaCarouselType) => {
     isNextDisabled,
     onPrevClick,
     onNextClick,
-    onDotClick,
+    onDotClick
   };
 };`;

@@ -144,12 +144,12 @@ export const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className =
       {Children.map(props.children, (child) => {
         return isValidElement(child)
           ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-             isOpen: isSelectOpen,
-             isMultiple,
-             selectedItems,
-             setIsOpen: setIsSelectOpen,
-             setSelectedItems: handleSelectedItems
-           })
+              isOpen: isSelectOpen,
+              isMultiple,
+              selectedItems,
+              setIsOpen: setIsSelectOpen,
+              setSelectedItems: handleSelectedItems
+            })
           : child;
       })}
     </div>
@@ -291,12 +291,12 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
             {Children.map(children, (child) => {
               return isValidElement(child)
                 ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-                   isOpen,
-                   isMultiple,
-                   selectedItems,
-                   setIsOpen,
-                   setSelectedItems
-                 })
+                    isOpen,
+                    isMultiple,
+                    selectedItems,
+                    setIsOpen,
+                    setSelectedItems
+                  })
                 : child;
             })}
           </motion.div>
@@ -350,12 +350,12 @@ export const SelectGroup = forwardRef<HTMLDivElement, Props>(
         {Children.map(children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               isOpen,
-               isMultiple,
-               selectedItems,
-               setIsOpen,
-               setSelectedItems
-             })
+                isOpen,
+                isMultiple,
+                selectedItems,
+                setIsOpen,
+                setSelectedItems
+              })
             : child;
         })}
       </div>

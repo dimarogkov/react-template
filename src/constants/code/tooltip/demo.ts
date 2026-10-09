@@ -2,10 +2,10 @@ export const TOOLTIP_DEMO_CODE = `import { Btn, Tooltip } from '@components/atom
 
 export const TooltipDemo = () => {
   return (
-    <div className='relative flex h-32 w-full items-center justify-center'>
+    <div className="relative flex h-32 w-full items-center justify-center">
       <Tooltip>
         <Tooltip.Trigger>
-          <Btn variant='outline' className='pointer-events-none'>
+          <Btn variant="outline" className="pointer-events-none">
             Hover
           </Btn>
         </Tooltip.Trigger>

@@ -2,8 +2,8 @@ export const SEPARATOR_DEMO_CODE = `import { Separator, Text, Title } from '@com
 
 export const SeparatorDemo = () => {
   return (
-    <div className='relative w-full'>
-      <Title size='h3' className='mb-2.5 last:mb-0'>
+    <div className="relative w-full">
+      <Title size="h3" className="mb-2.5 last:mb-0">
         Separator Title
       </Title>
 
@@ -13,7 +13,7 @@ export const SeparatorDemo = () => {
         nostrum, ipsum temporibus esse.
       </Text>
 
-      <Separator className='my-5' />
+      <Separator className="my-5" />
 
       <Text>An open-source UI component library.</Text>
     </div>

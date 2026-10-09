@@ -4,6 +4,7 @@ const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
 const reactRefresh = require('eslint-plugin-react-refresh').default;
 const jsxA11y = require('eslint-plugin-jsx-a11y');
+const importX = require('eslint-plugin-import-x');
 const tseslint = require('typescript-eslint');
 
 module.exports = tseslint.config(
@@ -19,11 +20,14 @@ module.exports = tseslint.config(
             globals: { ...globals.browser, ...globals.node }
         },
         settings: {
-            react: { version: 'detect' }
+            react: { version: 'detect' },
+            'import-x/internal-regex':
+                '^@(app|components|constants|code|form-validation|hooks|services|store|interfaces|utils)(/|$)'
         },
         plugins: {
             'react-hooks': reactHooks,
-            'react-refresh': reactRefresh
+            'react-refresh': reactRefresh,
+            'import-x': importX
         },
         rules: {
             'react-hooks/rules-of-hooks': 'error',
@@ -34,7 +38,20 @@ module.exports = tseslint.config(
             '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true }],
             '@typescript-eslint/no-explicit-any': 'warn',
             '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
-            'no-console': ['warn', { allow: ['warn', 'error'] }]
+            'no-console': ['warn', { allow: ['warn', 'error'] }],
+            'import-x/order': [
+                'warn',
+                {
+                    groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+                    pathGroups: [
+                        { pattern: 'react', group: 'external', position: 'before' },
+                        { pattern: 'lucide-react', group: 'index', position: 'after' },
+                        { pattern: 'classnames', group: 'index', position: 'after' }
+                    ],
+                    pathGroupsExcludedImportTypes: [],
+                    'newlines-between': 'never'
+                }
+            ]
         }
     },
     {
@@ -65,5 +82,9 @@ module.exports = tseslint.config(
     {
         files: ['src/components/molecules/Header/HeaderSearch/HeaderSearch.tsx'],
         rules: { 'jsx-a11y/no-autofocus': 'off' }
+    },
+    {
+        files: ['src/app/routes/router.tsx'],
+        rules: { 'import-x/order': 'off' }
     }
 );

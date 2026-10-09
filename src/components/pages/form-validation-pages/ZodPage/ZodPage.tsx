@@ -4,7 +4,7 @@ import {
     NPM_ZOD_CODE,
     ZOD_CODE,
     ZOD_SCHEMA_CODE,
-    ZOP_OPTIONS_CODE,
+    ZOD_OPTIONS_CODE,
     ZOD_DEMO_CODE
 } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
@@ -38,7 +38,7 @@ export const ZodPage = () => {
             withAccordion: true,
             codeArr: [
                 { label: 'index.ts', code: ZOD_CODE },
-                { label: 'formOptions.ts', code: ZOP_OPTIONS_CODE },
+                { label: 'formOptions.ts', code: ZOD_OPTIONS_CODE },
                 { label: 'schema.ts', code: ZOD_SCHEMA_CODE }
             ]
         },

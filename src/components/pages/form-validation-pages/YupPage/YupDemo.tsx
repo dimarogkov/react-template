@@ -1,5 +1,6 @@
 import { InferType } from 'yup';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { formOptions, validationSchema } from '@form-validation/yup';
 import {
     Btn,
@@ -14,7 +15,6 @@ import {
     Toast
 } from '@components/atoms';
 import { RotateCcw, SendHorizontal } from 'lucide-react';
-import toast from 'react-hot-toast';
 
 type FormData = InferType<typeof validationSchema>;
 

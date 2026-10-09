@@ -1,5 +1,6 @@
 import z from 'zod';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { formOptions, validationSchema } from '@form-validation/zod';
 import {
     Btn,
@@ -14,7 +15,6 @@ import {
     Toast
 } from '@components/atoms';
 import { RotateCcw, SendHorizontal } from 'lucide-react';
-import toast from 'react-hot-toast';
 
 type FormData = z.infer<typeof validationSchema>;
 

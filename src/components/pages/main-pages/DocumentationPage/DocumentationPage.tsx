@@ -1,62 +1,60 @@
 import { Link } from 'react-router-dom';
 import { useSectionsRefs } from '@hooks';
-import { DATA } from './data';
 import { ComponentsFooter, ComponentsHead, ComponentsNavigation, ComponentsWrapper } from '@components/organisms';
 import { IntroductionContent } from '@components/molecules';
-import { PulseDot, Separator, Text, Title } from '@components/atoms';
+import { PulseDot, Text, Title } from '@components/atoms';
+import { slugify } from '@utils';
+import { DATA } from './data';
 
 export const DocumentationPage = () => {
     const { sectionsRef, registerRef } = useSectionsRefs();
 
-    const sectionsArr = DATA.map(({ title }) => ({ id: title.toLowerCase(), text: title }));
+    const sectionsArr = DATA.map(({ title }) => ({ id: slugify(title), text: title }));
 
     return (
-        <>
-            <section className="relative w-full">
-                <div className="page-container">
-                    <ComponentsWrapper
-                        navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
-                    >
-                        <div className="w-full xl:px-7.5">
+        <section className="relative w-full">
+            <div className="page-container">
+                <ComponentsWrapper
+                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                >
+                    <div className="md:border-border w-full md:border-r md:border-l">
+                        <div className="border-border py-4 sm:py-5 md:border-b md:p-5">
                             <ComponentsHead>
                                 <IntroductionContent />
                             </ComponentsHead>
-
-                            {DATA.map(({ title, text, links }) => (
-                                <div
-                                    key={title}
-                                    id={title.toLowerCase()}
-                                    ref={registerRef(title.toLowerCase())}
-                                    className="w-full scroll-mt-29 py-6 md:py-12"
-                                >
-                                    <Title size="h3" className="mb-1 last:mb-0 md:mb-2">
-                                        {title}
-                                    </Title>
-
-                                    <Text size="large">{text}</Text>
-
-                                    <Separator className="my-5" />
-
-                                    <div className="grid w-full grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
-                                        {links.map(({ name, href, isNew }) => (
-                                            <Link
-                                                key={name}
-                                                to={href}
-                                                className="text-text flex items-center gap-2.5 text-lg font-medium hover:underline"
-                                            >
-                                                <span>{name}</span>
-                                                {isNew && <PulseDot className="size-2" />}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-
-                            <ComponentsFooter />
                         </div>
-                    </ComponentsWrapper>
-                </div>
-            </section>
-        </>
+
+                        {DATA.map(({ title, text, links }) => (
+                            <div
+                                key={title}
+                                id={slugify(title)}
+                                ref={registerRef(slugify(title))}
+                                className="md:border-border w-full scroll-mt-29 py-4 sm:py-5 md:border-b md:p-5"
+                            >
+                                <div className="mb-4 flex flex-col gap-1 last:mb-0 md:mb-5 md:gap-2">
+                                    <Title size="h3">{title}</Title>
+                                    <Text size="large">{text}</Text>
+                                </div>
+
+                                <div className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+                                    {links.map(({ name, href, status }) => (
+                                        <Link
+                                            key={name}
+                                            to={href}
+                                            className="text-text border-border hover:bg-grey hover:text-title flex h-14 items-center justify-between rounded-md border px-3.5 text-lg font-medium transition-all duration-200 will-change-transform hover:translate-1 xl:h-16 xl:px-4"
+                                        >
+                                            <span>{name}</span>
+                                            {status && <PulseDot variant={status} className="size-2" />}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+
+                        <ComponentsFooter />
+                    </div>
+                </ComponentsWrapper>
+            </div>
+        </section>
     );
 };

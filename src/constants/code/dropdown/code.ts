@@ -64,9 +64,9 @@ export const DropdownWrapper = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               isOpen: isDropdownOpen,
-               setIsOpen: setIsDropdownOpen
-             })
+                isOpen: isDropdownOpen,
+                setIsOpen: setIsDropdownOpen
+              })
             : child;
         })}
       </div>
@@ -230,8 +230,8 @@ export const DropdownMenu = forwardRef<HTMLDivElement, Props>(
 );`;
 
 export const DROPDOWN_LABEL_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
-import cn from 'classnames';
 import { Text } from '../Text';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
   isOpen?: boolean;
@@ -250,8 +250,8 @@ export const DropdownLabel = forwardRef<HTMLDivElement, Props>(
 );`;
 
 export const DROPDOWN_SEPARATOR_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
-import cn from 'classnames';
 import { Separator } from '../Separator';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
   isOpen?: boolean;
@@ -266,8 +266,8 @@ export const DropdownSeparator = forwardRef<HTMLDivElement, Props>(
 );`;
 
 export const DROPDOWN_ITEM_CODE = `import { Dispatch, forwardRef, HTMLAttributes, KeyboardEvent, RefAttributes, SetStateAction } from 'react';
-import cn from 'classnames';
 import { Text } from '../Text';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
   isOpen?: boolean;
@@ -341,10 +341,10 @@ export const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               isOpen,
-               isSubOpen: isSubDropdownOpen,
-               setIsOpen
-             })
+                isOpen,
+                isSubOpen: isSubDropdownOpen,
+                setIsOpen
+              })
             : child;
         })}
       </div>

@@ -3,8 +3,8 @@ export const TOAST_TYPE_CODE = `export interface IToastData {
   text: string;
 }`;
 
-export const TOAST_CODE = `import toast, { type Toast as TostType } from 'react-hot-toast';
-import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
+export const TOAST_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
+import toast, { type Toast as TostType } from 'react-hot-toast';
 import { IToastData } from '@interfaces/ToastData';
 import { Text } from '@components/atoms';
 import { CircleAlert, CircleCheck, CircleX, Info, X } from 'lucide-react';

@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { DATA } from './data';
-import { useMain } from '@hooks';
+import { useEscapeKey, useFocusRestore, useFocusTrap, useMain } from '@hooks';
 import { SidebarBtn, SidebarLayer, SidebarLink } from '@components/molecules';
 import { Text } from '@components/atoms';
+import { DATA } from './data';
 import cn from 'classnames';
 
 export const Sidebar = () => {
@@ -12,7 +12,7 @@ export const Sidebar = () => {
     const [isEnd, setIsEnd] = useState(false);
     const { isSidebarOpen, setIsSidebarOpen } = useMain();
 
-    const sidebarRef = useRef<HTMLDivElement>(null);
+    const sidebarRef = useRef<HTMLElement>(null);
     const sidebarListRef = useRef<HTMLDivElement>(null);
 
     const { pathname } = useLocation();
@@ -35,6 +35,12 @@ export const Sidebar = () => {
         };
     }, [setIsSidebarOpen]);
 
+    const closeSidebar = useCallback(() => setIsSidebarOpen(false), [setIsSidebarOpen]);
+
+    useFocusRestore(sidebarRef, isSidebarOpen);
+    useEscapeKey(closeSidebar, isSidebarOpen);
+    useFocusTrap(sidebarRef, isSidebarOpen);
+
     const { scrollYProgress } = useScroll({
         container: sidebarListRef
     });
@@ -48,17 +54,19 @@ export const Sidebar = () => {
         <>
             <SidebarLayer />
 
-            <div
+            <nav
                 ref={sidebarRef}
+                tabIndex={-1}
+                aria-label="Documentation navigation"
                 className={cn(
-                    'border-border bg-bg after:bg-bg fixed top-27 left-0 z-20 block h-[calc(100%-108px)] w-56 border-r transition-transform duration-300 lg:top-31 lg:h-auto xl:sticky xl:top-41 xl:border-none',
+                    'border-border bg-bg fixed top-27 left-0 z-20 block h-[calc(100svh-108px)] w-60 border-r p-5 outline-hidden transition-transform duration-300 lg:top-31 lg:h-[calc(100svh-124px)] xl:sticky xl:top-31 xl:w-52 xl:border-none xl:pl-0',
                     {
-                        '-translate-x-56 xl:translate-x-0': !isSidebarOpen,
+                        '-translate-x-60 xl:translate-x-0': !isSidebarOpen,
                         'translate-x-0': isSidebarOpen
                     }
                 )}
             >
-                <div className="relative h-full w-full px-5 py-5 md:py-10 lg:h-[calc(100svh-124px)] xl:h-[calc(100svh-204px)] xl:px-0 xl:py-0">
+                <div className="relative h-full w-full">
                     <SidebarBtn />
 
                     <motion.div
@@ -68,12 +76,12 @@ export const Sidebar = () => {
                             'sidebar-top-no-fade': isStart
                         })}
                     >
-                        <div className="flex w-full flex-col gap-3.5">
+                        <div className="flex w-full flex-col gap-5">
                             {DATA.map(({ title, links }) => (
                                 <div key={title} className="w-full">
-                                    <Text className="text-title mb-3 last:mb-0">{title}</Text>
+                                    <Text className="text-title mb-2 font-medium last:mb-0">{title}</Text>
 
-                                    <ul className="border-border flex w-full flex-col gap-3.5 border-l pl-4">
+                                    <ul className="flex w-full flex-col gap-1">
                                         {links.map((link) => (
                                             <li key={link.name} className="w-full">
                                                 <SidebarLink link={link} isActive={pathname === link.href} />
@@ -85,7 +93,7 @@ export const Sidebar = () => {
                         </div>
                     </motion.div>
                 </div>
-            </div>
+            </nav>
         </>
     );
 };

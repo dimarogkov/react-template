@@ -1,6 +1,6 @@
 import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
-import cn from 'classnames';
 import { Text } from '../Text';
+import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
     isOpen?: boolean;

@@ -2,11 +2,11 @@ export const DROPDOWN_DEMO_CODE = `import { Btn, Dropdown } from '@components/at
 
 export const DropdownDemo = () => {
   return (
-    <Dropdown className='w-full sm:w-fit'>
+    <Dropdown className="w-full sm:w-fit">
       <Dropdown.Trigger>
-        <Btn variant='outline'>Dropdown</Btn>
+        <Btn variant="outline">Dropdown</Btn>
       </Dropdown.Trigger>
-      <Dropdown.Content className='sm:w-50'>
+      <Dropdown.Content className="sm:w-50">
         <Dropdown.Menu>
           <Dropdown.Label>My Account</Dropdown.Label>
           <Dropdown.Separator />

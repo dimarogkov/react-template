@@ -38,10 +38,10 @@ export const TabsWrapper = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               hasAnimation,
-               activeIndex,
-               setActiveIndex
-             })
+                hasAnimation,
+                activeIndex,
+                setActiveIndex
+              })
             : child;
         })}
       </div>
@@ -76,11 +76,11 @@ export const TabsList = forwardRef<HTMLUListElement, Props>(
         {Children.map(props.children, (child, index) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               hasAnimation,
-               tabIndex: index,
-               activeIndex,
-               setActiveIndex
-             })
+                hasAnimation,
+                tabIndex: index,
+                activeIndex,
+                setActiveIndex
+              })
             : child;
         })}
       </ul>

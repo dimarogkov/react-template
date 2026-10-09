@@ -12,10 +12,10 @@ import {
     ComponentsPreview,
     ComponentsWrapper
 } from '@components/organisms';
-import { PulseDot, Text, Title } from '@components/atoms';
+import { StatusBadge, Text, Title } from '@components/atoms';
+import { getLinks } from '@utils';
 import { ArrowUpRight } from 'lucide-react';
 import cn from 'classnames';
-import { getLinks } from '@utils';
 
 type Props = {
     data: IDocumentationData;
@@ -28,25 +28,31 @@ export const DocumentationDetail = ({ data }: Props) => {
     const { title, description, links, preview, codeSections } = data;
 
     const sectionsArr = codeSections.map(({ id, title }) => ({ id, text: title }));
-    const isNew = pagesLinks.find(({ href }) => href === pathname)?.isNew ?? false;
+    const codeLink = codeSections.find(({ id }) => id === 'code')?.link;
+    const status = pagesLinks.find(({ href }) => href === pathname)?.status;
 
     return (
         <section className="relative w-full">
             <div className="page-container">
                 <ComponentsWrapper
-                    navigation={<ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} />}
+                    navigation={
+                        <ComponentsNavigation sectionsRef={sectionsRef} sectionsArr={sectionsArr} codeLink={codeLink} />
+                    }
                 >
-                    <div className="w-full xl:px-7.5">
-                        <ComponentsHead>
-                            <div className="mb-1 flex items-center gap-3 last:mb-0 md:mb-2">
-                                <Title size="h2">{title}</Title>
-                                {isNew && <PulseDot className="size-3" />}
-                            </div>
+                    <div className="md:border-border w-full md:border-r md:border-l">
+                        <div className="py-4 sm:py-5 md:p-5">
+                            <ComponentsHead>
+                                <div className="mb-1 flex items-center gap-3 last:mb-0 md:mb-2">
+                                    <Title size="h2">{title}</Title>
+                                    {status && <StatusBadge variant={status} />}
+                                </div>
 
-                            <Text size="large">{description}</Text>
-                        </ComponentsHead>
+                                <Text size="large">{description}</Text>
+                            </ComponentsHead>
 
-                        <ComponentsLinks links={links} />
+                            <ComponentsLinks links={links} />
+                        </div>
+
                         <ComponentsPreview preview={preview} />
 
                         {codeSections.map(({ id, title, link, description, withAccordion, codeArr }) => (
@@ -61,7 +67,7 @@ export const DocumentationDetail = ({ data }: Props) => {
                                         <Title
                                             size="h4"
                                             className={cn({
-                                                'flex items-center gap-1': link,
+                                                'flex items-center gap-2': link,
                                                 'mb-1 last:mb-0 md:mb-2': description
                                             })}
                                         >
@@ -71,9 +77,10 @@ export const DocumentationDetail = ({ data }: Props) => {
                                                 <Link
                                                     to={link}
                                                     target="_blank"
-                                                    className="hover:text-text transition-colors duration-300"
+                                                    rel="noopener noreferrer"
+                                                    className="bg-border text-text hover:text-title flex size-7.5 items-center justify-center rounded-md transition-colors duration-300"
                                                 >
-                                                    <ArrowUpRight />
+                                                    <ArrowUpRight className="size-5" />
                                                 </Link>
                                             )}
                                         </Title>
@@ -90,7 +97,7 @@ export const DocumentationDetail = ({ data }: Props) => {
                                         <Title
                                             size="h4"
                                             className={cn({
-                                                'flex items-center gap-1': link,
+                                                'flex items-center gap-2': link,
                                                 'mb-1 last:mb-0 md:mb-2': description
                                             })}
                                         >
@@ -100,9 +107,10 @@ export const DocumentationDetail = ({ data }: Props) => {
                                                 <Link
                                                     to={link}
                                                     target="_blank"
-                                                    className="hover:text-text transition-colors duration-300"
+                                                    rel="noopener noreferrer"
+                                                    className="bg-border text-text hover:text-title flex size-7.5 items-center justify-center rounded-md transition-colors duration-300"
                                                 >
-                                                    <ArrowUpRight />
+                                                    <ArrowUpRight className="size-5" />
                                                 </Link>
                                             )}
                                         </Title>

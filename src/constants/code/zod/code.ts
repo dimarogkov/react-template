@@ -12,8 +12,7 @@ export const validationSchema = z
     username: z.string().trim().nonempty('Missing name'),
     age: z
       .number({
-        required_error: 'Missing age',
-        invalid_type_error: 'Age must be a number',
+        error: (issue) => (issue.input === undefined ? 'Missing age' : 'Age must be a number')
       })
       .min(18, 'Your age must be minimum 18'),
     email: z.string().trim().nonempty('Missing email').email('Invalid email format'),
@@ -26,16 +25,16 @@ export const validationSchema = z
     password: z.string().trim().nonempty('Missing password').min(4, 'Your password must be minimum 4'),
     confirmPassword: z.string().trim().nonempty('Missing confirm password'),
     radioType: z.string().nonempty('Radio Type is required'),
-    rememberMe: z.literal(true as boolean, {
-      errorMap: () => ({ message: 'Remember me is required' }),
-    }),
+    rememberMe: z.boolean().refine((value) => value === true, {
+      message: 'Remember me is required'
+    })
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ['confirmPassword'],
-    message: 'Passwords must match',
+    message: 'Passwords must match'
   });`;
 
-export const ZOP_OPTIONS_CODE = `import { zodResolver } from '@hookform/resolvers/zod';
+export const ZOD_OPTIONS_CODE = `import { zodResolver } from '@hookform/resolvers/zod';
 import { validationSchema } from './schema';
 
 export const formOptions = {
@@ -49,6 +48,6 @@ export const formOptions = {
     password: '',
     confirmPassword: '',
     radioType: '',
-    rememberMe: false,
-  },
+    rememberMe: false
+  }
 };`;

@@ -5,29 +5,29 @@ export const useTodoQuery = () => {
   const {
     data: todos,
     refetch,
-    isLoading,
+    isLoading
   } = useQuery({
     queryFn: () => getTodos(),
     select: (data) => data.data,
-    queryKey: ['todos'],
+    queryKey: ['todos']
   });
 
   const { mutate: createTodoMutation, isPending: isLoadingCreateTodo } = useMutation({
     mutationFn: createTodo,
     mutationKey: ['create todo'],
-    onSuccess: () => refetch(),
+    onSuccess: () => refetch()
   });
 
   const { mutate: updateTodoMutation, isPending: isLoadingUpdateTodo } = useMutation({
     mutationFn: updateTodo,
     mutationKey: ['update todo'],
-    onSuccess: () => refetch(),
+    onSuccess: () => refetch()
   });
 
   const { mutate: removeTodoMutation, isPending: isLoadingRemoveTodo } = useMutation({
     mutationFn: removeTodo,
     mutationKey: ['remove todo'],
-    onSuccess: () => refetch(),
+    onSuccess: () => refetch()
   });
 
   return {
@@ -38,7 +38,7 @@ export const useTodoQuery = () => {
     updateTodoMutation,
     isLoadingUpdateTodo,
     removeTodoMutation,
-    isLoadingRemoveTodo,
+    isLoadingRemoveTodo
   };
 };`;
 
@@ -66,10 +66,10 @@ export const AddTodo = ({ isLoading, createTodo = () => {} }: Props) => {
   };
 
   return (
-    <div className='flex flex-wrap w-full gap-2.5'>
+    <div className="flex w-full flex-wrap gap-2.5">
       <Input
-        name='search'
-        placeholder='Add Todo'
+        name="search"
+        placeholder="Add Todo"
         disabled={isLoading}
         value={todoTitle}
         onChange={({ target }) => setTodoTitle(target.value)}
@@ -99,29 +99,29 @@ export const Todo = ({ todo, isLoading, updateTodo = () => {}, removeTodo = () =
 
   return (
     <div
-      className={cn('relative flex flex-col w-full rounded-md border p-4 transition-opacity duration-300', {
+      className={cn('relative flex w-full flex-col rounded-md border p-4 transition-opacity duration-300', {
         'border-border': !completed,
         'border-green bg-green/10': completed,
-        'opacity-70 pointer-events-none': isLoading,
+        'pointer-events-none opacity-70': isLoading
       })}
     >
       <button
-        type='button'
+        type="button"
         onClick={() => removeTodo(id)}
-        className='absolute top-1.5 right-1.5 outline-hidden transition-opacity duration-300 hover:opacity-65'
+        className="absolute top-1.5 right-1.5 outline-hidden transition-opacity duration-300 hover:opacity-65"
       >
-        <X className='size-5' />
+        <X className="size-5" />
       </button>
 
-      <div className='grow w-full pr-8 mb-5 last:mb-0'>
-        <Title size='h4' className='truncate mb-1 last:mb-0'>
+      <div className="mb-5 w-full grow pr-8 last:mb-0">
+        <Title size="h4" className="mb-1 truncate last:mb-0">
           {title}
         </Title>
 
         <Text>User ID - {userId}</Text>
       </div>
 
-      <Btn variant='secondary' onClick={() => updateTodo(todo)} className='sm:w-full!'>
+      <Btn variant="secondary" onClick={() => updateTodo(todo)} className="sm:w-full!">
         {completed ? 'Uncomplete' : 'Complete'}
       </Btn>
     </div>

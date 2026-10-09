@@ -6,10 +6,10 @@ export const getLinks = () => {
     const { COMPONENTS, DATA_FETCHING, FORM_VALIDATION, STORE } = PATHS.PAGES;
 
     const generateLinks = (paths: IPath[]) => {
-        return paths.map(({ path, isNew }) => ({
+        return paths.map(({ path, status }) => ({
             name: convertUrlToString(path),
             href: `${PATHS.DOCUMENTATION}/${path}`,
-            isNew
+            status
         }));
     };
 

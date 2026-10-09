@@ -21,7 +21,7 @@ export const AVATAR_STYLE_CODE = `.online::before,
   height: 20%;
   border-radius: 50%;
   outline: 3px solid var(--color-bg);
-  background-color: oklch(64.8% 0.15 160 / 1);
+  background-color: var(--color-online);
 }
 
 .online-square::before {

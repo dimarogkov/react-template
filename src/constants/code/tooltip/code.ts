@@ -66,11 +66,11 @@ export const TooltipWrapper = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-               align,
-               position,
-               tooltipId,
-               isOpen
-             })
+                align,
+                position,
+                tooltipId,
+                isOpen
+              })
             : child;
         })}
       </div>

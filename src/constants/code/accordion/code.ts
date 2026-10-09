@@ -120,8 +120,8 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
 );`;
 
 export const ACCORDION_TITLE_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
-import { ChevronDown, Plus } from 'lucide-react';
 import { Title } from '@components/atoms';
+import { ChevronDown, Plus } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {

@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
@@ -8,9 +11,6 @@ import {
     TOAST_USAGE_CODE,
     TOAST_MAIN_USAGE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { ToastDemo } from './ToastDemo';
 
 export const ToastPage = () => {

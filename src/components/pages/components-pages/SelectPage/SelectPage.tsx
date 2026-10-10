@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
@@ -17,9 +20,6 @@ import {
     SELECT_ICON_USAGE_CODE,
     SELECT_MULTIPLE_USAGE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { SelectDemo } from './SelectDemo';
 
 export const SelectPage = () => {

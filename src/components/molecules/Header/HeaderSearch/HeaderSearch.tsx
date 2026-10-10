@@ -2,9 +2,9 @@
 import { KeyboardEvent as ReactKeyboardEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMain } from '@hooks';
-import { canTriggerGlobalSearchShortcut, debounce, getLinks } from '@utils';
 import { HeaderSearchFilters, HeaderSearchFooter, HeaderSearchLink, HeaderSearchTrigger } from '@components/molecules';
 import { Input, Kbd, Label, Modal, Text } from '@components/atoms';
+import { canTriggerGlobalSearchShortcut, debounce, getLinks } from '@utils';
 import { Search } from 'lucide-react';
 
 type StatusFilter = 'all' | 'new' | 'updated';

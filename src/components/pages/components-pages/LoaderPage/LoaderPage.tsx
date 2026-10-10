@@ -1,7 +1,7 @@
-import { LOADER_CODE, LOADER_DEMO_CODE, LOADER_USAGE_CODE } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
+import { LOADER_CODE, LOADER_DEMO_CODE, LOADER_USAGE_CODE } from '@code';
 import { LoaderDemo } from './LoaderDemo';
 
 export const LoaderPage = () => {

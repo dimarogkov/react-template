@@ -1,3 +1,5 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
 import {
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
@@ -9,8 +11,6 @@ import {
     TANSTACK_QUERY_DEMO_CODE,
     TANSTACK_QUERY_PROVIDER_USAGE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
 import { TanStackQueryDemo } from './TanStackQueryDemo';
 
 export const TanStackQueryPage = () => {

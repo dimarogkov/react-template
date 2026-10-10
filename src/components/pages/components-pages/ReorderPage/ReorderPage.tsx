@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     NPM_FRAMER_MOTION_CODE,
     REORDER_DEMO_CODE,
@@ -5,9 +8,6 @@ import {
     REORDER_TYPE_USAGE_CODE,
     REORDER_AXIS_USAGE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { ReorderDemo } from './ReorderDemo';
 
 export const ReorderPage = () => {

@@ -70,7 +70,8 @@
         "eject": "react-scripts eject",
         "format": "prettier --write .",
         "lint": "eslint src",
-        "lint:fix": "eslint src --fix"
+        "lint:fix": "eslint src --fix",
+        "verify-code-mirrors": "node scripts/verify-code-mirrors.js"
     },
     "browserslist": {
         "production": [

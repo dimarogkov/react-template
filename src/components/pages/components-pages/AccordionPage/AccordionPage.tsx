@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     ACCORDION_CODE,
     ACCORDION_WRAPPER_CODE,
@@ -14,9 +17,6 @@ import {
     NPM_FRAMER_MOTION_CODE,
     NPM_LUCIDE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { AccordionDemo } from './AccordionDemo';
 
 export const AccordionPage = () => {

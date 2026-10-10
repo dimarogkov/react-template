@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE,
@@ -7,9 +10,6 @@ import {
     SWITCH_ACTIVE_USAGE_CODE,
     SWITCH_DISABLED_USAGE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { SwitchDemo } from './SwitchDemo';
 
 export const SwitchPage = () => {

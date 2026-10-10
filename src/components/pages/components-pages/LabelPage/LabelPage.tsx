@@ -1,7 +1,7 @@
-import { INPUT_DEMO_CODE, LABEL_CODE, LABEL_USAGE_CODE } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
+import { INPUT_DEMO_CODE, LABEL_CODE, LABEL_USAGE_CODE } from '@code';
 import { LabelDemo } from './LabelDemo';
 
 export const LabelPage = () => {

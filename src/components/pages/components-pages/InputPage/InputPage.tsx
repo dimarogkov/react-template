@@ -1,7 +1,7 @@
-import { INPUT_CODE, INPUT_DEMO_CODE, INPUT_USAGE_CODE, INPUT_CONTROLLED_USAGE_CODE } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
+import { INPUT_CODE, INPUT_DEMO_CODE, INPUT_USAGE_CODE, INPUT_CONTROLLED_USAGE_CODE } from '@code';
 import { InputDemo } from './InputDemo';
 
 export const InputPage = () => {

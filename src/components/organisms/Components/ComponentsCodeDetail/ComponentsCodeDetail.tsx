@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { getHighlightCode } from '@utils';
 import { Loader, Toast } from '@components/atoms';
+import { getHighlightCode } from '@utils';
 import { Check, Copy } from 'lucide-react';
 import cn from 'classnames';
 

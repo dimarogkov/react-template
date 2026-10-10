@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     AVATAR_CODE,
     AVATAR_STYLE_CODE,
@@ -12,9 +15,6 @@ import {
     NPM_CLASSNAMES_CODE,
     NPM_FRAMER_MOTION_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { AvatarDemo } from './AvatarDemo';
 
 export const AvatarPage = () => {

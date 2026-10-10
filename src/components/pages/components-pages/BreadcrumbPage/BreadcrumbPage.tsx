@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     BREADCRUMB_CODE,
     BREADCRUMB_UTILS_CODE,
@@ -5,9 +8,6 @@ import {
     BREADCRUMB_USAGE_CODE,
     NPM_LUCIDE_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { BreadcrumbDemo } from './BreadcrumbDemo';
 
 export const BreadcrumbPage = () => {

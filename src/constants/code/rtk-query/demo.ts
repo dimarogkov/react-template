@@ -1,10 +1,10 @@
-export const RTK_QUERY_DEMO_CODE = `import {
+export const RTK_QUERY_DEMO_CODE = `import { ITodo } from '@interfaces/Todo';
+import {
   useCreateTodoMutation,
   useGetTodosQuery,
   useRemoveTodoMutation,
   useUpdateTodoMutation
 } from '@store/redux-toolkit/todosApiSlice';
-import { ITodo } from '@interfaces/Todo';
 import { AddTodo, Todo } from '@components/molecules';
 import { Loader } from '@components/atoms';
 

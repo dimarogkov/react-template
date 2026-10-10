@@ -1,7 +1,7 @@
-import { SIMPLE_LINK_CODE, SIMPLE_LINK_DEMO_CODE, SIMPLE_LINK_USAGE_CODE } from '@code';
 import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
 import { DocumentationDetail } from '@components/organisms';
 import { Text } from '@components/atoms';
+import { SIMPLE_LINK_CODE, SIMPLE_LINK_DEMO_CODE, SIMPLE_LINK_USAGE_CODE } from '@code';
 import { SimpleLinkDemo } from './SimpleLinkDemo';
 
 export const SimpleLinkPage = () => {

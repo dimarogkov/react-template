@@ -55,13 +55,13 @@ export const AccordionWrapper = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child, index) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-                iconType,
-                headingSize,
-                accordionId,
-                accordionIndex: index,
-                activeIndexArr,
-                toggleIndex
-              })
+               iconType,
+               headingSize,
+               accordionId,
+               accordionIndex: index,
+               activeIndexArr,
+               toggleIndex
+             })
             : child;
         })}
       </div>
@@ -105,13 +105,13 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-                iconType,
-                headingSize,
-                accordionId,
-                accordionIndex,
-                activeIndexArr,
-                toggleIndex
-              })
+               iconType,
+               headingSize,
+               accordionId,
+               accordionIndex,
+               activeIndexArr,
+               toggleIndex
+             })
             : child;
         })}
       </div>

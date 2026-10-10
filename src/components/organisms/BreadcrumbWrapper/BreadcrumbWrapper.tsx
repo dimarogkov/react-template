@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { PATHS } from '@app/routes';
-import { getLinks } from '@utils';
 import { Breadcrumb } from '@components/atoms';
+import { getLinks } from '@utils';
 import cn from 'classnames';
 
 type Props = {

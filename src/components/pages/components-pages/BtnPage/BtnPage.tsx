@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     BTN_CODE,
     BTN_WRAPPER_CODE,
@@ -7,9 +10,6 @@ import {
     BTN_LINK_USAGE_CODE,
     NPM_CLASSNAMES_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { BtnDemo } from './BtnDemo';
 
 export const BtnPage = () => {

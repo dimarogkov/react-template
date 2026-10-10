@@ -1,3 +1,5 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
 import {
     NPM_CLASSNAMES_CODE,
     NPM_LUCIDE_CODE,
@@ -10,8 +12,6 @@ import {
     TANSTACK_QUERY_ADD_TODO_CODE,
     TANSTACK_QUERY_TODO_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
 import { RtkQueryDemo } from './RtkQueryDemo';
 
 export const RtkQueryPage = () => {

@@ -1,3 +1,6 @@
+import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
+import { DocumentationDetail } from '@components/organisms';
+import { Text } from '@components/atoms';
 import {
     CAROUSEL_CODE,
     CAROUSEL_WRAPPER_CODE,
@@ -18,9 +21,6 @@ import {
     NPM_LUCIDE_CODE,
     NPM_EMBLA_CAROUSEL_CODE
 } from '@code';
-import { IDocumentationCodeSection, IDocumentationData, IDocumentationPreview } from '@interfaces/Documentation';
-import { DocumentationDetail } from '@components/organisms';
-import { Text } from '@components/atoms';
 import { CarouselDemo } from './CarouselDemo';
 
 export const CarouselPage = () => {

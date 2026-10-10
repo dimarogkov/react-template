@@ -64,9 +64,9 @@ export const DropdownWrapper = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-                isOpen: isDropdownOpen,
-                setIsOpen: setIsDropdownOpen
-              })
+               isOpen: isDropdownOpen,
+               setIsOpen: setIsDropdownOpen
+             })
             : child;
         })}
       </div>
@@ -341,10 +341,10 @@ export const DropdownSubMenu = forwardRef<HTMLDivElement, Props>(
         {Children.map(props.children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
-                isOpen,
-                isSubOpen: isSubDropdownOpen,
-                setIsOpen
-              })
+               isOpen,
+               isSubOpen: isSubDropdownOpen,
+               setIsOpen
+             })
             : child;
         })}
       </div>

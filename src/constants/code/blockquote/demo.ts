@@ -35,8 +35,9 @@ export const BlockquoteDemo = () => {
         </Blockquote.Content>
         <Blockquote.Author className="flex items-center gap-3">
           <Avatar className="size-10">
-            <Avatar.Img src={IMG_SRC} />
+            <Avatar.Img src={IMG_SRC} alt="Emily Jones" />
           </Avatar>
+
           <Text className="w-fit!">Emily Jones</Text>
         </Blockquote.Author>
       </Blockquote>

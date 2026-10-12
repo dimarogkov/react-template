@@ -21,15 +21,13 @@ export const HomePage = () => {
                     </Text>
 
                     <div className="flex w-full flex-wrap justify-center gap-2">
-                        <Btn isLink>
-                            <Btn.Link href={PATHS.DOCUMENTATION}>Get Started</Btn.Link>
+                        <Btn href={PATHS.DOCUMENTATION} variant="secondary">
+                            Get Started
                         </Btn>
 
-                        <Btn variant="outline" isLink>
-                            <Btn.Link href="https://github.com/dimarogkov/react-template" target="_blank">
-                                <span>Git Repo</span>
-                                <ArrowUpRight className="size-5" />
-                            </Btn.Link>
+                        <Btn variant="outline" href="https://github.com/dimarogkov/react-template" target="_blank">
+                            <span>Git Repo</span>
+                            <ArrowUpRight className="size-5" />
                         </Btn>
                     </div>
                 </div>

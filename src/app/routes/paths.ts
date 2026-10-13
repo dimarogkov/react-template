@@ -14,7 +14,7 @@ export const PATHS = {
         COMPONENTS: {
             ACCORDION: { path: 'accordion', status: 'updated' },
             ALERT: { path: 'alert' },
-            AVATAR: { path: 'avatar' },
+            AVATAR: { path: 'avatar', status: 'updated' },
             BADGE: { path: 'badge' },
             BLOCKQUOTE: { path: 'blockquote' },
             BREADCRUMB: { path: 'breadcrumb' },

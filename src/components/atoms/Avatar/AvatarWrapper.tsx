@@ -16,16 +16,16 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     currentIndex?: number;
     type?: 'circle' | 'square';
     isOnline?: boolean;
+    hasRing?: boolean;
     className?: string;
 }
 
 export const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
-    ({ currentIndex, type = 'circle', isOnline = false, className = '', ...props }, ref) => {
+    ({ currentIndex, type = 'circle', isOnline = false, hasRing = false, className = '', ...props }, ref) => {
         const [currentWidth, setCurrentWidth] = useState(0);
         const avatarRef = useRef<HTMLDivElement>(null);
 
         const isTypeCircle = type === 'circle';
-        const isTypeSquare = type === 'square';
 
         useEffect(() => {
             setCurrentWidth(avatarRef.current?.offsetWidth || 48);
@@ -42,13 +42,14 @@ export const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
             <div
                 ref={ref || avatarRef}
                 {...props}
+                style={avatarStyle}
                 className={cn('relative', className || 'size-12', {
                     'rounded-full': isTypeCircle,
-                    'rounded-md': isTypeSquare,
-                    'online-square': isOnline && isTypeSquare,
-                    online: isOnline && isTypeCircle
+                    'rounded-md': !isTypeCircle,
+                    'online-square': isOnline && !isTypeCircle,
+                    online: isOnline && isTypeCircle,
+                    'outline-title outline-2 outline-offset-2': hasRing
                 })}
-                style={avatarStyle}
             >
                 {Children.map(props.children, (child) => {
                     return isValidElement(child)

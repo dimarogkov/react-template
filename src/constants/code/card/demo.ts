@@ -5,37 +5,44 @@ const IMG_SRC =
 
 export const CardDemo = () => {
   return (
-    <div className="relative grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-4">
+    <div className="relative grid w-full grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-4">
       <Card>
-        <Card.Head className="bg-text h-0 pb-[60%]">
+        <Card.Head className="bg-border aspect-5/3">
           <img
             src={IMG_SRC}
             alt="Living Room Sofa"
             loading="lazy"
-            className="absolute top-0 left-0 h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
           />
         </Card.Head>
 
         <Card.Body className="flex flex-col gap-2 p-3 md:p-4">
           <Title size="h4">Living Room Sofa</Title>
           <Text>This sofa is perfect for modern tropical spaces, baroque inspired spaces.</Text>
-          <Title size="h3">$450</Title>
+
+          <Title size="h3" className="font-medium!">
+            $450
+          </Title>
         </Card.Body>
 
         <Card.Footer className="flex flex-wrap gap-3 p-3 sm:gap-1 md:p-4">
-          <Btn>Buy now</Btn>
+          <Btn variant="secondary">Buy now</Btn>
           <Btn variant="outline">Add to cart</Btn>
         </Card.Footer>
       </Card>
 
-      <Card className="flex flex-col gap-5 p-3 md:gap-4 md:p-4">
+      <Card className="flex h-full flex-col gap-5 p-3 md:gap-4 md:p-4">
         <Card.Head className="flex flex-col gap-2">
           <Title size="h4">Sign up</Title>
           <Text>Fill in the form below to create an account.</Text>
         </Card.Head>
 
-        <Card.Body className="flex h-full flex-col">
-          <form className="flex w-full grow flex-col gap-3 md:gap-4">
+        <Card.Body className="flex flex-1 flex-col">
+          <form
+            id="sign-up-form"
+            onSubmit={(e) => e.preventDefault()}
+            className="flex w-full flex-col gap-3 md:gap-4"
+          >
             <Label className="flex flex-col gap-2">
               <Text className="text-title">Email</Text>
               <Input name="email" type="email" placeholder="m@example.com" required />
@@ -50,7 +57,9 @@ export const CardDemo = () => {
 
         <Card.Footer className="flex flex-wrap justify-end gap-3 sm:gap-1">
           <Btn variant="outline">Cancel</Btn>
-          <Btn>Sign in</Btn>
+          <Btn type="submit" form="sign-up-form" variant="secondary">
+            Sign in
+          </Btn>
         </Card.Footer>
       </Card>
 
@@ -62,12 +71,12 @@ export const CardDemo = () => {
       </Card>
 
       <Card className="grid grid-cols-1 items-end sm:grid-cols-[40%_auto] md:col-span-2">
-        <Card.Head className="bg-text h-0 pb-[60%] sm:row-span-2 sm:pb-[80%]">
+        <Card.Head className="bg-border aspect-5/3 sm:row-span-2 sm:aspect-5/4">
           <img
             src={IMG_SRC}
             alt="Living Room Sofa"
             loading="lazy"
-            className="absolute top-0 left-0 h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
           />
         </Card.Head>
 
@@ -77,7 +86,7 @@ export const CardDemo = () => {
         </Card.Body>
 
         <Card.Footer className="flex flex-wrap gap-3 p-3 sm:gap-1 md:p-4">
-          <Btn>Buy now</Btn>
+          <Btn variant="secondary">Buy now</Btn>
           <Btn variant="outline">Add to cart</Btn>
         </Card.Footer>
       </Card>

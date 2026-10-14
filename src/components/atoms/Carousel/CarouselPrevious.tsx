@@ -12,6 +12,7 @@ export const CarouselPrevious = forwardRef<HTMLButtonElement, Props>(({ classNam
             ref={ref}
             {...props}
             type="button"
+            aria-label="Previous slide"
             className={cn(
                 'border-border text-title hover:bg-border relative flex size-9 min-w-9 cursor-pointer items-center justify-center rounded-md border outline-hidden transition-colors duration-300',
                 className,
@@ -20,7 +21,7 @@ export const CarouselPrevious = forwardRef<HTMLButtonElement, Props>(({ classNam
                 }
             )}
         >
-            <ChevronLeft className="size-5" />
+            <ChevronLeft aria-hidden="true" className="size-5" />
         </button>
     );
 });

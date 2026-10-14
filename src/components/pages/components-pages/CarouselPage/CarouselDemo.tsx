@@ -8,11 +8,11 @@ const OPTIONS: EmblaOptionsType = { align: 'start' };
 
 export const CarouselDemo = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
-    const { dots, activeDotIndex, isPrevDisabled, isNextDisabled, onPrevClick, onNextClick, onDotClick } =
+    const { dots, activeDotIndex, isPrevDisabled, isNextDisabled, onPrevClick, onNextClick, onDotClick, onKeyDown } =
         useCarousel(emblaApi);
 
     return (
-        <Carousel>
+        <Carousel aria-label="Slides" onKeyDown={onKeyDown}>
             <Carousel.Viewport ref={emblaRef} className="mb-2.5 last:mb-0">
                 <Carousel.Container className="-ml-4">
                     {ITEMS.map((item) => (
@@ -44,6 +44,7 @@ export const CarouselDemo = () => {
                         <Carousel.Dot
                             key={index}
                             isActive={index === activeDotIndex}
+                            aria-label={`Go to slide ${index + 1}`}
                             onClick={() => onDotClick(index)}
                         />
                     ))}

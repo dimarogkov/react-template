@@ -122,10 +122,10 @@ export const YupDemo = () => {
         {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}
       </div>
 
-      <Label className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2">
         <Checkbox {...register('rememberMe')} label="Remember me" checked={watch('rememberMe')} />
         {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
-      </Label>
+      </div>
 
       <div className="flex w-full flex-wrap gap-2">
         <Btn type="submit">

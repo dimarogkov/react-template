@@ -16,10 +16,15 @@ export const ZustandDemo = () => {
       </Text>
 
       <div className="flex w-full flex-col gap-2.5 sm:flex-row">
-        <Btn onClick={() => removeCount(5)}>- 5</Btn>
-        <Btn onClick={() => addCount(5)}>+ 5</Btn>
+        <Btn variant="secondary" onClick={() => removeCount(5)}>
+          - 5
+        </Btn>
 
-        <Btn variant="outline" onClick={() => resetCount()}>
+        <Btn variant="secondary" onClick={() => addCount(5)}>
+          + 5
+        </Btn>
+
+        <Btn variant="outline" disabled={count === 0} onClick={() => resetCount()}>
           <RotateCcw className="size-5" />
           <span>Reset</span>
         </Btn>

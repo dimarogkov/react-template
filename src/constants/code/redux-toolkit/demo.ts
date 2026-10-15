@@ -18,10 +18,15 @@ export const ReduxToolkitDemo = () => {
       </Text>
 
       <div className="flex w-full flex-col gap-2.5 sm:flex-row">
-        <Btn onClick={() => dispatch(removeCount(5))}>- 5</Btn>
-        <Btn onClick={() => dispatch(addCount(5))}>+ 5</Btn>
+        <Btn variant="secondary" onClick={() => dispatch(removeCount(5))}>
+          - 5
+        </Btn>
 
-        <Btn variant="outline" onClick={() => dispatch(resetCount())}>
+        <Btn variant="secondary" onClick={() => dispatch(addCount(5))}>
+          + 5
+        </Btn>
+
+        <Btn variant="outline" disabled={count === 0} onClick={() => dispatch(resetCount())}>
           <RotateCcw className="size-5" />
           <span>Reset</span>
         </Btn>

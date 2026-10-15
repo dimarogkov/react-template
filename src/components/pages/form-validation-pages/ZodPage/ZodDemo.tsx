@@ -128,12 +128,12 @@ export const ZodDemo = () => {
             </div>
 
             <div className="flex w-full flex-wrap gap-2">
-                <Btn type="submit">
+                <Btn type="submit" variant="secondary">
                     <span>Send</span>
                     <SendHorizontal className="size-5" />
                 </Btn>
 
-                <Btn type="button" variant="ghost" disabled={!isDirty} onClick={() => reset()}>
+                <Btn type="button" variant="outline" disabled={!isDirty} onClick={() => reset()}>
                     <RotateCcw className="size-5" />
                     <span>Reset</span>
                 </Btn>

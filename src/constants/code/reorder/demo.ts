@@ -2,6 +2,21 @@ export const REORDER_DEMO_CODE = `import { useState } from 'react';
 import { Reorder } from 'framer-motion';
 import { Card, Text, Title } from '@components/atoms';
 
+const ITEMS: Record<number, { title: string; text: string }> = {
+  1: {
+    title: 'Packing',
+    text: 'Pack your bags the night before so the morning stays calm and unhurried.'
+  },
+  2: {
+    title: 'Documents',
+    text: 'Double check tickets, passports, and chargers before leaving the house.'
+  },
+  3: {
+    title: 'Departure',
+    text: 'Arrive at the airport with enough time to clear security without rushing.'
+  }
+};
+
 export const ReorderDemo = () => {
   const [itemsY, setItemsY] = useState([1, 2, 3]);
   const [itemsX, setItemsX] = useState([1, 2, 3]);
@@ -23,10 +38,10 @@ export const ReorderDemo = () => {
             <Card className="bg-bg! p-2.5">
               <Card.Body>
                 <Title size="h4" className="mb-0.5 last:mb-0">
-                  Item {item}
+                  {ITEMS[item].title}
                 </Title>
 
-                <Text>Lorem ipsum dolor sit amet consectetur elit. Similique soluta vero velit.</Text>
+                <Text>{ITEMS[item].text}</Text>
               </Card.Body>
             </Card>
           </Reorder.Item>
@@ -43,13 +58,13 @@ export const ReorderDemo = () => {
             onDragEnd={resetCursor}
             className="relative cursor-grab active:cursor-grabbing"
           >
-            <Card className="bg-bg! p-2.5">
+            <Card className="bg-bg! h-full p-2.5">
               <Card.Body>
                 <Title size="h4" className="mb-0.5 last:mb-0">
-                  Item {item}
+                  {ITEMS[item].title}
                 </Title>
 
-                <Text>Lorem ipsum dolor sit amet consectetur elit. Similique soluta vero velit.</Text>
+                <Text>{ITEMS[item].text}</Text>
               </Card.Body>
             </Card>
           </Reorder.Item>

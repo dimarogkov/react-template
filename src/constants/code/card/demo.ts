@@ -65,8 +65,10 @@ export const CardDemo = () => {
 
       <Card className="p-3 md:col-span-2 md:p-4">
         <Card.Body className="flex flex-col gap-2">
-          <Title size="h4">Card Title</Title>
-          <Text>This is the card body. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+          <Title size="h4">Free Shipping</Title>
+          <Text>
+            Orders over $50 ship free within three to five business days, no code needed at checkout.
+          </Text>
         </Card.Body>
       </Card>
 
@@ -74,15 +76,15 @@ export const CardDemo = () => {
         <Card.Head className="bg-border aspect-5/3 sm:row-span-2 sm:aspect-5/4">
           <img
             src={IMG_SRC}
-            alt="Living Room Sofa"
+            alt="Velvet Lounge Sofa"
             loading="lazy"
             className="h-full w-full object-cover object-center"
           />
         </Card.Head>
 
         <Card.Body className="flex h-full flex-col gap-2 p-3 md:p-4">
-          <Title size="h4">Living Room Sofa</Title>
-          <Text>This sofa is perfect for modern tropical spaces, baroque inspired spaces.</Text>
+          <Title size="h4">Velvet Lounge Sofa</Title>
+          <Text>A compact two seater with a solid wood frame and removable cushion covers.</Text>
         </Card.Body>
 
         <Card.Footer className="flex flex-wrap gap-3 p-3 sm:gap-1 md:p-4">

@@ -12,15 +12,15 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<H
 export const Btn = forwardRef<HTMLButtonElement, Props>(
   ({ variant = 'default', href, target, className = '', ...props }, ref) => {
     const classes = cn(
-      'flex h-10 w-full cursor-pointer items-center justify-center gap-1.5 rounded-md px-4 outline-hidden transition-all duration-300 will-change-transform active:scale-95 sm:w-fit',
+      'flex h-10 w-full cursor-pointer items-center justify-center gap-1.5 rounded-md border px-4 outline-hidden transition-all duration-300 will-change-transform active:scale-95 sm:w-fit',
       className,
       {
-        'pointer-events-none select-none': props.disabled,
-        'bg-border text-text': props.disabled || variant === 'default',
+        'pointer-events-none opacity-80 select-none': props.disabled,
+        'border-border bg-border text-text': props.disabled || variant === 'default',
         'hover:opacity-80': !props.disabled && variant === 'default',
-        'bg-title text-bg hover:opacity-80': !props.disabled && variant === 'secondary',
-        'border-border text-title border hover:opacity-80': !props.disabled && variant === 'outline',
-        'text-text hover:bg-border': !props.disabled && variant === 'ghost'
+        'border-title bg-title text-bg hover:opacity-80': !props.disabled && variant === 'secondary',
+        'border-border text-title hover:opacity-80': !props.disabled && variant === 'outline',
+        'text-text hover:bg-border border-transparent': !props.disabled && variant === 'ghost'
       }
     );
 

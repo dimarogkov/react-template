@@ -131,7 +131,7 @@ export const AccordionPage = () => {
         title: 'Accordion',
         description:
             'A vertically stacked set of interactive headings that each reveal a section of content using Framer Motion.',
-        links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
+        links: [{ href: 'https://motion.dev/docs/react', name: 'Framer Motion Docs' }],
         preview,
         codeSections
     };

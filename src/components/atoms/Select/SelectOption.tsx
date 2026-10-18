@@ -14,24 +14,12 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
 }
 
 export const SelectOption = forwardRef<HTMLSpanElement, Props>(
-    (
-        {
-            value,
-            isOpen,
-            isMultiple,
-            selectedItems,
-            setIsOpen = () => {},
-            setSelectedItems = () => {},
-            className = '',
-            ...props
-        },
-        ref
-    ) => {
+    ({ value, isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', ...props }, ref) => {
         const isActive = selectedItems?.some((item) => value === item.value) || false;
 
         const selectItem = () => {
-            setSelectedItems({ value, label: props.children as string });
-            !isMultiple && setIsOpen(false);
+            setSelectedItems?.({ value, label: props.children as string });
+            !isMultiple && setIsOpen?.(false);
         };
 
         const onKeyDown = (e: KeyboardEvent<HTMLSpanElement>) => {

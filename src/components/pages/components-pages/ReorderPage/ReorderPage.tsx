@@ -72,7 +72,7 @@ export const ReorderPage = () => {
         title: 'Reorder',
         description:
             'The Reorder components can be used to create drag-to-reorder lists, like reorderable tabs or todo items using Framer Motion.',
-        links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
+        links: [{ href: 'https://motion.dev/docs/react', name: 'Framer Motion Docs' }],
         preview,
         codeSections
     };

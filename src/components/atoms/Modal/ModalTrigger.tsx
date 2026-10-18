@@ -8,8 +8,8 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 }
 
 export const ModalTrigger = forwardRef<HTMLDivElement, Props>(
-    ({ isOpen, className = '', setIsOpen = () => {}, ...props }, ref) => {
-        const openModal = () => setIsOpen(true);
+    ({ isOpen, className = '', setIsOpen, ...props }, ref) => {
+        const openModal = () => setIsOpen?.(true);
 
         const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
             if (e.key === 'Enter' || e.key === ' ') {

@@ -20,10 +20,15 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 export const DropdownWrapper = forwardRef<HTMLDivElement, Props>(
     ({ isOpen = false, className = '', ...props }, ref) => {
         const [isDropdownOpen, setIsDropdownOpen] = useState(isOpen);
+        const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(null);
         const dropdownRef = useRef<HTMLDivElement>(null);
 
         const handleClickOutside = (e: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+            const target = e.target as Element;
+            const isInsideWrapper = dropdownRef.current?.contains(target);
+            const isInsidePortal = target.closest('[data-dropdown-portal]');
+
+            if (!isInsideWrapper && !isInsidePortal) {
                 setIsDropdownOpen(false);
             }
         };
@@ -36,12 +41,20 @@ export const DropdownWrapper = forwardRef<HTMLDivElement, Props>(
             };
         }, []);
 
+        useEffect(() => {
+            if (!isDropdownOpen) {
+                document.dispatchEvent(new Event('dropdown-close'));
+            }
+        }, [isDropdownOpen]);
+
         return (
             <div ref={ref || dropdownRef} {...props} className={cn('relative', className)}>
                 {Children.map(props.children, (child) => {
                     return isValidElement(child)
                         ? cloneElement(child as ReactElement<Record<string, unknown>>, {
+                              triggerElement,
                               isOpen: isDropdownOpen,
+                              setTriggerElement,
                               setIsOpen: setIsDropdownOpen
                           })
                         : child;

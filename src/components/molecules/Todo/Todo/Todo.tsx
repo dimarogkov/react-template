@@ -10,7 +10,7 @@ type Props = {
     removeTodo: (todoId: number) => void;
 };
 
-export const Todo = ({ todo, isLoading, updateTodo = () => {}, removeTodo = () => {} }: Props) => {
+export const Todo = ({ todo, isLoading, updateTodo, removeTodo }: Props) => {
     const { id, title, userId, completed } = todo;
 
     return (

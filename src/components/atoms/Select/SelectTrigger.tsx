@@ -31,7 +31,7 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
             isMultiple,
             selectedItems,
             icon,
-            setIsOpen = () => {},
+            setIsOpen,
             setSelectedItems,
             className = '',
             ...props
@@ -42,7 +42,7 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
         const hasValue = !!selectedItems?.length;
         const Icon = icon || ChevronDown;
 
-        const toggleOpen = () => setIsOpen((prevState) => !prevState);
+        const toggleOpen = () => setIsOpen?.((prevState) => !prevState);
 
         const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
             if (e.key === 'Enter' || e.key === ' ') {

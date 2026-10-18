@@ -6,8 +6,8 @@ export const SELECT_TYPE_CODE = `export interface ISelectItem {
 export const SELECT_UTILS_CODE = `import { MutableRefObject, Ref } from 'react';
 
 export const assignRefs =
-  (...refs: (Ref<HTMLSelectElement> | undefined)[]) =>
-  (node: HTMLSelectElement) => {
+  <T>(...refs: (Ref<T> | undefined)[]) =>
+  (node: T) => {
     refs.forEach((r) => {
       if (!r) {
         return;
@@ -16,7 +16,7 @@ export const assignRefs =
       if (typeof r === 'function') {
         r(node);
       } else {
-        (r as MutableRefObject<HTMLSelectElement | null>).current = node;
+        (r as MutableRefObject<T | null>).current = node;
       }
     });
   };`;
@@ -189,7 +189,7 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
       isMultiple,
       selectedItems,
       icon,
-      setIsOpen = () => {},
+      setIsOpen,
       setSelectedItems,
       className = '',
       ...props
@@ -200,7 +200,7 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
     const hasValue = !!selectedItems?.length;
     const Icon = icon || ChevronDown;
 
-    const toggleOpen = () => setIsOpen((prevState) => !prevState);
+    const toggleOpen = () => setIsOpen?.((prevState) => !prevState);
 
     const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -257,19 +257,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
 }
 
 export const SelectOptions = forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      isOpen,
-      isMultiple,
-      selectedItems,
-      setIsOpen = () => {},
-      setSelectedItems = () => {},
-      className = '',
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
     const animation: HTMLMotionProps<'div'> = {
       initial: { scale: 0.95, opacity: 0 },
       animate: { scale: 1, opacity: 1, transition: { ease: [0.215, 0.61, 0.355, 1] } },
@@ -332,19 +320,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 }
 
 export const SelectGroup = forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      isOpen,
-      isMultiple,
-      selectedItems,
-      setIsOpen = () => {},
-      setSelectedItems = () => {},
-      className = '',
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
     return (
       <div ref={ref} {...props} className={cn('relative flex flex-col gap-1', className)}>
         {Children.map(children, (child) => {
@@ -398,24 +374,12 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
 }
 
 export const SelectOption = forwardRef<HTMLSpanElement, Props>(
-  (
-    {
-      value,
-      isOpen,
-      isMultiple,
-      selectedItems,
-      setIsOpen = () => {},
-      setSelectedItems = () => {},
-      className = '',
-      ...props
-    },
-    ref
-  ) => {
+  ({ value, isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', ...props }, ref) => {
     const isActive = selectedItems?.some((item) => value === item.value) || false;
 
     const selectItem = () => {
-      setSelectedItems({ value, label: props.children as string });
-      !isMultiple && setIsOpen(false);
+      setSelectedItems?.({ value, label: props.children as string });
+      !isMultiple && setIsOpen?.(false);
     };
 
     const onKeyDown = (e: KeyboardEvent<HTMLSpanElement>) => {

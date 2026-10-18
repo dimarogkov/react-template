@@ -86,7 +86,7 @@ export const SwitchPage = () => {
     const data: IDocumentationData = {
         title: 'Switch',
         description: 'A control that allows the user to toggle between checked and not checked using Framer Motion.',
-        links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
+        links: [{ href: 'https://motion.dev/docs/react', name: 'Framer Motion Docs' }],
         preview,
         codeSections
     };

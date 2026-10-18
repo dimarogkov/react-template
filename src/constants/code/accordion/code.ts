@@ -91,7 +91,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, Props>(
       accordionIndex = 0,
       activeIndexArr,
       className = '',
-      toggleIndex = () => {},
+      toggleIndex,
       ...props
     },
     ref
@@ -143,7 +143,7 @@ export const AccordionTitle = forwardRef<HTMLButtonElement, Props>(
       accordionIndex = 0,
       activeIndexArr,
       className = '',
-      toggleIndex = () => {},
+      toggleIndex,
       ...props
     },
     ref
@@ -178,7 +178,7 @@ export const AccordionTitle = forwardRef<HTMLButtonElement, Props>(
           type="button"
           aria-expanded={isOpen}
           aria-controls={controls}
-          onClick={() => toggleIndex(accordionIndex)}
+          onClick={() => toggleIndex?.(accordionIndex)}
           className={cn(
             'relative flex w-full cursor-pointer items-center justify-between p-2.5 text-base transition-all duration-300 select-none sm:p-3',
             className

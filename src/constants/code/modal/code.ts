@@ -65,8 +65,8 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 }
 
 export const ModalTrigger = forwardRef<HTMLDivElement, Props>(
-  ({ isOpen, className = '', setIsOpen = () => {}, ...props }, ref) => {
-    const openModal = () => setIsOpen(true);
+  ({ isOpen, className = '', setIsOpen, ...props }, ref) => {
+    const openModal = () => setIsOpen?.(true);
 
     const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -116,22 +116,11 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
 }
 
 export const ModalContent = forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      isOpen,
-      disableCloseBtn = false,
-      children,
-      className = '',
-      setIsOpen = () => {},
-      onOpenChange = () => {},
-      ...props
-    },
-    ref
-  ) => {
+  ({ isOpen, disableCloseBtn = false, children, className = '', setIsOpen, onOpenChange, ...props }, ref) => {
     const dialogRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-      onOpenChange(!!isOpen);
+      onOpenChange?.(!!isOpen);
     }, [isOpen, onOpenChange]);
 
     const setRefs = (node: HTMLDivElement | null) => {
@@ -144,7 +133,7 @@ export const ModalContent = forwardRef<HTMLDivElement, Props>(
       }
     };
 
-    const closeModal = useCallback(() => setIsOpen(false), [setIsOpen]);
+    const closeModal = useCallback(() => setIsOpen?.(false), [setIsOpen]);
 
     useFocusRestore(dialogRef, isOpen);
     useEscapeKey(closeModal, isOpen);
@@ -196,15 +185,15 @@ export const ModalContent = forwardRef<HTMLDivElement, Props>(
 export const MODAL_LAYER_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const ModalLayer = forwardRef<HTMLDivElement, Props>(({ setIsOpen = () => {}, ...props }, ref) => {
+export const ModalLayer = forwardRef<HTMLDivElement, Props>(({ setIsOpen, ...props }, ref) => {
   return (
     <div
       ref={ref}
       {...props}
-      onClick={() => setIsOpen(false)}
+      onClick={() => setIsOpen?.(false)}
       aria-hidden="true"
       className="absolute top-0 left-0 h-full w-full bg-black/80"
     />

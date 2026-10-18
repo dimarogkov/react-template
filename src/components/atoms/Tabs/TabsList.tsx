@@ -19,7 +19,7 @@ interface Props extends HTMLAttributes<HTMLUListElement>, RefAttributes<HTMLULis
 }
 
 export const TabsList = forwardRef<HTMLUListElement, Props>(
-    ({ hasAnimation, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
+    ({ hasAnimation, activeIndex, className = '', setActiveIndex, ...props }, ref) => {
         return (
             <ul ref={ref} {...props} className={cn('border-border relative flex w-full border-b', className)}>
                 {Children.map(props.children, (child, index) => {

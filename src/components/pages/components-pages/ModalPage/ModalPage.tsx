@@ -87,7 +87,7 @@ export const ModalPage = () => {
         title: 'Modal',
         description:
             'A window overlaid on either the primary window or another modal window, rendering the content underneath inert using Framer Motion.',
-        links: [{ href: 'https://motion.dev/docs/react', name: 'Docs' }],
+        links: [{ href: 'https://motion.dev/docs/react', name: 'Framer Motion Docs' }],
         preview,
         codeSections
     };

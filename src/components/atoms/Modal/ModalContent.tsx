@@ -25,22 +25,11 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
 }
 
 export const ModalContent = forwardRef<HTMLDivElement, Props>(
-    (
-        {
-            isOpen,
-            disableCloseBtn = false,
-            children,
-            className = '',
-            setIsOpen = () => {},
-            onOpenChange = () => {},
-            ...props
-        },
-        ref
-    ) => {
+    ({ isOpen, disableCloseBtn = false, children, className = '', setIsOpen, onOpenChange, ...props }, ref) => {
         const dialogRef = useRef<HTMLDivElement>(null);
 
         useEffect(() => {
-            onOpenChange(!!isOpen);
+            onOpenChange?.(!!isOpen);
         }, [isOpen, onOpenChange]);
 
         const setRefs = (node: HTMLDivElement | null) => {
@@ -53,7 +42,7 @@ export const ModalContent = forwardRef<HTMLDivElement, Props>(
             }
         };
 
-        const closeModal = useCallback(() => setIsOpen(false), [setIsOpen]);
+        const closeModal = useCallback(() => setIsOpen?.(false), [setIsOpen]);
 
         useFocusRestore(dialogRef, isOpen);
         useEscapeKey(closeModal, isOpen);

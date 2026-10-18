@@ -24,19 +24,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
 }
 
 export const SelectOptions = forwardRef<HTMLDivElement, Props>(
-    (
-        {
-            isOpen,
-            isMultiple,
-            selectedItems,
-            setIsOpen = () => {},
-            setSelectedItems = () => {},
-            className = '',
-            children,
-            ...props
-        },
-        ref
-    ) => {
+    ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
         const animation: HTMLMotionProps<'div'> = {
             initial: { scale: 0.95, opacity: 0 },
             animate: { scale: 1, opacity: 1, transition: { ease: [0.215, 0.61, 0.355, 1] } },

@@ -57,7 +57,7 @@ type Props = {
   createTodo: (title: string) => void;
 };
 
-export const AddTodo = ({ isLoading, createTodo = () => {} }: Props) => {
+export const AddTodo = ({ isLoading, createTodo }: Props) => {
   const [todoTitle, setTodoTitle] = useState('');
 
   const handleAddTodo = () => {
@@ -94,7 +94,7 @@ type Props = {
   removeTodo: (todoId: number) => void;
 };
 
-export const Todo = ({ todo, isLoading, updateTodo = () => {}, removeTodo = () => {} }: Props) => {
+export const Todo = ({ todo, isLoading, updateTodo, removeTodo }: Props) => {
   const { id, title, userId, completed } = todo;
 
   return (

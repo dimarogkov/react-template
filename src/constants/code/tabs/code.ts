@@ -70,7 +70,7 @@ interface Props extends HTMLAttributes<HTMLUListElement>, RefAttributes<HTMLULis
 }
 
 export const TabsList = forwardRef<HTMLUListElement, Props>(
-  ({ hasAnimation, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
+  ({ hasAnimation, activeIndex, className = '', setActiveIndex, ...props }, ref) => {
     return (
       <ul ref={ref} {...props} className={cn('border-border relative flex w-full border-b', className)}>
         {Children.map(props.children, (child, index) => {
@@ -101,8 +101,8 @@ interface Props extends LiHTMLAttributes<HTMLLIElement>, RefAttributes<HTMLLIEle
 }
 
 export const TabsTab = forwardRef<HTMLLIElement, Props>(
-  ({ hasAnimation, tabIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
-    const selectTab = () => setActiveIndex(tabIndex);
+  ({ hasAnimation, tabIndex = 0, activeIndex, className = '', setActiveIndex, ...props }, ref) => {
+    const selectTab = () => setActiveIndex?.(tabIndex);
 
     const onKeyDown = (e: KeyboardEvent<HTMLLIElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {

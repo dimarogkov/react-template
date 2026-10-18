@@ -38,3 +38,15 @@ export const DROPDOWN_ALIGN_USAGE_CODE = `<Dropdown>
     </Dropdown.Menu>
   </Dropdown.Content>
 </Dropdown>`;
+
+export const DROPDOWN_DISABLED_USAGE_CODE = `<Dropdown>
+  <Dropdown.Trigger>
+    <Btn>Dropdown</Btn>
+  </Dropdown.Trigger>
+  <Dropdown.Content>
+    <Dropdown.Menu>
+      <Dropdown.Item>...</Dropdown.Item>
+      <Dropdown.Item disabled>...</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown.Content>
+</Dropdown>`;

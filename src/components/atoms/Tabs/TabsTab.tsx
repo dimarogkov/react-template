@@ -11,8 +11,8 @@ interface Props extends LiHTMLAttributes<HTMLLIElement>, RefAttributes<HTMLLIEle
 }
 
 export const TabsTab = forwardRef<HTMLLIElement, Props>(
-    ({ hasAnimation, tabIndex = 0, activeIndex, className = '', setActiveIndex = () => {}, ...props }, ref) => {
-        const selectTab = () => setActiveIndex(tabIndex);
+    ({ hasAnimation, tabIndex = 0, activeIndex, className = '', setActiveIndex, ...props }, ref) => {
+        const selectTab = () => setActiveIndex?.(tabIndex);
 
         const onKeyDown = (e: KeyboardEvent<HTMLLIElement>) => {
             if (e.key === 'Enter' || e.key === ' ') {

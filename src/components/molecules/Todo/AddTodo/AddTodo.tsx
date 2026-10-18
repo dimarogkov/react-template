@@ -6,7 +6,7 @@ type Props = {
     createTodo: (title: string) => void;
 };
 
-export const AddTodo = ({ isLoading, createTodo = () => {} }: Props) => {
+export const AddTodo = ({ isLoading, createTodo }: Props) => {
     const [todoTitle, setTodoTitle] = useState('');
 
     const handleAddTodo = () => {

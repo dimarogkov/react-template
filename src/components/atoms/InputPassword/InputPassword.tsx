@@ -13,14 +13,13 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
         const [isPasswordVisible, setIsPasswordVisible] = useState(false);
         const inputRef = useRef<HTMLInputElement | null>(null);
 
-        const handleClick = () => setIsPasswordVisible((prevState) => !prevState);
-
         const handleMouseDown = (e: MouseEvent) => {
             e.preventDefault();
             inputRef.current?.focus();
         };
 
-        const handleBlur = () => !isPasswordVisible && setIsPasswordVisible(false);
+        const handleClick = () => setIsPasswordVisible((prevState) => !prevState);
+        const handleBlur = () => setIsPasswordVisible(false);
 
         return (
             <div ref={ref} className={cn('relative flex h-10 w-full items-center', className)}>
@@ -34,9 +33,16 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
 
                 <button
                     type="button"
+                    disabled={props.disabled}
+                    aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
                     onClick={handleClick}
                     onMouseDown={handleMouseDown}
-                    className="absolute right-0 flex h-full w-10 cursor-pointer items-center justify-center outline-hidden"
+                    className={cn(
+                        'absolute right-0 flex h-full w-10 cursor-pointer items-center justify-center outline-hidden',
+                        {
+                            'pointer-events-none opacity-70': props.disabled
+                        }
+                    )}
                 >
                     {!isPasswordVisible ? <EyeOff className="size-5 stroke-1" /> : <Eye className="size-5 stroke-1" />}
                 </button>

@@ -24,7 +24,7 @@ export const PAGINATION_WRAPPER_CODE = `import {
 } from 'react';
 import cn from 'classnames';
 
-interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLElement>, RefAttributes<HTMLElement> {
   options: {
     currentPage: number;
     endPage: number;
@@ -34,20 +34,23 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
   className?: string;
 }
 
-export const PaginationWrapper = forwardRef<HTMLDivElement, Props>(
+export const PaginationWrapper = forwardRef<HTMLElement, Props>(
   ({ options, disabled = false, className = '', ...props }, ref) => {
     return (
-      <>
-        {!disabled && (
-          <div ref={ref} {...props} className={cn('relative flex w-full justify-center gap-1', className)}>
-            {Children.map(props.children, (child) => {
-              return isValidElement(child)
-                ? cloneElement(child as ReactElement<Record<string, unknown>>, { options })
-                : child;
-            })}
-          </div>
-        )}
-      </>
+      !disabled && (
+        <nav
+          ref={ref}
+          {...props}
+          aria-label="Pagination"
+          className={cn('relative flex w-full justify-center gap-1', className)}
+        >
+          {Children.map(props.children, (child) => {
+            return isValidElement(child)
+              ? cloneElement(child as ReactElement<Record<string, unknown>>, { options })
+              : child;
+          })}
+        </nav>
+      )
     );
   }
 );`;
@@ -76,6 +79,7 @@ export const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ option
       {...props}
       type="button"
       disabled={currentPage === 1}
+      aria-label="Previous page"
       onClick={togglePrevious}
       className={cn(
         'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
@@ -106,6 +110,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<H
 export const PaginationItem = forwardRef<HTMLButtonElement, Props>(
   ({ options, page, className = '', ...props }, ref) => {
     const { currentPage = 1, setPage } = options ?? {};
+    const isActive = currentPage === +page;
 
     const toggleItem = () => setPage?.(+page);
 
@@ -114,13 +119,15 @@ export const PaginationItem = forwardRef<HTMLButtonElement, Props>(
         ref={ref}
         {...props}
         type="button"
+        aria-current={isActive ? 'page' : undefined}
+        aria-label={\`Page \${page}\`}
         onClick={toggleItem}
         className={cn(
           'text-title relative flex size-9 cursor-pointer items-center justify-center rounded-md border',
           className,
           {
-            'hover:bg-border border-transparent transition-colors duration-300': currentPage !== page,
-            'border-border bg-border pointer-events-none': currentPage === page
+            'hover:bg-border border-transparent transition-colors duration-300': !isActive,
+            'border-border bg-border pointer-events-none': isActive
           }
         )}
       >
@@ -154,6 +161,7 @@ export const PaginationNext = forwardRef<HTMLButtonElement, Props>(({ options, c
       {...props}
       type="button"
       disabled={currentPage === endPage}
+      aria-label="Next page"
       onClick={toggleNext}
       className={cn(
         'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
@@ -168,31 +176,33 @@ export const PaginationNext = forwardRef<HTMLButtonElement, Props>(({ options, c
   );
 });`;
 
-export const PAGINATION_ELLIPSIS_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
+export const PAGINATION_ELLIPSIS_CODE = `import { Dispatch, forwardRef, HTMLAttributes, RefAttributes, SetStateAction } from 'react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
-  currentPage?: number;
+  options?: {
+    currentPage: number;
+    endPage: number;
+    setPage: Dispatch<SetStateAction<number>>;
+  };
   className?: string;
-  setCurrentPage?: (page: number) => void;
 }
 
-export const PaginationEllipsis = forwardRef<HTMLDivElement, Props>(
-  ({ currentPage, className = '', setCurrentPage, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        {...props}
-        className={cn(
-          'text-title pointer-events-none relative flex size-9 items-center justify-center text-base select-none',
-          className
-        )}
-      >
-        ...
-      </div>
-    );
-  }
-);`;
+export const PaginationEllipsis = forwardRef<HTMLDivElement, Props>(({ options, className = '', ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      {...props}
+      aria-hidden="true"
+      className={cn(
+        'text-title pointer-events-none relative flex size-9 items-center justify-center text-base select-none',
+        className
+      )}
+    >
+      ...
+    </div>
+  );
+});`;
 
 export const PAGINATION_HOOK_CODE = `import { useState } from 'react';
 import { getPaginationRange } from '@utils';

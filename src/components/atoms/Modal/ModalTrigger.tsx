@@ -24,6 +24,8 @@ export const ModalTrigger = forwardRef<HTMLDivElement, Props>(
                 {...props}
                 role="button"
                 tabIndex={0}
+                aria-haspopup="dialog"
+                aria-expanded={!!isOpen}
                 onClick={openModal}
                 onKeyDown={onKeyDown}
                 className={cn('relative cursor-pointer list-none', className)}

@@ -42,7 +42,7 @@ export const ModalWrapper = forwardRef<HTMLDivElement, Props>(({ className = '',
   }, [isModalOpen]);
 
   return (
-    <div ref={ref} {...props} className={cn('relative w-fit', className)}>
+    <div ref={ref} {...props} className={cn('relative z-50 w-fit', className)}>
       {Children.map(props.children, (child) => {
         return isValidElement(child)
           ? cloneElement(child as ReactElement<Record<string, unknown>>, {
@@ -81,6 +81,8 @@ export const ModalTrigger = forwardRef<HTMLDivElement, Props>(
         {...props}
         role="button"
         tabIndex={0}
+        aria-haspopup="dialog"
+        aria-expanded={!!isOpen}
         onClick={openModal}
         onKeyDown={onKeyDown}
         className={cn('relative cursor-pointer list-none', className)}
@@ -89,19 +91,10 @@ export const ModalTrigger = forwardRef<HTMLDivElement, Props>(
   }
 );`;
 
-export const MODAL_CONTENT_CODE = `import {
-  Dispatch,
-  forwardRef,
-  MutableRefObject,
-  ReactNode,
-  RefAttributes,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useRef
-} from 'react';
+export const MODAL_CONTENT_CODE = `import { Dispatch, forwardRef, ReactNode, RefAttributes, SetStateAction, useCallback, useEffect, useRef } from 'react';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 import { useEscapeKey, useFocusRestore, useFocusTrap } from '@hooks';
+import { assignRefs } from '@utils';
 import { ModalLayer } from './ModalLayer';
 import { ModalClose } from './ModalClose';
 import cn from 'classnames';
@@ -123,16 +116,7 @@ export const ModalContent = forwardRef<HTMLDivElement, Props>(
       onOpenChange?.(!!isOpen);
     }, [isOpen, onOpenChange]);
 
-    const setRefs = (node: HTMLDivElement | null) => {
-      dialogRef.current = node;
-
-      if (typeof ref === 'function') {
-        ref(node);
-      } else if (ref) {
-        (ref as MutableRefObject<HTMLDivElement | null>).current = node;
-      }
-    };
-
+    const setRefs = assignRefs<HTMLDivElement>(ref, dialogRef);
     const closeModal = useCallback(() => setIsOpen?.(false), [setIsOpen]);
 
     useFocusRestore(dialogRef, isOpen);

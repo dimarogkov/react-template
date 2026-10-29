@@ -1,1 +1,1 @@
-export const NPM_FLOATING_UI_CODE = `npm install @floating-ui/react-dom --save`;
+export const NPM_FLOATING_UI_CODE = `npm i @floating-ui/react-dom`;

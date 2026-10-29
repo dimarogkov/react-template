@@ -6,12 +6,10 @@ export const ZustandDemo = () => {
     const { count, addCount, removeCount, resetCount } = useCount((state) => state);
 
     return (
-        <div className="relative w-full">
-            <Title size="h3" className="mb-5 last:mb-0">
-                Count
-            </Title>
+        <div className="relative flex w-full flex-col gap-2.5">
+            <Title size="h3">Count</Title>
 
-            <Text size="large" className="text-title mb-2 font-medium last:mb-0">
+            <Text size="large" className="text-title font-medium">
                 {count}
             </Text>
 

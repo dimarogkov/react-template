@@ -94,29 +94,27 @@ export const ZodDemo = () => {
         {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
       </Label>
 
-      <Label>
+      <Label className="flex!">
         <Textarea placeholder="Type your message here." />
       </Label>
 
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full gap-4">
-          <Label className="w-full">
-            <Radio
-              {...register('radioType')}
-              value="type_one"
-              label="Type One"
-              checked={watch('radioType') === 'type_one'}
-            />
-          </Label>
+          <Radio
+            {...register('radioType')}
+            value="type_one"
+            label="Type One"
+            checked={watch('radioType') === 'type_one'}
+            className="w-full"
+          />
 
-          <Label className="w-full">
-            <Radio
-              {...register('radioType')}
-              value="type_two"
-              label="Type Two"
-              checked={watch('radioType') === 'type_two'}
-            />
-          </Label>
+          <Radio
+            {...register('radioType')}
+            value="type_two"
+            label="Type Two"
+            checked={watch('radioType') === 'type_two'}
+            className="w-full"
+          />
         </div>
 
         {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}

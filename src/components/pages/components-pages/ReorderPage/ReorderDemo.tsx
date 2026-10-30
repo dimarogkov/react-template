@@ -26,7 +26,13 @@ export const ReorderDemo = () => {
 
     return (
         <>
-            <Reorder.Group values={itemsY} onReorder={setItemsY} axis="y" className="mb-2.5 grid grid-cols-1 gap-2.5">
+            <Reorder.Group
+                values={itemsY}
+                axis="y"
+                onReorder={setItemsY}
+                aria-label="Reorderable list"
+                className="mb-2.5 grid grid-cols-1 gap-2.5"
+            >
                 {itemsY.map((item) => (
                     <Reorder.Item
                         key={item}
@@ -37,7 +43,7 @@ export const ReorderDemo = () => {
                     >
                         <Card className="bg-bg! p-2.5">
                             <Card.Body>
-                                <Title size="h4" className="mb-0.5 last:mb-0">
+                                <Title size="h5" className="mb-1 last:mb-0">
                                     {ITEMS[item].title}
                                 </Title>
 
@@ -48,7 +54,13 @@ export const ReorderDemo = () => {
                 ))}
             </Reorder.Group>
 
-            <Reorder.Group values={itemsX} onReorder={setItemsX} axis="x" className="grid grid-cols-3 gap-2.5">
+            <Reorder.Group
+                values={itemsX}
+                axis="x"
+                onReorder={setItemsX}
+                aria-label="Reorderable list"
+                className="grid grid-cols-3 gap-2.5"
+            >
                 {itemsX.map((item) => (
                     <Reorder.Item
                         key={item}
@@ -60,7 +72,7 @@ export const ReorderDemo = () => {
                     >
                         <Card className="bg-bg! h-full p-2.5">
                             <Card.Body>
-                                <Title size="h4" className="mb-0.5 last:mb-0">
+                                <Title size="h5" className="mb-1 last:mb-0">
                                     {ITEMS[item].title}
                                 </Title>
 

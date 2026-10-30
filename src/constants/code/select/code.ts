@@ -65,6 +65,7 @@ interface SelectOptionProps {
 export const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className = '', ...props }, ref) => {
   const [selectedItems, setSelectedItems] = useState<ISelectItem[]>([]);
   const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(null);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const selectRef = useRef<HTMLSelectElement>(null);
@@ -99,7 +100,11 @@ export const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className =
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      const target = e.target as Element;
+      const isInsideWrapper = wrapperRef.current?.contains(target);
+      const isInsidePortal = target.closest('[data-select-portal]');
+
+      if (!isInsideWrapper && !isInsidePortal) {
         setIsSelectOpen(false);
       }
     };
@@ -144,9 +149,12 @@ export const SelectWrapper = forwardRef<HTMLSelectElement, Props>(({ className =
       {Children.map(props.children, (child) => {
         return isValidElement(child)
           ? cloneElement(child as ReactElement<Record<string, unknown>>, {
+             triggerElement,
              isOpen: isSelectOpen,
              isMultiple,
              selectedItems,
+             disabled: !!props.disabled,
+             setTriggerElement,
              setIsOpen: setIsSelectOpen,
              setSelectedItems: handleSelectedItems
            })
@@ -167,16 +175,20 @@ export const SELECT_TRIGGER_CODE = `import {
 } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import { Text } from '@components/atoms';
+import { assignRefs } from '@utils';
 import { ChevronDown, LucideProps } from 'lucide-react';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
   placeholder?: string;
+  triggerElement?: HTMLElement | null;
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
+  disabled?: boolean;
   className?: string;
   icon?: ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>;
+  setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -185,10 +197,13 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
   (
     {
       placeholder = 'Select',
+      triggerElement,
       isOpen,
       isMultiple,
       selectedItems,
+      disabled = false,
       icon,
+      setTriggerElement,
       setIsOpen,
       setSelectedItems,
       className = '',
@@ -200,7 +215,8 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
     const hasValue = !!selectedItems?.length;
     const Icon = icon || ChevronDown;
 
-    const toggleOpen = () => setIsOpen?.((prevState) => !prevState);
+    const setRefs = assignRefs<HTMLDivElement>(ref, setTriggerElement);
+    const toggleOpen = () => !disabled && setIsOpen?.((prevState) => !prevState);
 
     const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -211,17 +227,21 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
 
     return (
       <div
-        ref={ref}
+        ref={setRefs}
         {...props}
         role="button"
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        aria-disabled={disabled || undefined}
         onClick={toggleOpen}
         onKeyDown={onKeyDown}
         className={cn(
           'border-border relative flex h-10 w-full cursor-pointer items-center rounded-md border px-4 pr-12 select-none',
-          className
+          className,
+          {
+            'pointer-events-none opacity-70': disabled
+          }
         )}
       >
         <Text className={cn({ 'text-title': hasValue })}>{hasValue ? selectedText : placeholder}</Text>
@@ -237,19 +257,27 @@ export const SELECT_OPTIONS_CODE = `import {
   Dispatch,
   forwardRef,
   isValidElement,
+  KeyboardEvent,
   ReactElement,
   ReactNode,
   RefAttributes,
-  SetStateAction
+  SetStateAction,
+  useRef
 } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
+import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui/react-dom';
+import { useEscapeKey, useFocusRestore } from '@hooks';
 import { ISelectItem } from '@interfaces/SelectItem';
+import { assignRefs } from '@utils';
 import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
+  triggerElement?: HTMLElement | null;
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
+  disabled?: boolean;
   className?: string;
   children?: ReactNode;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
@@ -257,22 +285,88 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
 }
 
 export const SelectOptions = forwardRef<HTMLDivElement, Props>(
-  ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
+  (
+    {
+      triggerElement,
+      isOpen,
+      isMultiple,
+      selectedItems,
+      disabled,
+      setIsOpen,
+      setSelectedItems,
+      className = '',
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const optionsRef = useRef<HTMLDivElement>(null);
+
+    const { refs, x, y, strategy } = useFloating({
+      open: isOpen,
+      strategy: 'fixed',
+      placement: 'bottom-start',
+      middleware: [
+        offset(4),
+        flip(),
+        shift({ padding: 8 }),
+        size({
+          apply({ rects, elements }) {
+            Object.assign(elements.floating.style, { width: \`\${rects.reference.width}px\` });
+          }
+        })
+      ],
+      elements: { reference: triggerElement },
+      whileElementsMounted: autoUpdate
+    });
+
+    const setRefs = assignRefs<HTMLDivElement>(ref, optionsRef, refs.setFloating);
+    const closeOptions = () => setIsOpen?.(false);
+
+    useEscapeKey(closeOptions, isOpen);
+    useFocusRestore(optionsRef, isOpen);
+
+    const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') {
+        return;
+      }
+
+      e.preventDefault();
+
+      const options = Array.from(
+        optionsRef.current?.querySelectorAll<HTMLElement>('[role="option"]:not([aria-disabled="true"])') ?? []
+      );
+
+      const currentIndex = options.indexOf(document.activeElement as HTMLElement);
+      const nextIndex =
+        e.key === 'ArrowDown'
+          ? (currentIndex + 1) % options.length
+          : (currentIndex - 1 + options.length) % options.length;
+
+      options[nextIndex]?.focus();
+    };
+
     const animation: HTMLMotionProps<'div'> = {
       initial: { scale: 0.95, opacity: 0 },
       animate: { scale: 1, opacity: 1, transition: { ease: [0.215, 0.61, 0.355, 1] } },
       exit: { scale: 0.95, opacity: 0 }
     };
 
-    return (
+    return createPortal(
       <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
-            ref={ref}
+            ref={setRefs}
             {...props}
             {...animation}
+            role="listbox"
+            tabIndex={-1}
+            aria-multiselectable={isMultiple}
+            data-select-portal
+            onKeyDown={handleKeyDown}
+            style={{ position: strategy, top: y ?? 0, left: x ?? 0, ...props.style }}
             className={cn(
-              'border-border bg-bg absolute top-[calc(100%+4px)] z-10 flex max-h-73 w-max max-w-[calc(100vw-32px)] min-w-full flex-col gap-1 overflow-auto rounded-md border p-1 will-change-transform',
+              'border-border bg-bg z-10 flex max-h-73 flex-col gap-1 overflow-auto rounded-md border p-1 will-change-transform',
               className
             )}
           >
@@ -282,6 +376,7 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
                    isOpen,
                    isMultiple,
                    selectedItems,
+                   disabled,
                    setIsOpen,
                    setSelectedItems
                  })
@@ -289,7 +384,8 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
             })}
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
     );
   }
 );`;
@@ -304,7 +400,8 @@ export const SELECT_GROUP_CODE = `import {
   ReactElement,
   ReactNode,
   RefAttributes,
-  SetStateAction
+  SetStateAction,
+  useId
 } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import cn from 'classnames';
@@ -313,6 +410,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
+  disabled?: boolean;
   className?: string;
   children?: ReactNode;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
@@ -320,15 +418,38 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 }
 
 export const SelectGroup = forwardRef<HTMLDivElement, Props>(
-  ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
+  (
+    {
+      isOpen,
+      isMultiple,
+      selectedItems,
+      disabled,
+      setIsOpen,
+      setSelectedItems,
+      className = '',
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const labelId = useId();
+
     return (
-      <div ref={ref} {...props} className={cn('relative flex flex-col gap-1', className)}>
+      <div
+        ref={ref}
+        {...props}
+        role="group"
+        aria-labelledby={labelId}
+        className={cn('relative flex flex-col gap-1', className)}
+      >
         {Children.map(children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
                isOpen,
                isMultiple,
                selectedItems,
+               disabled,
+               labelId,
                setIsOpen,
                setSelectedItems
              })
@@ -347,14 +468,19 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
+  disabled?: boolean;
+  labelId?: string;
   className?: string;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
 
 export const SelectLabel = forwardRef<HTMLDivElement, Props>(
-  ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', ...props }, ref) => {
-    return <div ref={ref} {...props} className={cn('relative px-2 py-1 text-sm', className)} />;
+  (
+    { isOpen, isMultiple, selectedItems, disabled, labelId, setIsOpen, setSelectedItems, className = '', ...props },
+    ref
+  ) => {
+    return <div ref={ref} {...props} id={labelId} className={cn('relative px-2 py-1 text-sm', className)} />;
   }
 );`;
 
@@ -368,16 +494,34 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
+  disabled?: boolean;
+  labelId?: string;
   className?: string;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
 
 export const SelectOption = forwardRef<HTMLSpanElement, Props>(
-  ({ value, isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', ...props }, ref) => {
+  (
+    {
+      value,
+      isOpen,
+      isMultiple,
+      selectedItems,
+      disabled,
+      labelId,
+      setIsOpen,
+      setSelectedItems,
+      className = '',
+      ...props
+    },
+    ref
+  ) => {
     const isActive = selectedItems?.some((item) => value === item.value) || false;
 
     const selectItem = () => {
+      if (disabled) return;
+
       setSelectedItems?.({ value, label: props.children as string });
       !isMultiple && setIsOpen?.(false);
     };
@@ -394,8 +538,9 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
         ref={ref}
         {...props}
         role="option"
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         aria-selected={isActive}
+        aria-disabled={disabled || undefined}
         onClick={selectItem}
         onKeyDown={onKeyDown}
         className={cn(
@@ -403,7 +548,8 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
           className,
           {
             'hover:bg-border transition-colors duration-300': !isActive || (isActive && isMultiple),
-            'bg-border pointer-events-none': isActive && !isMultiple
+            'bg-border pointer-events-none': isActive && !isMultiple,
+            'pointer-events-none opacity-50': disabled
           }
         )}
       >

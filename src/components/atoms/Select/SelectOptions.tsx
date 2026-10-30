@@ -4,19 +4,27 @@ import {
     Dispatch,
     forwardRef,
     isValidElement,
+    KeyboardEvent,
     ReactElement,
     ReactNode,
     RefAttributes,
-    SetStateAction
+    SetStateAction,
+    useRef
 } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
+import { autoUpdate, flip, offset, shift, size, useFloating } from '@floating-ui/react-dom';
+import { useEscapeKey, useFocusRestore } from '@hooks';
 import { ISelectItem } from '@interfaces/SelectItem';
+import { assignRefs } from '@utils';
 import cn from 'classnames';
 
 interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
+    triggerElement?: HTMLElement | null;
     isOpen?: boolean;
     isMultiple?: boolean;
     selectedItems?: ISelectItem[];
+    disabled?: boolean;
     className?: string;
     children?: ReactNode;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
@@ -24,22 +32,88 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
 }
 
 export const SelectOptions = forwardRef<HTMLDivElement, Props>(
-    ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
+    (
+        {
+            triggerElement,
+            isOpen,
+            isMultiple,
+            selectedItems,
+            disabled,
+            setIsOpen,
+            setSelectedItems,
+            className = '',
+            children,
+            ...props
+        },
+        ref
+    ) => {
+        const optionsRef = useRef<HTMLDivElement>(null);
+
+        const { refs, x, y, strategy } = useFloating({
+            open: isOpen,
+            strategy: 'fixed',
+            placement: 'bottom-start',
+            middleware: [
+                offset(4),
+                flip(),
+                shift({ padding: 8 }),
+                size({
+                    apply({ rects, elements }) {
+                        Object.assign(elements.floating.style, { width: `${rects.reference.width}px` });
+                    }
+                })
+            ],
+            elements: { reference: triggerElement },
+            whileElementsMounted: autoUpdate
+        });
+
+        const setRefs = assignRefs<HTMLDivElement>(ref, optionsRef, refs.setFloating);
+        const closeOptions = () => setIsOpen?.(false);
+
+        useEscapeKey(closeOptions, isOpen);
+        useFocusRestore(optionsRef, isOpen);
+
+        const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+            if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') {
+                return;
+            }
+
+            e.preventDefault();
+
+            const options = Array.from(
+                optionsRef.current?.querySelectorAll<HTMLElement>('[role="option"]:not([aria-disabled="true"])') ?? []
+            );
+
+            const currentIndex = options.indexOf(document.activeElement as HTMLElement);
+            const nextIndex =
+                e.key === 'ArrowDown'
+                    ? (currentIndex + 1) % options.length
+                    : (currentIndex - 1 + options.length) % options.length;
+
+            options[nextIndex]?.focus();
+        };
+
         const animation: HTMLMotionProps<'div'> = {
             initial: { scale: 0.95, opacity: 0 },
             animate: { scale: 1, opacity: 1, transition: { ease: [0.215, 0.61, 0.355, 1] } },
             exit: { scale: 0.95, opacity: 0 }
         };
 
-        return (
+        return createPortal(
             <AnimatePresence mode="wait">
                 {isOpen && (
                     <motion.div
-                        ref={ref}
+                        ref={setRefs}
                         {...props}
                         {...animation}
+                        role="listbox"
+                        tabIndex={-1}
+                        aria-multiselectable={isMultiple}
+                        data-select-portal
+                        onKeyDown={handleKeyDown}
+                        style={{ position: strategy, top: y ?? 0, left: x ?? 0, ...props.style }}
                         className={cn(
-                            'border-border bg-bg absolute top-[calc(100%+4px)] z-10 flex max-h-73 w-max max-w-[calc(100vw-32px)] min-w-full flex-col gap-1 overflow-auto rounded-md border p-1 will-change-transform',
+                            'border-border bg-bg z-10 flex max-h-73 flex-col gap-1 overflow-auto rounded-md border p-1 will-change-transform',
                             className
                         )}
                     >
@@ -49,6 +123,7 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
                                       isOpen,
                                       isMultiple,
                                       selectedItems,
+                                      disabled,
                                       setIsOpen,
                                       setSelectedItems
                                   })
@@ -56,7 +131,8 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
                         })}
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence>,
+            document.body
         );
     }
 );

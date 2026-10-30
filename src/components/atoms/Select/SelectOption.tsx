@@ -8,16 +8,34 @@ interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanE
     isOpen?: boolean;
     isMultiple?: boolean;
     selectedItems?: ISelectItem[];
+    disabled?: boolean;
+    labelId?: string;
     className?: string;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
     setSelectedItems?: (item: ISelectItem) => void;
 }
 
 export const SelectOption = forwardRef<HTMLSpanElement, Props>(
-    ({ value, isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', ...props }, ref) => {
+    (
+        {
+            value,
+            isOpen,
+            isMultiple,
+            selectedItems,
+            disabled,
+            labelId,
+            setIsOpen,
+            setSelectedItems,
+            className = '',
+            ...props
+        },
+        ref
+    ) => {
         const isActive = selectedItems?.some((item) => value === item.value) || false;
 
         const selectItem = () => {
+            if (disabled) return;
+
             setSelectedItems?.({ value, label: props.children as string });
             !isMultiple && setIsOpen?.(false);
         };
@@ -34,8 +52,9 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
                 ref={ref}
                 {...props}
                 role="option"
-                tabIndex={0}
+                tabIndex={disabled ? -1 : 0}
                 aria-selected={isActive}
+                aria-disabled={disabled || undefined}
                 onClick={selectItem}
                 onKeyDown={onKeyDown}
                 className={cn(
@@ -43,7 +62,8 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
                     className,
                     {
                         'hover:bg-border transition-colors duration-300': !isActive || (isActive && isMultiple),
-                        'bg-border pointer-events-none': isActive && !isMultiple
+                        'bg-border pointer-events-none': isActive && !isMultiple,
+                        'pointer-events-none opacity-50': disabled
                     }
                 )}
             >

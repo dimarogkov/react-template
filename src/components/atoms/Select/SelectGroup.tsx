@@ -8,7 +8,8 @@ import {
     ReactElement,
     ReactNode,
     RefAttributes,
-    SetStateAction
+    SetStateAction,
+    useId
 } from 'react';
 import { ISelectItem } from '@interfaces/SelectItem';
 import cn from 'classnames';
@@ -17,6 +18,7 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
     isOpen?: boolean;
     isMultiple?: boolean;
     selectedItems?: ISelectItem[];
+    disabled?: boolean;
     className?: string;
     children?: ReactNode;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
@@ -24,15 +26,38 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 }
 
 export const SelectGroup = forwardRef<HTMLDivElement, Props>(
-    ({ isOpen, isMultiple, selectedItems, setIsOpen, setSelectedItems, className = '', children, ...props }, ref) => {
+    (
+        {
+            isOpen,
+            isMultiple,
+            selectedItems,
+            disabled,
+            setIsOpen,
+            setSelectedItems,
+            className = '',
+            children,
+            ...props
+        },
+        ref
+    ) => {
+        const labelId = useId();
+
         return (
-            <div ref={ref} {...props} className={cn('relative flex flex-col gap-1', className)}>
+            <div
+                ref={ref}
+                {...props}
+                role="group"
+                aria-labelledby={labelId}
+                className={cn('relative flex flex-col gap-1', className)}
+            >
                 {Children.map(children, (child) => {
                     return isValidElement(child)
                         ? cloneElement(child as ReactElement<Record<string, unknown>>, {
                               isOpen,
                               isMultiple,
                               selectedItems,
+                              disabled,
+                              labelId,
                               setIsOpen,
                               setSelectedItems
                           })

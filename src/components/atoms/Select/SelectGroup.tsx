@@ -15,12 +15,14 @@ import { ISelectItem } from '@interfaces/SelectItem';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
+    triggerElement?: HTMLElement | null;
     isOpen?: boolean;
     isMultiple?: boolean;
     selectedItems?: ISelectItem[];
     disabled?: boolean;
     className?: string;
     children?: ReactNode;
+    setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
     setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -28,10 +30,12 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 export const SelectGroup = forwardRef<HTMLDivElement, Props>(
     (
         {
+            triggerElement,
             isOpen,
             isMultiple,
             selectedItems,
             disabled,
+            setTriggerElement,
             setIsOpen,
             setSelectedItems,
             className = '',
@@ -53,11 +57,13 @@ export const SelectGroup = forwardRef<HTMLDivElement, Props>(
                 {Children.map(children, (child) => {
                     return isValidElement(child)
                         ? cloneElement(child as ReactElement<Record<string, unknown>>, {
+                              triggerElement,
                               isOpen,
                               isMultiple,
                               selectedItems,
                               disabled,
                               labelId,
+                              setTriggerElement,
                               setIsOpen,
                               setSelectedItems
                           })

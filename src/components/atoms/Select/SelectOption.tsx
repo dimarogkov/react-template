@@ -5,12 +5,14 @@ import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanElement> {
     value: string;
+    triggerElement?: HTMLElement | null;
     isOpen?: boolean;
     isMultiple?: boolean;
     selectedItems?: ISelectItem[];
     disabled?: boolean;
     labelId?: string;
     className?: string;
+    setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
     setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -19,11 +21,13 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
     (
         {
             value,
+            triggerElement,
             isOpen,
             isMultiple,
             selectedItems,
             disabled,
             labelId,
+            setTriggerElement,
             setIsOpen,
             setSelectedItems,
             className = '',

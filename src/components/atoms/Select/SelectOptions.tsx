@@ -27,6 +27,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
     disabled?: boolean;
     className?: string;
     children?: ReactNode;
+    setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
     setIsOpen?: Dispatch<SetStateAction<boolean>>;
     setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -39,6 +40,7 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
             isMultiple,
             selectedItems,
             disabled,
+            setTriggerElement,
             setIsOpen,
             setSelectedItems,
             className = '',
@@ -120,10 +122,12 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
                         {Children.map(children, (child) => {
                             return isValidElement(child)
                                 ? cloneElement(child as ReactElement<Record<string, unknown>>, {
+                                      triggerElement,
                                       isOpen,
                                       isMultiple,
                                       selectedItems,
                                       disabled,
+                                      setTriggerElement,
                                       setIsOpen,
                                       setSelectedItems
                                   })

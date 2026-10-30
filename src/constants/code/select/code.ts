@@ -280,6 +280,7 @@ interface Props extends HTMLMotionProps<'div'>, RefAttributes<HTMLDivElement> {
   disabled?: boolean;
   className?: string;
   children?: ReactNode;
+  setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -292,6 +293,7 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
       isMultiple,
       selectedItems,
       disabled,
+      setTriggerElement,
       setIsOpen,
       setSelectedItems,
       className = '',
@@ -373,10 +375,12 @@ export const SelectOptions = forwardRef<HTMLDivElement, Props>(
             {Children.map(children, (child) => {
               return isValidElement(child)
                 ? cloneElement(child as ReactElement<Record<string, unknown>>, {
+                   triggerElement,
                    isOpen,
                    isMultiple,
                    selectedItems,
                    disabled,
+                   setTriggerElement,
                    setIsOpen,
                    setSelectedItems
                  })
@@ -407,12 +411,14 @@ import { ISelectItem } from '@interfaces/SelectItem';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
+  triggerElement?: HTMLElement | null;
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
   disabled?: boolean;
   className?: string;
   children?: ReactNode;
+  setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -420,10 +426,12 @@ interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivEle
 export const SelectGroup = forwardRef<HTMLDivElement, Props>(
   (
     {
+      triggerElement,
       isOpen,
       isMultiple,
       selectedItems,
       disabled,
+      setTriggerElement,
       setIsOpen,
       setSelectedItems,
       className = '',
@@ -445,11 +453,13 @@ export const SelectGroup = forwardRef<HTMLDivElement, Props>(
         {Children.map(children, (child) => {
           return isValidElement(child)
             ? cloneElement(child as ReactElement<Record<string, unknown>>, {
+               triggerElement,
                isOpen,
                isMultiple,
                selectedItems,
                disabled,
                labelId,
+               setTriggerElement,
                setIsOpen,
                setSelectedItems
              })
@@ -465,19 +475,33 @@ import { ISelectItem } from '@interfaces/SelectItem';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
+  triggerElement?: HTMLElement | null;
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
   disabled?: boolean;
   labelId?: string;
   className?: string;
+  setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
 
 export const SelectLabel = forwardRef<HTMLDivElement, Props>(
   (
-    { isOpen, isMultiple, selectedItems, disabled, labelId, setIsOpen, setSelectedItems, className = '', ...props },
+    {
+      triggerElement,
+      isOpen,
+      isMultiple,
+      selectedItems,
+      disabled,
+      labelId,
+      setTriggerElement,
+      setIsOpen,
+      setSelectedItems,
+      className = '',
+      ...props
+    },
     ref
   ) => {
     return <div ref={ref} {...props} id={labelId} className={cn('relative px-2 py-1 text-sm', className)} />;
@@ -491,12 +515,14 @@ import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLSpanElement>, RefAttributes<HTMLSpanElement> {
   value: string;
+  triggerElement?: HTMLElement | null;
   isOpen?: boolean;
   isMultiple?: boolean;
   selectedItems?: ISelectItem[];
   disabled?: boolean;
   labelId?: string;
   className?: string;
+  setTriggerElement?: Dispatch<SetStateAction<HTMLElement | null>>;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   setSelectedItems?: (item: ISelectItem) => void;
 }
@@ -505,11 +531,13 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
   (
     {
       value,
+      triggerElement,
       isOpen,
       isMultiple,
       selectedItems,
       disabled,
       labelId,
+      setTriggerElement,
       setIsOpen,
       setSelectedItems,
       className = '',

@@ -50,7 +50,7 @@ export const Switch = forwardRef<HTMLButtonElement, Props>(
                     />
                 </button>
 
-                {label && <Text>{label}</Text>}
+                {label && <Text as="span">{label}</Text>}
             </label>
         );
     }

@@ -28,7 +28,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(({ label, className 
                 <Check className="text-bg pointer-events-none invisible absolute inset-0 m-auto size-4 opacity-0 peer-checked:visible peer-checked:opacity-100" />
             </div>
 
-            {label && <Text>{label}</Text>}
+            {label && <Text as="span">{label}</Text>}
         </label>
     );
 });

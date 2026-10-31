@@ -29,7 +29,7 @@ Most templates ship one opinion per problem. This one ships two, on purpose:
 
 Same UI, same data, two implementations — pick whichever page reads closer to how you'd actually write it.
 
-## 🧩 30 components, fully documented
+## 🧩 31 components, fully documented
 
 Every atom in `src/components/atoms` has a matching page with a live preview plus **Code / Demo / Usage** tabs,
 highlighted with `shiki` and sourced straight from `src/constants/code` — kept byte-accurate to the real component,
@@ -67,14 +67,15 @@ Requires Node.js 18+ (a recent LTS is recommended). No secrets, no `.env` to fil
 
 ## 📜 Scripts
 
-| Command            | What it does                                                          |
-| ------------------ | --------------------------------------------------------------------- |
-| `npm run start`    | Start the dev server (`craco start`)                                  |
-| `npm run build`    | Type-check and produce a production build                             |
-| `npm run test`     | Run the CRA/Jest test runner                                          |
-| `npm run lint`     | Run ESLint over `src` (standalone — not wired into `start` / `build`) |
-| `npm run lint:fix` | Same, with `--fix`                                                    |
-| `npm run format`   | Format the whole repo with Prettier                                   |
+| Command                       | What it does                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `npm run start`               | Start the dev server (`craco start`)                                                                    |
+| `npm run build`               | Type-check and produce a production build                                                               |
+| `npm run test`                | Run the CRA/Jest test runner                                                                            |
+| `npm run lint`                | Run ESLint over `src` (standalone — not wired into `start` / `build`)                                   |
+| `npm run lint:fix`            | Same, with `--fix`                                                                                      |
+| `npm run format`              | Format the whole repo with Prettier                                                                     |
+| `npm run verify-code-mirrors` | Check that `src/constants/code` mirrors still match their real source files (`-- --fix` to update them) |
 
 ## 🗂️ Project structure
 

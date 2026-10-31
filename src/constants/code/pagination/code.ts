@@ -82,7 +82,7 @@ export const PaginationPrevious = forwardRef<HTMLButtonElement, Props>(({ option
       aria-label="Previous page"
       onClick={togglePrevious}
       className={cn(
-        'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
+        'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-all duration-300',
         className,
         {
           'pointer-events-none opacity-60 select-none': currentPage === 1
@@ -164,7 +164,7 @@ export const PaginationNext = forwardRef<HTMLButtonElement, Props>(({ options, c
       aria-label="Next page"
       onClick={toggleNext}
       className={cn(
-        'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-colors duration-300',
+        'text-title hover:bg-border relative flex size-9 cursor-pointer items-center justify-center rounded-md transition-all duration-300',
         className,
         {
           'pointer-events-none opacity-60 select-none': currentPage === endPage

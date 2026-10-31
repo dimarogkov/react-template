@@ -15,7 +15,7 @@ export const Btn = forwardRef<HTMLButtonElement, Props>(
       'flex h-10 w-full cursor-pointer items-center justify-center gap-1.5 rounded-md border px-4 outline-hidden transition-all duration-300 will-change-transform active:scale-95 sm:w-fit',
       className,
       {
-        'pointer-events-none opacity-80 select-none': props.disabled,
+        'pointer-events-none opacity-60 select-none': props.disabled,
         'border-border bg-border text-text': props.disabled || variant === 'default',
         'hover:opacity-80': !props.disabled && variant === 'default',
         'border-title bg-title text-bg hover:opacity-80': !props.disabled && variant === 'secondary',

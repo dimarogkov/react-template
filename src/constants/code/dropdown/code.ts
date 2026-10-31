@@ -457,7 +457,7 @@ export const DropdownItem = forwardRef<HTMLDivElement, Props>(
           'hover:bg-border relative cursor-pointer rounded-md px-2 py-1 transition-colors duration-300',
           className,
           {
-            'pointer-events-none opacity-50': disabled
+            'pointer-events-none opacity-60': disabled
           }
         )}
       >

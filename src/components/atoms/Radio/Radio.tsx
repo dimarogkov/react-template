@@ -12,7 +12,7 @@ export const Radio = forwardRef<HTMLInputElement, Props>(({ label, className = '
     return (
         <label
             className={cn('flex cursor-pointer items-center gap-2 select-none', className, {
-                'pointer-events-none opacity-70': props.disabled
+                'pointer-events-none opacity-60': props.disabled
             })}
         >
             <div className="relative size-5 min-w-5">

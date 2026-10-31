@@ -67,7 +67,7 @@ export const SelectOption = forwardRef<HTMLSpanElement, Props>(
                     {
                         'hover:bg-border transition-colors duration-300': !isActive || (isActive && isMultiple),
                         'bg-border pointer-events-none': isActive && !isMultiple,
-                        'pointer-events-none opacity-50': disabled
+                        'pointer-events-none opacity-60': disabled
                     }
                 )}
             >

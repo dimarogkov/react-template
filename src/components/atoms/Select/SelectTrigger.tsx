@@ -74,7 +74,7 @@ export const SelectTrigger = forwardRef<HTMLDivElement, Props>(
                     'border-border relative flex h-10 w-full cursor-pointer items-center rounded-md border px-4 pr-12 select-none',
                     className,
                     {
-                        'pointer-events-none opacity-70': disabled
+                        'pointer-events-none opacity-60': disabled
                     }
                 )}
             >

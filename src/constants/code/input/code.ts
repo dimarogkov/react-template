@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(({ className = '', ...p
         'border-border text-title placeholder:text-text focus:border-text h-10 w-full rounded-md border bg-transparent px-4 outline-hidden transition-all duration-300',
         className,
         {
-          'pointer-events-none opacity-70': props.disabled
+          'pointer-events-none opacity-60': props.disabled
         }
       )}
     />
@@ -63,7 +63,7 @@ export const InputPassword = forwardRef<HTMLInputElement, Props>(
           className={cn(
             'absolute right-0 flex h-full w-10 cursor-pointer items-center justify-center outline-hidden',
             {
-              'pointer-events-none opacity-70': props.disabled
+              'pointer-events-none opacity-60': props.disabled
             }
           )}
         >

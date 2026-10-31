@@ -37,7 +37,7 @@ export const PATHS = {
             SEPARATOR: { path: 'separator' },
             SIMPLE_LINK: { path: 'simple-link' },
             SWITCH: { path: 'switch' },
-            TABS: { path: 'tabs' },
+            TABS: { path: 'tabs', status: 'updated' },
             TEXT: { path: 'text' },
             TEXTAREA: { path: 'textarea' },
             TITLE: { path: 'title' },

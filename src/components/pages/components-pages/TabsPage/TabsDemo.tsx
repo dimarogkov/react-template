@@ -17,7 +17,7 @@ export const TabsDemo = () => {
                 <Tabs.TabList>
                     <Tabs.Tab>Overview</Tabs.Tab>
                     <Tabs.Tab>Features</Tabs.Tab>
-                    <Tabs.Tab>Details</Tabs.Tab>
+                    <Tabs.Tab disabled>Details</Tabs.Tab>
                 </Tabs.TabList>
                 <Tabs.Panels>
                     <Tabs.Panel>

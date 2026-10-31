@@ -4,13 +4,13 @@ import { Text } from '@components/atoms';
 import cn from 'classnames';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, RefAttributes<HTMLButtonElement> {
-    isActive?: boolean;
     label?: string;
+    isActive?: boolean;
     className?: string;
 }
 
 export const Switch = forwardRef<HTMLButtonElement, Props>(
-    ({ isActive: isSwitchActive = false, label, className = '', ...props }, ref) => {
+    ({ label, isActive: isSwitchActive = false, className = '', ...props }, ref) => {
         const [isActive, setIsActive] = useState(isSwitchActive);
 
         useEffect(() => {

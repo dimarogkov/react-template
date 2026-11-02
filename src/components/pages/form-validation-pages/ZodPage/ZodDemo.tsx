@@ -38,28 +38,62 @@ export const ZodDemo = () => {
     return (
         <form className="relative flex w-full flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
             <Label className="flex flex-col gap-2">
-                <Input {...register('username')} autoComplete="username" placeholder="Username" />
-                {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
+                <Input
+                    {...register('username')}
+                    autoComplete="username"
+                    placeholder="Username"
+                    aria-invalid={!!errors.username}
+                    aria-describedby={errors.username ? 'username-error' : undefined}
+                />
+
+                {errors.username && <ErrorMessage id="username-error">{errors.username.message}</ErrorMessage>}
             </Label>
 
             <Label className="flex flex-col gap-2">
-                <Input {...register('age', { valueAsNumber: true })} type="number" placeholder="Age" />
-                {errors.age && <ErrorMessage>{errors.age.message}</ErrorMessage>}
+                <Input
+                    {...register('age', { valueAsNumber: true })}
+                    type="number"
+                    placeholder="Age"
+                    aria-invalid={!!errors.age}
+                    aria-describedby={errors.age ? 'age-error' : undefined}
+                />
+
+                {errors.age && <ErrorMessage id="age-error">{errors.age.message}</ErrorMessage>}
             </Label>
 
             <Label className="flex flex-col gap-2">
-                <Input {...register('email')} type="email" autoComplete="email" placeholder="Email" />
-                {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+                <Input
+                    {...register('email')}
+                    type="email"
+                    autoComplete="email"
+                    placeholder="Email"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
+                />
+
+                {errors.email && <ErrorMessage id="email-error">{errors.email.message}</ErrorMessage>}
             </Label>
 
             <Label className="flex flex-col gap-2">
-                <Input {...register('phone')} type="tel" autoComplete="tel" placeholder="Phone" />
-                {errors.phone && <ErrorMessage>{errors.phone.message}</ErrorMessage>}
+                <Input
+                    {...register('phone')}
+                    type="tel"
+                    autoComplete="tel"
+                    placeholder="Phone"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
+                />
+
+                {errors.phone && <ErrorMessage id="phone-error">{errors.phone.message}</ErrorMessage>}
             </Label>
 
             <Label className="flex flex-col gap-2">
                 <Select {...register('select')} value={watch('select')}>
-                    <Select.Trigger placeholder="Select Option" />
+                    <Select.Trigger
+                        placeholder="Select Option"
+                        aria-invalid={!!errors.select}
+                        aria-describedby={errors.select ? 'select-error' : undefined}
+                    />
                     <Select.Options>
                         <Select.Option value="option_1">Option 1</Select.Option>
                         <Select.Option value="option_2">Option 2</Select.Option>
@@ -67,7 +101,7 @@ export const ZodDemo = () => {
                     </Select.Options>
                 </Select>
 
-                {errors.select && <ErrorMessage>{errors.select.message}</ErrorMessage>}
+                {errors.select && <ErrorMessage id="select-error">{errors.select.message}</ErrorMessage>}
             </Label>
 
             <Label className="flex flex-col gap-2">
@@ -81,8 +115,11 @@ export const ZodDemo = () => {
                     })}
                     autoComplete="new-password"
                     placeholder="Password"
+                    aria-invalid={!!errors.password}
+                    aria-describedby={errors.password ? 'password-error' : undefined}
                 />
-                {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+
+                {errors.password && <ErrorMessage id="password-error">{errors.password.message}</ErrorMessage>}
             </Label>
 
             <Label className="flex flex-col gap-2">
@@ -90,12 +127,24 @@ export const ZodDemo = () => {
                     {...register('confirmPassword')}
                     autoComplete="new-password"
                     placeholder="Confirm Password"
+                    aria-invalid={!!errors.confirmPassword}
+                    aria-describedby={errors.confirmPassword ? 'confirmPassword-error' : undefined}
                 />
-                {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
+
+                {errors.confirmPassword && (
+                    <ErrorMessage id="confirmPassword-error">{errors.confirmPassword.message}</ErrorMessage>
+                )}
             </Label>
 
             <Label className="flex!">
-                <Textarea placeholder="Type your message here." />
+                <Textarea
+                    {...register('message')}
+                    placeholder="Type your message here."
+                    aria-invalid={!!errors.message}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
+                />
+
+                {errors.message && <ErrorMessage id="message-error">{errors.message.message}</ErrorMessage>}
             </Label>
 
             <div className="flex w-full flex-col gap-2">
@@ -105,6 +154,8 @@ export const ZodDemo = () => {
                         value="type_one"
                         label="Type One"
                         checked={watch('radioType') === 'type_one'}
+                        aria-invalid={!!errors.radioType}
+                        aria-describedby={errors.radioType ? 'radioType-error' : undefined}
                         className="w-full"
                     />
 
@@ -113,16 +164,25 @@ export const ZodDemo = () => {
                         value="type_two"
                         label="Type Two"
                         checked={watch('radioType') === 'type_two'}
+                        aria-invalid={!!errors.radioType}
+                        aria-describedby={errors.radioType ? 'radioType-error' : undefined}
                         className="w-full"
                     />
                 </div>
 
-                {errors.radioType && <ErrorMessage>{errors.radioType.message}</ErrorMessage>}
+                {errors.radioType && <ErrorMessage id="radioType-error">{errors.radioType.message}</ErrorMessage>}
             </div>
 
             <div className="flex flex-col gap-2">
-                <Checkbox {...register('rememberMe')} label="Remember me" checked={watch('rememberMe')} />
-                {errors.rememberMe && <ErrorMessage>{errors.rememberMe.message}</ErrorMessage>}
+                <Checkbox
+                    {...register('rememberMe')}
+                    label="Remember me"
+                    checked={watch('rememberMe')}
+                    aria-invalid={!!errors.rememberMe}
+                    aria-describedby={errors.rememberMe ? 'rememberMe-error' : undefined}
+                />
+
+                {errors.rememberMe && <ErrorMessage id="rememberMe-error">{errors.rememberMe.message}</ErrorMessage>}
             </div>
 
             <div className="flex w-full flex-wrap gap-2">

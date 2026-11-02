@@ -1,4 +1,5 @@
-export const RTK_QUERY_DEMO_CODE = `import { ITodo } from '@interfaces/Todo';
+export const RTK_QUERY_DEMO_CODE = `import toast from 'react-hot-toast';
+import { ITodo } from '@interfaces/Todo';
 import {
   useCreateTodoMutation,
   useGetTodosQuery,
@@ -6,10 +7,12 @@ import {
   useUpdateTodoMutation
 } from '@store/redux-toolkit/todosApiSlice';
 import { AddTodo, Todo } from '@components/molecules';
-import { Loader } from '@components/atoms';
+import { ErrorMessage, Toast } from '@components/atoms';
+
+const LOADER_ITEMS = Array.from({ length: 6 }, (_, index) => index + 1);
 
 export const RtkQueryDemo = () => {
-  const { data: todos, isLoading } = useGetTodosQuery();
+  const { data: todos, isLoading, isError } = useGetTodosQuery();
   const [createTodoMutation, { isLoading: isLoadingCreateTodo }] = useCreateTodoMutation();
   const [updateTodoMutation, { isLoading: isLoadingUpdateTodo }] = useUpdateTodoMutation();
   const [removeTodoMutation, { isLoading: isLoadingRemoveTodo }] = useRemoveTodoMutation();
@@ -25,11 +28,59 @@ export const RtkQueryDemo = () => {
       completed: false
     };
 
-    createTodoMutation(newTodo);
+    createTodoMutation(newTodo)
+      .unwrap()
+      .then(() => {
+        toast.custom((t) => (
+          <Toast
+            toast={t}
+            type="success"
+            data={{ title: 'Todo added', text: \`"\${newTodo.title}" was added.\` }}
+          />
+        ));
+      })
+      .catch(() => {});
   };
 
-  const updateTodo = (todo: ITodo) => updateTodoMutation({ ...todo, completed: !todo.completed });
-  const removeTodo = (todoId: number) => removeTodoMutation(todoId);
+  const updateTodo = (todo: ITodo) => {
+    const nextCompleted = !todo.completed;
+
+    updateTodoMutation({ ...todo, completed: nextCompleted })
+      .unwrap()
+      .then(() => {
+        toast.custom((t) => (
+          <Toast
+            toast={t}
+            type="warning"
+            data={{
+              title: 'Todo updated',
+              text: \`"\${todo.title}" marked as \${nextCompleted ? 'complete' : 'incomplete'}.\`
+            }}
+          />
+        ));
+      })
+      .catch(() => {});
+  };
+
+  const removeTodo = (todoId: number) => {
+    const removedTodo = todos?.find((item) => item.id === todoId);
+
+    removeTodoMutation(todoId)
+      .unwrap()
+      .then(() => {
+        toast.custom((t) => (
+          <Toast
+            toast={t}
+            type="error"
+            data={{
+              title: 'Todo removed',
+              text: removedTodo ? \`"\${removedTodo.title}" was removed.\` : 'Todo has been removed.'
+            }}
+          />
+        ));
+      })
+      .catch(() => {});
+  };
 
   return (
     <div className="relative w-full">
@@ -38,8 +89,16 @@ export const RtkQueryDemo = () => {
       </div>
 
       {isLoading && (
+        <div className="grid w-full grid-cols-1 gap-2.5 sm:grid-cols-2 md:grid-cols-3">
+          {LOADER_ITEMS.map((item) => (
+            <div key={item} className="bg-border h-40 w-full animate-pulse rounded-md" />
+          ))}
+        </div>
+      )}
+
+      {isError && (
         <div className="relative flex h-24 w-full items-center justify-center">
-          <Loader />
+          <ErrorMessage>Failed to load todos.</ErrorMessage>
         </div>
       )}
 

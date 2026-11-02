@@ -5,7 +5,8 @@ export const useTodoQuery = () => {
   const {
     data: todos,
     refetch,
-    isLoading
+    isLoading,
+    isError
   } = useQuery({
     queryFn: () => getTodos(),
     select: (data) => data.data,
@@ -33,6 +34,7 @@ export const useTodoQuery = () => {
   return {
     todos,
     isLoading,
+    isError,
     createTodoMutation,
     isLoadingCreateTodo,
     updateTodoMutation,
@@ -49,8 +51,9 @@ export const TANSTACK_QUERY_TYPE_CODE = `export interface ITodo {
   completed: boolean;
 }`;
 
-export const TANSTACK_QUERY_ADD_TODO_CODE = `import { useState } from 'react';
+export const TANSTACK_QUERY_ADD_TODO_CODE = `import { SubmitEvent, useState } from 'react';
 import { Btn, Input } from '@components/atoms';
+import { Plus } from 'lucide-react';
 
 type Props = {
   isLoading: boolean;
@@ -60,31 +63,33 @@ type Props = {
 export const AddTodo = ({ isLoading, createTodo }: Props) => {
   const [todoTitle, setTodoTitle] = useState('');
 
-  const handleAddTodo = () => {
+  const handleAddTodo = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
     createTodo(todoTitle);
     setTodoTitle('');
   };
 
   return (
-    <div className="flex w-full flex-wrap gap-2.5">
+    <form className="flex w-full flex-wrap gap-2.5" onSubmit={handleAddTodo}>
       <Input
-        name="search"
+        name="title"
         placeholder="Add Todo"
         disabled={isLoading}
         value={todoTitle}
         onChange={({ target }) => setTodoTitle(target.value)}
       />
 
-      <Btn disabled={todoTitle.length === 0 || isLoading} onClick={handleAddTodo}>
-        {isLoading ? 'Loading...' : 'Add todo'}
+      <Btn type="submit" variant="secondary" disabled={todoTitle.length === 0 || isLoading}>
+        <Plus className="size-5" />
+        <span>{isLoading ? 'Loading...' : 'Add todo'}</span>
       </Btn>
-    </div>
+    </form>
   );
 };`;
 
 export const TANSTACK_QUERY_TODO_CODE = `import { ITodo } from '@interfaces/Todo';
 import { Btn, Text, Title } from '@components/atoms';
-import { X } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import cn from 'classnames';
 
 type Props = {
@@ -99,30 +104,35 @@ export const Todo = ({ todo, isLoading, updateTodo, removeTodo }: Props) => {
 
   return (
     <div
-      className={cn('relative flex w-full flex-col rounded-md border p-4 transition-opacity duration-300', {
-        'border-border': !completed,
-        'border-green bg-green/10': completed,
-        'pointer-events-none opacity-70': isLoading
-      })}
+      className={cn(
+        'relative flex h-40 w-full flex-col gap-4 rounded-md border p-4 transition-opacity duration-300',
+        {
+          'border-border': !completed,
+          'border-green bg-green/10': completed,
+          'pointer-events-none opacity-70': isLoading
+        }
+      )}
     >
       <button
         type="button"
+        aria-label="Remove todo"
         onClick={() => removeTodo(id)}
-        className="absolute top-1.5 right-1.5 outline-hidden transition-opacity duration-300 hover:opacity-65"
+        className="absolute top-1.5 right-1.5 cursor-pointer outline-hidden transition-opacity duration-300 hover:opacity-65"
       >
-        <X className="size-5" />
+        <X aria-hidden="true" className="size-5" />
       </button>
 
-      <div className="mb-5 w-full grow pr-8 last:mb-0">
+      <div className="w-full grow pr-4">
         <Title size="h4" className="mb-1 truncate last:mb-0">
           {title}
         </Title>
 
-        <Text>User ID - {userId}</Text>
+        {userId && <Text>User ID - {userId}</Text>}
       </div>
 
       <Btn variant="secondary" onClick={() => updateTodo(todo)} className="sm:w-full!">
-        {completed ? 'Uncomplete' : 'Complete'}
+        {completed ? <X className="size-5" /> : <Check className="size-5" />}
+        <span>{completed ? 'Uncomplete' : 'Complete'}</span>
       </Btn>
     </div>
   );

@@ -1,9 +1,17 @@
+import { useShallow } from 'zustand/react/shallow';
 import { useCount } from '@store/zustand';
 import { Btn, Text, Title } from '@components/atoms';
 import { RotateCcw } from 'lucide-react';
 
 export const ZustandDemo = () => {
-    const { count, addCount, removeCount, resetCount } = useCount((state) => state);
+    const { count, addCount, removeCount, resetCount } = useCount(
+        useShallow((state) => ({
+            count: state.count,
+            addCount: state.addCount,
+            removeCount: state.removeCount,
+            resetCount: state.resetCount
+        }))
+    );
 
     return (
         <div className="relative flex w-full flex-col gap-2.5">

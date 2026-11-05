@@ -30,6 +30,6 @@ export const DropdownSeparator = forwardRef<HTMLDivElement, Props>(
         },
         ref
     ) => {
-        return <Separator ref={ref} {...props} role="separator" className={cn('-mx-1 w-auto!', className)} />;
+        return <Separator ref={ref} {...props} decorative={false} className={cn('-mx-1 w-auto!', className)} />;
     }
 );

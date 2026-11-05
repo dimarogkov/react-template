@@ -87,6 +87,7 @@ export const ComponentsNavigation = ({ sectionsRef, sectionsArr, codeLink }: Pro
 
                             <Text>
                                 <button
+                                    type="button"
                                     onClick={() => handleScroll(id)}
                                     aria-current={activeSection === id ? 'location' : undefined}
                                     className={cn('hover:text-title cursor-pointer transition-colors duration-500', {

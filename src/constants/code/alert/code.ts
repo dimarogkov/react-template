@@ -77,7 +77,7 @@ export const AlertWrapper = forwardRef<HTMLDivElement, Props>(
 );`;
 
 export const ALERT_TITLE_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
-import { Title } from '@components/atoms';
+import { Title } from '@components/atoms/Title';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLHeadingElement>, RefAttributes<HTMLHeadingElement> {
@@ -109,7 +109,7 @@ export const AlertTitle = forwardRef<HTMLHeadingElement, Props>(
 );`;
 
 export const ALERT_DESCRIPTION_CODE = `import { forwardRef, HTMLAttributes, RefAttributes } from 'react';
-import { Text } from '@components/atoms';
+import { Text } from '@components/atoms/Text';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLParagraphElement>, RefAttributes<HTMLParagraphElement> {

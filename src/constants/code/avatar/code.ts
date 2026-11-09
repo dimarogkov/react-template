@@ -41,6 +41,7 @@ export const AVATAR_WRAPPER_CODE = `import {
   useRef,
   useState
 } from 'react';
+import { assignRefs } from '@utils';
 import cn from 'classnames';
 
 interface Props extends HTMLAttributes<HTMLDivElement>, RefAttributes<HTMLDivElement> {
@@ -55,6 +56,7 @@ export const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
   ({ currentIndex, type = 'circle', isOnline = false, hasRing = false, className = '', ...props }, ref) => {
     const [currentWidth, setCurrentWidth] = useState(0);
     const avatarRef = useRef<HTMLDivElement>(null);
+    const setRefs = assignRefs<HTMLDivElement>(ref, avatarRef);
 
     const isTypeCircle = type === 'circle';
 
@@ -65,13 +67,13 @@ export const AvatarWrapper = forwardRef<HTMLDivElement, Props>(
     const avatarStyle = {
       ...(currentIndex && {
         left: \`\${currentIndex * Math.round(currentWidth / 4) * -1}px\`,
-        outline: '3px solid var(--color-bg)'
+        boxShadow: '0 0 0 3px var(--color-bg)'
       })
     };
 
     return (
       <div
-        ref={ref || avatarRef}
+        ref={setRefs}
         {...props}
         style={avatarStyle}
         className={cn('relative', className || 'size-12', {
@@ -172,7 +174,7 @@ export const AvatarImg = forwardRef<HTMLImageElement, Props>(
       </div>
     ) : (
       <>
-        {!isLoaded && (
+        {!isLoaded && !hasError && (
           <div
             aria-hidden="true"
             className={cn('bg-border absolute inset-0 animate-pulse', className, {

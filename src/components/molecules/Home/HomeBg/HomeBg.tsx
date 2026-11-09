@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HomeDarkVeil } from '@components/molecules';
+import { HomeDarkVeil } from '@components/molecules/Home/HomeDarkVeil';
 import cn from 'classnames';
 
 export const HomeBg = () => {

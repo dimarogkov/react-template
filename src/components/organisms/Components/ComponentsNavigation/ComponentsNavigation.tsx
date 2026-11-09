@@ -2,7 +2,7 @@ import { MutableRefObject, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { IComponentsSection } from '@interfaces/ComponentsSection';
-import { ComponentsNavigationBtns } from '@components/organisms';
+import { ComponentsNavigationBtns } from '@components/organisms/Components/ComponentsNavigationBtns';
 import { Text } from '@components/atoms';
 import { ArrowUpRight } from 'lucide-react';
 import cn from 'classnames';
@@ -60,9 +60,12 @@ export const ComponentsNavigation = ({ sectionsRef, sectionsArr, codeLink }: Pro
                     <Text className="text-text/70 w-fit!">On this Page</Text>
 
                     <Text
-                        className={cn('text-title w-fit! text-sm! opacity-0 transition-opacity duration-200', {
-                            'opacity-100': hasScrolled
-                        })}
+                        className={cn(
+                            'text-title w-fit! text-sm! leading-5 opacity-0 transition-opacity duration-200',
+                            {
+                                'opacity-100': hasScrolled
+                            }
+                        )}
                     >
                         <motion.span>{roundedProgress}</motion.span>%
                     </Text>

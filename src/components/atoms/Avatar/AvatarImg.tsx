@@ -32,7 +32,7 @@ export const AvatarImg = forwardRef<HTMLImageElement, Props>(
             </div>
         ) : (
             <>
-                {!isLoaded && (
+                {!isLoaded && !hasError && (
                     <div
                         aria-hidden="true"
                         className={cn('bg-border absolute inset-0 animate-pulse', className, {

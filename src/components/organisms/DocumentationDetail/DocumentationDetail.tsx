@@ -2,16 +2,14 @@ import { Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSectionsRefs } from '@hooks';
 import { IDocumentationCodeArr, IDocumentationData } from '@interfaces/Documentation';
-import {
-    ComponentsCode,
-    ComponentsCodeWithAccordion,
-    ComponentsFooter,
-    ComponentsHead,
-    ComponentsLinks,
-    ComponentsNavigation,
-    ComponentsPreview,
-    ComponentsWrapper
-} from '@components/organisms';
+import { ComponentsCode } from '@components/organisms/Components/ComponentsCode';
+import { ComponentsCodeWithAccordion } from '@components/organisms/Components/ComponentsCodeWithAccordion';
+import { ComponentsFooter } from '@components/organisms/Components/ComponentsFooter';
+import { ComponentsHead } from '@components/organisms/Components/ComponentsHead';
+import { ComponentsLinks } from '@components/organisms/Components/ComponentsLinks';
+import { ComponentsNavigation } from '@components/organisms/Components/ComponentsNavigation';
+import { ComponentsPreview } from '@components/organisms/Components/ComponentsPreview';
+import { ComponentsWrapper } from '@components/organisms/Components/ComponentsWrapper';
 import { StatusBadge, Text, Title } from '@components/atoms';
 import { getLinks } from '@utils';
 import { ArrowUpRight } from 'lucide-react';
